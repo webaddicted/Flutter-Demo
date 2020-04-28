@@ -16,11 +16,16 @@ import 'package:flutterbeginner/view/example/permission_helper.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/tab_bar.dart';
-import 'package:flutterbeginner/view/example/widget_page.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_login.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_onboarding.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_splash.dart';
+import 'package:flutterbeginner/view/widgets/button_widget.dart';
+import 'package:flutterbeginner/view/widgets/image_widget.dart';
+import 'package:flutterbeginner/view/widgets/misc_widget.dart';
+import 'package:flutterbeginner/view/widgets/progress_bar_widget.dart';
+import 'package:flutterbeginner/view/widgets/text_field_widget.dart';
+import 'package:flutterbeginner/view/widgets/text_widget.dart';
 
 class ALLTask extends StatelessWidget {
   final List<String> allTaskBean = new List();
@@ -78,7 +83,12 @@ class ALLTask extends StatelessWidget {
   }
 
   List<String> setData() {
-    allTaskBean.add("Widgets");
+    allTaskBean.add("Text");
+    allTaskBean.add("Text Field");
+    allTaskBean.add("Image View");
+    allTaskBean.add("Button");
+    allTaskBean.add("Progress Bar");
+    allTaskBean.add("Misc Widget");
     allTaskBean.add("Login screen");
     allTaskBean.add("Read local file JSON");
     allTaskBean.add("Chat app screen");
@@ -102,8 +112,18 @@ class ALLTask extends StatelessWidget {
 
   void nextScreen(BuildContext context, String screenName) {
     switch (screenName) {
-      case "Widgets":
-        return navigationPush(context, WidgetPage());
+      case "Text":
+        return navigationPush(context, TextWidget());
+      case "Text Field":
+        return navigationPush(context, TextFieldWidget());
+      case "Image View":
+        return navigationPush(context, ImageWidget());
+      case "Button":
+        return navigationPush(context, ButtonWidget());
+      case "Progress Bar":
+        return navigationPush(context, ProgressBarWidget());
+      case "Misc Widget":
+        return navigationPush(context, MiscWidget());
       case "Login screen":
         return navigationPush(context, LoginScreen());
       case "Read local file JSON":

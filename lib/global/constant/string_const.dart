@@ -20,6 +20,15 @@ class StringConst {
   static String SQFLITE_USERHOME_TITLE = 'All Users';
   static const String SP_TITLE = "Shared Preference";
   static const String PERMISSION_HELPER_TITLE = "Permission Helper";
+  static String TEXT_TITLE = 'Text';
+  static String TEXT_FIELD_TITLE = 'Text Field';
+  static String RATING_BAR_TITLE = 'Rating Bar';
+  static String PROGRESS_BAR_TITLE = 'Progress Bar';
+  static String BUTTON_TITLE = 'Button';
+
+  static String IMAGE_TITLE = 'Image';
+  static String MISC_TITLE = 'Miscellaneous';
+  
 
 
 //  {END TITLE}
