@@ -25,8 +25,8 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * Checkbox
     * Radio Button
     
-<img src="screenshot/home.png" width="225">    <img src="screenshot/widget_text.png" width="225">    <img src="screenshot/widget_text_field.png" width="225">    <img src="screenshot/widget_button.png" width="225"><img src="screenshot/widget_pb.png" width="225"><img src="screenshot/widget_misc.png" width="225">
-<img src="screenshot/widget_image.png" width="225"><img src="screenshot/widget_stepper.png" width="225"><img src="screenshot/calci.png" width="225">
+<img src="screenshot/widget/home.png" width="225">    <img src="screenshot/widget/widget_text.png" width="225">    <img src="screenshot/widget/widget_text_field.png" width="225">    <img src="screenshot/widget/widget_button.png" width="225"><img src="screenshot/widget/widget_pb.png" width="225"><img src="screenshot/widget/widget_misc.png" width="225">
+<img src="screenshot/widget/widget_image.png" width="225"><img src="screenshot/widget/widget_stepper.png" width="225">
 
     
 2) Android Date Time picker
@@ -45,7 +45,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * Get git all users list
     * Details of users
     
-<img src="screenshot/api_github_user.png" width="225">    <img src="screenshot/api_github_user_detail.png" width="225">    <img src="screenshot/api_corona_report.png" width="225">    <img src="screenshot/sp.png" width="225">
+<img src="screenshot/api/api_github_user.png" width="225">    <img src="screenshot/api/api_github_user_detail.png" width="225">    <img src="screenshot/api/api_corona_report.png" width="225">    <img src="screenshot/api/sp.png" width="225">
     
     
 13) Navigation drawer
@@ -58,6 +58,10 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * DELETE
     * UPDATE
     * DELETE table
+        
+<img src="screenshot/sqflite/db_onboarding2.png" width="225">    <img src="screenshot/sqflite/db_onboarding3.png" width="225">    <img src="screenshot/sqflite/db_login.png" width="225">    <img src="screenshot/sqflite/db_signup.png" width="225">
+<img src="screenshot/sqflite/db_update_user.png" width="225">    <img src="screenshot/sqflite/db_users.png" width="225">    <img src="screenshot/sqflite/db_dob.png" width="225">    <img src="screenshot/sqflite/db_create_user.png" width="225">
+    
 19) Generic Shared Preference
 20) OnBoarding Screen
 21) Splash animation
