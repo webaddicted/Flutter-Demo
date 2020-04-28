@@ -60,7 +60,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * DELETE table
         
 <img src="screenshot/sqflite/db_onboarding2.png" width="225">    <img src="screenshot/sqflite/db_onboarding3.png" width="225">    <img src="screenshot/sqflite/db_login.png" width="225">    <img src="screenshot/sqflite/db_signup.png" width="225">
-<img src="screenshot/sqflite/db_update_user.png" width="225">    <img src="screenshot/sqflite/db_users.png" width="225">    <img src="screenshot/sqflite/db_dob.png" width="225">    <img src="screenshot/sqflite/db_create_user.png" width="225">
+<img src="screenshot/sqflite/db_update_user.jpg" width="225">    <img src="screenshot/sqflite/db_users.jpg" width="225">    <img src="screenshot/sqflite/db_dob.png" width="225">    <img src="screenshot/sqflite/db_create_user.jpg" width="225">
     
 19) Generic Shared Preference
 20) OnBoarding Screen
