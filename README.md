@@ -50,4 +50,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * DELETE
     * UPDATE
     * DELETE table
-19) 
+19) Generic Shared Preference
+20) OnBoarding Screen
+21) Splash animation
+22) Run Time Permission
