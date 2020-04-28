@@ -66,3 +66,16 @@ In this repo we cover all the basic topic which are require to work on flutter.
 20) OnBoarding Screen
 21) Splash animation
 22) Run Time Permission
+
+Beautiful UI design
+https://github.com/lohanidamodar/flutter_ui_challenges
+https://github.com/Solido/awesome-flutter
+https://github.com/avirias/awesome-flutter
+https://github.com/avirias/flutter_ui_challenges
+https://github.com/avirias/Flutter-UI-Kit
+https://github.com/leisim/awesome-flutter-packages
+https://github.com/mitesh77/Best-Flutter-UI-Templates
+https://github.com/basarozcan/awesome-flutter
+https://github.com/kalismeras61/flutter_awesome_design_pages
+https://github.com/pacifio/flutter_apps
+
