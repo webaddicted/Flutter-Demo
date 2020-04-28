@@ -26,7 +26,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * Radio Button
     
 <img src="screenshot/home.png" width="225">    <img src="screenshot/widget_text.png" width="225">    <img src="screenshot/widget_text_field.png" width="225">    <img src="screenshot/widget_button.png" width="225"><img src="screenshot/widget_pb.png" width="225"><img src="screenshot/widget_misc.png" width="225">
-<img src="screenshot/widget_image.png" width="225"><img src="screenshot/widget_stepper.png" width="225">
+<img src="screenshot/widget_image.png" width="225"><img src="screenshot/widget_stepper.png" width="225"><img src="screenshot/calci.png" width="225">
 
     
 2) Android Date Time picker
@@ -45,7 +45,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * Get git all users list
     * Details of users
     
-<img src="screenshot/api_github_user.png" width="225">    <img src="screenshot/api_github_user_detail.png" width="225">    <img src="screenshot/api_corona_report.png" width="225">    <img src="screenshot/widget_button.png" width="225">
+<img src="screenshot/api_github_user.png" width="225">    <img src="screenshot/api_github_user_detail.png" width="225">    <img src="screenshot/api_corona_report.png" width="225">    <img src="screenshot/sp.png" width="225">
     
     
 13) Navigation drawer
