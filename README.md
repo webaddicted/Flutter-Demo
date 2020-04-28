@@ -25,8 +25,8 @@ In this repo we cover all the basic topic which are require to work on flutter.
     * Checkbox
     * Radio Button
     
-<img src="screenshot/home.png" width="225">    <img src="screenshot/widget_text.png" width="225">    <img src="screenshot/widget_text_field.png" width="225">    <img src="screenshot/widget_button.png" width="225"><img src="screenshot/widget_pb.png" width="200"><img src="screenshot/widget_misc.png" width="200">
-<img src="screenshot/widget_image.png" width="200">
+<img src="screenshot/home.png" width="225">    <img src="screenshot/widget_text.png" width="225">    <img src="screenshot/widget_text_field.png" width="225">    <img src="screenshot/widget_button.png" width="225"><img src="screenshot/widget_pb.png" width="225"><img src="screenshot/widget_misc.png" width="225">
+<img src="screenshot/widget_image.png" width="225">
 
     
 2) Android Date Time picker
