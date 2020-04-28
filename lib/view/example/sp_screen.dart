@@ -30,75 +30,75 @@ class _SPScreenState extends State<SPScreen> {
   Widget _createUi(BuildContext context) {
     _ctx = context;
     return Container(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              TextField(
-                  controller: _nameCont,
-                  textCapitalization: TextCapitalization.words,
-                  decoration: InputDecoration(
-                    hintText: "Full Name",
-                    prefixIcon: Icon(
-                      Icons.person_pin,
-                      color: Colors.blueAccent,
-                    ),
-                    hintStyle: TextStyle(
-                        fontWeight: FontWeight.w300, color: Colors.grey),
-                  )),
-              SizedBox(width: 10),
-              RaisedButton(
-                  child: getTxt('Save Name', null),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _setPrefValue();
-                  }),
-              SizedBox(width: 10),
-              getTxt(_showNameTxt, FontWeight.bold),
-              SizedBox(width: 10),
-              RaisedButton(
-                  child: getTxt('Get Name', null),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _getPrefValue();
-                  }),
-              SizedBox(width: 10),
-              getTxt(_showAllKeysTxt, FontWeight.bold),
-              SizedBox(width: 10),
-              RaisedButton(
-                  child: getTxt('Get All Keys', null),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _getAllKeys();
-                  }),
-              SizedBox(width: 10),
-              getTxt(_removeKeyTxt, FontWeight.bold),
-              SizedBox(width: 10),
-              RaisedButton(
-                  child: getTxt('Remove Name', null),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _removeKeys();
-                  }),
-              SizedBox(width: 10),
-              getTxt(_clearPrefTxt, FontWeight.bold),
-              SizedBox(width: 10),
-              RaisedButton(
-                  child: getTxt('Clear Preference', null),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _clearPref();
-                  }),
-              SizedBox(width: 10),
-            ],
-          ),
+      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+      child: Center(
+        child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                TextField(
+                    controller: _nameCont,
+                    textCapitalization: TextCapitalization.words,
+                    decoration: InputDecoration(
+                      hintText: "Full Name",
+                      prefixIcon: Icon(
+                        Icons.person_pin,
+                        color: Colors.blueAccent,
+                      ),
+                      hintStyle: TextStyle(
+                          fontWeight: FontWeight.w300, color: Colors.grey),
+                    )),
+                SizedBox(width: 10),
+                RaisedButton(
+                    child: getTxt('Save Name', null),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      _setPrefValue();
+                    }),
+                SizedBox(width: 10),
+                getTxt(_showNameTxt, FontWeight.bold),
+                SizedBox(width: 10),
+                RaisedButton(
+                    child: getTxt('Get Name', null),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      _getPrefValue();
+                    }),
+                SizedBox(width: 10),
+                getTxt(_showAllKeysTxt, FontWeight.bold),
+                SizedBox(width: 10),
+                RaisedButton(
+                    child: getTxt('Get All Keys', null),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      _getAllKeys();
+                    }),
+                SizedBox(width: 10),
+                getTxt(_removeKeyTxt, FontWeight.bold),
+                SizedBox(width: 10),
+                RaisedButton(
+                    child: getTxt('Remove Name', null),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      _removeKeys();
+                    }),
+                SizedBox(width: 10),
+                getTxt(_clearPrefTxt, FontWeight.bold),
+                SizedBox(width: 10),
+                RaisedButton(
+                    child: getTxt('Clear Preference', null),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      _clearPref();
+                    }),
+                SizedBox(width: 10),
+              ],
+            ),
         ),
       ),
     );
