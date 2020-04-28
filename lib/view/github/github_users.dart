@@ -14,7 +14,8 @@ class GitUsers extends StatefulWidget {
 }
 
 class _GitUsersState extends State<GitUsers> {
-  var pageCount = 1;
+//  var pageCount = 1;
+  var pageCount = 38448418;
   List _userResult = new List();
   ScrollController _scrollController = new ScrollController();
   bool _isLoading = false;
@@ -117,6 +118,7 @@ class _GitUsersState extends State<GitUsers> {
       };
       var uri = Uri.https(
           ApiConst.GITHUB_BASE_URL, ApiConst.GIT_USERS, queryParameters);
+      print(ApiConst.GITHUB_BASE_URL+ ApiConst.GIT_USERS+ '?since='+pageCount.toString());
       var response =
           await http.get(uri, headers: {"Accept": "application/json"});
       setState(() {
