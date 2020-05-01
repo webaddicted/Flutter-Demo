@@ -6,6 +6,8 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/example/api_data.dart';
 import 'package:flutterbeginner/view/example/bothside_nav_drawer.dart';
 import 'package:flutterbeginner/view/example/bottom_navigation.dart';
+import 'package:flutterbeginner/view/example/bottom_sheet.dart';
+import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
@@ -15,7 +17,9 @@ import 'package:flutterbeginner/view/example/nav_drawer.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
+import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/tab_bar.dart';
+import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_login.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_onboarding.dart';
@@ -107,6 +111,9 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('Splash');
     allTaskBean.add('Run time permission');
     allTaskBean.add('Swipe to delete');
+    allTaskBean.add('Firebase');
+    allTaskBean.add('Bottom Sheet');
+    allTaskBean.add('Dragable Bottom Sheet');
     return allTaskBean;
   }
 
@@ -158,7 +165,14 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, SPSplash());
       case 'Run time permission':
         return navigationPush(context, PermissionHelper());
-//    case ''
+      case 'Swipe to delete':
+        return navigationPush(context, SwipeToDelete());
+      case 'Firebase':
+        return navigationPush(context, FcmSocialLogin());
+      case 'Bottom Sheet':
+        return navigationPush(context, BottomSheetScreen());
+      case 'Dragable Bottom Sheet':
+        return navigationPush(context, BottomSheetDragableScreen());
     }
   }
 }

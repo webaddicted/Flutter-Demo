@@ -18,6 +18,9 @@ class AssetsConst {
   static String SLIDER1_IMG = 'images/image1.jpg';
   static String SLIDER2_IMG = 'images/image2.jpg';
   static String SLIDER3_IMG = 'images/image3.jpg';
+  static String GOOGLE_IMG = 'images/google.png';
+  static String FB_IMG = 'images/fb.png';
+  static String TWITTER_IMG = 'images/twitter.png';
 
 
 

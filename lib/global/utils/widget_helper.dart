@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
+import 'package:flutterbeginner/global/utils/validation_helper.dart';
 
 //  {START PAGE NAVIGATION}
 void navigationPush(BuildContext context, StatefulWidget route) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) {
-    return route;
-  },));
+  Navigator.push(context, MaterialPageRoute(
+    builder: (context) {
+      return route;
+    },
+  ));
 }
 
 void navigationPop(BuildContext context, StatefulWidget route) {
@@ -45,25 +48,23 @@ AppBar getAppBar(BuildContext context, String title) {
   );
 }
 
-AppBar getAppBarWithBackBtn(
-    BuildContext context, String title) {
+AppBar getAppBarWithBackBtn(BuildContext context, String title) {
   return AppBar(
-      leading: new IconButton(
-          icon: Icon(
-            Icons.keyboard_backspace,
-            color: ColorConst.WHITE_COLOR,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          }),
-      centerTitle: true,
-      title: new Text(
-        title,
-        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-      ),
-    );
+    leading: new IconButton(
+        icon: Icon(
+          Icons.keyboard_backspace,
+          color: ColorConst.WHITE_COLOR,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        }),
+    centerTitle: true,
+    title: new Text(
+      title,
+      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+    ),
+  );
 }
-
 
 //  {END APPBAR}
 //  {START LOAD IMAGE}
@@ -72,6 +73,18 @@ FadeInImage loadImg(String url, int placeHolderPos) {
       fit: BoxFit.fill,
       placeholder: _getPlaceHolder(placeHolderPos),
       image: url);
+}
+
+ClipRRect loadLocalCircleImg(String imagePath, double radius) {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(radius),
+    child: new FadeInImage.assetNetwork(
+        height: radius,
+        width: radius,
+        fit: BoxFit.fill,
+        placeholder: imagePath,
+        image: 'imgUrl'),
+  );
 }
 
 ClipRRect loadCircleImg(String imgUrl, int placeHolderPos, double radius) {
@@ -203,12 +216,13 @@ showAlertDialog(BuildContext context, String title, String msg) {
       ));
 }
 
-Widget buildTextFied(BuildContext context, String labelText,Color fieldColor, bool isPassowrd) {
+Widget buildTextFied(
+    BuildContext context, String labelText, Color fieldColor, bool isPassowrd) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8.0),
     child: Theme(
       data: Theme.of(context).copyWith(
-        primaryColor: fieldColor,//.withOpacity(0.5),
+        primaryColor: fieldColor, //.withOpacity(0.5),
       ),
       child: TextField(
         obscureText: isPassowrd,
@@ -217,13 +231,80 @@ Widget buildTextFied(BuildContext context, String labelText,Color fieldColor, bo
           color: fieldColor,
         ),
         decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: Theme.of(context)
-              .textTheme
-              .body1
-              .copyWith(color: fieldColor)//.withOpacity(0.7)),
-        ),
+            labelText: labelText,
+            labelStyle: Theme.of(context)
+                .textTheme
+                .body1
+                .copyWith(color: fieldColor) //.withOpacity(0.7)),
+            ),
       ),
+    ),
+  );
+}
+
+Widget edtNameField(String fullName, TextEditingController edtController) {
+  return TextFormField(
+    textCapitalization: TextCapitalization.words,
+    controller: edtController ,
+    decoration: InputDecoration(
+      counterText: '',
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      border: OutlineInputBorder(
+          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
+      hintText: "Full Name",
+      hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
+    ),
+    textInputAction: TextInputAction.next,
+    maxLength: 32,
+    validator: ValidationHelper.validateName,
+    onSaved: (String val) => fullName = val,
+  );
+}
+
+Widget edtMobileNoField(String mobileNo, TextEditingController edtController) {
+  return TextFormField(
+    controller: edtController ,
+    decoration: InputDecoration(
+      counterText: '',
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      border: OutlineInputBorder(
+          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
+      hintText: "Mobile number",
+      hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
+    ),
+    textInputAction: TextInputAction.next,
+    maxLength: 10,
+    keyboardType: TextInputType.number,
+    validator: ValidationHelper.validateMobile,
+    onSaved: (String val) => mobileNo = val,
+  );
+}
+
+Widget emailIdField(String emailIdTxt, TextEditingController edtController) {
+  return TextFormField(
+    controller: edtController ,
+    decoration: InputDecoration(
+      counterText: '',
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      border: OutlineInputBorder(
+          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
+      hintText: "Email id",
+      hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
+    ),
+    textInputAction: TextInputAction.next,
+    maxLength: 32,
+    validator: ValidationHelper.validateEmail,
+    onSaved: (String val) => emailIdTxt = val,
+  );
+}
+Widget dummyRaisedBtn(String txt, Color btnColor){
+  return ButtonTheme(
+    minWidth: double.infinity,
+    height: 45,
+    child: RaisedButton(
+      color: btnColor,
+      child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+      onPressed: () {},
     ),
   );
 }

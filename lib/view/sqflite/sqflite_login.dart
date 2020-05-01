@@ -20,7 +20,7 @@ class _SqfliteLoginState extends State<SqfliteLogin> {
   bool passwordVisible = false;
 
   BuildContext ctx;
-
+  TextEditingController  emailCont = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -66,23 +66,7 @@ ctx= context;
                 key: formKey,
                 child: Column(
                   children: <Widget>[
-                    TextFormField(
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "Email id",
-                        hintStyle: TextStyle(
-                            fontWeight: FontWeight.w300, color: Colors.grey),
-                      ),
-                      textInputAction: TextInputAction.next,
-                      maxLength: 32,
-                      validator: ValidationHelper.validateEmail,
-                      onSaved: (String val) => _emailId = val,
-                    ),
+                    emailIdField(_emailId, emailCont),
                     SizedBox(height: 20),
                     TextFormField(
                       decoration: InputDecoration(
@@ -166,7 +150,7 @@ ctx= context;
   }
 
   void _checkUser() async {
-    final userList = await SqfliteUserInfo.checkUserExist(_emailId);
+    final userList = await SqfliteUserInfo.checkUserExist(emailCont.text);
     print(userList.toString());
     if (userList != null) {
       isLoading = false;
@@ -174,7 +158,7 @@ ctx= context;
     }
     else
       showSnackBar(ctx,
-          'User not exist with $_emailId emailId.\nPlease signup with same emailId.');
+          'User not exist with ${emailCont.text} emailId.\nPlease signup with same emailId.');
     isLoading = false;
   }
 }

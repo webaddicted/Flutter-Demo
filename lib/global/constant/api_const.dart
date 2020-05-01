@@ -8,5 +8,7 @@ class ApiConst {
   static const String GIT_USERS = '/users';
 
   static String DEMO_IMG = 'https://www.goodmorningimagesdownload.com/wp-content/uploads/2019/10/Nice-Whatsapp-Dp-Profile-Images-72-300x267.jpg';
+
+  static String FIRESTORE_COLL_USERS = 'Users';
 //  {END URL END POINTS}
 }

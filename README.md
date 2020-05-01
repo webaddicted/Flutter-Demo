@@ -69,6 +69,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
 
 Beautiful UI design
 https://github.com/lohanidamodar/flutter_ui_challenges
+https://github.com/basarozcan/awesome-flutter
 https://github.com/Solido/awesome-flutter
 https://github.com/avirias/awesome-flutter
 https://github.com/avirias/flutter_ui_challenges

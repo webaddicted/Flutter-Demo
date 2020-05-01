@@ -46,5 +46,51 @@
     <string>*your app name* would like to save photos from the app to your gallery</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>*your app name* would like to access your photo gallery for uploading images to the app</string>
+    <!-- Google Sign-in Section -->
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<string>com.googleusercontent.apps.121386984171-9159vnk4tq3jfm17968b8jfjdesmi983</string>
+    		</array>
+    	</dict>
+    </array>
+    <!-- End of the Google Sign-in Section -->
+    <!-- START of the FB Sign-in Section -->
+
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <!--
+                  Replace "000000000000" with your Facebook App ID here.
+                  **NOTE**: The scheme needs to start with `fb` and then your ID.
+                -->
+                <string>466359743713130</string>
+            </array>
+        </dict>
+    </array>
+
+    <key>FacebookAppID</key>
+
+    <!-- Replace "000000000000" with your Facebook App ID here. -->
+    <string>466359743713130</string>
+    <key>FacebookDisplayName</key>
+
+    <!-- Replace "YOUR_APP_NAME" with your Facebook App name. -->
+    <string>Flutter Demo</string>
+
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
+    <!-- End of the FB Sign-in Section -->
 </dict>
 </plist>

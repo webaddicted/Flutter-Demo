@@ -25,11 +25,12 @@ class StringConst {
   static String RATING_BAR_TITLE = 'Rating Bar';
   static String PROGRESS_BAR_TITLE = 'Progress Bar';
   static String BUTTON_TITLE = 'Button';
-
   static String IMAGE_TITLE = 'Image';
   static String MISC_TITLE = 'Miscellaneous';
-  
-
+  static String SWIPE_TO_DELETE_TITLE = 'Swipe To Delete';
+  static String HOME_TITLE = 'Home';
+  static String BOTTOM_SHEET_TITLE = 'Bottom Sheet';
+  static String DRAGABLE_BOTTOM_SHEET_TITLE = 'Dragable Bottom Sheet';
 
 //  {END TITLE}
 }
