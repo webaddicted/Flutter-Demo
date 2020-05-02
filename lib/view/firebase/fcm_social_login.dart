@@ -6,6 +6,7 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/social_login_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/firebase/fcm_login.dart';
+import 'package:flutterbeginner/view/firebase/fcm_login_mobile.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -139,9 +140,7 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
       case 2:
         return SocialLoginHelper.signInType(
             SocialLoginType.TWITTER, _loginResult);
-      case 3:
-        {}
-        break;
+      case 3:  return navigationPush(context, FcmLoginMobile());
       case 4:
         return navigationPush(context, FcmLogin());
       case 5:

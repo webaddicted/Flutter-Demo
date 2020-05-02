@@ -5,6 +5,7 @@ import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
+import 'package:flutterbeginner/view/firebase/fcm_login.dart';
 
 class FcmSignup extends StatefulWidget {
   @override
@@ -74,7 +75,13 @@ class _FcmSignupState extends State<FcmSignup> {
                 ),
               ),
               _signupBtn(),
-              SizedBox(height: 10),
+              SizedBox(height: 30),
+              Center(child: getTxtGreyColor('Already have an account', 16, FontWeight.normal)),
+              SizedBox(height: 5),
+              Center(child: GestureDetector(
+                  onTap: ()=>navigationPush(context, FcmLogin()),
+                  child: getTxtColor('LOGIN',ColorConst.FCM_APP_COLOR, 16, FontWeight.bold))),
+              SizedBox(height: 20),
             ],
           ),
         ),

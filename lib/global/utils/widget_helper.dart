@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
+import 'package:flutterbeginner/model/countries_bean.dart';
 
 //  {START PAGE NAVIGATION}
 void navigationPush(BuildContext context, StatefulWidget route) {
@@ -245,7 +246,7 @@ Widget buildTextFied(
 Widget edtNameField(String fullName, TextEditingController edtController) {
   return TextFormField(
     textCapitalization: TextCapitalization.words,
-    controller: edtController ,
+    controller: edtController,
     decoration: InputDecoration(
       counterText: '',
       contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -263,7 +264,7 @@ Widget edtNameField(String fullName, TextEditingController edtController) {
 
 Widget edtMobileNoField(String mobileNo, TextEditingController edtController) {
   return TextFormField(
-    controller: edtController ,
+    controller: edtController,
     decoration: InputDecoration(
       counterText: '',
       contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -282,7 +283,7 @@ Widget edtMobileNoField(String mobileNo, TextEditingController edtController) {
 
 Widget emailIdField(String emailIdTxt, TextEditingController edtController) {
   return TextFormField(
-    controller: edtController ,
+    controller: edtController,
     decoration: InputDecoration(
       counterText: '',
       contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -297,7 +298,8 @@ Widget emailIdField(String emailIdTxt, TextEditingController edtController) {
     onSaved: (String val) => emailIdTxt = val,
   );
 }
-Widget dummyRaisedBtn(String txt, Color btnColor){
+
+Widget dummyRaisedBtn(String txt, Color btnColor) {
   return ButtonTheme(
     minWidth: double.infinity,
     height: 45,
@@ -308,3 +310,62 @@ Widget dummyRaisedBtn(String txt, Color btnColor){
     ),
   );
 }
+
+Widget selectCountryDropDown(CountryBean country, Function onPressed) => Card(
+      child: InkWell(
+        onTap: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.only(
+              left: 4.0, right: 4.0, top: 12.0, bottom: 12.0),
+          child: Row(
+            children: <Widget>[
+              Expanded(child: Text(' ${country.flag}  ${country.name} ')),
+              Icon(Icons.arrow_drop_down, size: 24.0)
+            ],
+          ),
+        ),
+      ),
+    );
+
+Widget selectableWidget(
+        CountryBean country, Function(CountryBean) selectThisCountry) =>
+    Material(
+      color: Colors.white,
+      type: MaterialType.canvas,
+      child: InkWell(
+        onTap: () => selectThisCountry(country), //selectThisCountry(country),
+        child: Padding(
+          padding: const EdgeInsets.only(
+              left: 10.0, right: 10.0, top: 10.0, bottom: 10.0),
+          child: Text(
+            "  " +
+                country.flag +
+                "  " +
+                country.name +
+                " (" +
+                country.dialCode +
+                ")",
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500),
+          ),
+        ),
+      ),
+    );
+
+Widget searchCountry(TextEditingController controller) => Padding(
+      padding:
+          const EdgeInsets.only(left: 8.0, top: 8.0, bottom: 2.0, right: 8.0),
+      child: Card(
+        child: TextFormField(
+          autofocus: true,
+          controller: controller,
+          decoration: InputDecoration(
+              hintText: 'Search your country',
+              contentPadding: const EdgeInsets.only(
+                  left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
+              border: InputBorder.none),
+        ),
+      ),
+    );

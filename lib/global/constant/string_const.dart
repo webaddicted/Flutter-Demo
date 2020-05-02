@@ -32,5 +32,7 @@ class StringConst {
   static String BOTTOM_SHEET_TITLE = 'Bottom Sheet';
   static String DRAGABLE_BOTTOM_SHEET_TITLE = 'Dragable Bottom Sheet';
 
+  static String IMAGE_PICKER_TITLE = 'Image Picker';
+
 //  {END TITLE}
 }

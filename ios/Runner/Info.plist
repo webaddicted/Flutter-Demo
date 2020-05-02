@@ -41,11 +41,18 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
+    <!--START Storage Permission -->
 	<key>NSPhotoLibraryAddUsageDescription</key>
     <string>*your app name* would like to save photos from the app to your gallery</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>*your app name* would like to access your photo gallery for uploading images to the app</string>
+    <!--END Storage Permission -->
+    <!-- START Open Camera -->
+    <key>NSCameraUsageDescription</key>
+    <string>Enable myApp to access your camera to capture your photo</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Enable myApp to access mic to record your voice</string>
+    <!--END Open Camera -->
     <!-- Google Sign-in Section -->
     <key>CFBundleURLTypes</key>
     <array>

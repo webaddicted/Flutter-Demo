@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
@@ -7,6 +5,7 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
+import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
 
 class FcmLogin extends StatefulWidget {
   @override
@@ -15,7 +14,8 @@ class FcmLogin extends StatefulWidget {
 
 class _FcmLoginState extends State<FcmLogin> {
   final formKey = GlobalKey<FormState>();
-  String _mobileNo = '', _password = '';
+  String _mobileNo = '',
+      _password = '';
   bool passwordVisible = false;
   final _dbRef = Firestore.instance;
   TextEditingController mobileNoCont = TextEditingController();
@@ -61,9 +61,19 @@ class _FcmLoginState extends State<FcmLogin> {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
-              _loginBtn(),
               SizedBox(height: 10),
+              Align(
+                  alignment: Alignment.centerRight,
+                  child: getTxtColor('Forgot Password ? ',ColorConst.FCM_APP_COLOR, 16, FontWeight.bold)),
+              SizedBox(height: 20),
+              _loginBtn(),
+              SizedBox(height: 20),
+              Center(child: getTxtGreyColor('Dont have an account', 16, FontWeight.normal)),
+              SizedBox(height: 5),
+              Center(child: GestureDetector(
+                  onTap: ()=>navigationPush(context, FcmSignup()),
+                  child: getTxtColor('SIGN UP',ColorConst.FCM_APP_COLOR, 16, FontWeight.bold))),
+              SizedBox(height: 20),
             ],
           ),
         ),
@@ -139,7 +149,11 @@ class _FcmLoginState extends State<FcmLogin> {
           .get()
           .then((result) {
         var loginInfo = SqfliteLoginUserBean.map(snapShot.data);
-        showSnackBar(_ctx, '${loginInfo.mobileNo} Successfully login');
+        if (loginInfo.password == _password) {
+          showSnackBar(_ctx, '${loginInfo.mobileNo} Successfully login');
+        } else {
+          showSnackBar(_ctx, 'Incorrect password please use correct password.');
+        }
       }).catchError((err) {
         showSnackBar(_ctx, err);
         print(err);
