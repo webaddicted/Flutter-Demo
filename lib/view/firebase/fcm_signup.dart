@@ -242,7 +242,7 @@ class _FcmSignupState extends State<FcmSignup> {
   Future uploadFile() async {
     StorageReference storageReference = FirebaseStorage.instance
         .ref()
-        .child('chats/${Path.basename(imageURI.path)}}');
+        .child('chats/${Path.basename(imageURI.path)}');
     StorageUploadTask uploadTask = storageReference.putFile(imageURI);
     await uploadTask.onComplete;
     print('File Uploaded');
