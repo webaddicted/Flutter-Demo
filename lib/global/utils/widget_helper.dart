@@ -310,6 +310,17 @@ Widget dummyRaisedBtn(String txt, Color btnColor) {
     ),
   );
 }
+Widget raisedBtn(String txt, Function omztsp) {
+  return ButtonTheme(
+//    minWidth: double.infinity,
+    height: 45,
+    child: RaisedButton(
+      color: ColorConst.APP_COLOR,
+      child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+      onPressed: omztsp,
+    ),
+  );
+}
 
 Widget selectCountryDropDown(CountryBean country, Function onPressed) => Card(
       child: InkWell(

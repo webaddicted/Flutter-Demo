@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
+import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/social_login_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/firebase/fcm_login.dart';
@@ -22,7 +23,6 @@ class FcmSocialLogin extends StatefulWidget {
 class _FcmSocialLoginState extends State<FcmSocialLogin> {
   BuildContext _ctx;
   FirebaseAuth _fcmAuth;
-  GoogleSignIn googleSignIn;
 
 //  FacebookLogin facebookSignIn;
 //  String _message = 'Log in/out by pressing the buttons below.';
@@ -31,8 +31,6 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
   void initState() {
     super.initState();
     _fcmAuth = FirebaseAuth.instance;
-
-//    facebookSignIn = new FacebookLogin();
   }
 
   @override
@@ -45,58 +43,63 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
   Widget _createUi(BuildContext context) {
     _ctx = context;
     return Container(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              SizedBox(height: 80),
-              loadCircleImg('imgUrl', 0, 150),
-              SizedBox(height: 120),
-              _loginButton(
-                  'Google', ColorConst.GOOGLE_COLOR, AssetsConst.GOOGLE_IMG, 0),
-              SizedBox(height: 10),
-              _loginButton(
-                  'Facebook', ColorConst.FB_COLOR, AssetsConst.FB_IMG, 1),
-              SizedBox(height: 10),
-              _loginButton('Twitter', ColorConst.TWITTER_COLOR,
-                  AssetsConst.TWITTER_IMG, 2),
-              SizedBox(height: 10),
-              RaisedButton(
-                color: ColorConst.FCM_APP_COLOR,
-                child: Container(
-                    height: 45,
-                    alignment: Alignment.center,
-                    child:
-                        getTxtWhiteColor('Phone Number', 15, FontWeight.bold)),
-                onPressed: () => _loginType(3),
-              ),
-              SizedBox(height: 30),
-              getTxtGreyColor('or', 17, FontWeight.bold),
-              SizedBox(height: 5),
-              Divider(
-                color: Colors.grey,
-                height: 1,
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _mannualLoginBtn('Login', 4, false),
-                  SizedBox(width: 10),
-                  _mannualLoginBtn('Signup', 5, false),
-                ],
-              ),
+        child: Stack(
+      alignment: Alignment.topCenter,
+      children: <Widget>[
+        bgDesign(),
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                SizedBox(height: 80),
+                loadCircleImg('imgUrl', 0, 150),
+                SizedBox(height: 120),
+                _loginButton('Google', ColorConst.GOOGLE_COLOR,
+                    AssetsConst.GOOGLE_IMG, 0),
+                SizedBox(height: 10),
+                _loginButton(
+                    'Facebook', ColorConst.FB_COLOR, AssetsConst.FB_IMG, 1),
+                SizedBox(height: 10),
+                _loginButton('Twitter', ColorConst.TWITTER_COLOR,
+                    AssetsConst.TWITTER_IMG, 2),
+                SizedBox(height: 10),
+                RaisedButton(
+                  color: ColorConst.FCM_APP_COLOR,
+                  child: Container(
+                      height: 45,
+                      alignment: Alignment.center,
+                      child: getTxtWhiteColor(
+                          'Phone Number', 15, FontWeight.bold)),
+                  onPressed: () => _loginType(3),
+                ),
+                SizedBox(height: 30),
+                getTxtGreyColor('or', 17, FontWeight.bold),
+                SizedBox(height: 5),
+                Divider(
+                  color: Colors.grey,
+                  height: 1,
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    _mannualLoginBtn('Login', 4, false),
+                    SizedBox(width: 10),
+                    _mannualLoginBtn('Signup', 5, false),
+                  ],
+                ),
 //              SizedBox(height: 20),
-              SizedBox(height: 30),
-            ],
+                SizedBox(height: 30),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      ],
+    ));
   }
 
   Widget _loginButton(String txt, Color btnColor, String image, int loginType) {
@@ -140,7 +143,8 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
       case 2:
         return SocialLoginHelper.signInType(
             SocialLoginType.TWITTER, _loginResult);
-      case 3:  return navigationPush(context, FcmLoginMobile());
+      case 3:
+        return navigationPush(context, FcmLoginMobile());
       case 4:
         return navigationPush(context, FcmLogin());
       case 5:
@@ -158,4 +162,6 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
         print(fcmUser.displayName);
     }
   }
+
+
 }

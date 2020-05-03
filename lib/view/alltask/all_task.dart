@@ -11,6 +11,7 @@ import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
 import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
+import 'package:flutterbeginner/view/example/dialog_screen.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
 import 'package:flutterbeginner/view/example/login_page.dart';
@@ -116,6 +117,8 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('Bottom Sheet');
     allTaskBean.add('Dragable Bottom Sheet');
     allTaskBean.add('Image Picker');
+    allTaskBean.add('Dialog');
+
     return allTaskBean;
   }
 
@@ -177,7 +180,8 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, BottomSheetDragableScreen());
       case 'Image Picker':
         return navigationPush(context, CameraGallery());
-
+      case 'Dialog':
+        return navigationPush(context, DialogScreen());
     }
   }
 }

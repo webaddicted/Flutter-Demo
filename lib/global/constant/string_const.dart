@@ -17,7 +17,7 @@ class StringConst {
   static const String BOTTOM_NAVIGATION_TITLE = 'Bottom navigation';
   static const String TAB_BAR_TITLE = 'Tab bar';
   static const String SQFLITE_TITLE = "Sqflite";
-  static String SQFLITE_USERHOME_TITLE = 'All Users';
+  static const String SQFLITE_USERHOME_TITLE = 'All Users';
   static const String SP_TITLE = "Shared Preference";
   static const String PERMISSION_HELPER_TITLE = "Permission Helper";
   static String TEXT_TITLE = 'Text';
@@ -31,8 +31,7 @@ class StringConst {
   static String HOME_TITLE = 'Home';
   static String BOTTOM_SHEET_TITLE = 'Bottom Sheet';
   static String DRAGABLE_BOTTOM_SHEET_TITLE = 'Dragable Bottom Sheet';
-
   static String IMAGE_PICKER_TITLE = 'Image Picker';
-
+  static String DIALOG_TITLE = 'Dialog';
 //  {END TITLE}
 }
