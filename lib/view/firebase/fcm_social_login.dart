@@ -51,13 +51,19 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
+                SizedBox(height: 22),
+                IconButton(
+                    icon: Icon(Icons.arrow_back_ios),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+                SizedBox(height: 50),
+                Center(child: loadCircleImg('imgUrl', 0, 150)),
                 SizedBox(height: 80),
-                loadCircleImg('imgUrl', 0, 150),
-                SizedBox(height: 120),
                 _loginButton('Google', ColorConst.GOOGLE_COLOR,
                     AssetsConst.GOOGLE_IMG, 0),
                 SizedBox(height: 10),
@@ -77,7 +83,7 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
                   onPressed: () => _loginType(3),
                 ),
                 SizedBox(height: 30),
-                getTxtGreyColor('or', 17, FontWeight.bold),
+                Center(child: getTxtGreyColor('or', 17, FontWeight.bold)),
                 SizedBox(height: 5),
                 Divider(
                   color: Colors.grey,

@@ -71,7 +71,7 @@ class _FcmSignupState extends State<FcmSignup> {
                   SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
-                    child: getTxtColor('Log in to your \naccount',
+                    child: getTxtColor('Create new \naccount',
                         ColorConst.FCM_APP_COLOR, 25, FontWeight.bold),
                   ),
                   SizedBox(height: 30),
