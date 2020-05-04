@@ -20,11 +20,8 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   static final _fcmAuth = FirebaseAuth.instance;
   TextEditingController mobileNoCont = TextEditingController();
   TextEditingController otpCont = TextEditingController();
-
   BuildContext _ctx;
-
   List<CountryBean> _countryBean;
-
   static String verifId;
 
   @override
@@ -70,14 +67,14 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                     key: formKey,
                     child: Column(
                       children: <Widget>[
-                        edtMobileNoField('', mobileNoCont),
+                        edtMobileNoField(mobileNoCont),
                       ],
                     ),
                   ),
                   SizedBox(height: 20),
                   _loginBtn(),
                   SizedBox(height: 10),
-                  edtMobileNoField('', otpCont),
+                  edtMobileNoField(otpCont),
                   SizedBox(height: 10),
                   ButtonTheme(
                     minWidth: double.infinity,

@@ -6,14 +6,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
-import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
-import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
 import 'package:flutterbeginner/view/firebase/fcm_login.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as Path;
+
 class FcmSignup extends StatefulWidget {
   @override
   _FcmSignupState createState() => _FcmSignupState();
@@ -21,19 +20,15 @@ class FcmSignup extends StatefulWidget {
 
 class _FcmSignupState extends State<FcmSignup> {
   var formKey = GlobalKey<FormState>();
-  String _fullName = '',
-      _emailId = '',
-      _mobileNo = '',
-      _dob = '',
-      _password = '';
   bool passwordVisible = false;
   BuildContext _ctx;
   bool isLoading = false;
   final _dbRef = Firestore.instance;
-  TextEditingController mobileNoCont = TextEditingController();
   TextEditingController fullNameCont = TextEditingController();
   TextEditingController emailCont = TextEditingController();
-
+  TextEditingController mobileNoCont = TextEditingController();
+  TextEditingController dobCont = TextEditingController();
+  TextEditingController pwdCont = TextEditingController();
   File imageURI;
 
   @override
@@ -65,20 +60,11 @@ class _FcmSignupState extends State<FcmSignup> {
                             Navigator.pop(context);
                           }),
                       Center(
-                        child: Container(
-                            alignment: Alignment.center,
-                            margin: EdgeInsets.only(top: 30),
-                            height: 130,
-                            width: 130,
-                            child: Stack(
-                              children: <Widget>[
-                                getCircularImage(130, imageURI),
-                                Container(
-                                    alignment: Alignment.bottomRight,
-                                    child:
-                                        getCircularImageClick(45, imagePick)),
-                              ],
-                            )),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 30),
+                          child: getSignupImagePicker(
+                              130, imageURI, imagePickerDialog),
+                        ),
                       ),
                     ],
                   ),
@@ -93,15 +79,15 @@ class _FcmSignupState extends State<FcmSignup> {
                     key: formKey,
                     child: Column(
                       children: <Widget>[
-                        edtNameField(_fullName, fullNameCont),
+                        edtNameField(fullNameCont),
                         SizedBox(height: 10),
-                        edtMobileNoField(_mobileNo, mobileNoCont),
+                        edtMobileNoField(mobileNoCont),
                         SizedBox(height: 10),
-                        emailIdField(_emailId, emailCont),
+                        edtEmailIdField(emailCont),
                         SizedBox(height: 10),
-                        _edtDobField(),
+                        edtDobField(dobCont, dobClick),
                         SizedBox(height: 10),
-                        _pwd(),
+                        edtPwdField(pwdCont, passwordVisible, pwdVisClick),
                         SizedBox(height: 30),
                       ],
                     ),
@@ -127,67 +113,20 @@ class _FcmSignupState extends State<FcmSignup> {
     );
   }
 
-  Widget _pwd() {
-    return TextFormField(
-      decoration: InputDecoration(
-        counterText: '',
-        contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-        border: OutlineInputBorder(
-            gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-        hintText: "Password",
-        suffixIcon: IconButton(
-          icon: Icon(
-            // Based on passwordVisible state choose the icon
-            passwordVisible ? Icons.visibility : Icons.visibility_off,
-            color: Colors.grey,
-          ),
-          onPressed: () {
-            setState(() {
-              passwordVisible = !passwordVisible;
-            });
-          },
-        ),
-        hintStyle: TextStyle(
-          fontWeight: FontWeight.w300,
-          color: Colors.grey,
-        ),
-      ),
-      obscureText: !passwordVisible,
-      textInputAction: TextInputAction.done,
-      maxLength: 32,
-      validator: ValidationHelper.validatePassword,
-      onSaved: (String val) => _password = val,
-    );
-  }
-
-  Widget _edtDobField() {
-    return TextFormField(
-      onTap: () => _dobClick(),
-      decoration: InputDecoration(
-        counterText: '',
-        contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-        border: OutlineInputBorder(
-            gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-        hintText: "DOB",
-        hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
-      ),
-      textInputAction: TextInputAction.next,
-      maxLength: 32,
-      readOnly: true,
-      controller: TextEditingController(text: _dob),
-      validator: (dob) => ValidationHelper.empty(dob, 'DOB is Required'),
-      onSaved: (String val) => _dob = val,
-    );
-  }
-
-  void _dobClick() async {
+  dobClick() async {
     final DateTime date = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(2018),
         lastDate: DateTime(2101));
     setState(() {
-      _dob = '${date.year} - ${date.month} - ${date.day}';
+      dobCont.text = '${date.year} - ${date.month} - ${date.day}';
+    });
+  }
+
+  pwdVisClick() {
+    setState(() {
+      passwordVisible = !passwordVisible;
     });
   }
 
@@ -201,6 +140,15 @@ class _FcmSignupState extends State<FcmSignup> {
           child: getTxtWhiteColor('Signup', 15, FontWeight.bold),
           onPressed: () => _submitSignup()), //_submitSignup()),
     );
+  }
+  imagePickerDialog() {
+    imagePickDialog(context, selectedfile);
+  }
+
+  selectedfile(File imgFile) {
+    setState(() {
+      imageURI = imgFile;
+    });
   }
 
   void _submitSignup() {
@@ -216,7 +164,7 @@ class _FcmSignupState extends State<FcmSignup> {
 
   void checkUser() async {
     var loginBean = SqfliteLoginUserBean(
-        fullNameCont.text, emailCont.text, mobileNoCont.text, _dob, _password);
+        fullNameCont.text, emailCont.text, mobileNoCont.text, dobCont.text, pwdCont.text);
     final snapShot = await _dbRef
         .collection(ApiConst.FIRESTORE_COLL_USERS)
         .document(loginBean.mobileNo)
@@ -229,16 +177,16 @@ class _FcmSignupState extends State<FcmSignup> {
           .document(loginBean.mobileNo)
           .setData(loginBean.toMap())
           .then((result) => {
-            if(imageURI!=null){
-              uploadFile()
-            },
-            showSnackBar(_ctx, 'Successfully Signup')})
+                if (imageURI != null) {uploadFile()},
+                showSnackBar(_ctx, 'Successfully Signup')
+              })
           .catchError((err) {
         showSnackBar(_ctx, err);
         print(err);
       });
     }
   }
+
   Future uploadFile() async {
     StorageReference storageReference = FirebaseStorage.instance
         .ref()
@@ -248,52 +196,11 @@ class _FcmSignupState extends State<FcmSignup> {
     print('File Uploaded');
     storageReference.getDownloadURL().then((fileURL) {
       setState(() {
-        showSnackBar(_ctx,'File Uploaded $fileURL');
+        print('File Uploaded $fileURL');
+        showSnackBar(_ctx, 'File Uploaded $fileURL');
       });
     });
   }
 
-  imagePick() {
-    showDialog(
-        context: context,
-        child: new AlertDialog(
-            title:
-                getTxtBlackColor(StringConst.APP_NAME, null, FontWeight.bold),
-            content: Container(
-                child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    getImageFromCamera(0);
-                  },
-                  child: Container(
-                      padding: EdgeInsets.all(15),
-                      child: getTxtBlackColor('Capture Image', 15, null)),
-                ),
-                Divider(
-                  color: Colors.grey,
-                  height: 1,
-                ),
-                GestureDetector(
-                    onTap: () {
-                      getImageFromCamera(1);
-                    },
-                    child: Container(
-                        padding: EdgeInsets.all(15),
-                        child: getTxtBlackColor('Gallery Image', 15, null))),
-              ],
-            ))));
-  }
 
-  Future getImageFromCamera(int imageType) async {
-    Navigator.pop(context);
-    var image = await ImagePicker.pickImage(
-        source: imageType == 0 ? ImageSource.camera : ImageSource.gallery);
-    setState(() {
-      imageURI = image;
-    });
-  }
 }

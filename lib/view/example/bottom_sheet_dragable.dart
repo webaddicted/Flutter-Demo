@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
 class BottomSheetDragableScreen extends StatefulWidget {
@@ -27,9 +28,9 @@ class _BottomSheetDragableScreenState extends State<BottomSheetDragableScreen> {
             SizedBox(height: 20,),
             loadCircleImg('imgUrl', 0, 80),
             SizedBox(height: 20,),
-            edtNameField('fullName', TextEditingController()),
+            edtNameField(TextEditingController()),
             SizedBox(height: 10,),
-            edtMobileNoField('mobileNo', TextEditingController()),
+            edtMobileNoField(TextEditingController()),
             SizedBox(height: 30,),
             dummyRaisedBtn('Submit', Colors.blue),
           ],),

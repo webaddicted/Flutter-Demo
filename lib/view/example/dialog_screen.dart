@@ -18,12 +18,14 @@ class _DialogScreenState extends State<DialogScreen> {
   @override
   void initState() {
     super.initState();
-  _getCountry();
+    _getCountry();
   }
+
   void _getCountry() async {
     _countryBean = await loadCountriesJson(context);
     setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +54,6 @@ class _DialogScreenState extends State<DialogScreen> {
             raisedBtn('Full Screen Dialog', fullSceenDialog),
             SizedBox(height: 10),
             raisedBtn('List Dialog', listDialog),
-
           ],
         ),
       ),
@@ -60,118 +61,40 @@ class _DialogScreenState extends State<DialogScreen> {
   }
 
   normalDialog() {
-    showDialog(
-        context: context,
-        child: new AlertDialog(
-          title: getTxtBlackColor(StringConst.APP_NAME, null, FontWeight.bold),
-          content: getTxt(StringConst.DUMMY_TEXT, null),
-        ));
+    showAlertDialog(context, StringConst.APP_NAME, StringConst.DUMMY_TEXT);
   }
 
   singleClickDialog() {
-    AlertDialog alert = AlertDialog(
-        title: Text(StringConst.APP_NAME),
-        content: Text(StringConst.DUMMY_TEXT),
-        actions: [
-          FlatButton(
-              child: Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              })
-        ]);
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
+    showSingleClickDialog(
+        context, StringConst.APP_NAME, StringConst.DUMMY_TEXT, okClick);
   }
 
+  okClick() {
+    Navigator.pop(context);
+  }
   twoClickDialog() {
-    AlertDialog alert = AlertDialog(
-        title: Text(StringConst.APP_NAME),
-        content: Text(StringConst.DUMMY_TEXT),
-        actions: [
-          FlatButton(
-              child: Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              }),
-          FlatButton(
-              child: Text("Cancel"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              }),
-        ]);
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
+    showTwoClickDialog(
+        context, StringConst.APP_NAME, StringConst.DUMMY_TEXT, okClick, okClick);
   }
 
   customDialog() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return Dialog(
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.circular(20.0)), //this right here
-            child: Container(
-              height: 200,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      getTxtBlackColor(StringConst.APP_NAME, 18, FontWeight.bold),
-                      SizedBox(height: 10),
-                      TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'What do you want to remember?'),
-                      ),
-                      SizedBox(height: 10),
-                      SizedBox(
-                        width: 320.0,
-                        child: RaisedButton(
-                          onPressed: () {                Navigator.of(context).pop();},
-                          child: Text(
-                            "Save",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          color: const Color(0xFF1BC0C5),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          );
-        });
+    showCustomDialog(context, StringConst.APP_NAME, StringConst.DUMMY_TEXT, okClick);
   }
 
   fullSceenDialog() {
     showGeneralDialog(
         context: context,
         barrierDismissible: true,
-        barrierLabel: MaterialLocalizations.of(context)
-            .modalBarrierDismissLabel,
+        barrierLabel:
+            MaterialLocalizations.of(context).modalBarrierDismissLabel,
         barrierColor: Colors.black45,
         transitionDuration: const Duration(milliseconds: 200),
-        pageBuilder: (BuildContext buildContext,
-            Animation animation,
+        pageBuilder: (BuildContext buildContext, Animation animation,
             Animation secondaryAnimation) {
           return Center(
             child: Container(
               width: MediaQuery.of(context).size.width - 50,
-              height: MediaQuery.of(context).size.height -  120,
+              height: MediaQuery.of(context).size.height - 120,
               padding: EdgeInsets.all(20),
               color: Colors.white,
               child: Column(
@@ -192,43 +115,48 @@ class _DialogScreenState extends State<DialogScreen> {
           );
         });
   }
+
   listDialog() {
     showDialog(
         context: context,
         child: new AlertDialog(
-          title: getTxtBlackColor(StringConst.APP_NAME, null, FontWeight.bold),
-          content: Container(
-            child: ListView.builder(
+            title:
+                getTxtBlackColor(StringConst.APP_NAME, null, FontWeight.bold),
+            content: Container(
+              child: ListView.builder(
 //              shrinkWrap: true,
-              itemCount: _countryBean.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text('${_countryBean[index].flag}  (${_countryBean[index].dialCode})  ${_countryBean[index].name} '),
-                  onTap: () {
-                    Navigator.pop(_ctx);
-                   showSnackBar(_ctx, '${_countryBean[index].flag}  (${_countryBean[index].dialCode})  ${_countryBean[index].name} ');
-                  },
-                );
-              },
-            ),
-          )
-        ));
+                itemCount: _countryBean.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text(
+                        '${_countryBean[index].flag}  (${_countryBean[index].dialCode})  ${_countryBean[index].name} '),
+                    onTap: () {
+                      Navigator.pop(_ctx);
+                      showSnackBar(_ctx,
+                          '${_countryBean[index].flag}  (${_countryBean[index].dialCode})  ${_countryBean[index].name} ');
+                    },
+                  );
+                },
+              ),
+            )));
   }
+
   imagePickerDialog() {
     showDialog(
         context: context,
         child: new AlertDialog(
-            title: getTxtBlackColor(StringConst.APP_NAME, null, FontWeight.bold),
+            title:
+                getTxtBlackColor(StringConst.APP_NAME, null, FontWeight.bold),
             content: Container(
-              child: Column(children: <Widget>[
+                child: Column(
+              children: <Widget>[
                 getTxtBlackColor('Capture Image', 15, null),
                 Divider(
                   color: Colors.grey,
                   height: 1,
                 ),
                 getTxtBlackColor('Gallery Image', 15, null),
-              ],)
-            )
-        ));
+              ],
+            ))));
   }
 }

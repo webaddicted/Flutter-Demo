@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
-import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/db/sqflite_user_table.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
@@ -17,11 +15,11 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
   BuildContext ctx;
   bool isLoading = false;
   var formKey = GlobalKey<FormState>();
-  String _fullName = '',
-      _emailId = '',
-      _mobileNo = '',
-      _dob = '',
-      _password = '';
+  TextEditingController fullNameCont = TextEditingController();
+  TextEditingController emailCont = TextEditingController();
+  TextEditingController mobileNoCont = TextEditingController();
+  TextEditingController dobCont = TextEditingController();
+  TextEditingController pwdCont = TextEditingController();
   bool passwordVisible = false;
 
   @override
@@ -70,134 +68,22 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
                 key: formKey,
                 child: Column(
                   children: <Widget>[
-                    TextFormField(
-                      textCapitalization: TextCapitalization.words,
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "Full Name",
-                        hintStyle: TextStyle(
-                            fontWeight: FontWeight.w300, color: Colors.grey),
-                      ),
-                      textInputAction: TextInputAction.next,
-                      maxLength: 32,
-                      validator: ValidationHelper.validateName,
-                      onSaved: (String val) => _fullName = val,
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "Email id",
-                        hintStyle: TextStyle(
-                            fontWeight: FontWeight.w300, color: Colors.grey),
-                      ),
-                      textInputAction: TextInputAction.next,
-                      maxLength: 32,
-                      validator: ValidationHelper.validateEmail,
-                      onSaved: (String val) => _emailId = val,
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "Mobile number",
-                        hintStyle: TextStyle(
-                            fontWeight: FontWeight.w300, color: Colors.grey),
-                      ),
-                      textInputAction: TextInputAction.next,
-                      maxLength: 10,
-                      keyboardType: TextInputType.number,
-                      validator: ValidationHelper.validateMobile,
-                      onSaved: (String val) => _mobileNo = val,
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      onTap: () => _dobClick(),
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "DOB",
-                        hintStyle: TextStyle(
-                            fontWeight: FontWeight.w300, color: Colors.grey),
-                      ),
-                      textInputAction: TextInputAction.next,
-                      maxLength: 32,
-                      readOnly: true,
-                      controller: TextEditingController(text: _dob),
-                      validator: (dob) =>
-                          ValidationHelper.empty(dob, 'DOB is Required'),
-                      onSaved: (String val) => _dob = val,
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "Password",
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            // Based on passwordVisible state choose the icon
-                            passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Colors.grey,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              passwordVisible = !passwordVisible;
-                            });
-                          },
-                        ),
-                        hintStyle: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      obscureText: !passwordVisible,
-                      textInputAction: TextInputAction.done,
-                      maxLength: 32,
-                      validator: ValidationHelper.validatePassword,
-                      onSaved: (String val) => _password = val,
-                    ),
+                    edtNameField(fullNameCont),
+                    SizedBox(height: 10),
+                    edtMobileNoField(mobileNoCont),
+                    SizedBox(height: 10),
+                    edtEmailIdField(emailCont),
+                    SizedBox(height: 10),
+                    edtDobField(dobCont, _dobClick),
+                    SizedBox(height: 10),
+                    edtPwdField(pwdCont, passwordVisible, pwdVisClick),
+                    SizedBox(height: 30),
                   ],
                 ),
               ),
             ),
             SizedBox(height: 30),
-            MaterialButton(
-              child: Text('Login'),
-              onPressed: () {
-                _submit();
-              },
-              padding:
-                  EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
-              color: ColorConst.APP_COLOR,
-              textColor: ColorConst.WHITE_COLOR,
-              shape: StadiumBorder(),
-            ),
+            raisedRoundAppColorBtn('Signup',_submit),
             SizedBox(height: 30),
             MaterialButton(
               child: getTxtColor(
@@ -215,7 +101,11 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
       ),
     );
   }
-
+  pwdVisClick() {
+    setState(() {
+      passwordVisible = !passwordVisible;
+    });
+  }
   void _dobClick() async {
     final DateTime date = await showDatePicker(
         context: context,
@@ -223,7 +113,7 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
         firstDate: DateTime(2018),
         lastDate: DateTime(2101));
     setState(() {
-      _dob = '${date.year} - ${date.month} - ${date.day}';
+      dobCont.text = '${date.year} - ${date.month} - ${date.day}';
     });
   }
 
@@ -239,17 +129,17 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
   }
 
   void _insert() async {
-    final userList = await SqfliteUserInfo.checkUserExist(_emailId);
+    final userList = await SqfliteUserInfo.checkUserExist(emailCont.text);
     if (userList == null) {
       var loginBean =
-          SqfliteLoginUserBean(_fullName, _emailId, _mobileNo, _dob, _password);
+          SqfliteLoginUserBean(fullNameCont.text, emailCont.text, mobileNoCont.text, dobCont.text, pwdCont.text);
       final id = await SqfliteUserInfo.insertUser(loginBean);
       print('inserted row id: $id');
       isLoading = false;
 //      showAlertDialog(ctx,'Congratulation', 'Account successfully created.');
       Navigator.pop(context);
     } else
-      showSnackBar(ctx, 'User already exist with $_emailId email id.');
+      showSnackBar(ctx, 'User already exist with ${emailCont.text} email id.');
     isLoading = false;
   }
 }

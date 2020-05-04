@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
-import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
@@ -15,13 +14,11 @@ class FcmLogin extends StatefulWidget {
 
 class _FcmLoginState extends State<FcmLogin> {
   final formKey = GlobalKey<FormState>();
-  String _mobileNo = '',
-      _password = '';
   bool passwordVisible = false;
   final _dbRef = Firestore.instance;
   TextEditingController mobileNoCont = TextEditingController();
+  TextEditingController pwdCont = TextEditingController();
   BuildContext _ctx;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +56,9 @@ class _FcmLoginState extends State<FcmLogin> {
                     key: formKey,
                     child: Column(
                       children: <Widget>[
-                        edtMobileNoField(_mobileNo, mobileNoCont),
+                        edtMobileNoField(mobileNoCont),
                         SizedBox(height: 10),
-                        _pwd(),
+                        edtPwdField(pwdCont, passwordVisible, pwdVisClick),
                       ],
                     ),
                   ),
@@ -86,38 +83,10 @@ class _FcmLoginState extends State<FcmLogin> {
       ),
     );
   }
-
-  Widget _pwd() {
-    return TextFormField(
-      decoration: InputDecoration(
-        counterText: '',
-        contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-        border: OutlineInputBorder(
-            gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-        hintText: "Password",
-        suffixIcon: IconButton(
-          icon: Icon(
-            // Based on passwordVisible state choose the icon
-            passwordVisible ? Icons.visibility : Icons.visibility_off,
-            color: Colors.grey,
-          ),
-          onPressed: () {
-            setState(() {
-              passwordVisible = !passwordVisible;
-            });
-          },
-        ),
-        hintStyle: TextStyle(
-          fontWeight: FontWeight.w300,
-          color: Colors.grey,
-        ),
-      ),
-      obscureText: !passwordVisible,
-      textInputAction: TextInputAction.done,
-      maxLength: 32,
-      validator: ValidationHelper.validatePassword,
-      onSaved: (String val) => _password = val,
-    );
+  pwdVisClick() {
+    setState(() {
+      passwordVisible = !passwordVisible;
+    });
   }
 
   Widget _loginBtn() {
@@ -155,7 +124,7 @@ class _FcmLoginState extends State<FcmLogin> {
           .get()
           .then((result) {
         var loginInfo = SqfliteLoginUserBean.map(snapShot.data);
-        if (loginInfo.password == _password) {
+        if (loginInfo.password == pwdCont.text) {
           showSnackBar(_ctx, '${loginInfo.mobileNo} Successfully login');
         } else {
           showSnackBar(_ctx, 'Incorrect password please use correct password.');

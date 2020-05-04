@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
-import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/db/sqflite_user_table.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_signup.dart';
@@ -15,28 +14,30 @@ class SqfliteLogin extends StatefulWidget {
 
 class _SqfliteLoginState extends State<SqfliteLogin> {
   bool isLoading = false;
-  final formKey = GlobalKey<FormState>();
-  String _emailId = '', _password = '';
+  GlobalKey<FormState> formKey;
   bool passwordVisible = false;
-
   BuildContext ctx;
-  TextEditingController  emailCont = TextEditingController();
+  TextEditingController emailCont, pwdCont;
+
   @override
   void initState() {
     super.initState();
     passwordVisible = false;
+    emailCont = TextEditingController();
+    pwdCont = TextEditingController();
+    formKey = GlobalKey<FormState>();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Builder(
-        builder: (context) => _crateUi(context),)
-    );
+        body: Builder(
+      builder: (context) => _crateUi(context),
+    ));
   }
 
   Widget _crateUi(BuildContext context) {
-ctx= context;
+    ctx = context;
     return Container(
       child: SingleChildScrollView(
         child: Column(
@@ -66,58 +67,15 @@ ctx= context;
                 key: formKey,
                 child: Column(
                   children: <Widget>[
-                    emailIdField(_emailId, emailCont),
+                    edtEmailIdField(emailCont),
                     SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        border: OutlineInputBorder(
-                            gapPadding: 30,
-                            borderRadius: BorderRadius.circular(30)),
-                        hintText: "Password",
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            // Based on passwordVisible state choose the icon
-                            passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Colors.grey,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              passwordVisible = !passwordVisible;
-                            });
-                          },
-                        ),
-                        hintStyle: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      obscureText: !passwordVisible,
-                      textInputAction: TextInputAction.done,
-                      maxLength: 32,
-                      validator: ValidationHelper.validatePassword,
-                      onSaved: (String val) => _password = val,
-                    ),
+                    edtPwdField(pwdCont, passwordVisible, pwdVisClick),
                   ],
                 ),
               ),
             ),
             SizedBox(height: 30),
-            MaterialButton(
-              child: Text('Login'),
-              onPressed: () {
-                _submit();
-              },
-              padding:
-                  EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
-              color: ColorConst.APP_COLOR,
-              textColor: ColorConst.WHITE_COLOR,
-              shape: StadiumBorder(),
-            ),
+            raisedRoundAppColorBtn('Login',_submit),
             SizedBox(height: 50),
             MaterialButton(
               child: getTxtColor(
@@ -128,14 +86,19 @@ ctx= context;
               padding: EdgeInsets.all(20),
               elevation: 2,
               shape: UnderlineInputBorder(
-                borderSide:
-                    BorderSide(color: ColorConst.APP_COLOR, width: 3),
+                borderSide: BorderSide(color: ColorConst.APP_COLOR, width: 3),
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  pwdVisClick() {
+    setState(() {
+      passwordVisible = !passwordVisible;
+    });
   }
 
   void _submit() {
@@ -155,8 +118,7 @@ ctx= context;
     if (userList != null) {
       isLoading = false;
       navigationPush(ctx, SqliteHome());
-    }
-    else
+    } else
       showSnackBar(ctx,
           'User not exist with ${emailCont.text} emailId.\nPlease signup with same emailId.');
     isLoading = false;

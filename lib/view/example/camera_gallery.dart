@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -32,29 +33,32 @@ class _CameraGalleryState extends State<CameraGallery> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  imageURI == null
-                      ? Text('No image selected.')
-                      : Image.file(imageURI,
-                      width: 300, height: 200, fit: BoxFit.cover),
-                  Container(
-                      margin: EdgeInsets.fromLTRB(0, 30, 0, 20),
-                      child: RaisedButton(
-                        onPressed: () => getImageFromCamera(),
-                        child: Text('Capture Image'),
-                        textColor: Colors.white,
-                        color: Colors.blue,
-                        padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
-                      )),
-                  Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: RaisedButton(
-                        onPressed: () => getImageFromGallery(),
-                        child: Text('Select Image From Gallery'),
-                        textColor: Colors.white,
-                        color: Colors.blue,
-                        padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
-                      ))
-                ])));
+          imageURI == null
+              ? Text('No image selected.')
+              : Image.file(imageURI,
+                  width: 300, height: 200, fit: BoxFit.cover),
+          RaisedButton(
+            onPressed: () => getImageFromCamera(),
+            child: Text('Capture Image'),
+            textColor: Colors.white,
+            color: Colors.blue,
+            padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+          ),
+          RaisedButton(
+            onPressed: () => getImageFromGallery(),
+            child: Text('Select Image From Gallery'),
+            textColor: Colors.white,
+            color: Colors.blue,
+            padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+          ),
+          RaisedButton(
+            onPressed: () => imagePickDialog(context, selectedFileIs),
+            child: Text('Select Option'),
+            textColor: Colors.white,
+            color: Colors.blue,
+            padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+          ),
+        ])));
   }
 
   Future getImageFromCamera() async {
@@ -66,6 +70,12 @@ class _CameraGalleryState extends State<CameraGallery> {
 
   Future getImageFromGallery() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      imageURI = image;
+    });
+  }
+
+  selectedFileIs(File image) {
     setState(() {
       imageURI = image;
     });

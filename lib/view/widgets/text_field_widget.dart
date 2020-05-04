@@ -34,13 +34,15 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           ),
         ));
   }
+
   Widget _getTextFieldType() {
     return Column(
       children: <Widget>[
         SizedBox(height: 10),
-        buildTextFied(context, 'Mobile number', ColorConst.APP_COLOR, false),
+        edtMobileNoField(TextEditingController()),
         SizedBox(height: 10),
-        buildTextFied(context, 'Password', ColorConst.APP_COLOR, true),
+        edtPwdField(TextEditingController(), _passwordVisible, pwdVisClick),
+//        buildTextFied(context, 'Password', ColorConst.APP_COLOR, true),
         SizedBox(height: 10),
         TextField(
           keyboardType: TextInputType.number,
@@ -129,6 +131,13 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       ],
     );
   }
+
+  pwdVisClick() {
+    setState(() {
+      _passwordVisible = !_passwordVisible;
+    });
+  }
+
   DropdownButton _dropDown() => DropdownButton<String>(
     items: [
       DropdownMenuItem<String>(
@@ -151,4 +160,5 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     },
 //    value: _value,
   );
+
 }

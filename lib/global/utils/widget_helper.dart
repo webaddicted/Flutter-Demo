@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
@@ -192,8 +194,8 @@ TextStyle _getFontSizeStyle(
       fontFamily: AssetsConst.ZILLASLAB_FONT,
       fontWeight: fontsWeight == null ? FontWeight.normal : fontsWeight);
 }
-//  {END TEXT VIEW}
 
+//  {END TEXT VIEW}
 void showSnackBar(BuildContext context, String message) {
   var snackbar = SnackBar(
     content: getTxtWhiteColor(message, null, null),
@@ -205,45 +207,11 @@ void showSnackBar(BuildContext context, String message) {
 //          logDubug(message + " undo");
 //        }),
   );
+  Scaffold.of(context).hideCurrentSnackBar();
   Scaffold.of(context).showSnackBar(snackbar);
 }
 
-showAlertDialog(BuildContext context, String title, String msg) {
-  showDialog(
-      context: context,
-      child: new AlertDialog(
-        title: getTxtBlackColor(title, null, FontWeight.bold),
-        content: getTxt(msg, null),
-      ));
-}
-
-Widget buildTextFied(
-    BuildContext context, String labelText, Color fieldColor, bool isPassowrd) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-    child: Theme(
-      data: Theme.of(context).copyWith(
-        primaryColor: fieldColor, //.withOpacity(0.5),
-      ),
-      child: TextField(
-        obscureText: isPassowrd,
-        focusNode: FocusNode(),
-        style: TextStyle(
-          color: fieldColor,
-        ),
-        decoration: InputDecoration(
-            labelText: labelText,
-            labelStyle: Theme.of(context)
-                .textTheme
-                .body1
-                .copyWith(color: fieldColor) //.withOpacity(0.7)),
-            ),
-      ),
-    ),
-  );
-}
-
-Widget edtNameField(String fullName, TextEditingController edtController) {
+Widget edtNameField(TextEditingController edtController) {
   return TextFormField(
     textCapitalization: TextCapitalization.words,
     controller: edtController,
@@ -258,11 +226,10 @@ Widget edtNameField(String fullName, TextEditingController edtController) {
     textInputAction: TextInputAction.next,
     maxLength: 32,
     validator: ValidationHelper.validateName,
-    onSaved: (String val) => fullName = val,
   );
 }
 
-Widget edtMobileNoField(String mobileNo, TextEditingController edtController) {
+Widget edtMobileNoField(TextEditingController edtController) {
   return TextFormField(
     controller: edtController,
     decoration: InputDecoration(
@@ -277,11 +244,10 @@ Widget edtMobileNoField(String mobileNo, TextEditingController edtController) {
     maxLength: 10,
     keyboardType: TextInputType.number,
     validator: ValidationHelper.validateMobile,
-    onSaved: (String val) => mobileNo = val,
   );
 }
 
-Widget emailIdField(String emailIdTxt, TextEditingController edtController) {
+Widget edtEmailIdField(TextEditingController edtController) {
   return TextFormField(
     controller: edtController,
     decoration: InputDecoration(
@@ -293,90 +259,151 @@ Widget emailIdField(String emailIdTxt, TextEditingController edtController) {
       hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
     ),
     textInputAction: TextInputAction.next,
+    keyboardType: TextInputType.emailAddress,
     maxLength: 32,
     validator: ValidationHelper.validateEmail,
-    onSaved: (String val) => emailIdTxt = val,
   );
 }
 
-Widget dummyRaisedBtn(String txt, Color btnColor) {
-  return ButtonTheme(
-    minWidth: double.infinity,
-    height: 45,
-    child: RaisedButton(
-      color: btnColor,
-      child: getTxtWhiteColor(txt, 15, FontWeight.bold),
-      onPressed: () {},
+Widget edtDobField(TextEditingController edtController, Function dobClick) {
+  return TextFormField(
+    onTap: dobClick,
+    decoration: InputDecoration(
+      counterText: '',
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      border: OutlineInputBorder(
+          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
+      hintText: "DOB",
+      hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
     ),
+    textInputAction: TextInputAction.next,
+    maxLength: 32,
+    readOnly: true,
+    controller: edtController,
+    validator: (dob) => ValidationHelper.empty(dob, 'DOB is Required'),
   );
 }
-Widget raisedBtn(String txt, Function omztsp) {
-  return ButtonTheme(
+
+Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
+    Function pwdVisiableClick) {
+  return TextFormField(
+    controller: edtController,
+    decoration: InputDecoration(
+      counterText: '',
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      border: OutlineInputBorder(
+          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
+      hintText: "Password",
+      suffixIcon: IconButton(
+          icon: Icon(
+            // Based on passwordVisible state choose the icon
+            passwordVisible ? Icons.visibility : Icons.visibility_off,
+            color: Colors.grey,
+          ),
+          onPressed: pwdVisiableClick),
+      hintStyle: TextStyle(
+        fontWeight: FontWeight.w300,
+        color: Colors.grey,
+      ),
+    ),
+    obscureText: !passwordVisible,
+    textInputAction: TextInputAction.done,
+    maxLength: 32,
+    validator: ValidationHelper.validatePassword,
+  );
+}
+
+Widget raisedBtn(String txt, Function btnClick) => ButtonTheme(
 //    minWidth: double.infinity,
-    height: 45,
-    child: RaisedButton(
-      color: ColorConst.APP_COLOR,
-      child: getTxtWhiteColor(txt, 15, FontWeight.bold),
-      onPressed: omztsp,
+      height: 40,
+      child: RaisedButton(
+        color: ColorConst.APP_COLOR,
+        child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+        onPressed: btnClick,
+      ),
+    );
+Widget raisedRoundBtn(String txt, Function btnClick) => ButtonTheme(
+    minWidth: double.infinity,
+  height: 45,
+  child: RaisedButton(
+    shape: StadiumBorder(),
+    color: ColorConst.FCM_APP_COLOR,
+    child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+    onPressed: btnClick,
+  ),
+);
+Widget raisedRoundAppColorBtn(String txt, Function btnClick) => ButtonTheme(
+//  minWidth: double.infinity,
+  height: 45,
+  child: RaisedButton(
+    padding:
+    EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
+    shape: StadiumBorder(),
+    color: ColorConst.APP_COLOR,
+    child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+    onPressed: btnClick,
+  ),
+);
+
+
+Widget getSignupImagePicker(
+    double imageSize, File filePath, Function imagePickDialog) {
+  return Container(
+    height: imageSize,
+    width: imageSize,
+    child: Stack(
+      children: <Widget>[
+        Container(
+          width: imageSize,
+          height: imageSize,
+          decoration: BoxDecoration(
+            color: Colors.white,
+//              borderRadius: new BorderRadius.only(
+//                topLeft: const Radius.circular(40.0),
+//                topRight: const Radius.circular(40.0),
+//              )
+            borderRadius:
+            new BorderRadius.all(new Radius.circular(imageSize / 2)),
+            border: new Border.all(
+              color: ColorConst.FCM_APP_COLOR,
+              width: 4.0,
+            ),
+          ),
+          child: ClipOval(
+              child: filePath != null
+                  ? Image.file(filePath, fit: BoxFit.cover)
+                  : IconButton(
+                icon: Icon(
+                  Icons.person,
+                  size: imageSize / 1.2,
+                  color: Colors.grey,
+                ),
+                onPressed: () {},
+              )),
+        ),
+        Container(
+            alignment: Alignment.bottomRight,
+            child:  Container(
+              width: 45,
+              height: 45,
+              alignment: Alignment.bottomRight,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(new Radius.circular(imageSize / 2)),
+                border: new Border.all(
+                  color: ColorConst.FCM_APP_COLOR,
+                  width: 2.0,
+                ),
+              ),
+              child: ClipOval(
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.image,
+                        color: Colors.grey,
+                      ),
+                      onPressed: imagePickDialog)),
+            )),
+      ],
     ),
   );
 }
-
-Widget selectCountryDropDown(CountryBean country, Function onPressed) => Card(
-      child: InkWell(
-        onTap: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.only(
-              left: 4.0, right: 4.0, top: 12.0, bottom: 12.0),
-          child: Row(
-            children: <Widget>[
-              Expanded(child: Text(' ${country.flag}  ${country.name} ')),
-              Icon(Icons.arrow_drop_down, size: 24.0)
-            ],
-          ),
-        ),
-      ),
-    );
-
-Widget selectableWidget(
-        CountryBean country, Function(CountryBean) selectThisCountry) =>
-    Material(
-      color: Colors.white,
-      type: MaterialType.canvas,
-      child: InkWell(
-        onTap: () => selectThisCountry(country), //selectThisCountry(country),
-        child: Padding(
-          padding: const EdgeInsets.only(
-              left: 10.0, right: 10.0, top: 10.0, bottom: 10.0),
-          child: Text(
-            "  " +
-                country.flag +
-                "  " +
-                country.name +
-                " (" +
-                country.dialCode +
-                ")",
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500),
-          ),
-        ),
-      ),
-    );
-
-Widget searchCountry(TextEditingController controller) => Padding(
-      padding:
-          const EdgeInsets.only(left: 8.0, top: 8.0, bottom: 2.0, right: 8.0),
-      child: Card(
-        child: TextFormField(
-          autofocus: true,
-          controller: controller,
-          decoration: InputDecoration(
-              hintText: 'Search your country',
-              contentPadding: const EdgeInsets.only(
-                  left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
-              border: InputBorder.none),
-        ),
-      ),
-    );
