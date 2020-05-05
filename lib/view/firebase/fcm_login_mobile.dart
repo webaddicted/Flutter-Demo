@@ -8,6 +8,8 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/countries_bean.dart';
+import 'package:flutterbeginner/view/firebase/fcm_otp_verify.dart';
+import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
 
 class FcmLoginMobile extends StatefulWidget {
   @override
@@ -47,21 +49,30 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
             child: Container(
               margin: EdgeInsets.only(left: 10, right: 10),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 30),
-                  IconButton(
-                      icon: Icon(Icons.arrow_back_ios),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: getTxtColor('Log in to your \naccount',
-                        ColorConst.FCM_APP_COLOR, 25, FontWeight.bold),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
                   ),
+                  getTxtGreyColor('Create Account', 25, FontWeight.bold),
+                  SizedBox(height: 20,),
+                  SizedBox(
+                      height: 225,
+                      width: 150,
+                      child: Image.asset(AssetsConst.MOBILE_IMG)),
+                  SizedBox(height: 20),
+                  getTxtBlackCenterColor('Enter your mobile number \nto create account',
+                         20, FontWeight.normal),
+                  SizedBox(height: 30),
+                  getTxtGreyCenterColor('We will send you one time \npassword (OTP)',
+                      18, FontWeight.normal),
                   SizedBox(height: 30),
                   Form(
                     key: formKey,
@@ -73,18 +84,13 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                   ),
                   SizedBox(height: 20),
                   _loginBtn(),
+                  SizedBox(height: 30),
+                  Center(child: getTxtGreyColor('Dont have an account', 16, FontWeight.normal)),
+                  SizedBox(height: 5),
+                  GestureDetector(
+                      onTap: ()=>navigationPush(context, FcmSignup()),
+                      child: getTxtColor('SIGN UP',ColorConst.FCM_APP_COLOR, 16, FontWeight.bold)),
                   SizedBox(height: 10),
-                  edtMobileNoField(otpCont),
-                  SizedBox(height: 10),
-                  ButtonTheme(
-                    minWidth: double.infinity,
-                    height: 45,
-                    child: RaisedButton(
-                        shape: StadiumBorder(),
-                        color: ColorConst.FCM_APP_COLOR,
-                        child: getTxtWhiteColor('Verify', 15, FontWeight.bold),
-                        onPressed: () => _signInWithPhoneNumber()),
-                  )
                 ],
               ),
             ),
@@ -107,6 +113,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   }
 
   _submitLogin() {
+    navigationPush(context, FcmOtpVerify());
     final form = formKey.currentState;
     if (formKey.currentState.validate()) {
       form.save();

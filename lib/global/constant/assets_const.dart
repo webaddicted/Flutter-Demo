@@ -21,7 +21,8 @@ class AssetsConst {
   static String GOOGLE_IMG = 'images/google.png';
   static String FB_IMG = 'images/fb.png';
   static String TWITTER_IMG = 'images/twitter.png';
-
+  static String MOBILE_IMG = 'images/mobile.png';
+  static String OTP_IMG = 'images/otp.png';
 
 
   //  {END IMAGES}

@@ -166,6 +166,25 @@ Text getTxtGreyColor(String message, double fontsSize, FontWeight fontsWeight) {
         : _getFontSizeStyle(ColorConst.GREY_COLOR, fontsSize, fontsWeight),
   );
 }
+Text getTxtGreyCenterColor(String message, double fontsSize, FontWeight fontsWeight) {
+  return Text(
+    message,
+    textAlign: TextAlign.center,
+    style: fontsSize == null
+        ? _getFontStyle(ColorConst.GREY_COLOR, fontsWeight)
+        : _getFontSizeStyle(ColorConst.GREY_COLOR, fontsSize, fontsWeight),
+  );
+}
+Text getTxtBlackCenterColor(
+    String message, double fontsSize, FontWeight fontsWeight) {
+  return Text(
+    message,
+    textAlign: TextAlign.center,
+    style: fontsSize == null
+        ? _getFontStyle(ColorConst.BLACK_COLOR, fontsWeight)
+        : _getFontSizeStyle(ColorConst.BLACK_COLOR, fontsSize, fontsWeight),
+  );
+}
 
 Text getTxtColor(
     String message, Color txtColor, double fontsSize, FontWeight fontsWeight) {

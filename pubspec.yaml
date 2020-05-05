@@ -40,7 +40,7 @@ dependencies:
   cloud_firestore: ^0.13.5
   firebase_storage: ^3.1.5
   image_picker: ^0.6.5+3
-
+  pinput: ^0.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
