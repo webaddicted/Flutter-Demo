@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/db/sqflite_user_table.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
@@ -83,7 +84,7 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
               ),
             ),
             SizedBox(height: 30),
-            raisedRoundAppColorBtn('Signup',_submit),
+            raisedRoundAppColorBtn('Signup', _submit),
             SizedBox(height: 30),
             MaterialButton(
               child: getTxtColor(
@@ -92,8 +93,7 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
               padding: EdgeInsets.all(20),
               elevation: 2,
               shape: UnderlineInputBorder(
-                borderSide:
-                    BorderSide(color: ColorConst.APP_COLOR, width: 3),
+                borderSide: BorderSide(color: ColorConst.APP_COLOR, width: 3),
               ),
             ),
           ],
@@ -101,11 +101,13 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
       ),
     );
   }
+
   pwdVisClick() {
     setState(() {
       passwordVisible = !passwordVisible;
     });
   }
+
   void _dobClick() async {
     final DateTime date = await showDatePicker(
         context: context,
@@ -131,15 +133,20 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
   void _insert() async {
     final userList = await SqfliteUserInfo.checkUserExist(emailCont.text);
     if (userList == null) {
-      var loginBean =
-          SqfliteLoginUserBean(fullNameCont.text, emailCont.text, mobileNoCont.text, dobCont.text, pwdCont.text);
+      var loginBean = SqfliteLoginUserBean(fullNameCont.text, emailCont.text,
+          mobileNoCont.text, dobCont.text, pwdCont.text, '');
       final id = await SqfliteUserInfo.insertUser(loginBean);
       print('inserted row id: $id');
       isLoading = false;
-//      showAlertDialog(ctx,'Congratulation', 'Account successfully created.');
-      Navigator.pop(context);
+      showSingleClickDialog(
+          context, 'Congratulations', 'User successfully created', okClick);
     } else
       showSnackBar(ctx, 'User already exist with ${emailCont.text} email id.');
     isLoading = false;
+  }
+
+  okClick() {
+    Navigator.pop(context);
+    Navigator.pop(context);
   }
 }

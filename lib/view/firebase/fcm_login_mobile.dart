@@ -1,15 +1,17 @@
 import 'dart:convert';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
+import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/countries_bean.dart';
+import 'package:flutterbeginner/view/firebase/fcm_home.dart';
 import 'package:flutterbeginner/view/firebase/fcm_otp_verify.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
+import 'package:flutterbeginner/view/sqflite/sqlite_home.dart';
 
 class FcmLoginMobile extends StatefulWidget {
   @override
@@ -18,11 +20,10 @@ class FcmLoginMobile extends StatefulWidget {
 
 class _FcmLoginMobileState extends State<FcmLoginMobile> {
   final formKey = GlobalKey<FormState>();
-  final _dbRef = Firestore.instance;
   static final _fcmAuth = FirebaseAuth.instance;
   TextEditingController mobileNoCont = TextEditingController();
   TextEditingController otpCont = TextEditingController();
-  BuildContext _ctx;
+  static BuildContext _ctx;
   List<CountryBean> _countryBean;
   static String verifId;
 
@@ -113,7 +114,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   }
 
   _submitLogin() {
-    navigationPush(context, FcmOtpVerify());
+//    navigationPush(context, FcmOtpVerify());
     final form = formKey.currentState;
     if (formKey.currentState.validate()) {
       form.save();
@@ -155,46 +156,44 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   PhoneCodeSent codeSent =
       (String verificationId, [int forceResendingToken]) async {
     verifId = verificationId;
+    showSingleClickDialog(_ctx, 'Congratulations',
+        'OTP sent successfully', otpSentSuccess);
     print("\nEnter the code sent to ");
   };
 
   final PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout =
       (String verificationId) {
     verifId = verificationId;
-    print("\nAuto retrieval time out");
+    showSnackBar(_ctx,"Auto retrieval time out");
   };
 
   final PhoneVerificationFailed verificationFailed =
       (AuthException authException) {
     print('${authException.message}');
     if (authException.message.contains('not authorized'))
-      print('App not authroized');
+      showSnackBar(_ctx,'App not authroized');
     else if (authException.message.contains('Network'))
-      print('Please check your internet connection and try again');
+      showSnackBar(_ctx,'Please check your internet connection and try again');
     else
-      print('Something has gone wrong, please try later ' +
+      showSnackBar(_ctx,'Something has gone wrong, please try later ' +
           authException.message);
   };
 
   PhoneVerificationCompleted verificationCompleted = (AuthCredential auth) {
     _fcmAuth.signInWithCredential(auth).then((AuthResult value) {
       if (value.user != null) {
+        navigationPush(_ctx, FcmHome());
         print('Authentication successful');
       } else {
-        print('Invalid code/invalid authentication');
+        showSnackBar(_ctx,'Invalid code/invalid authentication');
       }
     }).catchError((error) {
       print('Something has gone wrong, please try later $error');
     });
   };
 
-  void _signInWithPhoneNumber() async {
-    var _authCredential = await PhoneAuthProvider.getCredential(
-        verificationId: verifId, smsCode: otpCont.text);
-    _fcmAuth.signInWithCredential(_authCredential).then((value) async {
-      showSnackBar(_ctx, 'Success   :  ' + value.toString());
-    }).catchError((error) {
-      showSnackBar(_ctx, 'Something has gone wrong, please try later');
-    });
+  static otpSentSuccess() {
+    Navigator.pop(_ctx);
+    navigationPush(_ctx, FcmOtpVerify(verifId));
   }
 }

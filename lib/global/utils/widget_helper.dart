@@ -68,6 +68,24 @@ AppBar getAppBarWithBackBtn(BuildContext context, String title) {
     ),
   );
 }
+AppBar getAppBarColorWithBackBtn(BuildContext context, String title, Color bgColor) {
+  return AppBar(
+    backgroundColor: bgColor,
+    leading: new IconButton(
+        icon: Icon(
+          Icons.keyboard_backspace,
+          color: ColorConst.WHITE_COLOR,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        }),
+    centerTitle: true,
+    title: new Text(
+      title,
+      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+    ),
+  );
+}
 
 //  {END APPBAR}
 //  {START LOAD IMAGE}

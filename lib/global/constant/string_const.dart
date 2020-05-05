@@ -1,5 +1,8 @@
 class StringConst {
   static const String APP_NAME = 'Flutter Demo';
+  static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
+//  static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
+
   static const String DUMMY_TEXT =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmood tempor inciddidunt ut labore et dolore magna sed do sed do aliqua.';
 

@@ -5,6 +5,7 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
+import 'package:flutterbeginner/view/firebase/fcm_home.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
 
 class FcmLogin extends StatefulWidget {
@@ -125,7 +126,7 @@ class _FcmLoginState extends State<FcmLogin> {
           .then((result) {
         var loginInfo = SqfliteLoginUserBean.map(snapShot.data);
         if (loginInfo.password == pwdCont.text) {
-          showSnackBar(_ctx, '${loginInfo.mobileNo} Successfully login');
+          navigationPush(_ctx, FcmHome());
         } else {
           showSnackBar(_ctx, 'Incorrect password please use correct password.');
         }
@@ -134,7 +135,8 @@ class _FcmLoginState extends State<FcmLogin> {
         print(err);
       });
     } else {
-      showSnackBar(_ctx, 'User already exist with this mobile number');
+      showSnackBar(_ctx, 'User not exist with this mobile number');
     }
   }
+
 }

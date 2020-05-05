@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
+import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/db/sqflite_user_table.dart';
@@ -47,10 +48,11 @@ class _SqfliteEditUserState extends State<SqfliteEditUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, _userBean==null?'Cretate User':'Update User'),
+        appBar: getAppBarWithBackBtn(
+            context, _userBean == null ? 'Cretate User' : 'Update User'),
         body: Builder(
-      builder: (context) => _crateUi(context),
-    ));
+          builder: (context) => _crateUi(context),
+        ));
   }
 
   Widget _crateUi(BuildContext context) {
@@ -199,7 +201,7 @@ class _SqfliteEditUserState extends State<SqfliteEditUser> {
             ),
             SizedBox(height: 30),
             MaterialButton(
-              child: Text(_userBean==null?'Submit':"Update"),
+              child: Text(_userBean == null ? 'Submit' : "Update"),
               onPressed: () {
                 _submit();
               },
@@ -234,9 +236,10 @@ class _SqfliteEditUserState extends State<SqfliteEditUser> {
       form.save();
       setState(() {
         isLoading = true;
-        if(_userBean==null)
-        _insert();
-        else _update();
+        if (_userBean == null)
+          _insert();
+        else
+          _update();
       });
     }
   }
@@ -244,30 +247,37 @@ class _SqfliteEditUserState extends State<SqfliteEditUser> {
   void _insert() async {
     final userList = await SqfliteUserInfo.checkUserExist(_emailId);
     if (userList == null) {
-      var loginBean =
-          SqfliteLoginUserBean(_fullName, _emailId, _mobileNo, _dob, _password);
+      var loginBean = SqfliteLoginUserBean(
+          _fullName, _emailId, _mobileNo, _dob, _password, '');
       final id = await SqfliteUserInfo.insertUser(loginBean);
       print('inserted row id: $id');
       isLoading = false;
-//      showAlertDialog(ctx,'Congratulation', 'Account successfully created.');
-      Navigator.pop(context, true);
+      showSingleClickDialog(
+          context, 'Congratulations', 'User successfully inserted', okClick);
     } else
       showSnackBar(ctx, 'User already exist with $_emailId email id.');
     isLoading = false;
   }
 
-  void _update() async{
+  void _update() async {
     final userList = await SqfliteUserInfo.checkUserExist(_emailId);
     if (userList != null) {
-      var loginBean =
-      SqfliteLoginUserBean(_fullName, _emailId, _mobileNo, _dob, _password);
-        final id = await SqfliteUserInfo.updateUser(loginBean);
+      var loginBean = SqfliteLoginUserBean(
+          _fullName, _emailId, _mobileNo, _dob, _password, '');
+      final id = await SqfliteUserInfo.updateUser(loginBean);
       print('update row id: $id');
       isLoading = false;
-//      showAlertDialog(ctx,'Congratulation', 'Account successfully created.');
-      Navigator.pop(context, true);
+      showSingleClickDialog(
+          context, 'Congratulations', 'User successfully update', okClick);
     } else
-      showSnackBar(ctx, 'User not exist with $_emailId email id.\n so we can not update user.');
+      showSnackBar(ctx,
+          'User not exist with $_emailId email id.\n so we can not update user.');
     isLoading = false;
+  }
+
+
+  okClick() {
+    Navigator.pop(context, true);
+    Navigator.pop(context, true);
   }
 }

@@ -1,19 +1,14 @@
-import 'dart:convert';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/social_login_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/view/firebase/fcm_home.dart';
 import 'package:flutterbeginner/view/firebase/fcm_login.dart';
 import 'package:flutterbeginner/view/firebase/fcm_login_mobile.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:flutter_twitter/flutter_twitter.dart';
-import 'package:http/http.dart' as http;
 
 class FcmSocialLogin extends StatefulWidget {
   @override
@@ -22,15 +17,10 @@ class FcmSocialLogin extends StatefulWidget {
 
 class _FcmSocialLoginState extends State<FcmSocialLogin> {
   BuildContext _ctx;
-  FirebaseAuth _fcmAuth;
-
-//  FacebookLogin facebookSignIn;
-//  String _message = 'Log in/out by pressing the buttons below.';
 
   @override
   void initState() {
     super.initState();
-    _fcmAuth = FirebaseAuth.instance;
   }
 
   @override
@@ -164,8 +154,10 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
     } else {
       if (error != null)
         print('user error  :  ' + error);
-      else
+      else {
         print(fcmUser.displayName);
+        navigationPush(_ctx, FcmHome());
+      }
     }
   }
 
