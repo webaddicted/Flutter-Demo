@@ -77,7 +77,12 @@ In this repo we cover all the basic topic which are require to work on flutter.
 
 <img src="screenshot/fcm/fcm_social.png" width="225">    <img src="screenshot/fcm/fcm_google.png" width="225">    <img src="screenshot/fcm/fcm_login.png" width="225">    <img src="screenshot/fcm/fcm_signup.jpeg" width="225">
 <img src="screenshot/fcm/fcm_image_pick.jpeg" width="225">    <img src="screenshot/fcm/db_users.jpg" width="225">    <img src="screenshot/fcm/fcm_otp.png" width="225">    <img src="screenshot/fcm/fcm_phone_auth.png" width="225">
-    
+
+24) Swipe to delete
+25) Bottom Sheet
+26) Dragable bottom sheet
+27) Image Picker
+28) Dialog(Normal/Custom)
 
 Beautiful UI design
 https://github.com/lohanidamodar/flutter_ui_challenges
