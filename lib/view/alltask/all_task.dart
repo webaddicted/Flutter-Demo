@@ -11,16 +11,23 @@ import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
 import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
+import 'package:flutterbeginner/view/example/collapse_toolbar.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
+import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
 import 'package:flutterbeginner/view/example/login_page.dart';
 import 'package:flutterbeginner/view/example/nav_drawer.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
+import 'package:flutterbeginner/view/example/search_item.dart';
+import 'package:flutterbeginner/global/customview/signature.dart';
+import 'package:flutterbeginner/view/example/signature_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
+import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
 import 'package:flutterbeginner/view/example/tab_bar.dart';
+import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_login.dart';
@@ -118,6 +125,12 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('Dragable Bottom Sheet');
     allTaskBean.add('Image Picker');
     allTaskBean.add('Dialog');
+    allTaskBean.add('Google map');
+    allTaskBean.add('Swipe To Refresh');
+    allTaskBean.add('Signature');
+    allTaskBean.add('Search Item');
+    allTaskBean.add('Collapse Toolbar');
+    allTaskBean.add('WebView');
 
     return allTaskBean;
   }
@@ -182,6 +195,18 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, CameraGallery());
       case 'Dialog':
         return navigationPush(context, DialogScreen());
+      case 'Google map':
+        return navigationPush(context, GoogleMapScreen());
+      case 'Swipe To Refresh':
+        return navigationPush(context, SwipeToRefresh());
+      case 'Signature':
+        return navigationPush(context, SignatureScreen());
+      case 'Search Item':
+        return navigationPush(context, SearchItem());
+      case 'Collapse Toolbar':
+        return navigationPush(context, CollapseToolbar());
+      case 'WebView':
+        return navigationPush(context, WebViewScreen());
     }
   }
 }

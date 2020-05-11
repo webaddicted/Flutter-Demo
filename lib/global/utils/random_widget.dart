@@ -54,21 +54,23 @@ Widget bgDesign() {
 }
 
 
-Widget selectCountryDropDown(CountryBean country, Function onPressed) => Card(
-  child: InkWell(
-    onTap: onPressed,
-    child: Padding(
-      padding: const EdgeInsets.only(
-          left: 4.0, right: 4.0, top: 12.0, bottom: 12.0),
-      child: Row(
-        children: <Widget>[
-          Expanded(child: Text(' ${country.flag}  ${country.name} ')),
-          Icon(Icons.arrow_drop_down, size: 24.0)
-        ],
+Widget selectCountryDropDown(CountryBean country, Function onPressed) {
+  return Card(
+    child: InkWell(
+      onTap: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.only(
+            left: 4.0, right: 4.0, top: 12.0, bottom: 12.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(child: Text(' ${country.flag}  ${country.name} ')),
+            Icon(Icons.arrow_drop_down, size: 24.0)
+          ],
+        ),
       ),
     ),
-  ),
-);
+  );
+}
 
 Widget selectableWidget(
     CountryBean country, Function(CountryBean) selectThisCountry) =>

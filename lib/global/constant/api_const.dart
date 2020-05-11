@@ -10,5 +10,7 @@ class ApiConst {
   static String DEMO_IMG = 'https://www.goodmorningimagesdownload.com/wp-content/uploads/2019/10/Nice-Whatsapp-Dp-Profile-Images-72-300x267.jpg';
 
   static String FIRESTORE_COLL_USERS = 'Users';
+
+  static var WEB_VIEW_URL = 'https://pub.dev/packages/webview_flutter';
 //  {END URL END POINTS}
 }

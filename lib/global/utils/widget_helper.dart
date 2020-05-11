@@ -444,3 +444,14 @@ Widget getSignupImagePicker(
     ),
   );
 }
+Widget showPbIndicator(bool isLoading) {
+  return new Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: new Center(
+      child: new Opacity(
+        opacity: isLoading ? 1.0 : 00,
+        child: new CircularProgressIndicator(),
+      ),
+    ),
+  );
+}

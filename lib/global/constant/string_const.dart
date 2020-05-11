@@ -2,6 +2,8 @@ class StringConst {
   static const String APP_NAME = 'Flutter Demo';
   static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
 //  static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
+  static String DOWNLOAD = 'download';
+  static String PROFILE = 'profile';
 
   static const String DUMMY_TEXT =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmood tempor inciddidunt ut labore et dolore magna sed do sed do aliqua.';
@@ -36,5 +38,17 @@ class StringConst {
   static String DRAGABLE_BOTTOM_SHEET_TITLE = 'Dragable Bottom Sheet';
   static String IMAGE_PICKER_TITLE = 'Image Picker';
   static String DIALOG_TITLE = 'Dialog';
+  static String GOOGLE_MAP_TITLE = 'Google Map';
+  static String SWIPE_TO_REFRESH_TITLE = 'Swipe To Refresh';
+
+  static String SIGNATURE_TITLE = 'Signature';
+
+  static String SEARCH_TITLE = 'Search';
+
+  static String COLLAPSE_TOOLBAR_TITLE = 'Collapse Toolbar';
+
+  static String WEB_VIEW_TITLE= 'Web View';
+
+
 //  {END TITLE}
 }

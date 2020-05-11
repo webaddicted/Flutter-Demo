@@ -22,12 +22,7 @@ class _MiscWidgetState extends State<MiscWidget> {
   bool _isChecked = false;
   int _radioValue = 0;
   String _resultRb = '';
-  List<CountryBean> _countryBean;
-  StreamController<List<CountryBean>> _countriesStreamController;
-  Stream<List<CountryBean>> _countriesStream;
-  Sink<List<CountryBean>> _countriesSink;
-  TextEditingController _searchCountryController = TextEditingController();
-
+  List<CountryBean> _countryBean= List();
   int _selectedCountryIndex = 30;
 
   @override
@@ -55,6 +50,7 @@ class _MiscWidgetState extends State<MiscWidget> {
               children: <Widget>[
                 _getRatingBarType(),
                 _getOtherWidget(),
+                _chipView(),
               ],
             ),
           ),
@@ -166,7 +162,6 @@ class _MiscWidgetState extends State<MiscWidget> {
             child: child,
           );
         });
-
     setState(() {
       _time = '${picked_s.hour} : ${picked_s.minute} : ${picked_s.period}';
     });
@@ -285,7 +280,10 @@ class _MiscWidgetState extends State<MiscWidget> {
         SizedBox(height: 10),
         _cardView(),
         SizedBox(height: 10),
-        selectCountryDropDown(_countryBean[_selectedCountryIndex], showCountries),
+        (_countryBean == null || _countryBean.length == 0)
+            ? Container()
+            : selectCountryDropDown(
+                _countryBean[_selectedCountryIndex], showCountries),
         SizedBox(height: 10),
       ],
     );
@@ -324,100 +322,164 @@ class _MiscWidgetState extends State<MiscWidget> {
   }
 
   showCountries() {
-    /*
-     * Initialising components required for StreamBuilder
-     * We will not be using _countriesStreamController anywhere, but just to initialize Stream & Sink from that
-     * _countriesStream will give us the data what we need(output) - that will be used in StreamBuilder widget
-     * _countriesSink is the place where we send the data(input)
-     */
-    _countriesStreamController = StreamController();
-    _countriesStream = _countriesStreamController.stream;
-    _countriesSink = _countriesStreamController.sink;
-    _countriesSink.add(_countryBean);
-
-    _searchCountryController.addListener(searchCountries);
-
     showDialog(
         context: context,
-        builder: (BuildContext context) => searchAndPickYourCountryHere(),
+        builder: (BuildContext context) => selectCountry(),
+        //searchAndPickYourCountryHere(),
         barrierDismissible: false);
   }
-  searchCountries() {
-    String query = _searchCountryController.text;
-    if (query.length == 0 || query.length == 1) {
-      if (!_countriesStreamController.isClosed)
-        _countriesSink.add(_countryBean);
-    } else if (query.length >= 2 && query.length <= 5) {
-      List<CountryBean> searchResults = [];
-      searchResults.clear();
-      _countryBean.forEach((CountryBean c) {
-        if (c.toString().toLowerCase().contains(query.toLowerCase()))
-          searchResults.add(c);
-      });
-      _countriesSink.add(searchResults);
-//      print('added few countries based on search ${searchResults.length}');
-    } else {
-      List<CountryBean> searchResults = [];
-      _countriesSink.add(searchResults);
-    }
+
+  Widget _chipView() {
+    return Wrap(
+      spacing: 4.0, // gap between lines
+      children: <Widget>[
+        Chip(
+          elevation: 15,
+          avatar: CircleAvatar(
+              backgroundColor: Colors.orange,
+              child: Text('C', style: TextStyle(color: Colors.white))),
+          label: Text('Cupcake'),
+          backgroundColor: Colors.white,
+        ),
+        Chip(
+          elevation: 15,
+          avatar: CircleAvatar(
+              backgroundColor: Colors.cyanAccent,
+              child: Text('D', style: TextStyle(color: Colors.black45))),
+          label: Text('Donut'),
+          backgroundColor: Colors.white,
+        ),
+        Chip(
+          elevation: 15,
+          avatar: CircleAvatar(
+              backgroundColor: Colors.indigoAccent,
+              child: Text('E', style: TextStyle(color: Colors.white))),
+          label: Text('Eclair'),
+          backgroundColor: Colors.white,
+        ),
+        Chip(
+          elevation: 15,
+          avatar: CircleAvatar(
+              backgroundColor: Colors.yellowAccent,
+              child: Text('F', style: TextStyle(color: Colors.black45))),
+          label: Text('Froyo'),
+          backgroundColor: Colors.white,
+        )
+      ],
+    );
   }
-  Widget searchAndPickYourCountryHere() => WillPopScope(
-        onWillPop: () => Future.value(false),
-        child: Dialog(
-          key: Key('SearchCountryDialog'),
-          elevation: 8.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-          child: Container(
-            margin: const EdgeInsets.all(5.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                searchCountry(_searchCountryController),
-                SizedBox(
-                  height: 300.0,
-                  child: StreamBuilder<List<CountryBean>>(
-                      stream: _countriesStream,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          // print(snapshot.data.length);
-                          return snapshot.data.length == 0
-                              ? Center(
-                                  child: Text('Your search found no results',
-                                      style: TextStyle(fontSize: 16.0)),
-                                )
-                              : ListView.builder(
-                                  itemCount: snapshot.data.length,
-                                  itemBuilder: (BuildContext context, int i) =>
-                                      selectableWidget(
-                                          snapshot.data[i],
-                                          (CountryBean c) =>
-                                              selectThisCountry(c)),
-                                );
-                        } else if (snapshot.hasError)
-                          return Center(
-                            child: Text('Seems, there is an error',
-                                style: TextStyle(fontSize: 16.0)),
-                          );
-                        return Center(child: CircularProgressIndicator());
-                      }),
-                )
-              ],
-            ),
+
+  Widget selectCountry() {
+    List<CountryBean> _searchResult = List();
+
+    TextEditingController _searchCountryController = TextEditingController();
+    return WillPopScope(
+      onWillPop: () => Future.value(false),
+      child: Dialog(
+        key: Key('SearchCountryDialog'),
+        elevation: 8.0,
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          margin: const EdgeInsets.all(5.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 8.0, top: 8.0, bottom: 2.0, right: 8.0),
+                child: Card(
+                  child: TextFormField(
+//                      autofocus: true,
+                    controller: _searchCountryController,
+                    onChanged: (text) {
+//                      _searchResult.clear();
+                      if (text.isEmpty) {
+                        setState(() {});
+                        return;
+                      }
+                      _countryBean.forEach((userDetail) {
+                        if (userDetail.name.toLowerCase().contains(
+                            text.toLowerCase()) ||
+                            userDetail.dialCode.toString().contains(text))
+                          _searchResult.add(userDetail);
+                      });
+                      setState(() {});
+                    }, // onSearchTextChanged,
+                    decoration: InputDecoration(
+                        hintText: 'Search your country',
+                        contentPadding: const EdgeInsets.only(
+                            left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
+                        border: InputBorder.none),
+                  ),
+                ),
+              ),
+              Expanded(
+                  child: _searchResult.length != 0 ||
+                      _searchCountryController.text.isNotEmpty
+                      ? _buildSearchResults(_searchResult)
+                      : _buildSearchResults(_countryBean)),
+            ],
           ),
         ),
-      );
+      ),
+    );
+  }
+//  onSearchTextChanged(String text) async {
+//    _searchResult.clear();
+//    if (text.isEmpty) {
+//      setState(() {});
+//      return;
+//    }
+//
+//    _countryBean.forEach((userDetail) {
+//      if (userDetail.name.toLowerCase().contains(text.toLowerCase()) ||
+//          userDetail.dialCode.toString().contains(text))
+//        _searchResult.add(userDetail);
+//    });
+//
+//    setState(() {});
+//  }
 
+  Widget _buildSearchResults(List<CountryBean> country) {
+    return new ListView.builder(
+      itemCount: country.length,
+      itemBuilder: (context, index) {
+        return  Material(
+          color: Colors.white,
+          type: MaterialType.canvas,
+          child: InkWell(
+            onTap: () => selectThisCountry(country[index]), //selectThisCountry(country),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 10.0, right: 10.0, top: 10.0, bottom: 10.0),
+              child: Text(
+                "  " +
+                    country[index].flag +
+                    "  " +
+                    country[index].name +
+                    " (" +
+                    country[index].dialCode +
+                    ")",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
   void selectThisCountry(CountryBean country) {
     print(country);
-    _searchCountryController.clear();
     Navigator.of(context).pop();
     Future.delayed(Duration(milliseconds: 10)).whenComplete(() {
-      _countriesStreamController.close();
-      _countriesSink.close();
       setState(() {
         _selectedCountryIndex = _countryBean.indexOf(country);
       });
     });
   }
+
 }

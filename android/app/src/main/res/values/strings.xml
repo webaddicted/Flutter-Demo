@@ -3,4 +3,5 @@
     <string name="app_name">Flutter Demo</string>
     <string name="facebook_app_id">466359743713130</string>
     <string name="fb_login_protocol_scheme">fb1343643482425305</string>
+    <string name="google_key">AIzaSyAbO1hDRhhQKHs945QBsNt0yCzBXG3X5Fk</string>
 </resources>
