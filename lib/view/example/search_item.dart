@@ -112,6 +112,7 @@ class _SearchItemState extends State<SearchItem> {
 
   onSearchTextChanged(String text) async {
     _searchResult.clear();
+    print('Search text - '+ text);
     if (text.isEmpty) {
       setState(() {});
       return;

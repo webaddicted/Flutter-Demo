@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-
+<!--30    29    28-->
     <application
         android:name=".AppApplication"
         android:icon="@mipmap/ic_launcher"

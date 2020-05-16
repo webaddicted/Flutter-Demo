@@ -42,6 +42,7 @@ class _MiscWidgetState extends State<MiscWidget> {
 
   Widget _createUi(BuildContext context) {
     _ctx = context;
+    print('Start page : ');
     return new Container(
         padding: EdgeInsets.all(5.0),
         child: new Center(
@@ -321,14 +322,6 @@ class _MiscWidgetState extends State<MiscWidget> {
     setState(() {});
   }
 
-  showCountries() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) => selectCountry(),
-        //searchAndPickYourCountryHere(),
-        barrierDismissible: false);
-  }
-
   Widget _chipView() {
     return Wrap(
       spacing: 4.0, // gap between lines
@@ -368,14 +361,26 @@ class _MiscWidgetState extends State<MiscWidget> {
       ],
     );
   }
+  showCountries() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) => selectCountry(),
+        //searchAndPickYourCountryHere(),
+//        barrierDismissible: false
+    );
 
+//    showDialog(
+//        context: context,
+//        builder: (_) {
+//          return MyDialog();
+//        });
+
+  }
   Widget selectCountry() {
     List<CountryBean> _searchResult = List();
-
+    print("Dialog Start");
     TextEditingController _searchCountryController = TextEditingController();
-    return WillPopScope(
-      onWillPop: () => Future.value(false),
-      child: Dialog(
+    return Dialog(
         key: Key('SearchCountryDialog'),
         elevation: 8.0,
         shape:
@@ -393,6 +398,7 @@ class _MiscWidgetState extends State<MiscWidget> {
 //                      autofocus: true,
                     controller: _searchCountryController,
                     onChanged: (text) {
+                      print('on Change : '+text);
 //                      _searchResult.clear();
                       if (text.isEmpty) {
                         setState(() {});
@@ -422,8 +428,7 @@ class _MiscWidgetState extends State<MiscWidget> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 //  onSearchTextChanged(String text) async {
 //    _searchResult.clear();
@@ -442,6 +447,7 @@ class _MiscWidgetState extends State<MiscWidget> {
 //  }
 
   Widget _buildSearchResults(List<CountryBean> country) {
+    print('List : ');
     return new ListView.builder(
       itemCount: country.length,
       itemBuilder: (context, index) {
