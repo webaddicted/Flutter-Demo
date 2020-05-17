@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/example/api_data.dart';
+import 'package:flutterbeginner/view/example/barcode_scanner.dart';
 import 'package:flutterbeginner/view/example/bothside_nav_drawer.dart';
 import 'package:flutterbeginner/view/example/bottom_navigation.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
@@ -13,12 +14,14 @@ import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/collapse_toolbar.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
+import 'package:flutterbeginner/view/example/download_file_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
 import 'package:flutterbeginner/view/example/login_page.dart';
 import 'package:flutterbeginner/view/example/nav_drawer.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
+import 'package:flutterbeginner/view/example/push_noti.dart';
 import 'package:flutterbeginner/view/example/search_item.dart';
 import 'package:flutterbeginner/global/customview/signature.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
@@ -27,6 +30,7 @@ import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
 import 'package:flutterbeginner/view/example/tab_bar.dart';
+import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
@@ -131,6 +135,10 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('Search Item');
     allTaskBean.add('Collapse Toolbar');
     allTaskBean.add('WebView');
+    allTaskBean.add('Barcode Scanner');
+    allTaskBean.add('Video Player');
+    allTaskBean.add('Download File');
+    allTaskBean.add('Push Notification');
 
     return allTaskBean;
   }
@@ -207,6 +215,14 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, CollapseToolbar());
       case 'WebView':
         return navigationPush(context, WebViewScreen());
+      case 'Barcode Scanner':
+        return navigationPush(context, BarcodeScannerScreen());
+      case 'Video Player':
+        return navigationPush(context, VideoPlayerScreen());
+      case 'Download File':
+        return navigationPush(context, DownloadFileScreen());
+      case 'Push Notification':
+        return navigationPush(context, PushNoti());
     }
   }
 }

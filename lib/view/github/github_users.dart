@@ -1,10 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
-import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/github/git_user_bean.dart';
-import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'git_user_info.dart';

@@ -15,3 +15,17 @@ createApplicationFolder() async {
     print(exp);
   }
 }
+
+Future<File> getDownloadFile(String fileName)async{
+  File fileUrl;
+  try {
+    final directory = await getExternalStorageDirectory();
+    String appName = StringConst.APP_NAME;
+    String download = StringConst.DOWNLOAD;
+    final dir = Directory('${directory.path}/$appName/$download');
+    fileUrl = File("${dir.path}/$fileName");
+  } catch (exp) {
+    print(exp);
+  }
+  return fileUrl;
+  }

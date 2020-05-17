@@ -40,14 +40,15 @@ class StringConst {
   static String DIALOG_TITLE = 'Dialog';
   static String GOOGLE_MAP_TITLE = 'Google Map';
   static String SWIPE_TO_REFRESH_TITLE = 'Swipe To Refresh';
-
   static String SIGNATURE_TITLE = 'Signature';
-
   static String SEARCH_TITLE = 'Search';
-
   static String COLLAPSE_TOOLBAR_TITLE = 'Collapse Toolbar';
-
   static String WEB_VIEW_TITLE= 'Web View';
+  static String BAR_CODE_TITLE = 'Barcode Scanner';
+  static String VIDEO_PLAYER_TITLE = 'Video Player';
+  static String DOWNLOAD_FILE_TITLE = 'Download File';
+
+  static String PUSH_NOTIFICATION_TITLE = 'Push Notification';
 
 
 //  {END TITLE}

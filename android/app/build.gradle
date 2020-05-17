@@ -45,7 +45,13 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+//    subprojects {
+//        gradle.projectsEvaluated {
+//            tasks.withType(JavaCompile) {
+//                options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+//            }
+//        }
+//    }
     buildTypes {
         release {
             // Signing with the debug keys for now, so `flutter run --release` works.
@@ -63,6 +69,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.google.firebase:firebase-messaging:20.1.6'
+    implementation 'com.google.firebase:firebase-messaging:20.1.7'
 }
 apply plugin: 'com.google.gms.google-services'
