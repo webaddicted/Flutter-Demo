@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/file_utils.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:path_provider/path_provider.dart';
 
 class DownloadFileScreen extends StatefulWidget {
   @override
@@ -81,11 +82,11 @@ class _DownloadFileScreenState extends State<DownloadFileScreen> {
     try {
 //      var dir = await getExternalStorageDirectory();
       fileUrl = await getDownloadFile('fileName.jpg');
-//      if (fileUrl.exists() != null) {
-//        downloading = false;
-//        setState(() {});
-//        return;
-//      }
+      if (fileUrl.exists() != null) {
+        downloading = false;
+        setState(() {});
+        return;
+      }
       String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
       Dio dio = Dio();
       print('fileName   :  ' + fileName + '\n\n' + fileUrl.path);

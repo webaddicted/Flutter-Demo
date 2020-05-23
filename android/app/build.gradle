@@ -45,13 +45,6 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-//    subprojects {
-//        gradle.projectsEvaluated {
-//            tasks.withType(JavaCompile) {
-//                options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
-//            }
-//        }
-//    }
     buildTypes {
         release {
             // Signing with the debug keys for now, so `flutter run --release` works.

@@ -6,6 +6,7 @@ import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/countries_bean.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:math';
 
 Color colorFromHex(String hexColor) {
   final hexCode = hexColor.replaceAll('#', '');
@@ -67,3 +68,8 @@ Future getImageFromCamera(
   selectedfile(image);
 }
 //{END IMAGE PICKER}
+
+int randomNumber(){
+  Random random = new Random();
+  return random.nextInt(1000);
+}

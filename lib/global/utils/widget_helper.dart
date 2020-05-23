@@ -350,7 +350,7 @@ Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
   );
 }
 
-Widget raisedBtn(String txt, Function btnClick) => ButtonTheme(
+Widget raisedBtn(String txt, VoidCallback btnClick) => ButtonTheme(
 //    minWidth: double.infinity,
       height: 40,
       child: RaisedButton(
