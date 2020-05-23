@@ -51,6 +51,8 @@ dependencies:
   barcode_scan: ^3.0.1
   video_player: ^0.10.11
   flutter_local_notifications: ^1.4.3
+  contacts_service: ^0.4.6
+
 
 dev_dependencies:
   flutter_test:

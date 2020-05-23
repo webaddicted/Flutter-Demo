@@ -10,12 +10,16 @@ import 'package:flutterbeginner/view/example/bottom_navigation.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
+import 'package:flutterbeginner/view/example/call_log_screen.dart';
 import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/collapse_toolbar.dart';
+import 'package:flutterbeginner/view/example/contact_screen.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
+import 'package:flutterbeginner/view/example/document_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
+import 'package:flutterbeginner/view/example/image_screen.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
 import 'package:flutterbeginner/view/example/login_page.dart';
@@ -25,12 +29,14 @@ import 'package:flutterbeginner/view/example/push_noti.dart';
 import 'package:flutterbeginner/view/example/search_item.dart';
 import 'package:flutterbeginner/global/customview/signature.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
+import 'package:flutterbeginner/view/example/sms_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
 import 'package:flutterbeginner/view/example/tab_bar.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
+import 'package:flutterbeginner/view/example/video_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
@@ -139,6 +145,12 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('Video Player');
     allTaskBean.add('Download File');
     allTaskBean.add('Push Notification');
+    allTaskBean.add('All Contacts');
+    allTaskBean.add('All SMS');
+    allTaskBean.add('All Images');
+    allTaskBean.add('All Videos');
+    allTaskBean.add('All Documents');
+    allTaskBean.add('All Call Log');
 
     return allTaskBean;
   }
@@ -223,6 +235,18 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, DownloadFileScreen());
       case 'Push Notification':
         return navigationPush(context, PushNoti());
+      case 'All Contacts':
+        return navigationPush(context, ContactScreen());
+      case 'All SMS':
+        return navigationPush(context, SmsScreen());
+      case 'All Images':
+        return navigationPush(context, ImageScreen());
+      case 'All Videos':
+        return navigationPush(context, VideoScreen());
+      case 'All Documents':
+        return navigationPush(context, DocumentScreen());
+      case 'All Call Log':
+        return navigationPush(context, CallLogScreen());
     }
   }
 }

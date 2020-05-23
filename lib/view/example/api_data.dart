@@ -16,24 +16,33 @@ class ApiScreen extends StatefulWidget {
 
 class _ApiScreenState extends State<ApiScreen> {
   List dataResult;
-
   BuildContext ctx;
-
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
     callApi();
   }
 
+  Widget _buildProgressIndicator() {
+    return new Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Center(
+        child: new Opacity(
+          opacity: isLoading ? 1.0 : 00,
+          child: new CircularProgressIndicator(),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-        getAppBarWithBackBtn(context, StringConst.CORONA_REPORT_TITLE),
+        appBar: getAppBarWithBackBtn(context, StringConst.CORONA_REPORT_TITLE),
         body: Builder(
           builder: (context) => _createUi(context),
-        )
-    );
+        ));
   }
 
   Widget _createUi(BuildContext context) {
@@ -42,7 +51,10 @@ class _ApiScreenState extends State<ApiScreen> {
       child: new ListView.builder(
           itemCount: dataResult == null ? 0 : dataResult.length,
           itemBuilder: (BuildContext context, int index) {
-            return createRow(index);
+            if (index == dataResult.length)
+              return _buildProgressIndicator();
+            else
+              return createRow(index);
           }),
     );
   }
@@ -103,7 +115,7 @@ class _ApiScreenState extends State<ApiScreen> {
     );
   }
 
-   callApi() async {
+  callApi() async {
     var response = await http
         .get(ApiConst.CORONA_URL, headers: {"Accept": "application/json"});
     setState(() {
@@ -111,7 +123,8 @@ class _ApiScreenState extends State<ApiScreen> {
         debugPrint(response.body);
         var coronaRespo = CoronaRespo.fromJson(jsonDecode(response.body));
         var converData = jsonDecode(response.body);
-        debugPrint("Print Respo  :  "+coronaRespo.global.newConfirmed.toString());
+        debugPrint(
+            "Print Respo  :  " + coronaRespo.global.newConfirmed.toString());
         dataResult = converData["Countries"];
       } else {
         throw Exception('Unable to fetch products from the REST API');

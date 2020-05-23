@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
+import 'package:flutterbeginner/view/alltask/all_task.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -150,6 +151,7 @@ class _PushNotiState extends State<PushNoti> {
       if (payload != null) {
         debugPrint('notification payload: ' + payload);
       }
+      navigationStateLessPush(context, ALLTask());
 //    selectNotificationSubject.add(payload);
     });
   }

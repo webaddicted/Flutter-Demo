@@ -128,7 +128,34 @@ String _getPlaceHolder(int placeHolderPos) {
       return AssetsConst.LOGO_IMG;
   }
 }
+ClipRRect loadCircleImgName(String imgUrl,String name, int placeHolderPos, double radius) {
+  Widget circleType;
+  if(imgUrl!=null){
+    circleType =new FadeInImage.assetNetwork(
+        height: radius,
+        width: radius,
+        fit: BoxFit.fill,
+        placeholder: _getPlaceHolder(placeHolderPos),
+        image: imgUrl);
+  }else {
+    circleType = CircleAvatar(
+      radius: radius,
+      backgroundColor: ColorConst.APP_COLOR,
+      child: new Text(
+        name.toUpperCase()[0],
+        style: new TextStyle(
+            fontSize: 20,
+            color: ColorConst.WHITE_COLOR,
+            fontWeight: FontWeight.bold),
+      ),
+    );
+  }
 
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(radius),
+    child: circleType
+  );
+}
 //  {END LOAD IMAGE}
 
 Divider getDivider() {
@@ -353,7 +380,10 @@ Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
 Widget raisedBtn(String txt, VoidCallback btnClick) => ButtonTheme(
 //    minWidth: double.infinity,
 //      height: 40,
+  padding:
+  EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
       child: RaisedButton(
+        padding: EdgeInsets.all(5.0),
         color: ColorConst.APP_COLOR,
         child: getTxtWhiteColor(txt, 15, FontWeight.bold),
         onPressed: btnClick,

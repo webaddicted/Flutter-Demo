@@ -47,9 +47,14 @@ class StringConst {
   static String BAR_CODE_TITLE = 'Barcode Scanner';
   static String VIDEO_PLAYER_TITLE = 'Video Player';
   static String DOWNLOAD_FILE_TITLE = 'Download File';
-
   static String PUSH_NOTIFICATION_TITLE = 'Push Notification';
 
+  static String CONTACT_TITLE = 'Contacts';
+  static String SMS_TITLE = 'SMS';
+  static String ALL_IMAGE_TITLE = 'All Images';
+  static String VIDEO_TITLE = 'All Videos';
+  static String DOCUMENTS_TITLE = 'All Documents';
+  static String CALL_LOG_TITLE = 'Call Logs';
 
 //  {END TITLE}
 }

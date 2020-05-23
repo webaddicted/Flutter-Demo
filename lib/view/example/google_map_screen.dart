@@ -15,7 +15,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   BuildContext _ctx;
   Completer<GoogleMapController> _controller = Completer();
   final Set<Marker> _markers = {};
-  LatLng _center = LatLng(45.521563, -122.677433);
+  LatLng _center = LatLng(28.5598963, 77.34288200000003);
   Position currentLocation;
 
   void _onMapCreated(GoogleMapController controller) {
@@ -32,7 +32,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
           getUserLocation();
         },
         child: Icon(
-          Icons.location_disabled,
+          Icons.location_searching,
           color: Colors.white,
         ),
       ),
@@ -64,10 +64,26 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     );
   }
 
-  LatLng _lastMapPosition = LatLng(45.521563, -122.677433);
+  LatLng _lastMapPosition = LatLng(28.5598963, 77.34288200000003);
 
-  void _onCamMove(CameraPosition position) {
-    _lastMapPosition = position.target;
+  void _onCamMove(CameraPosition _position) {
+    _lastMapPosition = _position.target;
+    Position newMarkerPosition = Position(
+        latitude: _position.target.latitude,
+        longitude: _position.target.longitude);
+    setState(() {
+      _markers.add(Marker(
+        markerId: MarkerId(_lastMapPosition.toString()),
+        position: _center,
+        infoWindow: InfoWindow(
+          title: 'Hello here testing',
+          snippet: 'Super!',
+        ),
+        icon: BitmapDescriptor.defaultMarker,
+      ));
+//      markers["1"] = marker.copyWith(
+//          positionParam: LatLng(newMarkerPosition.latitude, newMarkerPosition.longitude));
+    });
   }
 
   Future<Position> locateUser() async {
