@@ -84,6 +84,14 @@ In this repo we cover all the basic topic which are require to work on flutter.
 26) Dragable bottom sheet
 27) Image Picker
 28) Dialog(Normal/Custom)
+29) Google map
+30) Signature
+31) Webview
+32) Collapse toolbar 
+33) Video Player
+34) Barcode scanner
+35) Download File
+36) Local Notification
 
 Beautiful UI design
 https://github.com/lohanidamodar/flutter_ui_challenges
