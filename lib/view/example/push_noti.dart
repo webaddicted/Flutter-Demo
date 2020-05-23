@@ -44,6 +44,7 @@ class _PushNotiState extends State<PushNoti> {
     _ctx = context;
     return new Container(
       alignment: Alignment.center,
+      padding: EdgeInsets.only(left: 15, right: 15),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
