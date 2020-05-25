@@ -16,7 +16,7 @@ createApplicationFolder() async {
   }
 }
 
-Future<File> getDownloadFile(String fileName)async{
+Future<File> getDownloadFile(String fileName) async {
   File fileUrl;
   try {
     final directory = await getExternalStorageDirectory();
@@ -28,4 +28,7 @@ Future<File> getDownloadFile(String fileName)async{
     print(exp);
   }
   return fileUrl;
-  }
+}
+String getFileName(String fileUrl){
+  return fileUrl.split('/').last;
+}

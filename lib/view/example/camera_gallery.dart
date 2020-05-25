@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/view/local/image/full_image.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CameraGallery extends StatefulWidget {
@@ -33,10 +34,16 @@ class _CameraGalleryState extends State<CameraGallery> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-          imageURI == null
-              ? Text('No image selected.')
-              : Image.file(imageURI,
-                  width: 300, height: 200, fit: BoxFit.cover),
+          GestureDetector(
+            onTap: (){
+              if(imageURI != null)
+              navigationPush(context, FullImage(null, imageURI));
+            },
+            child: imageURI == null
+                ? Text('No image selected.')
+                : Image.file(imageURI,
+                    width: 300, height: 200, fit: BoxFit.cover),
+          ),
           RaisedButton(
             onPressed: () => getImageFromCamera(),
             child: Text('Capture Image'),

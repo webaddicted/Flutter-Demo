@@ -9,19 +9,19 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class DocumentScreen extends StatefulWidget {
+class CallLogScreen extends StatefulWidget {
   @override
-  _DocumentScreenState createState() => _DocumentScreenState();
+  _CallLogScreenState createState() => _CallLogScreenState();
 }
 
-class _DocumentScreenState extends State<DocumentScreen> {
+class _CallLogScreenState extends State<CallLogScreen> {
   BuildContext _ctx;
   var listData = List();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, StringConst.DOCUMENTS_TITLE),
+      appBar: getAppBarWithBackBtn(context, StringConst.CONTACT_TITLE),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.youtube_searched_for), onPressed: () {}),
       body: Builder(builder: (_context) => _createUi(_context)),
@@ -31,20 +31,15 @@ class _DocumentScreenState extends State<DocumentScreen> {
   Widget _createUi(BuildContext context) {
     _ctx = context;
     return new Container(
-      alignment: Alignment.center,
-      child: Column(
-        children: [
-          ListView.builder(
-            itemCount: listData.length,
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0)
-                return showPbIndicator(true);
-              else
-                return Container();
-            },
-          )
-        ],
-      ),
-    );
+        alignment: Alignment.center,
+        child: ListView.builder(
+          itemCount: listData.length,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0)
+              return showPbIndicator(true);
+            else
+              return Container();
+          },
+        ));
   }
 }

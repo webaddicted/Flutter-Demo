@@ -9,19 +9,19 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class VideoScreen extends StatefulWidget {
+class DocumentScreen extends StatefulWidget {
   @override
-  _VideoScreenState createState() => _VideoScreenState();
+  _DocumentScreenState createState() => _DocumentScreenState();
 }
 
-class _VideoScreenState extends State<VideoScreen> {
+class _DocumentScreenState extends State<DocumentScreen> {
   BuildContext _ctx;
   var listData = List();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, StringConst.VIDEO_TITLE),
+      appBar: getAppBarWithBackBtn(context, StringConst.DOCUMENTS_TITLE),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.youtube_searched_for), onPressed: () {}),
       body: Builder(builder: (_context) => _createUi(_context)),
@@ -32,8 +32,7 @@ class _VideoScreenState extends State<VideoScreen> {
     _ctx = context;
     return new Container(
       alignment: Alignment.center,
-      child: Column(
-        children: [
+      child:
           ListView.builder(
             itemCount: listData.length,
             itemBuilder: (BuildContext context, int index) {
@@ -43,8 +42,6 @@ class _VideoScreenState extends State<VideoScreen> {
                 return Container();
             },
           )
-        ],
-      ),
     );
   }
 }

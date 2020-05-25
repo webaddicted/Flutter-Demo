@@ -6,6 +6,7 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/fcm_home_bean.dart';
+import 'package:flutterbeginner/view/local/image/full_image.dart';
 
 class FcmHome extends StatefulWidget {
   @override
@@ -63,21 +64,8 @@ class _FcmHomeState extends State<FcmHome> {
     } else {
       return StaggeredGridView.countBuilder(
         crossAxisCount: 4,
-        itemCount: 10,
-        itemBuilder: (BuildContext context, int index) =>
-            Column(
-              children: <Widget>[
-                SizedBox(height: 20,),
-                loadCircleImg(
-                    fcmCatBean[index].image, 0, index % 2 == 0 ? 180 : 130),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: getTxtBlackCenterColor(
-                      fcmCatBean[index].name, 18, FontWeight.bold),
-                ),
-              ],
-            ),
-
+        itemCount: fcmCatBean.length,
+        itemBuilder: (BuildContext context, int index) => fmHomeRow(fcmCatBean[index], index),
         staggeredTileBuilder: (int index) =>
         new StaggeredTile.fit(2),
         mainAxisSpacing: 4.0,
@@ -91,6 +79,27 @@ class _FcmHomeState extends State<FcmHome> {
       child: new Center(
         child: new CircularProgressIndicator(),
       ),
+    );
+  }
+
+  Widget fmHomeRow(FcmHomeBean fcmCatBean, int index) {
+    return  Column(
+      children: <Widget>[
+        SizedBox(height: 20,),
+        GestureDetector(
+          onTap: (){
+            if(fcmCatBean.image != null)
+              navigationPush(context, FullImage(fcmCatBean.image, null));
+          },
+          child: loadCircleImg(
+              fcmCatBean.image, 0, index % 2 == 0 ? 180 : 130),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: getTxtBlackCenterColor(
+              fcmCatBean.name, 18, FontWeight.bold),
+        ),
+      ],
     );
   }
 }

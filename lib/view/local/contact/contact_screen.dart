@@ -64,14 +64,16 @@ class _ContactScreenState extends State<ContactScreen> {
           children: <Widget>[
            loadCircleImgName(null, deviceContact.displayName, 0, 35),
             Padding(padding: EdgeInsets.only(left: 10)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                getTxt(deviceContact.displayName, FontWeight.bold),
-                SizedBox(height: 10),
-                getTxt(deviceContact.phones.toList()[0].value, FontWeight.normal),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  getTxt(deviceContact.displayName, FontWeight.bold),
+                  SizedBox(height: 10),
+                  getTxt(deviceContact.phones.length>0?deviceContact.phones.toList()[0].value:'', FontWeight.normal),
+                ],
+              ),
             )
           ],
         ),

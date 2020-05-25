@@ -68,7 +68,9 @@ AppBar getAppBarWithBackBtn(BuildContext context, String title) {
     ),
   );
 }
-AppBar getAppBarColorWithBackBtn(BuildContext context, String title, Color bgColor) {
+
+AppBar getAppBarColorWithBackBtn(
+    BuildContext context, String title, Color bgColor) {
   return AppBar(
     backgroundColor: bgColor,
     leading: new IconButton(
@@ -120,6 +122,22 @@ ClipRRect loadCircleImg(String imgUrl, int placeHolderPos, double radius) {
   );
 }
 
+ClipRRect loadCircleIcon(
+    IconData iconData, Color colors, Color bgColors, double radius) {
+  return ClipRRect(
+      borderRadius: BorderRadius.circular(radius),
+      child: CircleAvatar(
+          radius: radius,
+          backgroundColor: bgColors,
+          child: IconButton(
+            icon: Icon(
+              iconData,
+              size: radius - 5.0,
+              color: colors,
+            ),
+          )));
+}
+
 String _getPlaceHolder(int placeHolderPos) {
   switch (placeHolderPos) {
     case 0:
@@ -128,16 +146,18 @@ String _getPlaceHolder(int placeHolderPos) {
       return AssetsConst.LOGO_IMG;
   }
 }
-ClipRRect loadCircleImgName(String imgUrl,String name, int placeHolderPos, double radius) {
+
+ClipRRect loadCircleImgName(
+    String imgUrl, String name, int placeHolderPos, double radius) {
   Widget circleType;
-  if(imgUrl!=null){
-    circleType =new FadeInImage.assetNetwork(
+  if (imgUrl != null) {
+    circleType = new FadeInImage.assetNetwork(
         height: radius,
         width: radius,
         fit: BoxFit.fill,
         placeholder: _getPlaceHolder(placeHolderPos),
         image: imgUrl);
-  }else {
+  } else {
     circleType = CircleAvatar(
       radius: radius,
       backgroundColor: ColorConst.APP_COLOR,
@@ -152,9 +172,7 @@ ClipRRect loadCircleImgName(String imgUrl,String name, int placeHolderPos, doubl
   }
 
   return ClipRRect(
-    borderRadius: BorderRadius.circular(radius),
-    child: circleType
-  );
+      borderRadius: BorderRadius.circular(radius), child: circleType);
 }
 //  {END LOAD IMAGE}
 
@@ -211,7 +229,9 @@ Text getTxtGreyColor(String message, double fontsSize, FontWeight fontsWeight) {
         : _getFontSizeStyle(ColorConst.GREY_COLOR, fontsSize, fontsWeight),
   );
 }
-Text getTxtGreyCenterColor(String message, double fontsSize, FontWeight fontsWeight) {
+
+Text getTxtGreyCenterColor(
+    String message, double fontsSize, FontWeight fontsWeight) {
   return Text(
     message,
     textAlign: TextAlign.center,
@@ -220,6 +240,7 @@ Text getTxtGreyCenterColor(String message, double fontsSize, FontWeight fontsWei
         : _getFontSizeStyle(ColorConst.GREY_COLOR, fontsSize, fontsWeight),
   );
 }
+
 Text getTxtBlackCenterColor(
     String message, double fontsSize, FontWeight fontsWeight) {
   return Text(
@@ -380,8 +401,7 @@ Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
 Widget raisedBtn(String txt, VoidCallback btnClick) => ButtonTheme(
 //    minWidth: double.infinity,
 //      height: 40,
-  padding:
-  EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
+      padding: EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
       child: RaisedButton(
         padding: EdgeInsets.all(5.0),
         color: ColorConst.APP_COLOR,
@@ -389,29 +409,29 @@ Widget raisedBtn(String txt, VoidCallback btnClick) => ButtonTheme(
         onPressed: btnClick,
       ),
     );
+
 Widget raisedRoundBtn(String txt, Function btnClick) => ButtonTheme(
-    minWidth: double.infinity,
-  height: 45,
-  child: RaisedButton(
-    shape: StadiumBorder(),
-    color: ColorConst.FCM_APP_COLOR,
-    child: getTxtWhiteColor(txt, 15, FontWeight.bold),
-    onPressed: btnClick,
-  ),
-);
+      minWidth: double.infinity,
+      height: 45,
+      child: RaisedButton(
+        shape: StadiumBorder(),
+        color: ColorConst.FCM_APP_COLOR,
+        child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+        onPressed: btnClick,
+      ),
+    );
+
 Widget raisedRoundAppColorBtn(String txt, Function btnClick) => ButtonTheme(
 //  minWidth: double.infinity,
-  height: 45,
-  child: RaisedButton(
-    padding:
-    EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
-    shape: StadiumBorder(),
-    color: ColorConst.APP_COLOR,
-    child: getTxtWhiteColor(txt, 15, FontWeight.bold),
-    onPressed: btnClick,
-  ),
-);
-
+      height: 45,
+      child: RaisedButton(
+        padding: EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
+        shape: StadiumBorder(),
+        color: ColorConst.APP_COLOR,
+        child: getTxtWhiteColor(txt, 15, FontWeight.bold),
+        onPressed: btnClick,
+      ),
+    );
 
 Widget getSignupImagePicker(
     double imageSize, File filePath, Function imagePickDialog) {
@@ -430,7 +450,7 @@ Widget getSignupImagePicker(
 //                topRight: const Radius.circular(40.0),
 //              )
             borderRadius:
-            new BorderRadius.all(new Radius.circular(imageSize / 2)),
+                new BorderRadius.all(new Radius.circular(imageSize / 2)),
             border: new Border.all(
               color: ColorConst.FCM_APP_COLOR,
               width: 4.0,
@@ -440,23 +460,24 @@ Widget getSignupImagePicker(
               child: filePath != null
                   ? Image.file(filePath, fit: BoxFit.cover)
                   : IconButton(
-                icon: Icon(
-                  Icons.person,
-                  size: imageSize / 1.2,
-                  color: Colors.grey,
-                ),
-                onPressed: () {},
-              )),
+                      icon: Icon(
+                        Icons.person,
+                        size: imageSize / 1.2,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {},
+                    )),
         ),
         Container(
             alignment: Alignment.bottomRight,
-            child:  Container(
+            child: Container(
               width: 45,
               height: 45,
               alignment: Alignment.bottomRight,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: new BorderRadius.all(new Radius.circular(imageSize / 2)),
+                borderRadius:
+                    new BorderRadius.all(new Radius.circular(imageSize / 2)),
                 border: new Border.all(
                   color: ColorConst.FCM_APP_COLOR,
                   width: 2.0,
@@ -474,6 +495,7 @@ Widget getSignupImagePicker(
     ),
   );
 }
+
 Widget showPbIndicator(bool isLoading) {
   return new Padding(
     padding: const EdgeInsets.all(8.0),
