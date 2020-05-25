@@ -1,9 +1,12 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_video_bean.dart';
+import 'package:flutterbeginner/view/local/image/image_folder.dart';
+import 'package:flutterbeginner/view/local/video/video_folder.dart';
 import 'package:storage_path/storage_path.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -24,6 +27,7 @@ class _VideoScreenState extends State<VideoScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: getAppBarWithBackBtn(context, StringConst.VIDEO_TITLE),
       floatingActionButton: FloatingActionButton(
@@ -44,7 +48,7 @@ class _VideoScreenState extends State<VideoScreen> {
           crossAxisCount: 4,
           itemCount: listData.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container();
+            return allVideoRow(listData[index], index);
           },
           staggeredTileBuilder: (int index) => StaggeredTile.fit(3),
           mainAxisSpacing: 4.0,
@@ -55,7 +59,7 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget allVideoRow(DeviceVideoBean videoBean, int index) {
     return GestureDetector(
       onTap: () {
-        navigationPush(context, ImageFolder(videoBean));
+        navigationPush(context, VideoFolder(videoBean));
       },
       child: Card(
         child: Column(
@@ -83,8 +87,6 @@ class _VideoScreenState extends State<VideoScreen> {
     listData = imageList
         .map<DeviceVideoBean>((json) => DeviceVideoBean.fromJson(json))
         .toList();
-    showSnackBar(_ctx, listData[0].folderName);
-    print("object   :  " + listData.length.toString());
     setState(() {});
   }
 }

@@ -30,7 +30,7 @@ class _ImageScreenState extends State<ImageScreen> {
     return Scaffold(
       appBar: getAppBarWithBackBtn(context, StringConst.ALL_IMAGE_TITLE),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.youtube_searched_for),
+          child: Icon(Icons.refresh),
           onPressed: () {
             getAllImage();
           }),
@@ -84,14 +84,8 @@ class _ImageScreenState extends State<ImageScreen> {
     String imagePath = await StoragePath.imagesPath;
     var response = jsonDecode(imagePath);
     var imageList = response as List;
-    List<DeviceImageBean> list =
+    listData =
     imageList.map<DeviceImageBean>((json) => DeviceImageBean.fromJson(json)).toList();
-    showSnackBar(_ctx, list[1].folderName);
-    print('jhg :  '+list[1].folderName);
-    jsonDecode(imagePath).forEach((v) {
-      List<String> imgFiles = v['files'].cast<String>();
-      listData.add(DeviceImageBean(imgFiles, v['folderName']));
-    });
     setState(() {});
   }
 
