@@ -2,10 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_image_bean.dart';
-import 'package:flutterbeginner/view/local/image/image_folder.dart';
+import 'package:flutterbeginner/view/local/image/image_view_folder.dart';
 import 'package:storage_path/storage_path.dart';
 
 class ImageViewScreen extends StatefulWidget {
@@ -43,38 +44,43 @@ class _ImageViewScreenState extends State<ImageViewScreen> {
     ctx = context;
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return Container(
-      alignment: Alignment.center,
-      child: GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (_, index) => getImageRow(listData[index], index),
-        itemCount: 4,
-      ),
-    );
+        alignment: Alignment.center,
+        child: StaggeredGridView.countBuilder(
+          crossAxisCount: 4,
+          itemCount: listData.length,
+          itemBuilder: (BuildContext context, int index) {
+            return getImageRow(listData[index], index);
+          },
+          staggeredTileBuilder: (int index) => new StaggeredTile.fit(2),
+          mainAxisSpacing: 4.0,
+          crossAxisSpacing: 4.0,
+        ));
   }
 
   Widget getImageRow(DeviceImageBean imageBean, int index) {
     return InkWell(
-      onTap: (){
-        navigationPush(context, ImageFolder(imageBean));
+      onTap: () {
+        navigationPush(context, ImageViewFolder(imageBean));
       },
-      child: Container(
-        child: Card(
-          elevation: 1.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Column(
-            children: <Widget>[
-              Image.file(
-                  File(imageBean.files[0]),
-                  height: 200, fit: BoxFit.fill),
-              Expanded(
-                  child: getTxt(
-                      imageBean.folderName + ' [${imageBean.files.length}]',
-                      FontWeight.bold)),
-            ],
-          ),
+      child: Card(
+        elevation: 1.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Column(
+          children: <Widget>[
+            Image.file(File(imageBean.files[0]),
+                width: double.infinity,
+                height: index % 2 == 0 ? 180 : 130,
+                fit: BoxFit.cover),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: getTxtBlackCenterColor(
+                  imageBean.folderName + ' [${imageBean.files.length}]',
+                  15,
+                  FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );

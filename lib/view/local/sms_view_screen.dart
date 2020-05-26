@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
-import 'package:sms/contact.dart';
 import 'package:sms/sms.dart';
-
-class SmsScreen extends StatefulWidget {
+class SmsViewScreen extends StatefulWidget {
   @override
-  _SmsScreenState createState() => _SmsScreenState();
+  _SmsViewScreenState createState() => _SmsViewScreenState();
 }
 
-class _SmsScreenState extends State<SmsScreen> {
-  BuildContext _ctx;
+class _SmsViewScreenState extends State<SmsViewScreen> {
+  BuildContext ctx;
   SmsQuery query;
   var listData = List<SmsMessage>();
 
@@ -25,18 +23,20 @@ class _SmsScreenState extends State<SmsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, StringConst.SMS_TITLE),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
+        appBar: getAppBarWithBackBtn(context, StringConst.SMS_TITLE),
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
             getSms();
-          }),
-      body: Builder(builder: (_context) => _createUi(_context)),
-    );
+          },
+          child: Icon(Icons.refresh, color: Colors.white),
+        ),
+        body: Builder(
+          builder: (context) => _createUi(context),
+        ));
   }
 
   Widget _createUi(BuildContext context) {
-    _ctx = context;
+    ctx = context;
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return new Container(
         alignment: Alignment.center,
@@ -46,24 +46,6 @@ class _SmsScreenState extends State<SmsScreen> {
             return smsRow(listData[index]);
           },
         ));
-  }
-
-  void getSms() async {
-    if (listData != null) listData.clear();
-//    inbox & sent sms
-    listData = await query.getAllSms;
-//    inbox sms
-    var inboxData = await query.querySms();
-    print('inboxData   :  ' + inboxData.map.toString());
-//    all conversion
-    var listDataThread = await query.getAllThreads;
-    Contact contact = listDataThread.first.contact;
-    print('listDataThread.first.contact   :  ' + contact.toString());
-    print('Sms Message : ' +
-        listData.length.toString() +
-        "  sdsdsd   : " +
-        listData.toString());
-    setState(() {});
   }
 
   Widget smsRow(SmsMessage listData) {
@@ -78,9 +60,9 @@ class _SmsScreenState extends State<SmsScreen> {
             children: <Widget>[
               listData.isRead
                   ? loadCircleIcon(
-                      Icons.markunread, Colors.white, Colors.grey, 30)
+                  Icons.markunread, Colors.white, Colors.grey, 30)
                   : loadCircleIcon(
-                      Icons.markunread, Colors.white, ColorConst.APP_COLOR, 30),
+                  Icons.markunread, Colors.white, ColorConst.APP_COLOR, 30),
               SizedBox(width: 15),
               Expanded(
                 child: Column(
@@ -104,5 +86,18 @@ class _SmsScreenState extends State<SmsScreen> {
         ),
       ),
     );
+  }
+
+  void getSms() async {
+    if (listData != null) listData.clear();
+//    inbox & sent sms
+    listData = await query.getAllSms;
+//    inbox sms
+//    var inboxData = await query.querySms();
+//    print('inboxData   :  ' + inboxData.map.toString());
+//    all conversion
+//    var listDataThread = await query.getAllThreads;
+//    Contact contact = listDataThread.first.contact;
+    setState(() {});
   }
 }

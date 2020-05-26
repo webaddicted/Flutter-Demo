@@ -34,7 +34,11 @@ import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
+import 'package:flutterbeginner/view/local/call_log_screen.dart';
+import 'package:flutterbeginner/view/local/contact/contact_view_screen.dart';
+import 'package:flutterbeginner/view/local/document/document_screen.dart';
 import 'package:flutterbeginner/view/local/image/image_view_screen.dart';
+import 'package:flutterbeginner/view/local/sms_view_screen.dart';
 import 'package:flutterbeginner/view/local/video/video_view_screen.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_login.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_onboarding.dart';
@@ -45,11 +49,6 @@ import 'package:flutterbeginner/view/widgets/misc_widget.dart';
 import 'package:flutterbeginner/view/widgets/progress_bar_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_field_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_widget.dart';
-
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/call_log_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/contact/contact_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/document/document_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/sms_screen.dart';
 
 class ALLTask extends StatelessWidget {
   final List<String> allTaskBean = new List();
@@ -237,9 +236,9 @@ class ALLTask extends StatelessWidget {
       case 'Push Notification':
         return navigationPush(context, PushNoti());
       case 'All Contacts':
-        return navigationPush(context, ContactScreen());
+        return navigationPush(context, ContactViewScreen());
       case 'All SMS':
-        return navigationPush(context, SmsScreen());
+        return navigationPush(context, SmsViewScreen());
       case 'All Images':
         return navigationPush(context, ImageViewScreen());
       case 'All Videos':

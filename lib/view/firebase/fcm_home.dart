@@ -6,7 +6,7 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/fcm_home_bean.dart';
-import 'package:flutterbeginner/view/local/image/full_image.dart';
+import 'package:flutterbeginner/view/local/image/full_image_view.dart';
 
 class FcmHome extends StatefulWidget {
   @override
@@ -89,7 +89,7 @@ class _FcmHomeState extends State<FcmHome> {
         GestureDetector(
           onTap: (){
             if(fcmCatBean.image != null)
-              navigationPush(context, FullImage(fcmCatBean.image, null));
+              navigationPush(context, FullImageView(fcmCatBean.image, null));
           },
           child: loadCircleImg(
               fcmCatBean.image, 0, index % 2 == 0 ? 180 : 130),

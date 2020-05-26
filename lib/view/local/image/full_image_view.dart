@@ -3,24 +3,24 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/utils/file_utils.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:photo_view/photo_view.dart';
 
-class FullImage extends StatefulWidget {
+class FullImageView extends StatefulWidget {
   String imageUrl;
   File imageFile;
 
 //  FullImage({this.imageUrl, this.imageFile});
-  FullImage(this.imageUrl, this.imageFile);
-
+  FullImageView(this.imageUrl, this.imageFile);
   @override
-  _FullImageState createState() => _FullImageState(imageUrl, imageFile);
+  _FullImageViewState createState() => _FullImageViewState(imageUrl, imageFile);
 }
 
-class _FullImageState extends State<FullImage> {
+class _FullImageViewState extends State<FullImageView> {
   BuildContext _ctx;
   String imageUrl;
   File imageFile;
 
-  _FullImageState(this.imageUrl, this.imageFile);
+  _FullImageViewState(this.imageUrl, this.imageFile);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,10 @@ class _FullImageState extends State<FullImage> {
     else
       name = getFileName(imageUrl);
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, name),
-      body: Builder(builder: (_context) => _createUi(_context)),
-    );
+        appBar: getAppBarWithBackBtn(context, name),
+        body: Builder(
+          builder: (context) => _createUi(context),
+        ));
   }
 
   Widget _createUi(BuildContext context) {
@@ -47,14 +48,13 @@ class _FullImageState extends State<FullImage> {
     if (imageFile != null) {
       return Image.file(imageFile, fit: BoxFit.cover);
     } else {
-      return Container();
-//      return PhotoView(
-//          imageProvider: NetworkImage(
-//        imageUrl
-//      ));
+      return PhotoView(
+          imageProvider: NetworkImage(
+        imageUrl
+      ));
       // Contained = the smallest possible size to fit one dimension of the screen
 //      minScale: PhotoViewComputedScale.contained * 0.8,
-    // Covered = the smallest possible size to fit the whole screen
+      // Covered = the smallest possible size to fit the whole screen
 //    maxScale: PhotoViewComputedScale.covered * 2,
     }
   }

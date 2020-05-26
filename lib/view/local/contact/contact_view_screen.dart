@@ -4,14 +4,14 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class ContactScreen extends StatefulWidget {
+class ContactViewScreen extends StatefulWidget {
   @override
-  _ContactScreenState createState() => _ContactScreenState();
+  _ContactViewScreenState createState() => _ContactViewScreenState();
 }
 
-class _ContactScreenState extends State<ContactScreen> {
+class _ContactViewScreenState extends State<ContactViewScreen> {
   BuildContext _ctx;
-  List<CustomContact> _allContacts;
+  var _allContacts = List<CustomContact>();
 
   @override
   void initState() {
@@ -22,14 +22,16 @@ class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, StringConst.CONTACT_TITLE),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
+        appBar: getAppBarWithBackBtn(context, StringConst.CONTACT_TITLE),
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
             _refreshContacts();
-          }),
-      body: Builder(builder: (_context) => _createUi(_context)),
-    );
+          },
+          child: Icon(Icons.refresh, color: Colors.white),
+        ),
+        body: Builder(
+          builder: (context) => _createUi(context),
+        ));
   }
 
   Widget _createUi(BuildContext context) {
@@ -48,13 +50,13 @@ class _ContactScreenState extends State<ContactScreen> {
 
   Widget _contactRow(CustomContact customContact) {
     var deviceContact = customContact.contact;
-    print('Contacts   :  '+deviceContact.toMap().toString());
+    print('Contacts   :  ' + deviceContact.toMap().toString());
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: new Container(
         child: Row(
           children: <Widget>[
-           loadCircleImgName(null, deviceContact.displayName, 0, 35),
+            loadCircleImgName(null, deviceContact.displayName, 0, 35),
             Padding(padding: EdgeInsets.only(left: 10)),
             Expanded(
               child: Column(
@@ -63,7 +65,11 @@ class _ContactScreenState extends State<ContactScreen> {
                 children: <Widget>[
                   getTxt(deviceContact.displayName, FontWeight.bold),
                   SizedBox(height: 10),
-                  getTxt(deviceContact.phones.length>0?deviceContact.phones.toList()[0].value:'', FontWeight.normal),
+                  getTxt(
+                      deviceContact.phones.length > 0
+                          ? deviceContact.phones.toList()[0].value
+                          : '',
+                      FontWeight.normal),
                 ],
               ),
             )
@@ -112,10 +118,7 @@ class _ContactScreenState extends State<ContactScreen> {
     _allContacts =
         _contacts.map((contact) => CustomContact(contact: contact)).toList();
     debugPrint('Images   :  ' + _allContacts.toList().toString());
-    setState(() {
-//      _uiCustomContacts = _allContacts;
-//      _isLoading = false;
-    });
+    setState(() {});
   }
 }
 

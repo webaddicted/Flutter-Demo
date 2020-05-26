@@ -3,9 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
-import 'package:flutterbeginner/model/localfile/device_image_bean.dart';
 import 'package:flutterbeginner/model/localfile/device_video_bean.dart';
-import 'package:flutterbeginner/view/local/image/full_image.dart';
 
 class VideoFolder extends StatefulWidget {
   DeviceVideoBean imageBean;
