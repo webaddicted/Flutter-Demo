@@ -27,7 +27,6 @@ class _VideoScreenState extends State<VideoScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: getAppBarWithBackBtn(context, StringConst.VIDEO_TITLE),
       floatingActionButton: FloatingActionButton(
@@ -64,8 +63,8 @@ class _VideoScreenState extends State<VideoScreen> {
       child: Card(
         child: Column(
           children: <Widget>[
-            Image.file(File(videoBean.files[0].path),
-                height: 200, fit: BoxFit.cover),
+//            Image.file(File(videoBean.files[0].path),
+//                height: 200, fit: BoxFit.cover),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: getTxtBlackCenterColor(
