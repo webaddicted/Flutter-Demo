@@ -10,16 +10,13 @@ import 'package:flutterbeginner/view/example/bottom_navigation.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/call_log_screen.dart';
 import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/collapse_toolbar.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/contact/contact_screen.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/document/document_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/image/image_screen.dart';
+import 'package:flutterbeginner/view/example/grid_view_screen.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
 import 'package:flutterbeginner/view/example/login_page.dart';
@@ -27,19 +24,18 @@ import 'package:flutterbeginner/view/example/nav_drawer.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
 import 'package:flutterbeginner/view/example/push_noti.dart';
 import 'package:flutterbeginner/view/example/search_item.dart';
-import 'package:flutterbeginner/global/customview/signature.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/sms_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
 import 'package:flutterbeginner/view/example/tab_bar.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
-import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/video/video_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
+import 'package:flutterbeginner/view/local/image/image_view_screen.dart';
+import 'package:flutterbeginner/view/local/video/video_view_screen.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_login.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_onboarding.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_splash.dart';
@@ -49,6 +45,11 @@ import 'package:flutterbeginner/view/widgets/misc_widget.dart';
 import 'package:flutterbeginner/view/widgets/progress_bar_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_field_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_widget.dart';
+
+import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/call_log_screen.dart';
+import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/contact/contact_screen.dart';
+import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/document/document_screen.dart';
+import 'file:///D:/Bitbucket_Project/flutter/flutter_beginner/lib/view/local/sms_screen.dart';
 
 class ALLTask extends StatelessWidget {
   final List<String> allTaskBean = new List();
@@ -151,7 +152,7 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('All Videos');
     allTaskBean.add('All Documents');
     allTaskBean.add('All Call Log');
-
+    allTaskBean.add('Grid View');
     return allTaskBean;
   }
 
@@ -240,13 +241,15 @@ class ALLTask extends StatelessWidget {
       case 'All SMS':
         return navigationPush(context, SmsScreen());
       case 'All Images':
-        return navigationPush(context, ImageScreen());
+        return navigationPush(context, ImageViewScreen());
       case 'All Videos':
-        return navigationPush(context, VideoScreen());
+        return navigationPush(context, VideoViewScreen());
       case 'All Documents':
         return navigationPush(context, DocumentScreen());
       case 'All Call Log':
         return navigationPush(context, CallLogScreen());
+      case 'Grid View':
+        return navigationPush(context, GridViewScreen());
     }
   }
 }

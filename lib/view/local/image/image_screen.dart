@@ -8,7 +8,6 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_image_bean.dart';
 import 'package:flutterbeginner/view/local/image/image_folder.dart';
-import 'package:storage_path/storage_path.dart';
 
 class ImageScreen extends StatefulWidget {
   @override
@@ -81,7 +80,7 @@ class _ImageScreenState extends State<ImageScreen> {
 
   void getAllImage() async {
     if (listData != null) listData.clear();
-    String imagePath = await StoragePath.imagesPath;
+    String imagePath = '';//await StoragePath.imagesPath;
     var response = jsonDecode(imagePath);
     var imageList = response as List;
     listData =

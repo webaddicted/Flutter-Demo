@@ -56,5 +56,7 @@ class StringConst {
   static String DOCUMENTS_TITLE = 'All Documents';
   static String CALL_LOG_TITLE = 'Call Logs';
 
+  static String GRID_TITLE = 'Grid View';
+
 //  {END TITLE}
 }
