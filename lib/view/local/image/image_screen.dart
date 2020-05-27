@@ -15,7 +15,7 @@ class ImageScreen extends StatefulWidget {
 }
 
 class _ImageScreenState extends State<ImageScreen> {
-  BuildContext ctx;
+  BuildContext _ctx;
 
   var listData = List<DeviceImageBean>();
 
@@ -41,7 +41,7 @@ class _ImageScreenState extends State<ImageScreen> {
   }
 
   Widget _createUi(BuildContext context) {
-    ctx = context;
+    _ctx = context;
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return Container(
         alignment: Alignment.center,
@@ -94,6 +94,7 @@ class _ImageScreenState extends State<ImageScreen> {
     listData = imageList
         .map<DeviceImageBean>((json) => DeviceImageBean.fromJson(json))
         .toList();
+    showSnackBar(_ctx, 'Images count are  : ${listData.length}');
     print('asdad  ' + listData.toString());
     setState(() {});
   }

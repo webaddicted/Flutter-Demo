@@ -60,6 +60,7 @@ class _AudioScreenState extends State<AudioScreen> {
     listData = audioList
         .map<DeviceAudioBean>((json) => DeviceAudioBean.fromJson(json))
         .toList();
+    showSnackBar(_ctx, 'Audio count are  : ${listData.length}');
     print('asdad  ' + listData.toString());
     setState(() {});
   }

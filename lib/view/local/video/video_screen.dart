@@ -14,7 +14,7 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-  BuildContext ctx;
+  BuildContext _ctx;
 
   var listData = List<DeviceVideoBean>();
 
@@ -40,7 +40,7 @@ class _VideoScreenState extends State<VideoScreen> {
   }
 
   Widget _createUi(BuildContext context) {
-    ctx = context;
+    _ctx = context;
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return Container(
       alignment: Alignment.center,
@@ -86,6 +86,7 @@ class _VideoScreenState extends State<VideoScreen> {
     listData = imageList
         .map<DeviceVideoBean>((json) => DeviceVideoBean.fromJson(json))
         .toList();
+    showSnackBar(_ctx, 'Video count are  : ${listData.length}');
     print('asdad  ' + listData.toString());
     setState(() {});
   }

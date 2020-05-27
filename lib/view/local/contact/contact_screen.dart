@@ -117,6 +117,7 @@ class _ContactScreenState extends State<ContactScreen> {
     _contacts.sort((a, b) => a.displayName.compareTo(b.displayName));
     _allContacts =
         _contacts.map((contact) => CustomContact(contact: contact)).toList();
+    showSnackBar(_ctx, 'Contacts count are  : ${_allContacts.length}');
     debugPrint('Images   :  ' + _allContacts.toList().toString());
     setState(() {});
   }

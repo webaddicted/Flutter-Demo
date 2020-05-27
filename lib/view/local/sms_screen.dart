@@ -9,7 +9,7 @@ class SmsScreen extends StatefulWidget {
 }
 
 class _SmsScreenState extends State<SmsScreen> {
-  BuildContext ctx;
+  BuildContext _ctx;
   SmsQuery query;
   var listData = List<SmsMessage>();
 
@@ -36,7 +36,7 @@ class _SmsScreenState extends State<SmsScreen> {
   }
 
   Widget _createUi(BuildContext context) {
-    ctx = context;
+    _ctx = context;
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return new Container(
         alignment: Alignment.center,
@@ -92,6 +92,7 @@ class _SmsScreenState extends State<SmsScreen> {
     if (listData != null) listData.clear();
 //    inbox & sent sms
     listData = await query.getAllSms;
+    showSnackBar(_ctx, 'SMS count are  : ${listData.length}');
 //    inbox sms
 //    var inboxData = await query.querySms();
 //    print('inboxData   :  ' + inboxData.map.toString());

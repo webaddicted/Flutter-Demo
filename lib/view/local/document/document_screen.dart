@@ -59,6 +59,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
     listData = docList
         .map<DeviceDocBean>((json) => DeviceDocBean.fromJson(json))
         .toList();
+    showSnackBar(_ctx, 'Documents count are  : ${listData.length}');
     print('asdad  ' + listData.toString());
     setState(() {});
   }
