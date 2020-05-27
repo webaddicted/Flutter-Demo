@@ -3,12 +3,12 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:sms/sms.dart';
-class SmsViewScreen extends StatefulWidget {
+class SmsScreen extends StatefulWidget {
   @override
-  _SmsViewScreenState createState() => _SmsViewScreenState();
+  _SmsScreenState createState() => _SmsScreenState();
 }
 
-class _SmsViewScreenState extends State<SmsViewScreen> {
+class _SmsScreenState extends State<SmsScreen> {
   BuildContext ctx;
   SmsQuery query;
   var listData = List<SmsMessage>();

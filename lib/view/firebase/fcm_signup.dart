@@ -13,7 +13,7 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/sqflite_login_user.dart';
 import 'package:flutterbeginner/view/firebase/fcm_home.dart';
 import 'package:flutterbeginner/view/firebase/fcm_login.dart';
-import 'package:flutterbeginner/view/local/image/full_image_view.dart';
+import 'package:flutterbeginner/view/local/image/full_image.dart';
 import 'package:path/path.dart' as Path;
 
 class FcmSignup extends StatefulWidget {
@@ -68,7 +68,7 @@ class _FcmSignupState extends State<FcmSignup> {
                           child: GestureDetector(
                             onTap: (){
                               if(imageURI != null)
-                                navigationPush(context, FullImageView(null, imageURI));
+                                navigationPush(context, FullImage(null, imageURI));
                             },
                             child: getSignupImagePicker(
                                 130, imageURI, imagePickerDialog),

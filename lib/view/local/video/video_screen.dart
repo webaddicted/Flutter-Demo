@@ -8,12 +8,12 @@ import 'package:flutterbeginner/model/localfile/device_video_bean.dart';
 import 'package:flutterbeginner/view/local/video/video_folder.dart';
 import 'package:storage_path/storage_path.dart';
 
-class VideoViewScreen extends StatefulWidget {
+class VideoScreen extends StatefulWidget {
   @override
-  _VideoViewScreenState createState() => _VideoViewScreenState();
+  _VideoScreenState createState() => _VideoScreenState();
 }
 
-class _VideoViewScreenState extends State<VideoViewScreen> {
+class _VideoScreenState extends State<VideoScreen> {
   BuildContext ctx;
 
   var listData = List<DeviceVideoBean>();

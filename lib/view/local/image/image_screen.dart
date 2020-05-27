@@ -6,15 +6,15 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_image_bean.dart';
-import 'package:flutterbeginner/view/local/image/image_view_folder.dart';
+import 'package:flutterbeginner/view/local/image/image_folder.dart';
 import 'package:storage_path/storage_path.dart';
 
-class ImageViewScreen extends StatefulWidget {
+class ImageScreen extends StatefulWidget {
   @override
-  _ImageViewScreenState createState() => _ImageViewScreenState();
+  _ImageScreenState createState() => _ImageScreenState();
 }
 
-class _ImageViewScreenState extends State<ImageViewScreen> {
+class _ImageScreenState extends State<ImageScreen> {
   BuildContext ctx;
 
   var listData = List<DeviceImageBean>();
@@ -60,7 +60,7 @@ class _ImageViewScreenState extends State<ImageViewScreen> {
   Widget getImageRow(DeviceImageBean imageBean, int index) {
     return InkWell(
       onTap: () {
-        navigationPush(context, ImageViewFolder(imageBean));
+        navigationPush(context, ImageFolder(imageBean));
       },
       child: Card(
         elevation: 1.0,

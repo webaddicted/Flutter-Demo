@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
-import 'package:flutterbeginner/view/local/image/full_image_view.dart';
+import 'package:flutterbeginner/view/local/image/full_image.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CameraGallery extends StatefulWidget {
@@ -37,7 +37,7 @@ class _CameraGalleryState extends State<CameraGallery> {
           GestureDetector(
             onTap: (){
               if(imageURI != null)
-              navigationPush(context, FullImageView(null, imageURI));
+              navigationPush(context, FullImage(null, imageURI));
             },
             child: imageURI == null
                 ? Text('No image selected.')

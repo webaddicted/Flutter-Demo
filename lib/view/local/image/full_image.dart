@@ -5,22 +5,22 @@ import 'package:flutterbeginner/global/utils/file_utils.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:photo_view/photo_view.dart';
 
-class FullImageView extends StatefulWidget {
+class FullImage extends StatefulWidget {
   String imageUrl;
   File imageFile;
 
 //  FullImage({this.imageUrl, this.imageFile});
-  FullImageView(this.imageUrl, this.imageFile);
+  FullImage(this.imageUrl, this.imageFile);
   @override
-  _FullImageViewState createState() => _FullImageViewState(imageUrl, imageFile);
+  _FullImageState createState() => _FullImageState(imageUrl, imageFile);
 }
 
-class _FullImageViewState extends State<FullImageView> {
+class _FullImageState extends State<FullImage> {
   BuildContext _ctx;
   String imageUrl;
   File imageFile;
 
-  _FullImageViewState(this.imageUrl, this.imageFile);
+  _FullImageState(this.imageUrl, this.imageFile);
 
   @override
   Widget build(BuildContext context) {

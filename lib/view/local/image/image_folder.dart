@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_image_bean.dart';
-import 'package:flutterbeginner/view/local/image/full_image_view.dart';
+import 'package:flutterbeginner/view/local/image/full_image.dart';
 
-class ImageViewFolder extends StatefulWidget {
+class ImageFolder extends StatefulWidget {
   DeviceImageBean imageBean;
-  ImageViewFolder(this.imageBean);
+  ImageFolder(this.imageBean);
   @override
-  _ImageViewFolderState createState() => _ImageViewFolderState(imageBean);
+  _ImageFolderState createState() => _ImageFolderState(imageBean);
 }
 
-class _ImageViewFolderState extends State<ImageViewFolder> {
+class _ImageFolderState extends State<ImageFolder> {
   BuildContext ctx;
   DeviceImageBean imageBean;
-  _ImageViewFolderState(this.imageBean);
+  _ImageFolderState(this.imageBean);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _ImageViewFolderState extends State<ImageViewFolder> {
   Widget getImageRow(String imageFiles, int index) {
     return InkWell(
       onTap: () {
-        navigationPush(context, FullImageView(null,File(imageFiles)));
+        navigationPush(context, FullImage(null,File(imageFiles)));
       },
       child: Card(
         elevation: 1.0,

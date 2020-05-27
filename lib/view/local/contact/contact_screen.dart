@@ -4,12 +4,12 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class ContactViewScreen extends StatefulWidget {
+class ContactScreen extends StatefulWidget {
   @override
-  _ContactViewScreenState createState() => _ContactViewScreenState();
+  _ContactScreenState createState() => _ContactScreenState();
 }
 
-class _ContactViewScreenState extends State<ContactViewScreen> {
+class _ContactScreenState extends State<ContactScreen> {
   BuildContext _ctx;
   var _allContacts = List<CustomContact>();
 

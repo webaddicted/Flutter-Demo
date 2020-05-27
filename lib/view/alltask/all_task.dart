@@ -34,12 +34,13 @@ import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/github/github_users.dart';
+import 'package:flutterbeginner/view/local/audio/audio_screen.dart';
 import 'package:flutterbeginner/view/local/call_log_screen.dart';
-import 'package:flutterbeginner/view/local/contact/contact_view_screen.dart';
+import 'package:flutterbeginner/view/local/contact/contact_screen.dart';
 import 'package:flutterbeginner/view/local/document/document_screen.dart';
-import 'package:flutterbeginner/view/local/image/image_view_screen.dart';
-import 'package:flutterbeginner/view/local/sms_view_screen.dart';
-import 'package:flutterbeginner/view/local/video/video_view_screen.dart';
+import 'package:flutterbeginner/view/local/image/image_screen.dart';
+import 'package:flutterbeginner/view/local/sms_screen.dart';
+import 'package:flutterbeginner/view/local/video/video_screen.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_login.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_onboarding.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_splash.dart';
@@ -149,9 +150,11 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('All SMS');
     allTaskBean.add('All Images');
     allTaskBean.add('All Videos');
+    allTaskBean.add('All Audio');
     allTaskBean.add('All Documents');
     allTaskBean.add('All Call Log');
     allTaskBean.add('Grid View');
+
     return allTaskBean;
   }
 
@@ -236,13 +239,15 @@ class ALLTask extends StatelessWidget {
       case 'Push Notification':
         return navigationPush(context, PushNoti());
       case 'All Contacts':
-        return navigationPush(context, ContactViewScreen());
+        return navigationPush(context, ContactScreen());
       case 'All SMS':
-        return navigationPush(context, SmsViewScreen());
+        return navigationPush(context, SmsScreen());
       case 'All Images':
-        return navigationPush(context, ImageViewScreen());
+        return navigationPush(context, ImageScreen());
       case 'All Videos':
-        return navigationPush(context, VideoViewScreen());
+        return navigationPush(context, VideoScreen());
+      case 'All Audio':
+        return navigationPush(context, AudioScreen());
       case 'All Documents':
         return navigationPush(context, DocumentScreen());
       case 'All Call Log':
