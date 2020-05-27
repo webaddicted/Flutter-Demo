@@ -58,30 +58,32 @@ class _ImageScreenState extends State<ImageScreen> {
   }
 
   Widget getImageRow(DeviceImageBean imageBean, int index) {
-    return InkWell(
-      onTap: () {
-        navigationPush(context, ImageFolder(imageBean));
-      },
-      child: Card(
-        elevation: 1.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: Column(
-          children: <Widget>[
-            Image.file(File(imageBean.files[0]),
-                width: double.infinity,
-                height: index % 2 == 0 ? 180 : 130,
-                fit: BoxFit.cover),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: getTxtBlackCenterColor(
-                  imageBean.folderName + ' [${imageBean.files.length}]',
-                  15,
-                  FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+
+            child: InkWell(
+              onTap: () {
+                navigationPush(context, ImageFolder(imageBean));
+              },
+                child: Column(
+                  children: <Widget>[
+                    Image.file(File(imageBean.files[0]),
+                        width: double.infinity,
+                        height: index % 2 == 0 ? 180 : 130,
+                        fit: BoxFit.cover),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: getTxtBlackCenterColor(
+                          imageBean.folderName + ' [${imageBean.files.length}]',
+                          15,
+                          FontWeight.bold),
+                    ),
+                  ],
+                ),
             ),
-          ],
-        ),
+
       ),
     );
   }

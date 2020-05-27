@@ -1,16 +1,14 @@
 /// files : [{"album":"<unknown>","artist":"<unknown>","path":"/storage/emulated/0/Download/Mulan (2020) [Worldfree4u.Ltd] 720p HDRip x264 [Dual Audio] [Hindi DD 2.0 + Chinese DD 2.0].mkv","dateAdded":"1590335712","displayName":"Mulan (2020) [Worldfree4u.Ltd] 720p HDRip x264 [Dual Audio] [Hindi DD 2.0 + Chinese DD 2.0].mkv","duration":"5449440","size":"821936231"},{"album":"<unknown>","artist":"<unknown>","path":"/storage/emulated/0/Download/Miss Peregrines Home for Peculiar Children (2016) [Worldfree4u.trade] 720p BluRay [Dual Audio] [English+Hindi].mkv","dateAdded":"1590335584","displayName":"Miss Peregrines Home for Peculiar Children (2016) [Worldfree4u.trade] 720p BluRay [Dual Audio] [English+Hindi].mkv","duration":"7615712","size":"1331894038"},{"album":"<unknown>","artist":"<unknown>","path":"/storage/emulated/0/Download/Kung Fu Jungle (2014) [Worldfree4u.ink] 720p BluRay x264 ESub [Dual Audio] [Hindi DD 2.0 + Chinese DD 2.0].mkv","dateAdded":"1589912291","displayName":"Kung Fu Jungle (2014) [Worldfree4u.ink] 720p BluRay x264 ESub [Dual Audio] [Hindi DD 2.0 + Chinese DD 2.0].mkv","duration":"6011563","size":"1101046369"},{"album":"<unknown>","artist":"<unknown>","path":"/storage/emulated/0/Download/Diagonal 8 Screens (1600x1200) Dribbble.mp4","dateAdded":"1588175953","displayName":"Diagonal 8 Screens (1600x1200) Dribbble.mp4","duration":"24000","size":"9157692"},{"album":"<unknown>","artist":"<unknown>","path":"/storage/emulated/0/Download/Prmovies.com-Meeruthiya_Gangsters_(2015).mp4","dateAdded":"1587672720","displayName":"Prmovies.com-Meeruthiya_Gangsters_(2015).mp4","duration":"7601401","size":"841005692"}]
 /// folderName : "Download"
 class DeviceVideoBean {
-  List<Files> files;
+  List<VideoFiles> files;
   String folderName;
-
   DeviceVideoBean({this.files, this.folderName});
-
   DeviceVideoBean.fromJson(Map<String, dynamic> json) {
     if (json['files'] != null) {
-      files = new List<Files>();
+      files = new List<VideoFiles>();
       json['files'].forEach((v) {
-        files.add(new Files.fromJson(v));
+        files.add(new VideoFiles.fromJson(v));
       });
     }
     folderName = json['folderName'];
@@ -26,7 +24,7 @@ class DeviceVideoBean {
   }
 }
 
-class Files {
+class VideoFiles {
   String album;
   String artist;
   String path;
@@ -35,7 +33,7 @@ class Files {
   String duration;
   String size;
 
-  Files(
+  VideoFiles(
       {this.album,
         this.artist,
         this.path,
@@ -44,7 +42,7 @@ class Files {
         this.duration,
         this.size});
 
-  Files.fromJson(Map<String, dynamic> json) {
+  VideoFiles.fromJson(Map<String, dynamic> json) {
     album = json['album'];
     artist = json['artist'];
     path = json['path'];

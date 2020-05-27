@@ -239,7 +239,16 @@ Text getTxtGreyCenterColor(
         : _getFontSizeStyle(ColorConst.GREY_COLOR, fontsSize, fontsWeight),
   );
 }
-
+Text getTxtWhiteCenterColor(
+    String message, double fontsSize, FontWeight fontsWeight) {
+  return Text(
+    message,
+    textAlign: TextAlign.center,
+    style: fontsSize == null
+        ? _getFontStyle(ColorConst.WHITE_COLOR, fontsWeight)
+        : _getFontSizeStyle(ColorConst.WHITE_COLOR, fontsSize, fontsWeight),
+  );
+}
 Text getTxtBlackCenterColor(
     String message, double fontsSize, FontWeight fontsWeight) {
   return Text(

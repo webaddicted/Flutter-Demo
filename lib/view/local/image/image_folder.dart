@@ -21,7 +21,7 @@ class _ImageFolderState extends State<ImageFolder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBarWithBackBtn(context, imageBean.folderName),
+        appBar: getAppBarWithBackBtn(context, imageBean.folderName+' [${imageBean.files.length}]'),
         body: Builder(
           builder: (context) => _createUi(context),
         ));
@@ -43,27 +43,23 @@ class _ImageFolderState extends State<ImageFolder> {
       ));
   }
   Widget getImageRow(String imageFiles, int index) {
-    return InkWell(
-      onTap: () {
-        navigationPush(context, FullImage(null,File(imageFiles)));
-      },
-      child: Card(
-        elevation: 1.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: Column(
-          children: <Widget>[
-             Image.file(File(imageFiles),
-                  width: double.infinity,
-                  height: index % 2 == 0 ? 180 : 130, fit: BoxFit.cover),
-
-//          Padding(
-//            padding: const EdgeInsets.all(8.0),
-//            child: getTxtBlackCenterColor(
-//                getFileName(imageFiles), 15, FontWeight.bold),
-//          ),
-          ],
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Center(
+        child: InkWell(
+          onTap: () {
+            navigationPush(context, FullImage(null,File(imageFiles)));
+          },
+          child:  ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Column(
+              children: <Widget>[
+                 Image.file(File(imageFiles),
+                      width: double.infinity,
+                      height: index % 2 == 0 ? 180 : 130, fit: BoxFit.cover),
+              ],
+            ),
+          ),
         ),
       ),
     );

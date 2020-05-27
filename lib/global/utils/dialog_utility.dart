@@ -39,37 +39,13 @@ showTwoClickDialog(BuildContext context, String title, String msg,
     );
 
 showCustomDialog(
-        BuildContext context, String title, String msg, Function okClick) =>
+        BuildContext context, Widget dialogMatter) =>
     showDialog(
         context: context,
         builder: (BuildContext context) {
           return Dialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)), //this right here
-            child: Container(
-              height: 200,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      getTxtBlackColor(title, 18, FontWeight.bold),
-                      SizedBox(height: 10),
-                      getTxt(msg, null),
-                      SizedBox(height: 10),
-                      SizedBox(
-                        width: 320.0,
-                        child: RaisedButton(
-                          onPressed: okClick,
-                          child: getTxtWhiteColor('Save', 15, FontWeight.bold),
-                          color: const Color(0xFF1BC0C5),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            child: dialogMatter
           );
         });

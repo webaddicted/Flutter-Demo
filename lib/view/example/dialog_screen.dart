@@ -78,7 +78,32 @@ class _DialogScreenState extends State<DialogScreen> {
   }
 
   customDialog() {
-    showCustomDialog(context, StringConst.APP_NAME, StringConst.DUMMY_TEXT, okClick);
+   var dialogDetails =  Container(
+      height: 200,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              getTxtBlackColor(StringConst.APP_NAME, 18, FontWeight.bold),
+              SizedBox(height: 10),
+              getTxt(StringConst.DUMMY_TEXT, null),
+              SizedBox(height: 10),
+              SizedBox(
+                width: 320.0,
+                child: RaisedButton(
+                  onPressed: okClick,
+                  child: getTxtWhiteColor('Save', 15, FontWeight.bold),
+                  color: const Color(0xFF1BC0C5),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+    showCustomDialog(context, dialogDetails);
   }
 
   fullSceenDialog() {

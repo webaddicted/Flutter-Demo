@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
@@ -44,13 +45,16 @@ class _VideoScreenState extends State<VideoScreen> {
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return Container(
       alignment: Alignment.center,
-      child: GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (_, index) => getVideoRow(listData[index], index),
-        itemCount: 4,
-      ),
-    );
+      child:StaggeredGridView.countBuilder(
+        crossAxisCount: 4,
+        itemCount: listData.length,
+        itemBuilder: (BuildContext context, int index) {
+          return getVideoRow(listData[index], index);
+        },
+        staggeredTileBuilder: (int index) => new StaggeredTile.fit(2),
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
+      ));
   }
 
   Widget getVideoRow(DeviceVideoBean videoBean, int index) {
@@ -67,10 +71,13 @@ class _VideoScreenState extends State<VideoScreen> {
           child: Column(
             children: <Widget>[
               loadImg(ApiConst.DEMO_IMG, 0),
-              Expanded(
-                  child: getTxt(
-                      videoBean.folderName + ' [${videoBean.files.length}]',
-                      FontWeight.bold)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: getTxtBlackCenterColor(
+                    videoBean.folderName + ' [${videoBean.files.length}]',
+                    15,
+                    FontWeight.bold),
+              ),
             ],
           ),
         ),

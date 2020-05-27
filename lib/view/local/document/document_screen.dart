@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_doc_bean.dart';
+import 'package:flutterbeginner/view/local/document/document_folder.dart';
 import 'package:storage_path/storage_path.dart';
 
 class DocumentScreen extends StatefulWidget {
@@ -42,13 +44,42 @@ class _DocumentScreenState extends State<DocumentScreen> {
         child: ListView.builder(
           itemCount: listData.length,
           itemBuilder: (BuildContext context, int index) {
-            return getDocRow();
+            return getDocRow(listData[index], index);
           },
         ));
   }
 
-  Widget getDocRow() {
-    return Container();
+  Widget getDocRow(DeviceDocBean docBean, int index) {
+    return InkWell(
+      onTap: (){
+        navigationPush(context, DocumentFolder(docBean));
+      },
+      child: Card(
+        elevation: 2,
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new Container(
+            child: Row(
+              children: <Widget>[
+                loadCircleIcon(
+                    Icons.picture_as_pdf, Colors.white, ColorConst.APP_COLOR, 30),
+                SizedBox(width: 15),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      getTxtBlackColor(docBean.folderName+' [${docBean.files.length}]', 16, FontWeight.bold),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   void getAllDoc() async {

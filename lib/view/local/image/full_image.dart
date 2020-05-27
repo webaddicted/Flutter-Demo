@@ -11,6 +11,7 @@ class FullImage extends StatefulWidget {
 
 //  FullImage({this.imageUrl, this.imageFile});
   FullImage(this.imageUrl, this.imageFile);
+
   @override
   _FullImageState createState() => _FullImageState(imageUrl, imageFile);
 }
@@ -45,17 +46,16 @@ class _FullImageState extends State<FullImage> {
   }
 
   Widget getImageView() {
-    if (imageFile != null) {
-      return Image.file(imageFile, fit: BoxFit.cover);
-    } else {
-      return PhotoView(
-          imageProvider: NetworkImage(
-        imageUrl
-      ));
-      // Contained = the smallest possible size to fit one dimension of the screen
-//      minScale: PhotoViewComputedScale.contained * 0.8,
-      // Covered = the smallest possible size to fit the whole screen
-//    maxScale: PhotoViewComputedScale.covered * 2,
-    }
+    var imageFileProvider;
+    if (imageFile != null)
+      imageFileProvider = FileImage(imageFile);
+    else
+      imageFileProvider = NetworkImage(imageUrl);
+    return PhotoView(
+      imageProvider: imageFileProvider,
+      minScale: PhotoViewComputedScale.contained * 0.8,
+      maxScale: PhotoViewComputedScale.covered * 2,
+      enableRotation: true,
+    );
   }
 }

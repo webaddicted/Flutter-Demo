@@ -49,7 +49,6 @@ class _SmsScreenState extends State<SmsScreen> {
   }
 
   Widget smsRow(SmsMessage listData) {
-    print('Contacts   :  ' + listData.toMap.toString());
     return Card(
       elevation: 2,
       color: Colors.white,

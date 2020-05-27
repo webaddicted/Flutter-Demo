@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/example/api_data.dart';
@@ -233,7 +234,7 @@ class ALLTask extends StatelessWidget {
       case 'Barcode Scanner':
         return navigationPush(context, BarcodeScannerScreen());
       case 'Video Player':
-        return navigationPush(context, VideoPlayerScreen());
+        return navigationPush(context, VideoPlayerScreen(ApiConst.VIDEO_URL, null));
       case 'Download File':
         return navigationPush(context, DownloadFileScreen());
       case 'Push Notification':
