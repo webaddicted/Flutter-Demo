@@ -27,7 +27,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.google.firebase.crashlytics'
 android {
     compileSdkVersion 29
-
+    buildToolsVersion "29.0.3"
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -63,5 +63,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.firebase:firebase-messaging:20.1.7'
+//    implementation 'androidx.appcompat:appcompat:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -30,6 +30,8 @@ class AssetsConst {
 //  {START LOCAL FILE}
   static String LOAD_JSON = 'local_file/person.json';
   static String COUNTRY_PHONE_CODES_JSON = 'local_file/country_phone_codes.json';
+  static String INSURANCE_CSV = 'local_file/insurance.csv';
+
 
 
 

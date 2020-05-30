@@ -25,6 +25,7 @@ import 'package:flutterbeginner/view/example/nav_drawer.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
 import 'package:flutterbeginner/view/example/push_noti.dart';
 import 'package:flutterbeginner/view/example/search_item.dart';
+import 'package:flutterbeginner/view/example/share_data_screen.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
@@ -155,6 +156,7 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('All Documents');
     allTaskBean.add('All Call Log');
     allTaskBean.add('Grid View');
+    allTaskBean.add('Share Data');
 
     return allTaskBean;
   }
@@ -255,6 +257,8 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, CallLogScreen());
       case 'Grid View':
         return navigationPush(context, GridViewScreen());
+      case 'Share Data':
+        return navigationPush(context, ShareDataScreen());
     }
   }
 }
