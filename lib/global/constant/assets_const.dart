@@ -23,6 +23,10 @@ class AssetsConst {
   static String TWITTER_IMG = 'images/twitter.png';
   static String MOBILE_IMG = 'images/mobile.png';
   static String OTP_IMG = 'images/otp.png';
+  static String CALL_CANCELLED_IMG = 'images/call_cancelled.png';
+  static String CALL_MISSED_IMG = 'images/call_missed.png';
+  static String CALL_RECEIVED_IMG = 'images/call_received.png';
+  static String CALL_DIAL_IMG = 'images/call_dial.png';
 
 
   //  {END IMAGES}

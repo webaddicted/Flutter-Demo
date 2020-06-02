@@ -48,7 +48,6 @@ class StringConst {
   static String VIDEO_PLAYER_TITLE = 'Video Player';
   static String DOWNLOAD_FILE_TITLE = 'Download File';
   static String PUSH_NOTIFICATION_TITLE = 'Push Notification';
-
   static String CONTACT_TITLE = 'Contacts';
   static String SMS_TITLE = 'SMS';
   static String ALL_IMAGE_TITLE = 'All Images';
@@ -57,6 +56,8 @@ class StringConst {
   static String CALL_LOG_TITLE = 'Call Logs';
   static String GRID_TITLE = 'Grid View';
   static String AUDIO_TITLE = 'All Audio';
+  static String DATA_SHARE_TITLE = 'Data Sharing';
+  static String CALL_HISTORY_TITLE='Call History';
 
 //  {END TITLE}
 }

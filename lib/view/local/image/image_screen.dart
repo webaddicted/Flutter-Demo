@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_image_bean.dart';
 import 'package:flutterbeginner/view/local/image/image_folder.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:storage_path/storage_path.dart';
 
 class ImageScreen extends StatefulWidget {
@@ -22,7 +24,7 @@ class _ImageScreenState extends State<ImageScreen> {
   @override
   void initState() {
     super.initState();
-    getLocalImage();
+    _reqPermission();
   }
 
   @override
@@ -31,7 +33,7 @@ class _ImageScreenState extends State<ImageScreen> {
         appBar: getAppBarWithBackBtn(context, StringConst.ALL_IMAGE_TITLE),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            getLocalImage();
+            _reqPermission();
           },
           child: Icon(Icons.refresh, color: Colors.white),
         ),
@@ -87,8 +89,13 @@ class _ImageScreenState extends State<ImageScreen> {
       ),
     );
   }
-
-  void getLocalImage() async {
+  void _reqPermission() {
+    var _storagePermission = PermissionGroup.storage;
+    var permissionArray = [_storagePermission];
+    checkPermission(_ctx, permissionArray, getLocalImage);
+  }
+  void getLocalImage(bool isPermissionGrented) async {
+    if (!isPermissionGrented) return;
     if (listData != null) listData.clear();
     String videoPath = await StoragePath.imagesPath;
     var response = jsonDecode(videoPath);

@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -30,6 +31,7 @@
         android:largeHeap="true"
         tools:node="replace"
         android:requestLegacyExternalStorage="true">
+<!---->
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode|mcc|mnc"
@@ -63,7 +65,17 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
+                tools:replace="android:resource"
                 android:resource="@xml/file_provider_paths" />
+        </provider>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider.github.com/orgs/esysberlin/esys-flutter-share"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/esys_flutter_share_filepaths" />
         </provider>
         <!--        START PUSH_LOCAL_NOTIFICATION-->
         <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
@@ -85,5 +97,6 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity android:name="com.apptreesoftware.barcodescan.BarcodeScannerActivity" />
+<!--        <activity android:name="com.nabinbhandari.android.permissions.PermissionsActivity"/>-->
     </application>
 </manifest>

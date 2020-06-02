@@ -133,7 +133,8 @@ ClipRRect loadCircleIcon(
               iconData,
               size: radius - 5.0,
               color: colors,
-            ), onPressed: () {  },
+            ),
+            onPressed: () {},
           )));
 }
 
@@ -239,6 +240,7 @@ Text getTxtGreyCenterColor(
         : _getFontSizeStyle(ColorConst.GREY_COLOR, fontsSize, fontsWeight),
   );
 }
+
 Text getTxtWhiteCenterColor(
     String message, double fontsSize, FontWeight fontsWeight) {
   return Text(
@@ -249,6 +251,7 @@ Text getTxtWhiteCenterColor(
         : _getFontSizeStyle(ColorConst.WHITE_COLOR, fontsSize, fontsWeight),
   );
 }
+
 Text getTxtBlackCenterColor(
     String message, double fontsSize, FontWeight fontsWeight) {
   return Text(
@@ -289,19 +292,23 @@ TextStyle _getFontSizeStyle(
 }
 
 //  {END TEXT VIEW}
-void showSnackBar(BuildContext context, String message) {
-  var snackbar = SnackBar(
-    content: getTxtWhiteColor(message, null, null),
-    backgroundColor: ColorConst.GREEN_COLOR,
-    duration: Duration(seconds: 3),
+void showSnackBar(BuildContext context, String message)async {
+  try {
+    var snackbar = SnackBar(
+      content: getTxtWhiteColor(message, null, null),
+      backgroundColor: ColorConst.GREEN_COLOR,
+      duration: Duration(seconds: 3),
 //    action: SnackBarAction(
 //        label: "Undo",
 //        onPressed: () {
 //          logDubug(message + " undo");
 //        }),
-  );
-  Scaffold.of(context).hideCurrentSnackBar();
-  Scaffold.of(context).showSnackBar(snackbar);
+    );
+    await Scaffold.of(context).hideCurrentSnackBar();
+    await Scaffold.of(context).showSnackBar(snackbar);
+  } catch (e) {
+    print('object ' + e.toString());
+  }
 }
 
 Widget edtNameField(TextEditingController edtController) {

@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_video_bean.dart';
 import 'package:flutterbeginner/view/local/video/video_folder.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:storage_path/storage_path.dart';
 
 class VideoScreen extends StatefulWidget {
@@ -22,7 +24,7 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   void initState() {
     super.initState();
-    getLocalVideo();
+    _reqPermission();
   }
 
   @override
@@ -31,7 +33,7 @@ class _VideoScreenState extends State<VideoScreen> {
         appBar: getAppBarWithBackBtn(context, StringConst.VIDEO_TITLE),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            getLocalVideo();
+            _reqPermission();
           },
           child: Icon(Icons.refresh, color: Colors.white),
         ),
@@ -44,22 +46,22 @@ class _VideoScreenState extends State<VideoScreen> {
     _ctx = context;
     if (listData == null || listData.length == 0) return showPbIndicator(true);
     return Container(
-      alignment: Alignment.center,
-      child:StaggeredGridView.countBuilder(
-        crossAxisCount: 4,
-        itemCount: listData.length,
-        itemBuilder: (BuildContext context, int index) {
-          return getVideoRow(listData[index], index);
-        },
-        staggeredTileBuilder: (int index) => new StaggeredTile.fit(2),
-        mainAxisSpacing: 4.0,
-        crossAxisSpacing: 4.0,
-      ));
+        alignment: Alignment.center,
+        child: StaggeredGridView.countBuilder(
+          crossAxisCount: 4,
+          itemCount: listData.length,
+          itemBuilder: (BuildContext context, int index) {
+            return getVideoRow(listData[index], index);
+          },
+          staggeredTileBuilder: (int index) => new StaggeredTile.fit(2),
+          mainAxisSpacing: 4.0,
+          crossAxisSpacing: 4.0,
+        ));
   }
 
   Widget getVideoRow(DeviceVideoBean videoBean, int index) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         navigationPush(context, VideoFolder(videoBean));
       },
       child: Container(
@@ -85,7 +87,14 @@ class _VideoScreenState extends State<VideoScreen> {
     );
   }
 
-  void getLocalVideo() async {
+  void _reqPermission() {
+    var _storagePermission = PermissionGroup.storage;
+    var permissionArray = [_storagePermission];
+    checkPermission(_ctx, permissionArray, getLocalVideo);
+  }
+
+  void getLocalVideo(bool isPermissionGrented) async {
+    if (!isPermissionGrented) return;
     if (listData != null) listData.clear();
     String videoPath = await StoragePath.videoPath;
     var response = jsonDecode(videoPath);

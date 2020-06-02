@@ -25,7 +25,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(context, StringConst.DIALOG_TITLE),
+      appBar: getAppBarWithBackBtn(context, StringConst.DATA_SHARE_TITLE),
       body: Builder(builder: (_context) {
         return _createUi(_context);
       }),
@@ -39,17 +39,17 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
         child: Column(
           children: <Widget>[
             SizedBox(height: 10),
-            raisedBtn('Share text', _shareText()),
+            raisedBtn('Share text', _shareText),
             SizedBox(height: 10),
-            raisedBtn('Share image', _shareImage()),
+            raisedBtn('Share image', _shareImage),
             SizedBox(height: 10),
-            raisedBtn('Share images', _shareImages()),
+            raisedBtn('Share images', _shareImages),
             SizedBox(height: 10),
-            raisedBtn('Share CSV', _shareCSV()),
+            raisedBtn('Share CSV', _shareCSV),
             SizedBox(height: 10),
-            raisedBtn('Share mixed', _shareMixed()),
+            raisedBtn('Share mixed', _shareMixed),
             SizedBox(height: 10),
-            raisedBtn('Share image from url', _shareImageFromUrl()),
+            raisedBtn('Share image from url', _shareImageFromUrl),
           ],
         ),
       ),
@@ -68,7 +68,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
     try {
       final ByteData bytes = await rootBundle.load(AssetsConst.LOGO_IMG);
       await Share.file(
-          'Esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/png',
+          StringConst.APP_NAME, 'logo.png', bytes.buffer.asUint8List(), 'image/png',
           text: StringConst.APP_NAME);
     } catch (e) {
       print('error: $e');
@@ -81,7 +81,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
       final ByteData bytes2 = await rootBundle.load(AssetsConst.SLIDER2_IMG);
 
       await Share.files(
-          'esys images',
+          StringConst.APP_NAME,
           {
             'esys.png': bytes1.buffer.asUint8List(),
             'bluedan.png': bytes2.buffer.asUint8List(),
@@ -96,7 +96,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
     try {
       final ByteData bytes = await rootBundle.load(AssetsConst.INSURANCE_CSV);
       await Share.file(
-          'addresses', 'addresses.csv', bytes.buffer.asUint8List(), 'text/csv');
+          StringConst.APP_NAME, 'addresses.csv', bytes.buffer.asUint8List(), 'text/csv');
     } catch (e) {
       print('error: $e');
     }
@@ -109,7 +109,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
       final ByteData bytes3 = await rootBundle.load(AssetsConst.INSURANCE_CSV);
 
       await Share.files(
-          'Esys images',
+          StringConst.APP_NAME,
           {
             'esys.png': bytes1.buffer.asUint8List(),
             'bluedan.png': bytes2.buffer.asUint8List(),
@@ -125,10 +125,10 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
   _shareImageFromUrl() async {
     try {
       var request = await HttpClient().getUrl(Uri.parse(
-          'https://shop.esys.eu/media/image/6f/8f/af/amlog_transport-berwachung.jpg'));
+          'https://avatars0.githubusercontent.com/u/38448422?s=460&u=21b610183d275611a9bc0f730653d931b39f2d0b&v=4'));
       var response = await request.close();
       Uint8List bytes = await consolidateHttpClientResponseBytes(response);
-      await Share.file('ESYS AMLOG', 'amlog.jpg', bytes, 'image/jpg');
+      await Share.file(StringConst.APP_NAME, 'amlog.jpg', bytes, 'image/jpg');
     } catch (e) {
       print('error: $e');
     }

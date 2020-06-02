@@ -1,6 +1,7 @@
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -16,7 +17,7 @@ class _ContactScreenState extends State<ContactScreen> {
   @override
   void initState() {
     super.initState();
-    _refreshContacts();
+    _checkPermission();
   }
 
   @override
@@ -25,7 +26,7 @@ class _ContactScreenState extends State<ContactScreen> {
         appBar: getAppBarWithBackBtn(context, StringConst.CONTACT_TITLE),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            _refreshContacts();
+            _checkPermission();
           },
           child: Icon(Icons.refresh, color: Colors.white),
         ),
@@ -79,35 +80,16 @@ class _ContactScreenState extends State<ContactScreen> {
     );
   }
 
-  _refreshContacts() async {
-    if (_allContacts != null) _allContacts.clear();
-    setState(() {});
+  void _checkPermission() {
     var _storagePermission = PermissionGroup.contacts;
-    var _permissionHandler = PermissionHandler();
-    var result =
-        await _permissionHandler.requestPermissions([_storagePermission]);
-    switch (result[_storagePermission]) {
-      case PermissionStatus.granted:
-//        _txtReqPerResult = 'Permission granted';
-        break;
-      case PermissionStatus.denied:
-        showSnackBar(_ctx, 'Permission denied');
-        return;
-      case PermissionStatus.disabled:
-        showSnackBar(_ctx, 'Permission denied');
-        return;
-      case PermissionStatus.restricted:
-        showSnackBar(_ctx, 'Permission restricted');
-        return;
-      case PermissionStatus.unknown:
-        showSnackBar(_ctx, 'Permission unknown');
-        return;
-      default:
-    }
-    getContact();
+    var permissionArray = [_storagePermission];
+    checkPermission(_ctx, permissionArray, getContact);
   }
 
-  void getContact() async {
+  void getContact(bool isPermissionGrented) async {
+    if (!isPermissionGrented) return;
+    if (_allContacts != null) _allContacts.clear();
+    setState(() {});
     var contacts = await ContactsService.getContacts();
     _populateContacts(contacts);
   }
@@ -121,6 +103,8 @@ class _ContactScreenState extends State<ContactScreen> {
     debugPrint('Images   :  ' + _allContacts.toList().toString());
     setState(() {});
   }
+
+
 }
 
 class CustomContact {

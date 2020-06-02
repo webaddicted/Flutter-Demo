@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_audio_bean.dart';
-import 'package:flutterbeginner/model/localfile/device_doc_bean.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:storage_path/storage_path.dart';
 
 class AudioScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _AudioScreenState extends State<AudioScreen> {
   @override
   void initState() {
     super.initState();
-    getAllAudio();
+    _reqPermission();
   }
 
   @override
@@ -29,7 +30,7 @@ class _AudioScreenState extends State<AudioScreen> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.refresh),
           onPressed: () {
-            getAllAudio();
+            _reqPermission();
           }),
       body: Builder(builder: (_context) => _createUi(_context)),
     );
@@ -52,8 +53,16 @@ class _AudioScreenState extends State<AudioScreen> {
     return Container();
   }
 
-  void getAllAudio() async {
+  void _reqPermission() {
+    var _storagePermission = PermissionGroup.storage;
+    var permissionArray = [_storagePermission];
+    checkPermission(_ctx, permissionArray, getAllAudio);
+  }
+
+  void getAllAudio(bool isPermissionGrented) async {
+    if (!isPermissionGrented) return;
     if (listData != null) listData.clear();
+    setState(() {});
     String audioPath = await StoragePath.audioPath;
     var response = jsonDecode(audioPath);
     var audioList = response as List;

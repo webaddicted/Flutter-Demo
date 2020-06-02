@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
@@ -121,7 +120,7 @@ class _VideoFolderState extends State<VideoFolder> {
             getTxt('Duration : ${formatTime(double.parse(videoBean.duration))}',
                 null),
             SizedBox(height: 10),
-            getTxt('Date Added : ${videoBean.dateAdded}', null),
+            getTxt('Date Added : ${DateTime.fromMillisecondsSinceEpoch(int.parse(videoBean.dateAdded)).toString()}', null),
             SizedBox(height: 10),
             getTxt('Size : ${filesize(videoBean.size)}', null),
             SizedBox(height: 40),

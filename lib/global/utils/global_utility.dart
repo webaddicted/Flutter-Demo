@@ -7,6 +7,7 @@ import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/countries_bean.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'dart:math';
 
 import 'package:video_player/video_player.dart';
@@ -72,13 +73,16 @@ Future getImageFromCamera(
 }
 //{END IMAGE PICKER}
 
-int randomNumber(){
+int randomNumber() {
   Random random = new Random();
   return random.nextInt(1000);
 }
+
 String formatTime(double time) {
   Duration duration = Duration(milliseconds: time.round());
-  return [duration.inHours, duration.inMinutes, duration.inSeconds].map((seg) => seg.remainder(60).toString().padLeft(2, '0')).join(':');
+  return [duration.inHours, duration.inMinutes, duration.inSeconds]
+      .map((seg) => seg.remainder(60).toString().padLeft(2, '0'))
+      .join(':');
 }
 
 String filesize(dynamic size, [int round = 2]) {
@@ -147,3 +151,22 @@ String filesize(dynamic size, [int round = 2]) {
 //_controller.dispose();
 //  return videoPla;
 //}
+
+checkPermission(BuildContext ctx, var _storagePermission,
+    Function permissionResult) async {
+  var _permissionHandler = PermissionHandler();
+  Map<PermissionGroup, PermissionStatus> result =
+      await _permissionHandler.requestPermissions(_storagePermission);
+  bool isPermissionGrented = false;
+  result.forEach((key, values) {
+    if (values == PermissionStatus.granted)
+      isPermissionGrented = true;
+    else {
+      isPermissionGrented = false;
+      permissionResult(isPermissionGrented);
+      showSnackBar(ctx, 'Permission denied');
+      return;
+    }
+  });
+  permissionResult(isPermissionGrented);
+}

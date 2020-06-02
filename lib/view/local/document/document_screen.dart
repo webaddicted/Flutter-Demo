@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/localfile/device_doc_bean.dart';
 import 'package:flutterbeginner/view/local/document/document_folder.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:storage_path/storage_path.dart';
 
 class DocumentScreen extends StatefulWidget {
@@ -20,7 +22,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
   @override
   void initState() {
     super.initState();
-    getAllDoc();
+    _reqPermission();
   }
 
   @override
@@ -30,7 +32,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.refresh),
           onPressed: () {
-            getAllDoc();
+            _reqPermission();
           }),
       body: Builder(builder: (_context) => _createUi(_context)),
     );
@@ -81,8 +83,13 @@ class _DocumentScreenState extends State<DocumentScreen> {
       ),
     );
   }
-
-  void getAllDoc() async {
+  void _reqPermission() {
+    var _storagePermission = PermissionGroup.storage;
+    var permissionArray = [_storagePermission];
+    checkPermission(_ctx, permissionArray, getAllDoc);
+  }
+  void getAllDoc(bool isPermissionGrented) async {
+    if (!isPermissionGrented) return;
     if (listData != null) listData.clear();
     String docPath = await StoragePath.filePath;
     var response = jsonDecode(docPath);

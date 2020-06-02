@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:sms/sms.dart';
+
 class SmsScreen extends StatefulWidget {
   @override
   _SmsScreenState createState() => _SmsScreenState();
@@ -17,7 +20,7 @@ class _SmsScreenState extends State<SmsScreen> {
   void initState() {
     super.initState();
     query = new SmsQuery();
-    getSms();
+    _reqPermission();
   }
 
   @override
@@ -26,7 +29,7 @@ class _SmsScreenState extends State<SmsScreen> {
         appBar: getAppBarWithBackBtn(context, StringConst.SMS_TITLE),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            getSms();
+            _reqPermission();
           },
           child: Icon(Icons.refresh, color: Colors.white),
         ),
@@ -59,9 +62,9 @@ class _SmsScreenState extends State<SmsScreen> {
             children: <Widget>[
               listData.isRead
                   ? loadCircleIcon(
-                  Icons.markunread, Colors.white, Colors.grey, 30)
+                      Icons.markunread, Colors.white, Colors.grey, 30)
                   : loadCircleIcon(
-                  Icons.markunread, Colors.white, ColorConst.APP_COLOR, 30),
+                      Icons.markunread, Colors.white, ColorConst.APP_COLOR, 30),
               SizedBox(width: 15),
               Expanded(
                 child: Column(
@@ -87,7 +90,14 @@ class _SmsScreenState extends State<SmsScreen> {
     );
   }
 
-  void getSms() async {
+  void _reqPermission() {
+    var _storagePermission = PermissionGroup.sms;
+    var permissionArray = [_storagePermission];
+    checkPermission(_ctx, permissionArray, getSms);
+  }
+
+  void getSms(bool isPermissionGrented) async {
+    if (!isPermissionGrented) return;
     if (listData != null) listData.clear();
 //    inbox & sent sms
     listData = await query.getAllSms;
