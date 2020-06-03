@@ -42,43 +42,69 @@ class _CallLogScreenState extends State<CallLogScreen> {
         child: ListView.builder(
           itemCount: listData.length,
           itemBuilder: (BuildContext context, int index) {
-              return _callRow(listData[index], index);
+            return _callRow(listData[index], index);
           },
         ));
   }
 
   Widget _callRow(CallLogEntry callBean, int index) {
-//    if(callBean.callType.)
+    String callIcon;
+    switch (callBean.callType) {
+      case CallType.incoming:
+        callIcon = AssetsConst.CALL_RECEIVED_IMG;
+        break;
+      case CallType.missed:
+        callIcon = AssetsConst.CALL_MISSED_IMG;
+        break;
+      case CallType.outgoing:
+        callIcon = AssetsConst.CALL_DIAL_IMG;
+        break;
+      case CallType.rejected:
+        callIcon = AssetsConst.CALL_CANCELLED_IMG;
+        break;
+      default:
+        callIcon = AssetsConst.CALL_MISSED_IMG;
+        break;
+    }
     return Container(
       padding: EdgeInsets.all(5),
-      child:  Row(
+      child: Column(
         children: <Widget>[
-          SizedBox(
-              height: 225,
-              width: 150,
-              child: Image.asset(AssetsConst.MOBILE_IMG)),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      getTxtBlackColor(
-                          (callBean.name != null && callBean.name.length > 0)
-                              ? callBean.name
-                              : callBean.number,
-                          15,
-                          FontWeight.bold),
-                      SizedBox(height: 3),
-                      getTxtBlackColor(callBean.number, 12, FontWeight.normal),
-                      SizedBox(height: 3),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child:getTxtBlackColor(DateTime.fromMillisecondsSinceEpoch(callBean.timestamp).toString(), 12, FontWeight.normal),
-                      ),
-                      SizedBox(height: 3),
-                      getDivider()
-                    ],
-
+          Row(
+            children: <Widget>[
+              SizedBox(width: 10),
+              SizedBox(height: 50, width: 50, child: Image.asset(callIcon)),
+              SizedBox(width: 10),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  getTxtBlackColor(
+                      (callBean.name != null && callBean.name.length > 0)
+                          ? callBean.name
+                          : callBean.number,
+                      15,
+                      FontWeight.bold),
+                  SizedBox(height: 2),
+                  getTxtBlackColor(callBean.number, 14, FontWeight.normal),
+                  SizedBox(height: 2),
+                  getTxtBlackColor('Duration  :  ${callBean.duration}', 14,
+                      FontWeight.normal),
+                  SizedBox(height: 2),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: getTxtBlackColor(
+                        DateTime.fromMillisecondsSinceEpoch(callBean.timestamp)
+                            .toString(),
+                        14,
+                        FontWeight.normal),
                   ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          getDivider()
         ],
       ),
     );
@@ -95,10 +121,9 @@ class _CallLogScreenState extends State<CallLogScreen> {
     if (listData != null) listData.clear();
     var result = await CallLog.query();
     result.forEach((entry) {
-      print('object \n\n  '+entry.toString());
+      print('object \n\n  ' + entry.toString());
       listData.add(entry);
     });
-    setState(() {
-    });
+    setState(() {});
   }
 }

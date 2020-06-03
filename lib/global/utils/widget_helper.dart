@@ -162,7 +162,7 @@ ClipRRect loadCircleImgName(
       radius: radius,
       backgroundColor: ColorConst.APP_COLOR,
       child: new Text(
-        name.toUpperCase()[0],
+        name.toUpperCase(),
         style: new TextStyle(
             fontSize: 20,
             color: ColorConst.WHITE_COLOR,

@@ -157,7 +157,10 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('All Call Log');
     allTaskBean.add('Grid View');
     allTaskBean.add('Share Data');
-
+    allTaskBean.add('Fingure Print');
+    allTaskBean.add('ScreenShot');
+    allTaskBean.add('App Rating');
+    allTaskBean.add('Device Info');
     return allTaskBean;
   }
 
@@ -236,7 +239,8 @@ class ALLTask extends StatelessWidget {
       case 'Barcode Scanner':
         return navigationPush(context, BarcodeScannerScreen());
       case 'Video Player':
-        return navigationPush(context, VideoPlayerScreen(ApiConst.VIDEO_URL, null));
+        return navigationPush(
+            context, VideoPlayerScreen(ApiConst.VIDEO_URL, null));
       case 'Download File':
         return navigationPush(context, DownloadFileScreen());
       case 'Push Notification':
@@ -259,6 +263,17 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, GridViewScreen());
       case 'Share Data':
         return navigationPush(context, ShareDataScreen());
+//      case 'Fingure Print':
+//        return navigationPush(context, ShareDataScreen());
+//      case 'ScreenShot':
+//        return navigationPush(context, ShareDataScreen());
+//      case 'App Rating':
+//        return navigationPush(context, ShareDataScreen());
+//      case 'Device Info':
+//        return navigationPush(context, ShareDataScreen());
+      default:
+        return navigationPush(context, GridViewScreen());
+        break;
     }
   }
 }

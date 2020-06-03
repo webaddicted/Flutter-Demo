@@ -57,7 +57,8 @@ class _ContactScreenState extends State<ContactScreen> {
       child: new Container(
         child: Row(
           children: <Widget>[
-            loadCircleImgName(null, deviceContact.displayName, 0, 35),
+            loadCircleImgName(
+                null, getInitials(deviceContact.displayName), 0, 35),
             Padding(padding: EdgeInsets.only(left: 10)),
             Expanded(
               child: Column(
@@ -104,7 +105,19 @@ class _ContactScreenState extends State<ContactScreen> {
     setState(() {});
   }
 
-
+  String getInitials(String bank_account_name) {
+    try {
+      List<String> names = bank_account_name.split(" ");
+      String initials = "";
+      int numWords = 2;
+      for (var i = 0; i < numWords; i++) {
+        initials += '${names[i][0]}';
+      }
+      return initials;
+    } catch (e) {
+      return bank_account_name.toUpperCase()[0];
+    }
+  }
 }
 
 class CustomContact {

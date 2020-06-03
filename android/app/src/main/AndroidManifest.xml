@@ -30,6 +30,7 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         tools:node="replace"
+        android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 <!---->
         <activity
