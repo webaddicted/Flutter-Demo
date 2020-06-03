@@ -1,6 +1,8 @@
 class StringConst {
   static const String APP_NAME = 'Flutter Demo';
-  static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
+  static const String SERVER_KEY =
+      'AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
+
 //  static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
   static String DOWNLOAD = 'download';
   static String PROFILE = 'profile';
@@ -43,7 +45,7 @@ class StringConst {
   static String SIGNATURE_TITLE = 'Signature';
   static String SEARCH_TITLE = 'Search';
   static String COLLAPSE_TOOLBAR_TITLE = 'Collapse Toolbar';
-  static String WEB_VIEW_TITLE= 'Web View';
+  static String WEB_VIEW_TITLE = 'Web View';
   static String BAR_CODE_TITLE = 'Barcode Scanner';
   static String VIDEO_PLAYER_TITLE = 'Video Player';
   static String DOWNLOAD_FILE_TITLE = 'Download File';
@@ -57,7 +59,8 @@ class StringConst {
   static String GRID_TITLE = 'Grid View';
   static String AUDIO_TITLE = 'All Audio';
   static String DATA_SHARE_TITLE = 'Data Sharing';
-  static String CALL_HISTORY_TITLE='Call History';
+  static String CALL_HISTORY_TITLE = 'Call History';
+  static String FINGERS_PRINT_TITLE = 'Finger Print';
 
 //  {END TITLE}
 }

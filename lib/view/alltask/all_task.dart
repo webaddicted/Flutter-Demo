@@ -16,6 +16,7 @@ import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/collapse_toolbar.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
+import 'package:flutterbeginner/view/example/finger_print_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/grid_view_screen.dart';
 import 'package:flutterbeginner/view/example/listview_pagination.dart';
@@ -157,7 +158,7 @@ class ALLTask extends StatelessWidget {
     allTaskBean.add('All Call Log');
     allTaskBean.add('Grid View');
     allTaskBean.add('Share Data');
-    allTaskBean.add('Fingure Print');
+    allTaskBean.add('Finger Print');
     allTaskBean.add('ScreenShot');
     allTaskBean.add('App Rating');
     allTaskBean.add('Device Info');
@@ -263,8 +264,8 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, GridViewScreen());
       case 'Share Data':
         return navigationPush(context, ShareDataScreen());
-//      case 'Fingure Print':
-//        return navigationPush(context, ShareDataScreen());
+      case 'Finger Print':
+        return navigationPush(context, FingerPrintScreen());
 //      case 'ScreenShot':
 //        return navigationPush(context, ShareDataScreen());
 //      case 'App Rating':
