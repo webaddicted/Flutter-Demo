@@ -1,0 +1,87 @@
+name: flutterbeginner
+description: A new Flutter application.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+  http: ^0.12.2
+  dio: ^3.0.10
+  path_provider: ^1.6.11
+  simple_animations: ^2.2.1
+  avatar_glow: ^1.2.0
+  flutter_rating_bar: ^3.0.1
+  #  flutter_datetime_picker:
+  shared_preferences: ^0.5.8
+  permission_handler: ^5.0.1
+  image_picker: ^0.6.7+11
+  pinput: ^0.2.4
+  flutter_staggered_grid_view: ^0.3.2
+  google_maps_flutter: ^1.0.2
+  geolocator: ^6.0.0
+  webview_flutter: ^1.0.0
+  barcode_scan: ^3.0.1
+  video_player: ^0.11.0
+  flutter_local_notifications: ^2.0.0
+  contacts_service: ^0.4.6
+  sms: ^0.2.4
+  storage_path: ^0.2.0
+  photo_view: ^0.10.2
+  open_file: ^3.0.1
+  esys_flutter_share: ^1.0.2
+  call_log: ^2.1.0
+  audioplayers: ^0.16.1
+  local_auth: ^0.6.2+3
+  device_info: ^0.4.2+8
+  provider: ^4.3.2
+  shimmer: ^1.1.1
+  carousel_slider: ^2.2.1
+  page_indicator: ^0.3.0
+  font_awesome_flutter: ^8.8.1
+  sliver_fab: ^1.0.0
+  youtube_player_flutter: ^7.0.0+7
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "images/logo.png"
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
+    - local_file/
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Regular.otf
+          weight: 400
+        - asset: fonts/Poppins-Medium.otf
+          weight: 500
+        - asset: fonts/Poppins-SemiBold.otf
+          weight: 600
+    - family: Zillaslab
+      fonts:
+        - asset: fonts/Zillaslab-bold.ttf
+        - asset: fonts/Zillaslab-light.ttf
+        - asset: fonts/Zillaslab-medium.ttf
+        - asset: fonts/Zillaslab-regular.ttf
+    - family: PT
+      fonts:
+        - asset: fonts/PT-bold.ttf
+        - asset: fonts/PT-italic.ttf
+        - asset: fonts/PT-regular.ttf

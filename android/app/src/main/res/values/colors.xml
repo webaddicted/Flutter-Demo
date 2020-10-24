@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Splash Screen-->
+    <color name="bg_screen2">#1e88e5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="test">#ffffe6</color>
+</resources>
