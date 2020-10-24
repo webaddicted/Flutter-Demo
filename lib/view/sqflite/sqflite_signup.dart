@@ -54,7 +54,7 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
                   children: <Widget>[
                     SizedBox(height: 60),
                     Container(
-                        width: 120, height: 120, child: loadCircleImg(ApiConst.DEMO_IMG,0, 0)),
+                        width: 120, height: 120, child: loadCircleImg(ApiConstant.DEMO_IMG,0, 0)),
                     SizedBox(height: 10),
                     getTxtAppColor(msg:StringConst.APP_NAME, fontSize:25, fontWeight:FontWeight.bold),
                   ],

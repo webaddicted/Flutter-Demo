@@ -47,7 +47,7 @@ dependencies:
   font_awesome_flutter: ^8.8.1
   sliver_fab: ^1.0.0
   youtube_player_flutter: ^7.0.0+7
-
+  cached_network_image: ^2.2.0+1
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/api/api_http_page.dart';
-import 'package:flutterbeginner/view/api/git_users.dart';
+import 'package:flutterbeginner/view/api/git_https_users.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';

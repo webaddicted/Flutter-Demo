@@ -100,7 +100,7 @@ class _GitUsersState extends State<GitUsers> {
         'since': pageCount.toString(),
       };
       var uri = Uri.https(
-          ApiConst.GITHUB_BASE_URL, ApiConst.GIT_USERS, queryParameters);
+          ApiConstant.GITHUB_BASE_URL, ApiConstant.GIT_USERS, queryParameters);
       print('URI  :  ' + uri.path);
       var response =
           await http.get(uri, headers: {"Accept": "application/json"});

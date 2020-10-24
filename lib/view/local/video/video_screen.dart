@@ -72,7 +72,7 @@ class _VideoScreenState extends State<VideoScreen> {
           ),
           child: Column(
             children: <Widget>[
-              loadImg(ApiConst.DEMO_IMG, 0),
+              loadImg(ApiConstant.DEMO_IMG, 0),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: getTxtBlackColor(

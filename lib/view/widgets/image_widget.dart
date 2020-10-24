@@ -42,9 +42,9 @@ class _ImageWidgetState extends State<ImageWidget> {
         SizedBox(height: 10),
         _getClipImg(),
         SizedBox(height: 10),
-        Container(height: 150, child: loadImg(ApiConst.DEMO_IMG, 0)),
+        Container(height: 150, child: loadImg(ApiConstant.DEMO_IMG, 0)),
         SizedBox(height: 10),
-        loadCircleImg(ApiConst.DEMO_IMG, 0, 120),
+        loadCircleImg(ApiConstant.DEMO_IMG, 0, 120),
         SizedBox(height: 10),
         Container(height: 80, child: Image.asset(AssetsConst.LOGO_IMG)),
         SizedBox(height: 10),
@@ -55,7 +55,7 @@ class _ImageWidgetState extends State<ImageWidget> {
         SizedBox(height: 10),
         FadeInImage.assetNetwork(
             placeholder: AssetsConst.LOGO_IMG,
-            image: ApiConst.DEMO_IMG,
+            image: ApiConstant.DEMO_IMG,
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover),
@@ -76,7 +76,7 @@ class _ImageWidgetState extends State<ImageWidget> {
 
   Widget _getWaveImg() {
     return ClipPath(
-      child: Image.network(ApiConst.DEMO_IMG),
+      child: Image.network(ApiConstant.DEMO_IMG),
       clipper: MyClipper(),
     );
   }

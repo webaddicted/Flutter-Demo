@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/view/api/api_dio_page.dart';
 import 'package:flutterbeginner/view/api/api_http_page.dart';
-import 'package:flutterbeginner/view/api/git_users.dart';
+import 'package:flutterbeginner/view/api/git_https_users.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';
@@ -41,7 +42,7 @@ class ApiCallPage extends StatelessWidget {
       case 'Git Api Call':
         return navigationPush(context, GitUsers());
       case 'DIO Api Call':
-        return navigationPush(context, LoginPage2());
+        return navigationPush(context, ApiDioPage());
       case 'Login Page3':
         return navigationPush(context, LoginPage3());
       default:

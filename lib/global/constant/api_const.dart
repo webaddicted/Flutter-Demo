@@ -1,7 +1,8 @@
-class ApiConst {
+class ApiConstant {
 //  {START BASE URL}
   static const String GITHUB_BASE_URL = 'api.github.com';
   static const String CORONA_URL = 'https://api.covid19api.com/summary';
+  static String known = 'Known';
 //  {END BASE URL}
 
 //  {START URL END POINTS}

@@ -29,12 +29,12 @@ class MovieRepository {
   provicerFetchMovieList() async {
     try {
       final response = await apiHelper.getWithParam(
-          "${ApiConst.POPULAR_MOVIES}",
-          Movie_req(ApiConst.API_KEY).toMap());
+          "${ApiConstant.POPULAR_MOVIES}",
+          Movie_req(ApiConstant.API_KEY).toMap());
       if (response.statusCode == ApiRespoCode.no_internet_connection)
         return ApiResponse.error(
             errCode: response.statusCode,
-            errMsg: ApiConst.NoInternetConnection,
+            errMsg: ApiConstant.NoInternetConnection,
             data:null);
       return ApiResponse.returnResponse(
           response, MovieRespo.fromJson(jsonDecode(response.toString())));

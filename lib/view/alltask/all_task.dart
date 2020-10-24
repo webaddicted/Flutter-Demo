@@ -5,14 +5,12 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/api/api_call_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/navigation/nav_drawer_bothside.dart';
 import 'package:flutterbeginner/view/example/bottom_navigation.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
 import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/collapsetoolbar/collapsetoolbar_page1.dart';
 import 'package:flutterbeginner/view/example/device_info_screen.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
@@ -21,7 +19,6 @@ import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/grid_view_screen.dart';
 import 'package:flutterbeginner/view/example/list_ui.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/navigation/nav_drawer.dart';
 import 'package:flutterbeginner/view/example/pagination.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
 import 'package:flutterbeginner/view/example/push_noti.dart';
@@ -197,7 +194,7 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, BarcodeScannerScreen());
       case 'Video Player':
         return navigationPush(
-            context, VideoPlayerScreen(ApiConst.VIDEO_URL, null));
+            context, VideoPlayerScreen(ApiConstant.VIDEO_URL, null));
       case 'Download File':
         return navigationPush(context, DownloadFileScreen());
       case 'Push Notification':

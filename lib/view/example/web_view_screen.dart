@@ -29,7 +29,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
               child: WebView(
 //                  key: _key,
                   javascriptMode: JavascriptMode.unrestricted,
-                  initialUrl: ApiConst.WEB_VIEW_URL))
+                  initialUrl: ApiConstant.WEB_VIEW_URL))
         ],
       ),
     );

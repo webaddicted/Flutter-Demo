@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 
 class ApiBaseHelper {
@@ -9,35 +10,32 @@ class ApiBaseHelper {
 
   ApiBaseHelper() {
     BaseOptions options = BaseOptions(
-        receiveTimeout: ApiConst.TIME_OUT,
-        connectTimeout: ApiConst.TIME_OUT);
-    options.baseUrl = ApiConst.BASE_URL;
+        receiveTimeout: ApiConstant.TIME_OUT,
+        connectTimeout: ApiConstant.TIME_OUT);
+    options.baseUrl = ApiConstant.BASE_URL;
     _dio = Dio(options);
-    _dio.interceptors.add(LogInterceptor());
+    // _dio.interceptors.add(LogInterceptor());
   }
 
   Future<Response<dynamic>> get(String url) async {
     Response response =
-        await _dio.get(url, options: Options(responseType: ResponseType.json));
+    await _dio.get(url, options: Options(responseType: ResponseType.json));
     return response;
   }
 
   Future<Response<dynamic>> getWithParam(
-      String url, Map<String, String> params) async {
+      @required String url, @required Map<String, String> params) async {
     Response response;
     try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
         response = await _dio.get(url,
             queryParameters: params,
             options: Options(responseType: ResponseType.json));
-      }
-    } on SocketException catch (_) {
-      print('not connected');
+    } on Exception{
       response = new Response();
-      response.statusCode = ApiRespoCode.no_internet_connection;
-      response.statusMessage = ApiConst.NoInternetConnection;
+      response.statusCode = ApiRespoCode.known;
+      response.statusMessage = ApiConstant.known;
     }
+    // print('respo : '+response.toString());
     return response;
   }
 
@@ -58,8 +56,6 @@ class ApiBaseHelper {
         data: params, options: Options(responseType: ResponseType.json));
     return response;
   }
-
-
 }
 
 class ApiRespoCode {

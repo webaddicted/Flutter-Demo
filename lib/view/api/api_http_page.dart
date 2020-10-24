@@ -117,7 +117,7 @@ class _ApiHttpPageState extends State<ApiHttpPage> {
 
   callApi() async {
     var response = await http
-        .get(ApiConst.CORONA_URL, headers: {"Accept": "application/json"});
+        .get(ApiConstant.CORONA_URL, headers: {"Accept": "application/json"});
     setState(() {
       if (response.statusCode == 200) {
         debugPrint(response.body);

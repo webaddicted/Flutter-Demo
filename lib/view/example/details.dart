@@ -41,7 +41,7 @@ class Details extends StatelessWidget {
               flexibleSpace: new FlexibleSpaceBar(
                 title: new Text("SliverFab Example"),
                 background: new Image.network(
-                  ApiConst.DEMO_IMG,
+                  ApiConstant.DEMO_IMG,
                   fit: BoxFit.cover,
                 ),
               ),

@@ -93,7 +93,7 @@ class _ListUiScreenState extends State<ListUiScreen> {
           children: <Widget>[
             Stack(
               children: <Widget>[
-                loadCircleImg(ApiConst.DEMO_IMG, 0, 80),
+                loadCircleImg(ApiConstant.DEMO_IMG, 0, 80),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(80),
                   child: Container(

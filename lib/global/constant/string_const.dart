@@ -72,8 +72,8 @@ class StringConst {
 
   static String TRANDING_MOVIE = "Tranding Movie";
   static var VIEW_ALL = "View All";
-  static var SIFI= "Sci-fi";
+  static var SIFI = "Sci-fi";
   static String CATEGORY = "Category";
 
-
+  static var UNSPLASH_TITLE = 'DIO Api call';
 }

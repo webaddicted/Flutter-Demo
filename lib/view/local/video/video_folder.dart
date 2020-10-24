@@ -65,7 +65,7 @@ class _VideoFolderState extends State<VideoFolder> {
                   Stack(
                     children: <Widget>[
                       Container(
-                          width: 120, child: loadImg(ApiConst.DEMO_IMG, 0)),
+                          width: 120, child: loadImg(ApiConstant.DEMO_IMG, 0)),
                       Align(
                         alignment: Alignment.bottomRight,
                         child: Container(
