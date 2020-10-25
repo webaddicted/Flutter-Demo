@@ -10,7 +10,7 @@ import 'package:flutterbeginner/view/onboarding/onboarding_page1.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class OnboardingPage extends StatelessWidget {
-  final List<String> dataBean = new List();
+   List<String> dataBean = new List();
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class OnboardingPage extends StatelessWidget {
   }
 
   List<String> setData() {
+    dataBean = new List();
     dataBean.add("Onboarding Page1");
     dataBean.add("Onboarding Page2");
     dataBean.add("Onboarding Page3");

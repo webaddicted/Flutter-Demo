@@ -24,7 +24,7 @@ class _SwipeToRefreshState extends State<SwipeToRefresh> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: StringConst.SWIPE_TO_REFRESH_TITLE),
+      appBar: getAppBarWithBackBtn(ctx:context,title: StringConst.SWIPE_TO_REFRESH_TITLE),
       body: ChangeNotifierProvider<MovieProvider>(
         create: (BuildContext context) => movieData,
         child: MovieDataScreen(),

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/apiutils/api_response.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
@@ -600,4 +601,25 @@ class Loading extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<bool> onWillPop(BuildContext context) async {
+  return showDialog<bool>(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          content: getTxtColor(
+              msg: "Are you sure you want to exit this app?", fontSize: 17, txtColor: ColorConst.BLACK_COLOR),
+          title: getTxtBlackColor(
+              msg: "Warning!", fontSize: 18, fontWeight: FontWeight.bold),
+          actions: <Widget>[
+            FlatButton(
+                child: getTxtBlackColor(msg: "Yes",fontSize: 17,),
+                onPressed: () => SystemNavigator.pop()),
+            FlatButton(
+                child: getTxtBlackColor(msg: "No",fontSize: 17,),
+                onPressed: () => Navigator.pop(context)),
+          ],
+        );
+      });
 }

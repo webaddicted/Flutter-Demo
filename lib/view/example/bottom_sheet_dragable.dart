@@ -13,7 +13,7 @@ class _BottomSheetDragableScreenState extends State<BottomSheetDragableScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title:StringConst.DRAGABLE_BOTTOM_SHEET_TITLE),
+      appBar: getAppBarWithBackBtn(ctx:context,title:StringConst.DRAGABLE_BOTTOM_SHEET_TITLE),
       body: _createUi(),
     );
   }

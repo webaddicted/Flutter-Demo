@@ -3,12 +3,12 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
-class BottomNavScreen extends StatefulWidget {
+class BottomNavPage1 extends StatefulWidget {
   @override
-  _BottomNavScreenState createState() => _BottomNavScreenState();
+  _BottomNavPage1State createState() => _BottomNavPage1State();
 }
 
-class _BottomNavScreenState extends State<BottomNavScreen>
+class _BottomNavPage1State extends State<BottomNavPage1>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
   BuildContext ctx;
@@ -22,7 +22,8 @@ class _BottomNavScreenState extends State<BottomNavScreen>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: getAppBar(title:StringConst.BOTTOM_NAVIGATION_TITLE),
+      appBar: getAppBarWithBackBtn(
+          ctx: context, title: StringConst.BOTTOM_NAVIGATION_TITLE),
       bottomNavigationBar: new Material(
         color: ColorConst.APP_COLOR,
         child: _getTab(),
@@ -72,7 +73,7 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scrollbar(
       child: Center(
-        child: getTxtBlackColor(msg:title,fontWeight:FontWeight.bold),
+        child: getTxtBlackColor(msg: title, fontWeight: FontWeight.bold),
       ),
     );
   }

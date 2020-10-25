@@ -3,10 +3,11 @@ import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/api/api_call_page.dart';
+import 'package:flutterbeginner/view/bottombar/bottom_nav_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
 import 'package:flutterbeginner/view/example/blend_mode_page.dart';
-import 'package:flutterbeginner/view/example/bottom_navigation.dart';
+import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/bottombar/bottom_nav_page1.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
@@ -156,7 +157,7 @@ class ALLTask extends StatelessWidget {
       case 'Stepper':
         return navigationPush(context, StepperView());
       case 'Bottom Navigation':
-        return navigationPush(context, BottomNavScreen());
+        return navigationStateLessPush(context, BottomNavPage());
       case 'Tab Bar':
         return navigationPush(context, TabBarScreen());
       case 'Shared preference':

@@ -14,8 +14,7 @@ class _NavigationDrawerScreenState extends State<NavigationDrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar:
-          getAppBar(title:StringConst.NAVIGATION_DRAWER_TITLE),
+      appBar:getAppBar(title:StringConst.NAVIGATION_DRAWER_TITLE),
       drawer: Drawer(
         child: _drawerView(),
       ),

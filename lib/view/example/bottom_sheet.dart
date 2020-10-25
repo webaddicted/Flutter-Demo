@@ -24,7 +24,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scafoldKey,
-      appBar: getAppBar(title:StringConst.BOTTOM_SHEET_TITLE),
+      appBar: getAppBarWithBackBtn(ctx:context,title:StringConst.BOTTOM_SHEET_TITLE),
       body: Builder(builder: (_context) => _createUi(_context)),
     );
   }

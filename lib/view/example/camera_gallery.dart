@@ -20,7 +20,7 @@ class _CameraGalleryState extends State<CameraGallery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title:StringConst.IMAGE_PICKER_TITLE),
+      appBar: getAppBarWithBackBtn(ctx:context,title:StringConst.IMAGE_PICKER_TITLE),
       body: Builder(builder: (_context) {
         return _createUi(_context);
       }),

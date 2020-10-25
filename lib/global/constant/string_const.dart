@@ -77,5 +77,13 @@ class StringConst {
   static var SIFI = "Sci-fi";
   static String CATEGORY = "Category";
 
+  static var DEEPAK_SHARMA = 'Deepak Sharma';
+
+  static var WEBADDICTED = 'Webaddicted';
+
+  static var NAV_DRAWER_CURVE_TITLE = 'Nav Curve Drawer';
+
+  static var BOTTOM_NAV_DESIGN_TITLE = 'Bottom Nav Design';
+
 
 }

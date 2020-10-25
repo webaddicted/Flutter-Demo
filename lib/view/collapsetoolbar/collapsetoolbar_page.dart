@@ -11,7 +11,7 @@ import 'package:flutterbeginner/view/login/login_page3.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class CollapseToolbarPage extends StatelessWidget {
-  final List<String> dataBean = new List();
+  List<String> dataBean = new List();
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,7 @@ class CollapseToolbarPage extends StatelessWidget {
   }
 
   List<String> setData() {
+    dataBean = new List();
     dataBean.add("Http Api Call");
     dataBean.add("Git Api Call");
     dataBean.add("DIO Api Call");

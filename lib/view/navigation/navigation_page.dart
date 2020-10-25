@@ -5,10 +5,11 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
 import 'package:flutterbeginner/view/navigation/nav_drawer.dart';
 import 'package:flutterbeginner/view/navigation/nav_drawer_bothside.dart';
+import 'package:flutterbeginner/view/navigation/nav_drawer_curve_page.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class NavigationPage extends StatelessWidget {
-  final List<String> dataBean = new List();
+  List<String> dataBean = new List();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class NavigationPage extends StatelessWidget {
   }
 
   List<String> setData() {
+    dataBean = new List();
     dataBean.add("One side");
     dataBean.add("Both side");
     dataBean.add("Curve Navigation");
@@ -36,8 +38,8 @@ class NavigationPage extends StatelessWidget {
         return navigationPush(context, NavigationDrawerScreen());
       case 'Both side':
         return navigationPush(context, BothSideNavDrawerScreen());
-      // case 'Curve Navigation':
-      //   return navigationPush(context, NavigationDrawerScreen());
+      case 'Curve Navigation':
+        return navigationPush(context, NavDrawerCurvePage());
       default:
         return showSnackBar(context, "Pending Task");
         break;
