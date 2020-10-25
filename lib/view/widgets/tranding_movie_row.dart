@@ -22,6 +22,7 @@ class TrandingMovieRow extends StatelessWidget {
     return Column(
       children: <Widget>[
         SizedBox(height: 10),
+        if(animationName!=null)
         getHeading(context, animationName),
         SizedBox(height: 10),
         SizedBox(

@@ -1,3 +1,5 @@
+import 'package:flutter/src/widgets/framework.dart';
+
 class AssetsConst {
 //  {START FONT FAMILY}
   static const String APP_NAME = 'Flutter Demo';
@@ -28,13 +30,20 @@ class AssetsConst {
   static String CALL_RECEIVED_IMG = 'images/call_received.png';
   static String CALL_DIAL_IMG = 'images/call_dial.png';
 
-
+  static String TAKE_PHONE = 'images/take_phone.png';
+  static String CHOOSE_RESTRO = 'images/choose_restro.png';
+  static String ORDER_FOOD = 'images/order_food.png';
+  static String WAIT_FOR_DELIVERY = 'images/wait_delivery.png';
+  static String PAY = 'images/pay.png';
+  static String EAT_ENJOY = 'images/eat_enjoy.png';
   //  {END IMAGES}
 
 //  {START LOCAL FILE}
   static String LOAD_JSON = 'local_file/person.json';
   static String COUNTRY_PHONE_CODES_JSON = 'local_file/country_phone_codes.json';
   static String INSURANCE_CSV = 'local_file/insurance.csv';
+
+
 
 
 

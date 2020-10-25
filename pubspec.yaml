@@ -48,6 +48,7 @@ dependencies:
   sliver_fab: ^1.0.0
   youtube_player_flutter: ^7.0.0+7
   cached_network_image: ^2.2.0+1
+  timeline_tile: ^1.0.0
 
 dev_dependencies:
   flutter_test:

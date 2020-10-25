@@ -15,13 +15,11 @@ class ApiDioPage extends StatefulWidget {
 }
 
 class _ApiDioPageState extends State<ApiDioPage> {
-  List dataResult;
   BuildContext ctx;
-  bool isLoading = false;
   Dio _dio;
   var perPage = 50;
   var page = 1;
-  var keyword = 'beautiful girl';
+  var keyword = 'Beautiful girl';
 
   List<Results> unSplashBean;
 
@@ -34,11 +32,10 @@ class _ApiDioPageState extends State<ApiDioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBarWithBackBtn(
-            ctx: context, title: StringConst.UNSPLASH_TITLE),
-        body: Builder(
-          builder: (context) => _createUi(context),
-        ));
+      appBar:
+          getAppBarWithBackBtn(ctx: context, title: StringConst.UNSPLASH_TITLE),
+      body: _createUi(context),
+    );
   }
 
   callApi() async {
@@ -62,7 +59,6 @@ class _ApiDioPageState extends State<ApiDioPage> {
         .then((r) {
       setState(() {
         unSplashBean = UnSplashBean.fromJson(jsonDecode(r.data)).results;
-        print(r.data);
       });
     }).catchError(print);
   }
@@ -70,23 +66,21 @@ class _ApiDioPageState extends State<ApiDioPage> {
   Widget _createUi(BuildContext context) {
     ctx = context;
     if (unSplashBean == null) return showPbIndicator();
-    return _buildImageGrid();
+    return OrientationBuilder(
+        builder: (context, orientation) =>
+            _buildImageGrid(orientation: orientation));
   }
 
   Widget _buildImageGrid({orientation = Orientation.portrait}) {
     // calc columnCount based on orientation
     int columnCount = orientation == Orientation.portrait ? 2 : 3;
-    // return staggered grid
-    return SliverPadding(
-      padding: const EdgeInsets.all(16.0),
-      sliver: SliverStaggeredGrid.countBuilder(
-        // set column count
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: StaggeredGridView.countBuilder(
         crossAxisCount: columnCount,
         itemCount: unSplashBean.length,
-        // set itemBuilder
         itemBuilder: (BuildContext context, int index) =>
-            ImageTile(unSplashBean[0]),
-        //_buildImageItemBuilder(index),
+            new Container(child: ImageTile(unSplashBean[index])),
         staggeredTileBuilder: (int index) =>
             _buildStaggeredTile(unSplashBean[index], columnCount),
         mainAxisSpacing: 16.0,
@@ -103,22 +97,4 @@ class _ApiDioPageState extends State<ApiDioPage> {
     // not using [StaggeredTile.fit(1)] because during loading StaggeredGrid is really jumpy.
     return StaggeredTile.extent(1, aspectRatio * columnWidth);
   }
-// Widget _buildImageItemBuilder(int index) => FutureBuilder(
-//   // pass image loader
-//   future: _loadImage(index),
-//   builder: (context, snapshot) =>
-//   // image loaded return [_ImageTile]
-//   ImageTile(snapshot.data),
-// );
-
-// Future<UnSplashBean> _loadImage(int index) async {
-//   // check if new images need to be loaded
-//   if (index >= unSplashBean.length - 2) {
-//     // Reached the end of the list. Try to load more images.
-//     _loadImages(keyword: keyword);
-//   }
-//
-//   return index < images.length ? images[index] : null;
-// }
-
 }

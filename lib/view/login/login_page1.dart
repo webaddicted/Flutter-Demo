@@ -36,12 +36,13 @@ class _LoginPage1State extends State<LoginPage1>
           loadImg(
               'https://www.wallpapertip.com/wmimgs/94-941374_asian-girl-wallpaper.jpg',
               0),
+          Container(
+            color: Colors.black.withOpacity(0.2)
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlutterLogo(
-                size: _iconAnim.value * 100,
-              ),
+              loadCircleImg('', 0, _iconAnim.value * 100),
               Form(
                   child: Theme(
                       data: ThemeData(

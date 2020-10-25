@@ -67,7 +67,9 @@ class StringConst {
   static var WEB_SOCKET_TITLE = 'Web Socket';
   static var LIST_DESIGN_TITLE = 'List Design UI';
   static var LOGIN_DESIGN_TITLE = 'Login Design UI';
-
+  static var UNSPLASH_TITLE = 'DIO Api call';
+  static var DIO_ARCHITECTURE_TITLE = 'DIO Api Architecture';
+  static var BLEND_MODE_TITLE = 'Blend Mode';
 //  {END TITLE}
 
   static String TRANDING_MOVIE = "Tranding Movie";
@@ -75,5 +77,5 @@ class StringConst {
   static var SIFI = "Sci-fi";
   static String CATEGORY = "Category";
 
-  static var UNSPLASH_TITLE = 'DIO Api call';
+
 }

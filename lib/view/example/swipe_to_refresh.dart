@@ -46,7 +46,7 @@ class MovieDataScreen extends StatelessWidget {
 
   Widget apiresponse(BuildContext context) {
     appState = Provider.of<MovieProvider>(context);
-    var jsonResult = appState.getJsonResonse;
+    var jsonResult = appState.getMovieRespo;
     switch (jsonResult.status) {
       case ApiStatus.LOADING:
         debugPrint("LOADING");

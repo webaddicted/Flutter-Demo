@@ -9,7 +9,7 @@ import 'package:flutterbeginner/view/login/login_page4.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class LoginPage extends StatelessWidget {
-  final List<String> dataBean = new List();
+   List<String> dataBean = new List();
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class LoginPage extends StatelessWidget {
   }
 
   List<String> setData() {
+    dataBean = new List();
     dataBean.add("Login Page1");
     dataBean.add("Login Page2");
     dataBean.add("Login Page3");

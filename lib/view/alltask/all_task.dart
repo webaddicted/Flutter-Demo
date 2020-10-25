@@ -5,6 +5,7 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/api/api_call_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
+import 'package:flutterbeginner/view/example/blend_mode_page.dart';
 import 'package:flutterbeginner/view/example/bottom_navigation.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
@@ -120,7 +121,7 @@ class ALLTask extends StatelessWidget {
     dataBean.add('Login Design');
     dataBean.add('List Ui');
     dataBean.add('Web Socket');
-
+    dataBean.add('Blend Mode');
     return dataBean;
   }
 
@@ -227,6 +228,8 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, ListUiScreen());
       case 'Web Socket':
         return navigationPush(context, ListUiScreen());
+      case 'Blend Mode':
+        return navigationPush(context, BlendModePage());
       default:
         return navigationPush(context, GridViewScreen());
         break;
