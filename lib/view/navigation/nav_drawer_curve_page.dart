@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/widgets/nav_drawer_curve_widget.dart';
+import 'package:flutterbeginner/view/widgets/nav_drawer_curve_widget.dart';
 
 class NavDrawerCurvePage extends StatefulWidget {
   @override

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/view/alltask/nav_drawer_home.dart';
 import 'package:flutterbeginner/view/api/api_call_page.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
 import 'package:flutterbeginner/view/example/blend_mode_page.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/bottombar/bottom_nav_page1.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
@@ -31,7 +31,7 @@ import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
-import 'package:flutterbeginner/view/example/tab_bar.dart';
+import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/tabbar/tab_page1.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
@@ -46,8 +46,8 @@ import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/navigation/navigation_page.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
-import 'package:flutterbeginner/view/onboarding/onboarding_page1.dart';
 import 'package:flutterbeginner/view/sqflite/sqflite_splash.dart';
+import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 import 'package:flutterbeginner/view/widgets/image_widget.dart';
@@ -64,6 +64,7 @@ class ALLTask extends StatelessWidget {
     setData();
     return new Scaffold(
       appBar: getAppBar(title: StringConst.FLUTTER_DEMO_TITLE),
+      drawer:  NavDrawerHome(),
       body: HomeItemWidget(
         dataBean: dataBean,
         onTap: (screenName) => nextScreen(context, screenName),
@@ -159,7 +160,7 @@ class ALLTask extends StatelessWidget {
       case 'Bottom Navigation':
         return navigationStateLessPush(context, BottomNavPage());
       case 'Tab Bar':
-        return navigationPush(context, TabBarScreen());
+        return navigationStateLessPush(context, TabBarPage());
       case 'Shared preference':
         return navigationPush(context, SPScreen());
       case 'OnBoarding UI':

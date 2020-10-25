@@ -3,12 +3,12 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
-class TabBarScreen extends StatefulWidget {
+class TabPage1 extends StatefulWidget {
   @override
-  _TabBarScreenState createState() => _TabBarScreenState();
+  _TabPage1State createState() => _TabPage1State();
 }
 
-class _TabBarScreenState extends State<TabBarScreen>
+class _TabPage1State extends State<TabPage1>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
@@ -28,10 +28,13 @@ class _TabBarScreenState extends State<TabBarScreen>
         bottom: _getTab(),
       ),
       body: _createUi(),
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.add),
-        onPressed: (){
-          showAlertDialog(ctx:context, title:'Add tab',msg:'Add custom tab');
-        },),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          showAlertDialog(
+              ctx: context, title: 'Add tab', msg: 'Add custom tab');
+        },
+      ),
     );
   }
 
@@ -48,8 +51,8 @@ class _TabBarScreenState extends State<TabBarScreen>
   TabBar _getTab() {
     return TabBar(
       controller: _tabController,
-        indicatorColor: Colors.white,
-        indicatorWeight: 3.0,
+      indicatorColor: Colors.white,
+      indicatorWeight: 3.0,
       tabs: <Widget>[
         Tab(
           icon: Icon(Icons.favorite),
@@ -77,7 +80,7 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scrollbar(
       child: Center(
-        child: getTxtBlackColor(msg:title,fontWeight: FontWeight.bold),
+        child: getTxtBlackColor(msg: title, fontWeight: FontWeight.bold),
       ),
     );
   }

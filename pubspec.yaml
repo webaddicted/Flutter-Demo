@@ -49,7 +49,9 @@ dependencies:
   youtube_player_flutter: ^7.0.0+7
   cached_network_image: ^2.2.0+1
   timeline_tile: ^1.0.0
-
+  fancy_bottom_navigation: ^0.3.2
+  titled_navigation_bar: ^4.1.0
+  bubble_tab_indicator: ^0.1.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
