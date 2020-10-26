@@ -28,10 +28,10 @@ import 'package:flutterbeginner/view/example/search_item.dart';
 import 'package:flutterbeginner/view/example/share_data_screen.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
+import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/splash/splash_page1.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/tabbar/tab_page1.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
@@ -46,7 +46,7 @@ import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/navigation/navigation_page.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
-import 'package:flutterbeginner/view/sqflite/sqflite_splash.dart';
+import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
@@ -166,7 +166,7 @@ class ALLTask extends StatelessWidget {
       case 'OnBoarding UI':
         return navigationStateLessPush(context, OnboardingPage());
       case 'Splash':
-        return navigationPush(context, SPSplash());
+        return navigationStateLessPush(context, SplashPage());
       case 'Run time permission':
         return navigationPush(context, PermissionHelper());
       case 'Swipe to delete':

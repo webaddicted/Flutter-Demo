@@ -1,19 +1,17 @@
-import 'package:avatar_glow/avatar_glow.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbeginner/global/animation/delayed_animation.dart';
-import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:avatar_glow/avatar_glow.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutterbeginner/global/animation/delayed_animation.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';
-
-class SPSplash extends StatefulWidget {
+class SplashPage1 extends StatefulWidget {
   @override
-  _SPSplashState createState() => _SPSplashState();
+  _SplashPage1State createState() => _SplashPage1State();
 }
 
-class _SPSplashState extends State<SPSplash>
-    with SingleTickerProviderStateMixin {
+class _SplashPage1State extends State<SplashPage1>  with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
   double _scale;
   AnimationController _controller;
@@ -28,8 +26,8 @@ class _SPSplashState extends State<SPSplash>
       lowerBound: 0.0,
       upperBound: 0.1,
     )..addListener(() {
-        setState(() {});
-      });
+      setState(() {});
+    });
     super.initState();
   }
 
@@ -155,23 +153,23 @@ class _SPSplashState extends State<SPSplash>
   }
 
   Widget get _animatedButtonUI => Container(
-        height: 50,
-        width: 200,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0),
-          color: Colors.white,
+    height: 50,
+    width: 200,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(100.0),
+      color: Colors.white,
+    ),
+    child: Center(
+      child: Text(
+        StringConst.APP_NAME,
+        style: TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold,
+          color: Color(0xFF8185E2),
         ),
-        child: Center(
-          child: Text(
-            StringConst.APP_NAME,
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF8185E2),
-            ),
-          ),
-        ),
-      );
+      ),
+    ),
+  );
 
   void _onTapDown(TapDownDetails details) {
     _controller.forward();

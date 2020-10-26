@@ -9,6 +9,7 @@ import 'package:flutterbeginner/view/bottombar/bottom_nav_page.dart';
 import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/navigation/navigation_page.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
+import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 
 class NavDrawerHome extends StatelessWidget {
@@ -71,6 +72,8 @@ class NavDrawerHome extends StatelessWidget {
                       txtColor: ColorConst.BLACK_COLOR),
                   SizedBox(height: 30.0),
                   _buildRow(Icons.home, "Home"),
+                  _buildDivider(),
+                  _buildRow(Icons.category, "Splash"),
                   _buildDivider(),
                   _buildRow(Icons.category, "Login UI Design"),
                   _buildDivider(),
@@ -161,6 +164,8 @@ class NavDrawerHome extends StatelessWidget {
       case "Home":
         // navigationPush(_context, CategoryMovie());
         break;
+      case "Splash":
+        return navigationStateLessPush(_context, SplashPage());
       case "Login UI Design":
         return navigationStateLessPush(_context, LoginPage());
       case "API Calling Architecture":

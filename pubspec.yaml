@@ -53,8 +53,7 @@ dependencies:
   titled_navigation_bar: ^4.1.0
   bubble_tab_indicator: ^0.1.4
   intro_views_flutter: '^2.8.2'
-  nice_intro: ^0.1.4
-
+  splashscreen: ^1.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -9,9 +9,12 @@ import 'package:flutterbeginner/view/onboarding/onboarding_page4.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page5.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page6.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page7.dart';
+import 'package:flutterbeginner/view/splash/splash_page1.dart';
+import 'package:flutterbeginner/view/splash/splash_page2.dart';
+import 'package:flutterbeginner/view/splash/splash_page3.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
-class OnboardingPage extends StatelessWidget {
+class SplashPage extends StatelessWidget {
   List<String> dataBean = new List();
 
   @override
@@ -29,33 +32,20 @@ class OnboardingPage extends StatelessWidget {
 
   List<String> setData() {
     dataBean = new List();
-    dataBean.add("Onboarding Page1");
-    dataBean.add("Onboarding Page2");
-    dataBean.add("Onboarding Page3");
-    dataBean.add("Onboarding Page4");
-    dataBean.add("Onboarding Page5");
-    dataBean.add("Onboarding Page6");
-    dataBean.add("Onboarding Page7");
-
+    dataBean.add("Splash Page1");
+    dataBean.add("Splash Page2");
+    dataBean.add("Splash Page3");
     return dataBean;
   }
 
   void nextScreen(BuildContext context, String screenName) {
     switch (screenName) {
-      case 'Onboarding Page1':
-        return navigationPush(context, OnboardingPage1());
-      case 'Onboarding Page2':
-        return navigationPush(context, OnboardingPage2());
-      case 'Onboarding Page3':
-        return navigationPush(context, OnboardingPage3());
-      case 'Onboarding Page4':
-        return navigationPush(context, OnboardingPage4());
-      case 'Onboarding Page5':
-        return navigationPush(context, OnboardingPage5());
-      case 'Onboarding Page6':
-        return navigationPush(context, OnboardingPage6());
-      case 'Onboarding Page7':
-        return navigationPush(context, OnboardingPage7());
+      case 'Splash Page1':
+        return navigationPush(context, SplashPage1());
+      case 'Splash Page2':
+        return navigationPush(context, SplashPage2());
+      case 'Splash Page3':
+        return navigationPush(context, SplashPage3());
       default:
         return navigationPush(context, OnboardingPage1());
         break;
