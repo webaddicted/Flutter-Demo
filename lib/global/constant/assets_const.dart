@@ -20,6 +20,10 @@ class AssetsConst {
   static String SLIDER1_IMG = 'images/image1.jpg';
   static String SLIDER2_IMG = 'images/image2.jpg';
   static String SLIDER3_IMG = 'images/image3.jpg';
+  static String SLIDER4_IMG = 'images/image4.png';
+  static String SLIDER5_IMG = 'images/image5.png';
+  static String SLIDER6_IMG = 'images/image6.png';
+
   static String GOOGLE_IMG = 'images/google.png';
   static String FB_IMG = 'images/fb.png';
   static String TWITTER_IMG = 'images/twitter.png';

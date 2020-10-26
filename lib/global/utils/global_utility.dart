@@ -14,6 +14,14 @@ Color colorFromHex(String hexColor) {
   return Color(int.parse('FF$hexCode', radix: 16));
 }
 
+int _getColorFromHex(String hexColor) {
+  hexColor = hexColor.toUpperCase().replaceAll('#', '');
+  if (hexColor.length == 6) {
+    hexColor = 'FF' + hexColor;
+  }
+  return int.parse(hexColor, radix: 16);
+}
+
 Future<List<CountryBean>> loadCountriesJson(BuildContext context) async {
   List<CountryBean> _countryBean = List();
   var value = await DefaultAssetBundle.of(context)
@@ -30,7 +38,8 @@ imagePickDialog(BuildContext context, Function selectedfile) {
   showDialog(
       context: context,
       child: new AlertDialog(
-          title: getTxtBlackColor(msg:'Select Option', fontWeight:FontWeight.bold),
+          title: getTxtBlackColor(
+              msg: 'Select Option', fontWeight: FontWeight.bold),
           content: Container(
               child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -43,7 +52,7 @@ imagePickDialog(BuildContext context, Function selectedfile) {
                 },
                 child: Container(
                     padding: EdgeInsets.all(15),
-                    child: getTxtBlackColor(msg:'Take Photo' )),
+                    child: getTxtBlackColor(msg: 'Take Photo')),
               ),
               Divider(
                 color: Colors.grey,
@@ -55,8 +64,7 @@ imagePickDialog(BuildContext context, Function selectedfile) {
                   },
                   child: Container(
                       padding: EdgeInsets.all(15),
-                      child:
-                          getTxtBlackColor(msg:'Choose From Gallery'))),
+                      child: getTxtBlackColor(msg: 'Choose From Gallery'))),
             ],
           ))));
 }
@@ -149,8 +157,8 @@ String filesize(dynamic size, [int round = 2]) {
 //  return videoPla;
 //}
 
-checkPermission(BuildContext ctx, var _storagePermission,
-    Function permissionResult) async {
+checkPermission(
+    BuildContext ctx, var _storagePermission, Function permissionResult) async {
 //  var _permissionHandler = Permission;
   Map<Permission, PermissionStatus> result =
       await _storagePermission.request(_storagePermission);

@@ -8,6 +8,7 @@ class ApiConstant {
 //  {START URL END POINTS}
   static const String GIT_USERS = '/users';
   static String DEMO_IMG = 'https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg';
+  static String WEBADDICTED_IMG = 'https://avatars0.githubusercontent.com/u/38448422?s=400&u=21b610183d275611a9bc0f730653d931b39f2d0b&v=4';
   static String FIRESTORE_COLL_USERS = 'Users';
   static var WEB_VIEW_URL = 'https://pub.dev/packages/webview_flutter';
   static String VIDEO_URL = 'https://www.radiantmediaplayer.com/media/bbb-360p.mp4';

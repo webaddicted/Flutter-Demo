@@ -85,5 +85,7 @@ class StringConst {
 
   static var BOTTOM_NAV_DESIGN_TITLE = 'Bottom Nav Design';
 
+  static var NAV_DRAWER_SLIDE_TITLE = 'Nav Slide Drawer';
+
 
 }
