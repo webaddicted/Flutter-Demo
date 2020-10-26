@@ -26,7 +26,7 @@ dependencies:
   flutter_staggered_grid_view: ^0.3.2
   google_maps_flutter: ^1.0.2
   geolocator: ^6.0.0
-  webview_flutter: ^1.0.0
+  webview_flutter: ^1.0.5
   barcode_scan: ^3.0.1
   video_player: ^0.11.0
   flutter_local_notifications: ^2.0.0
@@ -52,6 +52,9 @@ dependencies:
   fancy_bottom_navigation: ^0.3.2
   titled_navigation_bar: ^4.1.0
   bubble_tab_indicator: ^0.1.4
+  intro_views_flutter: '^2.8.2'
+  nice_intro: ^0.1.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +71,7 @@ flutter:
   assets:
     - images/
     - local_file/
+    - assets/
   fonts:
     - family: Poppins
       fonts:
