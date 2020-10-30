@@ -42,9 +42,11 @@ void delay(BuildContext context, int duration, StatefulWidget route) {
 
 //  {END PAGE NAVIGATION}
 //  {START APPBAR}
-AppBar getAppBar({@required String title, double fontSize}) {
+AppBar getAppBar(
+    {@required String title, double fontSize, List<Widget> actions}) {
   return AppBar(
     centerTitle: true,
+    actions: actions,
     title: new Text(
       title,
       style: new TextStyle(
@@ -58,9 +60,11 @@ AppBar getAppBarWithBackBtn(
     {@required BuildContext ctx,
     String title,
     Color bgColor,
-    double fontSize}) {
+    double fontSize,
+    List<Widget> actions}) {
   return AppBar(
     backgroundColor: bgColor == null ? ColorConst.APP_COLOR : bgColor,
+    actions: actions,
     leading: new IconButton(
         icon: Icon(
           Icons.arrow_back_ios_sharp,
@@ -519,7 +523,9 @@ Widget showPbIndicator() {
     ),
   );
 }
-Widget apiHandler<T>({@required ApiResponse<T> response, Widget loading, Widget error}) {
+
+Widget apiHandler<T>(
+    {@required ApiResponse<T> response, Widget loading, Widget error}) {
   switch (response.status) {
     case ApiStatus.LOADING:
       return loading != null ? loading : Loading();
@@ -528,11 +534,11 @@ Widget apiHandler<T>({@required ApiResponse<T> response, Widget loading, Widget 
       return error != null
           ? error
           : Error(
-        errorMessage: response.apierror.errorMessage,
-        onRetryPressed: () {
-          //call api
-        },
-      );
+              errorMessage: response.apierror.errorMessage,
+              onRetryPressed: () {
+                //call api
+              },
+            );
       break;
     default:
       {
@@ -542,7 +548,6 @@ Widget apiHandler<T>({@required ApiResponse<T> response, Widget loading, Widget 
       }
   }
 }
-
 
 class Error extends StatelessWidget {
   final String errorMessage;
@@ -609,15 +614,23 @@ Future<bool> onWillPop(BuildContext context) async {
       builder: (_) {
         return AlertDialog(
           content: getTxtColor(
-              msg: "Are you sure you want to exit this app?", fontSize: 17, txtColor: ColorConst.BLACK_COLOR),
+              msg: "Are you sure you want to exit this app?",
+              fontSize: 17,
+              txtColor: ColorConst.BLACK_COLOR),
           title: getTxtBlackColor(
               msg: "Warning!", fontSize: 18, fontWeight: FontWeight.bold),
           actions: <Widget>[
             FlatButton(
-                child: getTxtBlackColor(msg: "Yes",fontSize: 17,),
+                child: getTxtBlackColor(
+                  msg: "Yes",
+                  fontSize: 17,
+                ),
                 onPressed: () => SystemNavigator.pop()),
             FlatButton(
-                child: getTxtBlackColor(msg: "No",fontSize: 17,),
+                child: getTxtBlackColor(
+                  msg: "No",
+                  fontSize: 17,
+                ),
                 onPressed: () => Navigator.pop(context)),
           ],
         );

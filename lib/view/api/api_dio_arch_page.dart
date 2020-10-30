@@ -11,7 +11,7 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/BooksRespo.dart';
 import 'package:flutterbeginner/model/bean/UnSplashBean.dart';
 import 'package:flutterbeginner/provider/movie_provider.dart';
-import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
+import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/pulltorefresh/pull_to_refresh.dart';
 import 'package:flutterbeginner/view/widgets/image_tile.dart';
 import 'package:flutterbeginner/view/widgets/tranding_movie_row.dart';
 import 'package:provider/provider.dart';
@@ -100,6 +100,7 @@ class BookItem extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(4.0),
               child: CachedNetworkImage(
+                placeholder: (context, url) => Container(color: Colors.grey,),
                 imageUrl : img,
                 fit: BoxFit.fill,
               ),

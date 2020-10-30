@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
@@ -21,17 +22,18 @@ import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/grid_view_screen.dart';
 import 'package:flutterbeginner/view/example/list_ui.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
+import 'package:flutterbeginner/view/example/page_view.dart';
 import 'package:flutterbeginner/view/example/pagination.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
-import 'package:flutterbeginner/view/example/push_noti.dart';
+import 'package:flutterbeginner/view/example/reorder_list.dart';
+import 'package:flutterbeginner/view/example/screenshot_page.dart';
 import 'package:flutterbeginner/view/example/search_item.dart';
 import 'package:flutterbeginner/view/example/share_data_screen.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/splash/splash_page1.dart';
+import 'package:flutterbeginner/view/example/staggered_grid_view.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
-import 'package:flutterbeginner/view/example/swipe_to_refresh.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
@@ -43,9 +45,9 @@ import 'package:flutterbeginner/view/local/image/image_screen.dart';
 import 'package:flutterbeginner/view/local/sms_screen.dart';
 import 'package:flutterbeginner/view/local/video/video_screen.dart';
 import 'package:flutterbeginner/view/login/login_page.dart';
-import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/navigation/navigation_page.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
+import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh_page.dart';
 import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
@@ -56,20 +58,95 @@ import 'package:flutterbeginner/view/widgets/progress_bar_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_field_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_widget.dart';
 
-class ALLTask extends StatelessWidget {
-  final List<String> dataBean = new List();
+class AllTasks extends StatefulWidget {
+  @override
+  _AllTasksState createState() => _AllTasksState();
+}
+
+class _AllTasksState extends State<AllTasks> {
+  List<String> dataBean = new List();
+  List<String> searchDataBean = new List();
+  BuildContext ctx;
+  bool _reverseSort = true;
+  SearchBar searchBar;
+
+  _AllTasksState() {
+    searchBar = SearchBar(
+        inBar: false,
+        buildDefaultAppBar: buildAppBar,
+        setState: setState,
+        onChanged: onDataChange,
+        onCleared: () {
+          onDataChange("");
+          // print("cleared");
+        },
+        onClosed: () {
+          onDataChange("");
+          // print("closed");
+        });
+  }
+
+  void onDataChange(String value) {
+    try {
+      searchDataBean = dataBean
+          .where((e) =>
+              (e.toUpperCase().contains(value.toUpperCase())) ||
+              e.toUpperCase().contains(value.toUpperCase()))
+          .toList();
+      // searchDataBean = dataBean
+      //     .where((e) =>
+      // (e.name.toUpperCase().contains(value.toUpperCase())) ||
+      //     e.mobileNo.toUpperCase().contains(value.toUpperCase()))
+      //     .toList();
+      setState(() {});
+      print("List : ${searchDataBean.length}  ${dataBean.length}");
+    } catch (exp) {
+      print('Search exp: $exp');
+    }
+  }
+
+  @override
+  void initState() {
+    setData();
+    dataBean.sort((a, b) => a.compareTo(b));
+    searchDataBean = dataBean;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    setData();
-    return new Scaffold(
-      appBar: getAppBar(title: StringConst.FLUTTER_DEMO_TITLE),
-      drawer:  NavDrawerHome(),
+    ctx = context;
+    return Scaffold(
+      appBar: searchBar.build(context),
+      drawer: NavDrawerHome(),
       body: HomeItemWidget(
-        dataBean: dataBean,
+        dataBean: searchDataBean,
         onTap: (screenName) => nextScreen(context, screenName),
       ),
     );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return getAppBar(
+        title: StringConst.FLUTTER_DEMO_TITLE, actions: [
+      IconButton(
+          icon: const Icon(Icons.sort_by_alpha),
+          tooltip: 'Sort',
+          onPressed: () {
+            _reverseSort = !_reverseSort;
+            setState(() {
+              if (_reverseSort)
+                searchDataBean.sort((a, b) => a.compareTo(b));
+              else
+                searchDataBean.sort((a, b) => b.compareTo(a));
+              // _items.sort((_ListItem a, _ListItem b) => _reverseSort
+              //     ? b.value.compareTo(a.value)
+              //     : a.value.compareTo(b.value));
+            });
+          }),
+      searchBar.getSearchAction(context),
+      IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+    ]);
   }
 
   List<String> setData() {
@@ -79,7 +156,7 @@ class ALLTask extends StatelessWidget {
     dataBean.add("Button");
     dataBean.add("Progress Bar");
     dataBean.add("Misc Widget");
-    dataBean.add("Login UI");
+    dataBean.add("Login UI Design");
     dataBean.add("Read local file JSON");
     dataBean.add("Chat app screen");
     dataBean.add("Calculator");
@@ -100,7 +177,7 @@ class ALLTask extends StatelessWidget {
     dataBean.add('Image Picker');
     dataBean.add('Dialog');
     dataBean.add('Google map');
-    dataBean.add('Swipe To Refresh');
+    dataBean.add('Pull To Refresh');
     dataBean.add('Signature');
     dataBean.add('Search Item');
     dataBean.add('Collapse Toolbar');
@@ -108,7 +185,6 @@ class ALLTask extends StatelessWidget {
     dataBean.add('Barcode Scanner');
     dataBean.add('Video Player');
     dataBean.add('Download File');
-    dataBean.add('Push Notification');
     dataBean.add('All Contacts');
     dataBean.add('All SMS');
     dataBean.add('All Images');
@@ -120,10 +196,13 @@ class ALLTask extends StatelessWidget {
     dataBean.add('Share Data');
     dataBean.add('Finger Print');
     dataBean.add('Device Info');
-    dataBean.add('Login Design');
     dataBean.add('List Ui');
-    dataBean.add('Web Socket');
+    dataBean.add('Screenshot');
     dataBean.add('Blend Mode');
+    dataBean.add('ReOreder List');
+    dataBean.add('View Pager');
+    dataBean.add('Staggered Grid view');
+    dataBean.add('ZZZZ');
     return dataBean;
   }
 
@@ -141,7 +220,7 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, ProgressBarWidget());
       case "Misc Widget":
         return navigationPush(context, MiscWidget());
-      case "Login UI":
+      case "Login UI Design":
         return navigationStateLessPush(context, LoginPage());
       case "Read local file JSON":
         return navigationPush(context, LocalData());
@@ -183,8 +262,8 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, DialogScreen());
       case 'Google map':
         return navigationPush(context, GoogleMapScreen());
-      case 'Swipe To Refresh':
-        return navigationPush(context, SwipeToRefresh());
+      case 'Pull To Refresh':
+        return navigationStateLessPush(context, PullToRefreshPage());
       case 'Signature':
         return navigationPush(context, SignatureScreen());
       case 'Search Item':
@@ -200,8 +279,6 @@ class ALLTask extends StatelessWidget {
             context, VideoPlayerScreen(ApiConstant.VIDEO_URL, null));
       case 'Download File':
         return navigationPush(context, DownloadFileScreen());
-      case 'Push Notification':
-        return navigationPush(context, PushNoti());
       case 'All Contacts':
         return navigationPush(context, ContactScreen());
       case 'All SMS':
@@ -224,14 +301,20 @@ class ALLTask extends StatelessWidget {
         return navigationPush(context, FingerPrintScreen());
       case 'Device Info':
         return navigationPush(context, DeviceInfoScreen());
-      case 'Login Design':
-        return navigationPush(context, LoginPage2());
       case 'List Ui':
         return navigationPush(context, ListUiScreen());
-      case 'Web Socket':
-        return navigationPush(context, ListUiScreen());
+      case 'Screenshot':
+        return navigationPush(context, ScreenshotPage());
       case 'Blend Mode':
         return navigationPush(context, BlendModePage());
+      case 'ReOreder List':
+        return navigationPush(context, ReorderPage());
+      case 'View Pager':
+        return navigationPush(context, PageViewScreen());
+      case 'Staggered Grid view':
+        return navigationPush(context, StaggeredGridScreen());
+      case 'ZZZZ':
+        return navigationPush(context, StaggeredGridScreen());
       default:
         return navigationPush(context, GridViewScreen());
         break;

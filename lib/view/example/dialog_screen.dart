@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
@@ -55,6 +56,10 @@ class _DialogScreenState extends State<DialogScreen> {
             raisedBtn('Full Screen Dialog', fullSceenDialog),
             SizedBox(height: 10),
             raisedBtn('List Dialog', listDialog),
+            SizedBox(height: 10),
+            raisedBtn('Material Dialog', materialDialog),
+            SizedBox(height: 10),
+            raisedBtn('Animated Dialog', animatedDialog),
           ],
         ),
       ),
@@ -197,5 +202,40 @@ class _DialogScreenState extends State<DialogScreen> {
                 getTxtBlackColor(msg: 'Gallery Image', fontSize: 15),
               ],
             ))));
+  }
+
+  materialDialog() {
+    showDialog(context: context, builder:(context)=>
+        MaterialAlertDialog(
+          height: 250,
+          title: "Exit",
+          message: "Are you sure you want to quit",
+          onPresedPositiveButton: (){
+            //add what you want for navigate
+          },
+
+          onPresedNegativeButton: (){
+            Navigator.pop(context);
+          },
+
+        ),
+    );
+  }
+
+  animatedDialog() {
+    showDialog(context: context, builder:(context)=>
+        AnimatedMaterialAlertDialog(
+          imagePath: AssetsConst.PAY,
+          height: 250,
+          title: 'Exit',
+          message: 'Are you sure you want to quit',
+          onPresedPositiveButton: (){
+            //add what you want for navigate
+          },
+          onPresedNegativeButton: (){
+            Navigator.pop(context);
+          },
+        ),
+    );
   }
 }

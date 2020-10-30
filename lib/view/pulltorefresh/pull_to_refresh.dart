@@ -6,12 +6,12 @@ import 'package:flutterbeginner/model/bean/movie/movie_respo.dart';
 import 'package:flutterbeginner/provider/movie_provider.dart';
 import 'package:provider/provider.dart';
 
-class SwipeToRefresh extends StatefulWidget {
+class PullToRefresh extends StatefulWidget {
   @override
-  _SwipeToRefreshState createState() => _SwipeToRefreshState();
+  _PullToRefreshState createState() => _PullToRefreshState();
 }
 
-class _SwipeToRefreshState extends State<SwipeToRefresh> {
+class _PullToRefreshState extends State<PullToRefresh> {
   MovieProvider movieData;
 
   @override

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/customview/MenuTabBar.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
-import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 
 class BottomNavPage6 extends StatefulWidget {
   @override
@@ -15,7 +14,7 @@ class _BottomNavPage6State extends State<BottomNavPage6> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: getAppBarWithBackBtn(
           ctx: context, title: StringConst.BOTTOM_NAVIGATION_TITLE),
       body: _createUi(context),

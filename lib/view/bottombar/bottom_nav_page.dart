@@ -7,10 +7,7 @@ import 'package:flutterbeginner/view/bottombar/bottom_nav_page3.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page4.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page5.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page6.dart';
-import 'package:flutterbeginner/view/login/login_page1.dart';
-import 'package:flutterbeginner/view/login/login_page2.dart';
-import 'package:flutterbeginner/view/login/login_page3.dart';
-import 'package:flutterbeginner/view/login/login_page4.dart';
+import 'package:flutterbeginner/view/bottombar/bottom_nav_page7.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class BottomNavPage extends StatelessWidget {
@@ -37,7 +34,7 @@ class BottomNavPage extends StatelessWidget {
     dataBean.add("Bottom Nav Page4");
     dataBean.add("Bottom Nav Page5");
     dataBean.add("Bottom Nav Page6");
-
+    dataBean.add("Bottom Nav Page7");
     return dataBean;
   }
 
@@ -55,6 +52,8 @@ class BottomNavPage extends StatelessWidget {
         return navigationPush(context, BottomNavPage5());
       case 'Bottom Nav Page6':
         return navigationPush(context, BottomNavPage6());
+      case 'Bottom Nav Page7':
+        return navigationPush(context, BottomNavPage7());
       default:
         return navigationPush(context, BottomNavPage1());
         break;

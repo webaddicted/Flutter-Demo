@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           accentColorBrightness: Brightness.light,
           primarySwatch: ColorConst.APP_COLOR,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: ALLTask(),
+      home: AllTasks(),
     );
   }
 }

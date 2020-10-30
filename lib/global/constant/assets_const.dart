@@ -33,6 +33,7 @@ class AssetsConst {
   static String CALL_MISSED_IMG = 'images/call_missed.png';
   static String CALL_RECEIVED_IMG = 'images/call_received.png';
   static String CALL_DIAL_IMG = 'images/call_dial.png';
+  static String EMPTY_IMG = 'images/empty.png';
 
   static String TAKE_PHONE = 'images/take_phone.png';
   static String CHOOSE_RESTRO = 'images/choose_restro.png';

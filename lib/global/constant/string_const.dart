@@ -87,5 +87,7 @@ class StringConst {
 
   static var NAV_DRAWER_SLIDE_TITLE = 'Nav Slide Drawer';
 
+  static var SCREENSHOT_TITLE = 'Screenshot';
+
 
 }

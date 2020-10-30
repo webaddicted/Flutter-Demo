@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
+import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';
 
 class SplashPage3 extends StatefulWidget {
@@ -43,28 +45,29 @@ class _SplashPage3State extends State<SplashPage3>
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          new Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[],
-          ),
-          new Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Image.asset(
-                AssetsConst.TAKE_PHONE,
-                width: animation.value * 600,
-                height: animation.value * 600,
-              ),
+              loadCircleImg(
+                  ApiConstant.WEBADDICTED_IMG, 0, animation.value * 200)
+              // new Image.asset(
+              //   AssetsConst.TAKE_PHONE,
+              //   width: animation.value * 600,
+              //   height: animation.value * 600,
+              // ),
             ],
           ),
-          new Align(
+          Align(
             alignment: Alignment.bottomCenter,
-            child: new Text("Camper Boys",
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white)),
+            child: Container(
+              margin: EdgeInsets.only(bottom: 70),
+              child: getTxtWhiteColor(
+                  msg: "Camper Boys",
+                  fontSize: 22,
+                  textAlign: TextAlign.center,
+                  // overflow: TextOverflow.ellipsis,
+                  fontWeight: FontWeight.bold),
+            ),
           )
         ],
       ),
