@@ -84,9 +84,9 @@ class _DocumentScreenState extends State<DocumentScreen> {
     );
   }
   void _reqPermission() {
-    var _storagePermission = Permission.storage;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getAllDoc);
+    List<Permission>permission = List();
+    permission.add(Permission.storage);
+    checkPermission(_ctx, permission, getAllDoc);
   }
   void getAllDoc(bool isPermissionGrented) async {
     if (!isPermissionGrented) return;

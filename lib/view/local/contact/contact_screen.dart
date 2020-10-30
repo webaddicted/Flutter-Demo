@@ -81,9 +81,9 @@ class _ContactScreenState extends State<ContactScreen> {
   }
 
   void _checkPermission() {
-    var _storagePermission = Permission.contacts;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getContact);
+    List<Permission>permission = List();
+    permission.add(Permission.contacts);
+    checkPermission(_ctx, permission, getContact);
   }
 
   void getContact(bool isPermissionGrented) async {

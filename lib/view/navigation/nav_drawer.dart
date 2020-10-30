@@ -4,12 +4,12 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
 
-class NavigationDrawerScreen extends StatefulWidget {
+class NavDrawerScreen extends StatefulWidget {
   @override
-  _NavigationDrawerScreenState createState() => _NavigationDrawerScreenState();
+  _NavDrawerScreenState createState() => _NavDrawerScreenState();
 }
 
-class _NavigationDrawerScreenState extends State<NavigationDrawerScreen> {
+class _NavDrawerScreenState extends State<NavDrawerScreen> {
   BuildContext ctx;
   @override
   Widget build(BuildContext context) {

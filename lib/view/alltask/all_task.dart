@@ -27,7 +27,6 @@ import 'package:flutterbeginner/view/example/pagination.dart';
 import 'package:flutterbeginner/view/example/permission_helper.dart';
 import 'package:flutterbeginner/view/example/reorder_list.dart';
 import 'package:flutterbeginner/view/example/screenshot_page.dart';
-import 'package:flutterbeginner/view/example/search_item.dart';
 import 'package:flutterbeginner/view/example/share_data_screen.dart';
 import 'package:flutterbeginner/view/example/signature_screen.dart';
 import 'package:flutterbeginner/view/example/sp_screen.dart';
@@ -179,7 +178,6 @@ class _AllTasksState extends State<AllTasks> {
     dataBean.add('Google map');
     dataBean.add('Pull To Refresh');
     dataBean.add('Signature');
-    dataBean.add('Search Item');
     dataBean.add('Collapse Toolbar');
     dataBean.add('WebView');
     dataBean.add('Barcode Scanner');
@@ -266,8 +264,6 @@ class _AllTasksState extends State<AllTasks> {
         return navigationStateLessPush(context, PullToRefreshPage());
       case 'Signature':
         return navigationPush(context, SignatureScreen());
-      case 'Search Item':
-        return navigationPush(context, SearchItem());
       case 'Collapse Toolbar':
         return navigationStateLessPush(context, CollapseToolbarPage());
       case 'WebView':

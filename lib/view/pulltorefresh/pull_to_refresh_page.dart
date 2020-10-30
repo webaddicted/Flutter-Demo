@@ -30,11 +30,6 @@ class PullToRefreshPage extends StatelessWidget {
     dataBean.add("Pull to refresh default");
     dataBean.add("Water drop material");
     dataBean.add("Water drop");
-    dataBean.add("Onboarding Page4");
-    dataBean.add("Onboarding Page5");
-    dataBean.add("Onboarding Page6");
-    dataBean.add("Onboarding Page7");
-
     return dataBean;
   }
 
@@ -46,8 +41,6 @@ class PullToRefreshPage extends StatelessWidget {
         return navigationPush(context, WaterDropMaterial());
       case 'Water drop':
         return navigationPush(context, WaterDrop());
-      case 'Onboarding Page4':
-        return navigationPush(context, OnboardingPage4());
       default:
         return navigationPush(context, OnboardingPage1());
         break;

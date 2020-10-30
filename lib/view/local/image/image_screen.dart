@@ -104,9 +104,9 @@ class _ImageScreenState extends State<ImageScreen> {
   }
 
   void _reqPermission() {
-    var _storagePermission = Permission.storage;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getLocalImage);
+    List<Permission>permission = List();
+    permission.add(Permission.storage);
+    checkPermission(_ctx, permission, getLocalImage);
   }
 
   void getLocalImage(bool isPermissionGrented) async {

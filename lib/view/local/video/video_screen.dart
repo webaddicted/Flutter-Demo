@@ -89,9 +89,9 @@ class _VideoScreenState extends State<VideoScreen> {
   }
 
   void _reqPermission() {
-    var _storagePermission = Permission.storage;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getLocalVideo);
+    List<Permission>permission = List();
+    permission.add(Permission.storage);
+    checkPermission(_ctx, permission, getLocalVideo);
   }
 
   void getLocalVideo(bool isPermissionGrented) async {

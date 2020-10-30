@@ -54,9 +54,9 @@ class _AudioScreenState extends State<AudioScreen> {
   }
 
   void _reqPermission() {
-    var _storagePermission = Permission.storage;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getAllAudio);
+    List<Permission>permission = List();
+    permission.add(Permission.storage);
+    checkPermission(_ctx, permission, getAllAudio);
   }
 
   void getAllAudio(bool isPermissionGrented) async {

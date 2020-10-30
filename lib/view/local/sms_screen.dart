@@ -91,9 +91,9 @@ class _SmsScreenState extends State<SmsScreen> {
   }
 
   void _reqPermission() {
-    var _storagePermission = Permission.sms;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getSms);
+    List<Permission>permission = List();
+    permission.add(Permission.sms);
+    checkPermission(_ctx, permission, getSms);
   }
 
   void getSms(bool isPermissionGrented) async {

@@ -65,7 +65,7 @@ AppBar getAppBarWithBackBtn(
   return AppBar(
     backgroundColor: bgColor == null ? ColorConst.APP_COLOR : bgColor,
     actions: actions,
-    leading: new IconButton(
+    leading:  IconButton(
         icon: Icon(
           Icons.arrow_back_ios_sharp,
           color: ColorConst.WHITE_COLOR,

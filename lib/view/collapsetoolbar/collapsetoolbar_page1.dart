@@ -13,7 +13,7 @@ class _CollapseToolbarPage1State extends State<CollapseToolbarPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBarWithBackBtn(ctx:context, title:StringConst.COLLAPSE_TOOLBAR_TITLE),
+        // appBar: getAppBarWithBackBtn(ctx:context, title:StringConst.COLLAPSE_TOOLBAR_TITLE),
         body: Builder(
           builder: (context) => _createUi(context),
         ));

@@ -12,6 +12,7 @@ class AssetsConst {
   static const String LOGO_IMG = 'images/logo.png';
   static const String BABY_IMG = 'images/baby.jpg';
   static const String DOWNLOAD_IMG = 'images/download.png';
+  static const String DEEPAK_IMG = 'images/deep.jpg';
   static String SP_BC_IMG = 'images/sp_bc.png';
   static String LIGHT_IMG = 'images/light-2.png';
   static String RB_EMPTY_IMG = 'images/rb_heart_border.png';

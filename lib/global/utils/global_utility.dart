@@ -158,10 +158,16 @@ String filesize(dynamic size, [int round = 2]) {
 //}
 
 checkPermission(
-    BuildContext ctx, var _storagePermission, Function permissionResult) async {
+    BuildContext ctx, List<Permission> _storagePermission, Function permissionResult) async {
 //  var _permissionHandler = Permission;
+  _storagePermission.request();
+  // Map<Permission, PermissionStatus> statuses = await [
+  //   Permission.location,
+  //   Permission.storage,
+  // ].request();
+  print('Permission.location');
   Map<Permission, PermissionStatus> result =
-      await _storagePermission.request(_storagePermission);
+      await _storagePermission.request();
   bool isPermissionGrented = false;
   result.forEach((key, values) {
     if (values == PermissionStatus.granted)

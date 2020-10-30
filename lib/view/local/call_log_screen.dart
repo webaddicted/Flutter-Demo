@@ -111,9 +111,9 @@ class _CallLogScreenState extends State<CallLogScreen> {
   }
 
   void _reqPermission() {
-    var _storagePermission = Permission.phone;
-    var permissionArray = [_storagePermission];
-    checkPermission(_ctx, permissionArray, getCallLog);
+    List<Permission>permission = List();
+    permission.add(Permission.camera);
+    checkPermission(_ctx,  permission, getCallLog);
   }
 
   void getCallLog(bool isPermissionGrented) async {
