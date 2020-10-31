@@ -23,5 +23,5 @@ class ColorConst {
   static Color CIRCLE_FADE3 = colorFromHex('#93FFFFCC');
 
   static Color BLACK_FADE = colorFromHex('#5E000000');
-
+  static Color GREY_SHIMMER = Colors.grey.shade400;
 }

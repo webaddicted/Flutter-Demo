@@ -14,7 +14,6 @@ void main() async {
 //    // Run MainApp
 //    runApp(new MyApp());
 //  });
-
   runApp(MyApp());
 }
 

@@ -26,9 +26,9 @@ class SifiMovieRow extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: imgList.length,
+            itemCount: dummyImgList.length,
             itemBuilder: (context, index) {
-              var item = imgList[index];
+              var item = dummyImgList[index];
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),

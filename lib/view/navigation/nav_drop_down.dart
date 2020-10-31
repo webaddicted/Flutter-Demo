@@ -21,10 +21,8 @@ class _NavigDropDownState extends State<NavigDropDown> {
   Widget viewContainer(BuildContext context, BoxConstraints boxconstraints) {
     return Stack(
       children: <Widget>[
-
         _backView(context),
         GuillotineMenu()
-
       ],
     );
   }

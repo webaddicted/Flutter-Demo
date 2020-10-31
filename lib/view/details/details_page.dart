@@ -1,17 +1,18 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/view/details/detail_page1.dart';
+import 'package:flutterbeginner/view/details/detail_page2.dart';
+import 'package:flutterbeginner/view/details/detail_page3.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';
 import 'package:flutterbeginner/view/login/login_page4.dart';
-import 'package:flutterbeginner/view/login/login_page5.dart';
-import 'package:flutterbeginner/view/login/login_page6.dart';
-import 'package:flutterbeginner/view/login/login_page7.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
-class LoginPage extends StatelessWidget {
-  List<String> dataBean = new List();
+class DetailsPage extends StatelessWidget {
+   List<String> dataBean = new List();
 
   @override
   Widget build(BuildContext context) {
@@ -28,33 +29,23 @@ class LoginPage extends StatelessWidget {
 
   List<String> setData() {
     dataBean = new List();
-    dataBean.add("Login Page1");
-    dataBean.add("Login Page2");
-    dataBean.add("Login Page3");
-    dataBean.add("Login Page4");
-    dataBean.add("Login Page5");
-    dataBean.add("Login Page6");
-    dataBean.add("Login Page7");
-
+    dataBean.add("Detail Page1");
+    dataBean.add("Detail Page2");
+    dataBean.add("Detail Page3");
+    dataBean.add("Detail Page4");
     return dataBean;
   }
 
   void nextScreen(BuildContext context, String screenName) {
     switch (screenName) {
-      case 'Login Page1':
-        return navigationPush(context, LoginPage1());
-      case 'Login Page2':
-        return navigationPush(context, LoginPage2());
-      case 'Login Page3':
-        return navigationPush(context, LoginPage3());
-      case 'Login Page4':
+      case 'Detail Page1':
+        return navigationPush(context, DetailPage1());
+      case 'Detail Page2':
+        return navigationPush(context, DetailPage2());
+      case 'Detail Page3':
+        return navigationPush(context, DetailPage3());
+      case 'Detail Page4':
         return navigationPush(context, LoginPage4());
-      case 'Login Page5':
-        return navigationPush(context, LoginPage5());
-      case 'Login Page6':
-        return navigationPush(context, LoginPage6());
-      case 'Login Page7':
-        return navigationPush(context, LoginPage7());
       default:
         return navigationPush(context, LoginPage1());
         break;

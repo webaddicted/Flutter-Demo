@@ -25,9 +25,9 @@ class AssetsConst {
   static String SLIDER5_IMG = 'images/image5.png';
   static String SLIDER6_IMG = 'images/image6.png';
 
-  static String GOOGLE_IMG = 'images/google.png';
-  static String FB_IMG = 'images/fb.png';
-  static String TWITTER_IMG = 'images/twitter.png';
+  static const String GOOGLE_IMG = 'images/google.png';
+  static const String FB_IMG = 'images/fb.png';
+  static const String TWITTER_IMG = 'images/twitter.png';
   static String MOBILE_IMG = 'images/mobile.png';
   static String OTP_IMG = 'images/otp.png';
   static String CALL_CANCELLED_IMG = 'images/call_cancelled.png';

@@ -75,7 +75,7 @@ class _VideoFolderState extends State<VideoFolder> {
                           color: Colors.black54,
                           child: getTxtWhiteColor(
                              msg: formatTime(double.parse(videoBean.duration)),
-                              fontWeight:FontWeight.bold),
+                              fontWeight:FontWeight.bold)
                         ),
                       )
                     ],

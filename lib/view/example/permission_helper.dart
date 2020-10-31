@@ -76,50 +76,49 @@ class _PermissionHelperState extends State<PermissionHelper> {
   }
 
   void _checkStoragePermission() async {
-//    var permissionStatus =
-//        await _permissionHandler.status(_storagePermission);
-//    switch (permissionStatus) {
-//      case PermissionStatus.granted:
-//        _txtCheckPerResult = 'Permission granted';
-//        break;
-//      case PermissionStatus.denied:
-//        _txtCheckPerResult = 'Permission denied';
-//        break;
-//      case PermissionStatus.disabled:
-//        _txtCheckPerResult = 'Permission disabled';
-//        break;
-//      case PermissionStatus.restricted:
-//        _txtCheckPerResult = 'Permission restricted';
-//        break;
-//      case PermissionStatus.unknown:
-//        _txtCheckPerResult = 'Permission unknown';
-//        break;
-//      default:
-//    }
+    var permissionStatus = await _permissionHandler.status;
+    switch (permissionStatus) {
+      case PermissionStatus.granted:
+        _txtCheckPerResult = 'Permission granted';
+        break;
+      case PermissionStatus.denied:
+        _txtCheckPerResult = 'Permission denied';
+        break;
+      case PermissionStatus.undetermined:
+        _txtCheckPerResult = 'Permission undetermined';
+        break;
+      case PermissionStatus.restricted:
+        _txtCheckPerResult = 'Permission restricted';
+        break;
+      case PermissionStatus.permanentlyDenied:
+        _txtCheckPerResult = 'Permission permanentlyDenied';
+        break;
+      default:
+    }
     setState(() {});
   }
 
   void _reqStoragePermission() async {
-//    var result =
-//        await _permissionHandler.requestPermissions([_storagePermission]);
-//    switch (result[_storagePermission]) {
-//      case PermissionStatus.granted:
-//        _txtReqPerResult = 'Permission granted';
-//        break;
-//      case PermissionStatus.denied:
-//        _txtReqPerResult = 'Permission denied';
-//        break;
-//      case PermissionStatus.disabled:
-//        _txtReqPerResult = 'Permission disabled';
-//        break;
-//      case PermissionStatus.restricted:
-//        _txtReqPerResult = 'Permission restricted';
-//        break;
-//      case PermissionStatus.unknown:
-//        _txtReqPerResult = 'Permission unknown';
-//        break;
-//      default:
-//    }
+    var result = await _permissionHandler.request;
+    var status = await _permissionHandler.status;
+    switch (status) {
+      case PermissionStatus.granted:
+        _txtReqPerResult = 'Permission granted';
+        break;
+      case PermissionStatus.denied:
+        _txtReqPerResult = 'Permission denied';
+        break;
+      case PermissionStatus.undetermined:
+        _txtReqPerResult = 'Permission undetermined';
+        break;
+      case PermissionStatus.restricted:
+        _txtReqPerResult = 'Permission restricted';
+        break;
+      case PermissionStatus.permanentlyDenied:
+        _txtReqPerResult = 'Permission permanentlyDenied';
+        break;
+      default:
+    }
     setState(() {});
   }
 }

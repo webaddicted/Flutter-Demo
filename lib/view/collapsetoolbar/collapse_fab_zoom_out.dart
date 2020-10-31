@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/example/video_player.dart';
-//import 'package:flutterbeginner/view/example/video_player.dart';
-//import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-//import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class Details extends StatelessWidget {
+class CollapseFabZoomOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

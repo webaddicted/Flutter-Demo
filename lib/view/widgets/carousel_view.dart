@@ -22,7 +22,7 @@ class CarouselView extends StatelessWidget {
   }
 }
 
-List<Widget> imageSliders = imgList
+List<Widget> imageSliders = dummyImgList
     .map((item) => Container(
           child: Container(
             margin: EdgeInsets.all(5.0),
@@ -49,7 +49,7 @@ List<Widget> imageSliders = imgList
                         padding: EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
                         child: Text(
-                          'No. ${imgList.indexOf(item)} image',
+                          'No. ${dummyImgList.indexOf(item)} image',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20.0,

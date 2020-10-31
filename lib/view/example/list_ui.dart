@@ -136,13 +136,13 @@ class _ListUiScreenState extends State<ListUiScreen> {
     return Container(
       height: 200,
       child: ListView.builder(
-          itemCount: populateData.length,
+          itemCount: dummypopulateData.length,
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           physics: ClampingScrollPhysics(),
           itemBuilder: (context, index){
             return BooksTile(
-              imgAssetPath: populateData[index],
+              imgAssetPath: dummypopulateData[index],
               rating: 3,
               title: "The little mermaid",
               description: StringConst.DUMMY_TEXT,
@@ -158,7 +158,7 @@ class _ListUiScreenState extends State<ListUiScreen> {
       height: 220.0,
       child: PageIndicatorContainer(
         align: IndicatorAlign.bottom,
-        length: imgList.take(5).length,
+        length: dummyImgList.take(5).length,
         indicatorSpace: 8.0,
         padding: const EdgeInsets.all(5.0),
         indicatorColor: ColorConst.APP_COLOR,
@@ -167,14 +167,14 @@ class _ListUiScreenState extends State<ListUiScreen> {
         child: PageView.builder(
           controller: pageController,
           scrollDirection: Axis.horizontal,
-          itemCount: imgList.take(5).length,
+          itemCount: dummyImgList.take(5).length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {},
               child: Stack(
                 children: <Widget>[
                   Hero(
-                    tag: imgList[index],
+                    tag: dummyImgList[index],
                     child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 220.0,
@@ -182,7 +182,7 @@ class _ListUiScreenState extends State<ListUiScreen> {
                           shape: BoxShape.rectangle,
                           image: new DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(imgList[index])),
+                              image: NetworkImage(dummyImgList[index])),
                         )),
                   ),
                   SizedBox(

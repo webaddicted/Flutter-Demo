@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_arc_page2.dart';
+import 'package:flutterbeginner/view/collapsetoolbar/collapse_fab_zoom_out.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_fade_appbar.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_page3.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_zoom_img_page2.dart';
@@ -34,6 +35,8 @@ class CollapseToolbarPage extends StatelessWidget {
     dataBean.add("Collapse Page3");
     dataBean.add("Collapse Fade Appbar");
     dataBean.add("WaveAppbar");
+    dataBean.add("Collapse Zoom Out Fab");
+
     return dataBean;
   }
 
@@ -51,6 +54,8 @@ class CollapseToolbarPage extends StatelessWidget {
         return navigationPush(context, CollapseFadeAppBar());
       case 'WaveAppbar':
         return navigationPush(context, WaveAppbar());
+      case 'Collapse Zoom Out Fab':
+        return navigationStateLessPush(context, CollapseFabZoomOut());
       default:
         return navigationPush(context, LoginPage1());
         break;

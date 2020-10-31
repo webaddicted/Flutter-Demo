@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
-import 'package:flutterbeginner/view/example/details.dart';
-import 'package:flutterbeginner/view/widgets/sifi_movie_row.dart';
+import 'package:flutterbeginner/view/collapsetoolbar/collapse_fab_zoom_out.dart';
 
 class TrandingMovieRow extends StatelessWidget {
   String animationName;
@@ -30,16 +28,16 @@ class TrandingMovieRow extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: populateData.length,
+            itemCount: dummypopulateData.length,
             itemBuilder: (context, index) {
-              var item = populateData[index];
+              var item = dummypopulateData[index];
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),
                 child: InkWell(
                   splashColor: Colors.red,
                   onTap: () {
-                    navigationStateLessPush(context, Details());
+                    navigationStateLessPush(context, CollapseFabZoomOut());
 //                  Navigator.push(context, MaterialPageRoute(
 //                      builder: (context) => DetailsMovieScreen(AssetsConst.PIZZA_IMG)
 //                  ));

@@ -53,10 +53,12 @@ class _LoginPage4State extends State<LoginPage4> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(height: 90),
-                    Container(
-                        width: 120, height: 120, child: loadCircleImg(ApiConstant.DEMO_IMG,0, 0)),
+                    loadCircleImg(ApiConstant.DEMO_IMG, 0, 120),
                     SizedBox(height: 10),
-                    getTxtAppColor(msg:StringConst.APP_NAME, fontSize:25, fontWeight:FontWeight.bold),
+                    getTxtAppColor(
+                        msg: StringConst.APP_NAME,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
                   ],
                 ),
               ),
@@ -76,11 +78,14 @@ class _LoginPage4State extends State<LoginPage4> {
               ),
             ),
             SizedBox(height: 30),
-            raisedRoundAppColorBtn('Login',_submit),
+            raisedRoundAppColorBtn('Login', _submit),
             SizedBox(height: 50),
             MaterialButton(
               child: getTxtColor(
-                  msg:'Signup', txtColor:ColorConst.APP_COLOR, fontSize:15, fontWeight:FontWeight.bold),
+                  msg: 'Signup',
+                  txtColor: ColorConst.APP_COLOR,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
               onPressed: () {
                 navigationPush(context, SqfliteSignup());
               },
@@ -118,7 +123,7 @@ class _LoginPage4State extends State<LoginPage4> {
     // print(userList.toString());
     // if (userList != null) {
     //   isLoading = false;
-      navigationPush(ctx, SqliteHome());
+    navigationPush(ctx, SqliteHome());
     // } else
     //   showSnackBar(ctx,
     //       'User not exist with ${emailCont.text} emailId.\nPlease signup with same emailId.');

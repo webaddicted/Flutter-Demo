@@ -9,6 +9,8 @@ class StringConst {
 
   static const String DUMMY_TEXT =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmood tempor inciddidunt ut labore et dolore magna sed do sed do aliqua.';
+  static const String DUMMY_LAGE_TEXT =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmood tempor inciddidunt ut labore et dolore magna sed do sed do aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmood tempor inciddidunt ut labore et dolore magna sed do sed do aliqua.';
 
 //  {STRAT TITLE}
   static const String FLUTTER_DEMO_TITLE = 'Flutter Demo';

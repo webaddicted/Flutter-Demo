@@ -7,8 +7,10 @@ import 'package:flutterbeginner/view/alltask/nav_drawer_home.dart';
 import 'package:flutterbeginner/view/api/api_call_page.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
+import 'package:flutterbeginner/view/details/details_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
 import 'package:flutterbeginner/view/example/blend_mode_page.dart';
+import 'package:flutterbeginner/view/example/blur_effect_page.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet.dart';
 import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
@@ -36,6 +38,8 @@ import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
+import 'package:flutterbeginner/view/home/home_page.dart';
+import 'package:flutterbeginner/view/home/home_page1.dart';
 import 'package:flutterbeginner/view/local/audio/audio_screen.dart';
 import 'package:flutterbeginner/view/local/call_log_screen.dart';
 import 'package:flutterbeginner/view/local/contact/contact_screen.dart';
@@ -46,7 +50,9 @@ import 'package:flutterbeginner/view/local/video/video_screen.dart';
 import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/navigation/navigation_page.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
+import 'package:flutterbeginner/view/profile/profile_page.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh_page.dart';
+import 'package:flutterbeginner/view/settings/setting_page.dart';
 import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
@@ -126,8 +132,7 @@ class _AllTasksState extends State<AllTasks> {
   }
 
   AppBar buildAppBar(BuildContext context) {
-    return getAppBar(
-        title: StringConst.FLUTTER_DEMO_TITLE, actions: [
+    return getAppBar(title: StringConst.FLUTTER_DEMO_TITLE, actions: [
       IconButton(
           icon: const Icon(Icons.sort_by_alpha),
           tooltip: 'Sort',
@@ -196,10 +201,15 @@ class _AllTasksState extends State<AllTasks> {
     dataBean.add('Device Info');
     dataBean.add('List Ui');
     dataBean.add('Screenshot');
-    dataBean.add('Blend Mode');
+    dataBean.add('Blend Mode (Image Filter)');
     dataBean.add('ReOreder List');
     dataBean.add('View Pager');
+    dataBean.add('Blur effect');
     dataBean.add('Staggered Grid view');
+    dataBean.add('Profile UI Design');
+    dataBean.add('Details UI Design');
+    dataBean.add('Setting UI Design');
+
     dataBean.add('ZZZZ');
     return dataBean;
   }
@@ -301,7 +311,7 @@ class _AllTasksState extends State<AllTasks> {
         return navigationPush(context, ListUiScreen());
       case 'Screenshot':
         return navigationPush(context, ScreenshotPage());
-      case 'Blend Mode':
+      case 'Blend Mode (Image Filter)':
         return navigationPush(context, BlendModePage());
       case 'ReOreder List':
         return navigationPush(context, ReorderPage());
@@ -309,6 +319,16 @@ class _AllTasksState extends State<AllTasks> {
         return navigationPush(context, PageViewScreen());
       case 'Staggered Grid view':
         return navigationPush(context, StaggeredGridScreen());
+      case 'Profile UI Design':
+        return navigationStateLessPush(context, ProfilePage());
+      case 'Details UI Design':
+        return navigationStateLessPush(context, DetailsPage());
+      case 'Setting UI Design':
+        return navigationStateLessPush(context, SettingsPage());
+      case 'Home UI Design':
+        return navigationStateLessPush(context, HomePageDesign());
+      case 'Blur effect':
+        return navigationPush(context, BlurEffectPage());
       case 'ZZZZ':
         return navigationPush(context, StaggeredGridScreen());
       default:
