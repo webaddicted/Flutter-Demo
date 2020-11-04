@@ -20,8 +20,7 @@ class TrandingMovieRow extends StatelessWidget {
     return Column(
       children: <Widget>[
         SizedBox(height: 10),
-        if(animationName!=null)
-        getHeading(context, animationName),
+        if (animationName != null) getHeading(context, animationName),
         SizedBox(height: 10),
         SizedBox(
           height: 190.0,
@@ -37,30 +36,30 @@ class TrandingMovieRow extends StatelessWidget {
                 child: InkWell(
                   splashColor: Colors.red,
                   onTap: () {
-                    navigationStateLessPush(context, CollapseFabZoomOut());
+                    navigationPush(context, CollapseFabZoomOut());
 //                  Navigator.push(context, MaterialPageRoute(
 //                      builder: (context) => DetailsMovieScreen(AssetsConst.PIZZA_IMG)
 //                  ));
                   },
-                    child: Hero(
-                      tag: animationName + index.toString(),
-                      child: Container(
-                        child: ClipRRect(
-                          child: dummyImg != null
-                              ? Image.asset(
-                                  dummyImg,
-                                  fit: BoxFit.cover,
-                                  width: 125,
-                                )
-                              : Image.network(
-                                  item,
-                                  fit: BoxFit.cover,
-                                  width: 125,
-                                ),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                  child: Hero(
+                    tag: animationName + index.toString(),
+                    child: Container(
+                      child: ClipRRect(
+                        child: dummyImg != null
+                            ? Image.asset(
+                                dummyImg,
+                                fit: BoxFit.cover,
+                                width: 125,
+                              )
+                            : Image.network(
+                                item,
+                                fit: BoxFit.cover,
+                                width: 125,
+                              ),
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
+                  ),
                 ),
 //                tag: AssetsConst.PIZZA_IMG,
               );

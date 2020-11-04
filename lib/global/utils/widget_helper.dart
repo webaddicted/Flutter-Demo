@@ -2,13 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterbeginner/global/animation/SlideRoute.dart';
 import 'package:flutterbeginner/global/apiutils/api_response.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
 
 //  {START PAGE NAVIGATION}
-void navigationPush(BuildContext context, StatefulWidget route) {
+void navigationPush(BuildContext context, Widget route) {
   Navigator.push(context, MaterialPageRoute(
     builder: (context) {
       return route;
@@ -22,16 +23,8 @@ void navigationPop(BuildContext context, StatefulWidget route) {
   }));
 }
 
-void navigationStateLessPush(BuildContext context, StatelessWidget route) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) {
-    return route;
-  }));
-}
-
-void navigationStateLessPop(BuildContext context, StatelessWidget route) {
-  Navigator.pop(context, MaterialPageRoute(builder: (context) {
-    return route;
-  }));
+void navigationPushReplacement(BuildContext context, Widget route) {
+  Navigator.pushReplacement(context, RouteTransition(widget: route));
 }
 
 void delay(BuildContext context, int duration, StatefulWidget route) {
@@ -65,7 +58,7 @@ AppBar getAppBarWithBackBtn(
   return AppBar(
     backgroundColor: bgColor == null ? ColorConst.APP_COLOR : bgColor,
     actions: actions,
-    leading:  IconButton(
+    leading: IconButton(
         icon: Icon(
           Icons.arrow_back_ios_sharp,
           color: ColorConst.WHITE_COLOR,

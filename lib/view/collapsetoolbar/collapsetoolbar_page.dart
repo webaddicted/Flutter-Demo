@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_arc_page2.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_fab_zoom_out.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_fade_appbar.dart';
@@ -16,49 +17,13 @@ class CollapseToolbarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    setData();
     return Scaffold(
       appBar: getAppBarWithBackBtn(
           ctx: context, title: StringConst.LIST_DESIGN_TITLE),
       body: HomeItemWidget(
-        dataBean: dataBean,
-        onTap: (screenName) => nextScreen(context, screenName),
+        dataBean: collapseToolbarItem,
+        onTap: (screenName, page) => navigationPush(context, page),
       ),
     );
-  }
-
-  List<String> setData() {
-    dataBean = new List();
-    dataBean.add("Collapse toolbar1");
-    dataBean.add("Collapse Arc Page2");
-    dataBean.add("Collapse Zoom Img");
-    dataBean.add("Collapse Page3");
-    dataBean.add("Collapse Fade Appbar");
-    dataBean.add("WaveAppbar");
-    dataBean.add("Collapse Zoom Out Fab");
-
-    return dataBean;
-  }
-
-  void nextScreen(BuildContext context, String screenName) {
-    switch (screenName) {
-      case 'Collapse toolbar1':
-        return navigationPush(context, CollapseToolbarPage1());
-      case 'Collapse Arc Page2':
-        return navigationPush(context, CollapseArcPage2());
-      case 'Collapse Zoom Img':
-        return navigationPush(context, CollapseZoomImg3());
-      case 'Collapse Page3':
-        return navigationPush(context, CollapsePage3());
-      case 'Collapse Fade Appbar':
-        return navigationPush(context, CollapseFadeAppBar());
-      case 'WaveAppbar':
-        return navigationPush(context, WaveAppbar());
-      case 'Collapse Zoom Out Fab':
-        return navigationStateLessPush(context, CollapseFabZoomOut());
-      default:
-        return navigationPush(context, LoginPage1());
-        break;
-    }
   }
 }

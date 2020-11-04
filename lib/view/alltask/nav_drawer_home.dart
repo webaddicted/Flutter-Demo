@@ -165,19 +165,19 @@ class NavDrawerHome extends StatelessWidget {
         // navigationPush(_context, CategoryMovie());
         break;
       case "Splash":
-        return navigationStateLessPush(_context, SplashPage());
+        return navigationPush(_context, SplashPage());
       case "Login UI Design":
-        return navigationStateLessPush(_context, LoginPage());
+        return navigationPush(_context, LoginPage());
       case "API Calling Architecture":
-        return navigationStateLessPush(_context, ApiCallPage());
+        return navigationPush(_context, ApiCallPage());
       case "Navigation Drawer":
-        return navigationStateLessPush(_context, NavigationPage());
+        return navigationPush(_context, NavigationPage());
       case "Bottom Navigation":
-        return navigationStateLessPush(_context, BottomNavPage());
+        return navigationPush(_context, BottomNavPage());
       case "Tab Bar":
-        return navigationStateLessPush(_context, TabBarPage());
+        return navigationPush(_context, TabBarPage());
       case "OnBoarding":
-        return navigationStateLessPush(_context, OnboardingPage());
+        return navigationPush(_context, OnboardingPage());
       // case "Settings":
       //   break;
       // case "Settings":

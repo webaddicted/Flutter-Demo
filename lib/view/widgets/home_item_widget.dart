@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/model/bean/task_item.dart';
 
 class HomeItemWidget extends StatelessWidget {
-  final List<String> dataBean;
+  final List<TaskItem> dataBean;
   final Function onTap;
 
   HomeItemWidget({@required this.dataBean, @required this.onTap});
@@ -18,16 +19,17 @@ class HomeItemWidget extends StatelessWidget {
 
   Widget _createUi() {
     return ListView.builder(
+        physics: BouncingScrollPhysics(),
         itemCount: dataBean == null ? 0 : dataBean.length,
         itemBuilder: (BuildContext context, int index) {
-          return taskRow(context, dataBean[index]);
+          return taskRow(context, dataBean[index].title, dataBean[index].page);
         });
   }
 
-  Widget taskRow(BuildContext context, String screenName) {
+  Widget taskRow(BuildContext context, String screenName, Widget page) {
     return InkWell(
       // splashColor: Col,
-      onTap: () => onTap(screenName), //nextScreen(context, screenName),
+      onTap: () => onTap(screenName, page), //nextScreen(context, screenName),
       child: new Card(
         child: Padding(
           padding: const EdgeInsets.only(left: 3, right: 3, top: 5, bottom: 5),
