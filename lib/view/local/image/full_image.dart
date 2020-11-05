@@ -8,9 +8,10 @@ import 'package:photo_view/photo_view.dart';
 class FullImage extends StatefulWidget {
   String imageUrl;
   File imageFile;
+  var tag;
 
 //  FullImage({this.imageUrl, this.imageFile});
-  FullImage(this.imageUrl, this.imageFile);
+  FullImage(this.imageUrl, this.imageFile, this.tag);
 
   @override
   _FullImageState createState() => _FullImageState(imageUrl, imageFile);
@@ -42,7 +43,7 @@ class _FullImageState extends State<FullImage> {
     return new Container(
         color: Colors.black,
         alignment: Alignment.center,
-        child: getImageView());
+        child: Hero(tag: widget.tag,child: getImageView()));
   }
 
   Widget getImageView() {

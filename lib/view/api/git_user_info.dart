@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/github/git_user_info_bean.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:flutterbeginner/view/local/image/full_image.dart';
 class GitUserInfo extends StatefulWidget {
   final String title, url;
 
-  GitUserInfo(this.title, this.url);
+  var tag;
+
+  GitUserInfo(this.title, this.url, this.tag);
 
   @override
   _GitUserInfoState createState() => _GitUserInfoState(this.title, this.url);
@@ -48,12 +50,18 @@ class _GitUserInfoState extends State<GitUserInfo> {
           child: Column(
             children: <Widget>[
               Padding(padding: EdgeInsets.only(top: 100)),
-              loadCircleImg(dataResult.avatarUrl, 0, 180),
+              GestureDetector(
+                  onTap: () {
+                    navigationPush(context, FullImage(dataResult.avatarUrl, null, widget.tag));
+                  },
+                  child: Hero(tag: widget.tag,child: loadCircleImg(dataResult.avatarUrl, 0, 180))),
               Padding(padding: EdgeInsets.only(top: 15)),
-              getTxtBlackColor(msg:dataResult.name.toString(), fontSize:17, fontWeight:FontWeight.bold),
+              Hero(tag: 'title${widget.tag}',child: getTxtBlackColor(msg:dataResult.name.toString(), fontSize:17, fontWeight:FontWeight.bold)),
               Padding(padding: EdgeInsets.only(top: 5)),
-              getTxtBlackColor(
-                  msg:'User name : ${dataResult.login}', fontSize:15),
+              Hero(tag: 'node${widget.tag}',
+                child: getTxtBlackColor(
+                    msg:'User name : ${dataResult.login}', fontSize:15),
+              ),
               Padding(padding: EdgeInsets.only(top: 5)),
               getTxtBlackColor(
                   msg:'Company : ${dataResult.company}', fontSize:15),

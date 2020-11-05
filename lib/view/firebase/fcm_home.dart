@@ -90,9 +90,9 @@ class _FcmHomeState extends State<FcmHome> {
         GestureDetector(
           onTap: () {
             if (fcmCatBean.image != null)
-              navigationPush(context, FullImage(fcmCatBean.image, null));
+              navigationPush(context, FullImage(fcmCatBean.image, null,fcmCatBean.image));
           },
-          child: loadCircleImg(fcmCatBean.image, 0, index % 2 == 0 ? 180 : 130),
+          child: Hero(tag:fcmCatBean.image,child: loadCircleImg(fcmCatBean.image, 0, index % 2 == 0 ? 180 : 130)),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

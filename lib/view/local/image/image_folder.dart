@@ -48,7 +48,7 @@ class _ImageFolderState extends State<ImageFolder> {
       child: Center(
         child: InkWell(
           onTap: () {
-            navigationPush(context, FullImage(null,File(imageFiles)));
+            navigationPush(context, FullImage(null,File(imageFiles), imageFiles));
           },
           child:  Container(
             decoration: BoxDecoration(
@@ -65,9 +65,12 @@ class _ImageFolderState extends State<ImageFolder> {
               borderRadius: BorderRadius.circular(8.0),
               child: Column(
                 children: <Widget>[
-                   Image.file(File(imageFiles),
-                        width: double.infinity,
-                        height: index % 2 == 0 ? 180 : 130, fit: BoxFit.cover),
+                   Hero(
+                     tag: imageFiles,
+                     child: Image.file(File(imageFiles),
+                          width: double.infinity,
+                          height: index % 2 == 0 ? 180 : 130, fit: BoxFit.cover),
+                   ),
                 ],
               ),
             ),

@@ -14,7 +14,7 @@ class ApiCallPage extends StatelessWidget {
           ctx: context, title: StringConst.LIST_DESIGN_TITLE),
       body: HomeItemWidget(
         dataBean: apiCallItem,
-        onTap: (screenName, page) => navigationPush(context, screenName),
+        onTap: (screenName, page) => navigationPush(context, page),
       ),
     );
   }

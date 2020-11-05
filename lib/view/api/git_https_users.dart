@@ -64,23 +64,26 @@ class _GitUsersState extends State<GitUsers> {
     return new GestureDetector(
       onTap: () {
         debugPrint("pos : $index");
-        nextScreen(users.login, users.url);
+        nextScreen(users.login, users.url,'users${users.id}$index');
       },
       child: new Card(
         child: Padding(
           padding: const EdgeInsets.only(top: 4, bottom: 4, left: 3, right: 3),
           child: new Row(
             children: <Widget>[
-              loadCircleImg(users.avatarUrl.toString(), 0, 80.0),
+              Hero(tag: 'users${users.id}$index',
+              child: loadCircleImg(users.avatarUrl.toString(), 0, 80.0)),
               Padding(padding: EdgeInsets.only(left: 8)),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    getTxtBlackColor(
-                        msg:users.login.toString(), fontSize:16, fontWeight:FontWeight.bold),
-                    getTxtBlackColor(msg:"Node Id : ${users.nodeId.toString()}", fontSize:14),
+                    Hero(tag: 'titleusers${users.id}$index',
+                      child: getTxtBlackColor(
+                          msg:users.login.toString(), fontSize:16, fontWeight:FontWeight.bold),
+                    ),
+                    Hero(tag: 'nodeusers${users.id}$index',child: getTxtBlackColor(msg:"Node Id : ${users.nodeId.toString()}", fontSize:14)),
                   ],
                 ),
               ),
@@ -126,11 +129,11 @@ class _GitUsersState extends State<GitUsers> {
     _scrollController.dispose();
   }
 
-  void nextScreen(title, url) {
+  void nextScreen(title, url, String tag) {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => GitUserInfo(title, url),
+          builder: (context) => GitUserInfo(title, url, tag),
         ));
   }
 }

@@ -65,10 +65,13 @@ class _FcmSignupState extends State<FcmSignup> {
                           child: GestureDetector(
                             onTap: (){
                               if(imageURI != null)
-                                navigationPush(context, FullImage(null, imageURI));
+                                navigationPush(context, FullImage(null, imageURI,imageURI));
                             },
-                            child: getSignupImagePicker(
-                                130, imageURI, imagePickerDialog),
+                            child: Hero(
+                              tag:imageURI,
+                              child: getSignupImagePicker(
+                                  130, imageURI, imagePickerDialog),
+                            ),
                           ),
                         ),
                       ),

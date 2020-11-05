@@ -17,6 +17,7 @@ import 'package:flutterbeginner/view/collapsetoolbar/collapse_arc_page2.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_fab_zoom_out.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_fade_appbar.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_page3.dart';
+import 'package:flutterbeginner/view/collapsetoolbar/collapse_page4.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_zoom_img_page2.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page1.dart';
@@ -33,6 +34,7 @@ import 'package:flutterbeginner/view/example/bottom_sheet_dragable.dart';
 import 'package:flutterbeginner/view/example/calculator_app.dart';
 import 'package:flutterbeginner/view/example/camera_gallery.dart';
 import 'package:flutterbeginner/view/example/chat_app.dart';
+import 'package:flutterbeginner/view/example/device_info_screen.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
 import 'package:flutterbeginner/view/example/finger_print_screen.dart';
@@ -93,6 +95,7 @@ import 'package:flutterbeginner/view/profile/profile_page1.dart';
 import 'package:flutterbeginner/view/profile/profile_page2.dart';
 import 'package:flutterbeginner/view/profile/profile_page3.dart';
 import 'package:flutterbeginner/view/profile/profile_page4.dart';
+import 'package:flutterbeginner/view/profile/profile_page5.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh_page.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop.dart';
@@ -114,8 +117,6 @@ import 'package:flutterbeginner/view/widgets/text_widget.dart';
 
 
 List<String> dummyImgList = [
-  'https://www.pinclipart.com/picdir/middle/221-2213824_clip-transparent-download-friends-clipart-free-mickey-mouse.png',
-  'https://toppng.com/uploads/preview/svg-black-and-white-download-mickey-mouse-and-clip-mickey-and-friends-11563013801syndd9rkku.png',
   'https://pluspng.com/img-png/vodafone-zoo-zoo-png-zoo-zoo-zoo-zoo-zoo-zoo-660.jpg',
   'https://wallpapercave.com/wp/wp2519534.jpg',
   'https://webneel.com/daily/sites/default/files/images/daily/05-2013/zoozoo-vodafone-wallpaper-10.jpg',
@@ -203,8 +204,8 @@ List<TaskItem> taskItem = [
   TaskItem(title: 'Grid View', page: GridViewScreen()),
   TaskItem(title: 'Share Data', page: ShareDataScreen()),
   TaskItem(title: 'Finger Print', page: FingerPrintScreen()),
-  TaskItem(title: 'Device Info', page: ListUiScreen()),
-  TaskItem(title: 'List Ui', page: SmsScreen()),
+  TaskItem(title: 'Device Info', page: DeviceInfoScreen()),
+  TaskItem(title: 'List Ui', page: ListUiScreen()),
   TaskItem(title: 'Screenshot', page: ScreenshotPage()),
   TaskItem(title: 'Blend Mode (Image Filter)', page: BlendModePage()),
   TaskItem(title: 'ReOreder List', page: ReorderPage()),
@@ -242,6 +243,7 @@ List<TaskItem> collapseToolbarItem = [
   TaskItem(title: 'Collapse Fade Appbar', page: CollapseFadeAppBar()),
   TaskItem(title: 'WaveAppbar', page: WaveAppbar()),
   TaskItem(title: 'Collapse Zoom Out Fab', page: CollapseFabZoomOut()),
+  TaskItem(title: 'Collapse Page4', page: CollapsePage4()),
 ];
 List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page1', page: DetailPage1()),
@@ -288,6 +290,7 @@ List<TaskItem> profileItem = [
   TaskItem(title: 'Profile Page2', page: ProfilePage2()),
   TaskItem(title: 'Profile Page3', page: ProfilePage3()),
   TaskItem(title: 'Profile Page4', page: ProfilePage4()),
+  TaskItem(title: 'Profile Page5', page: ProfilePage5()),
 ];
 List<TaskItem> pullToRefreshItem = [
   TaskItem(title: 'Pull to refresh default', page: PullToRefresh()),

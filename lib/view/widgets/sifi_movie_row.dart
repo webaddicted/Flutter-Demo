@@ -7,6 +7,7 @@ import 'package:flutterbeginner/view/widgets/tranding_movie_row.dart';
 class SifiMovieRow extends StatelessWidget {
   final animationName;
 
+
   SifiMovieRow(this.animationName);
 
   @override

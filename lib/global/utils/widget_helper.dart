@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/animation/SlideRoute.dart';
@@ -11,6 +12,7 @@ import 'package:flutterbeginner/global/utils/validation_helper.dart';
 //  {START PAGE NAVIGATION}
 void navigationPush(BuildContext context, Widget route) {
   Navigator.push(context, MaterialPageRoute(
+    // transitionDuration: Duration(seconds: 1),
     builder: (context) {
       return route;
     },
@@ -628,4 +630,18 @@ Future<bool> onWillPop(BuildContext context) async {
           ],
         );
       });
+}
+Widget getCacheImage({String url, double height, double width}) {
+  return CachedNetworkImage(
+    fit: BoxFit.cover,
+    width: width != null ? width : double.infinity,
+    height: height != null ? height : double.infinity,
+    imageUrl: url,
+    placeholder: (context, url) => Container(
+      width: width != null ? width : double.infinity,
+      height: height != null ? height : double.infinity,
+      color: Colors.grey[400],
+    ),
+    errorWidget: (context, url, error) => const Icon(Icons.error),
+  );
 }

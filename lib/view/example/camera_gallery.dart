@@ -37,12 +37,14 @@ class _CameraGalleryState extends State<CameraGallery> {
           GestureDetector(
             onTap: (){
               if(imageURI != null)
-              navigationPush(context, FullImage(null, imageURI));
+              navigationPush(context, FullImage(null, imageURI, imageURI));
             },
             child: imageURI == null
                 ? Text('No image selected.')
-                : Image.file(imageURI,
-                    width: 300, height: 200, fit: BoxFit.cover),
+                : Hero(tag:imageURI,
+                  child: Image.file(imageURI,
+                      width: 300, height: 200, fit: BoxFit.cover),
+                ),
           ),
           RaisedButton(
             onPressed: () => getImageFromCamera(),
