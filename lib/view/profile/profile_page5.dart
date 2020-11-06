@@ -1,7 +1,12 @@
+import 'package:animated_floatactionbuttons/animated_floatactionbuttons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
+import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
+import 'package:flutterbeginner/view/widgets/sifi_movie_row.dart';
 
 class ProfilePage5 extends StatefulWidget {
   @override
@@ -28,7 +33,7 @@ class _ProfilePage5State extends State<ProfilePage5> {
               margin: const EdgeInsets.only(top: 30),
               height: 380,
               decoration: BoxDecoration(
-                color: Colors.pink,
+                color: Colors.deepOrange,
               ),
             ),
           ),
@@ -42,17 +47,17 @@ class _ProfilePage5State extends State<ProfilePage5> {
                     fit: BoxFit.cover),
               ),
               foregroundDecoration:
-                  BoxDecoration(color: Colors.pink.withOpacity(0.8)),
+                  BoxDecoration(color: Colors.orange.withOpacity(0.8)),
             ),
           ),
           ListView(
             padding: const EdgeInsets.all(8.0),
             children: [
               const SizedBox(height: 90),
-              _buildAvatar(ApiConstant.DEMO_IMG),
+              _buildAvatar(ApiConstant.WEBADDICTED_IMG),
               const SizedBox(height: 10.0),
               Text(
-                "Damodar Lohani",
+                StringConst.DEEPAK_SHARMA,
                 style: Theme.of(context)
                     .textTheme
                     .headline6
@@ -67,32 +72,32 @@ class _ProfilePage5State extends State<ProfilePage5> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 40.0),
               Card(
                 color: Colors.white,
-                elevation: 0,
+                elevation: 3,
                 margin: const EdgeInsets.symmetric(
                   vertical: 8.0,
-                  horizontal: 32.0,
+                  horizontal: 25.0,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Row(
                     children: [
                       Expanded(
                         child: Column(
                           children: [
-                            Text(
-                              "255K",
-                              style: Theme.of(context).textTheme.headline4,
+                            getTxtBlackColor(
+                              msg: "255K",
+                              fontSize: 17,
                             ),
-                            const SizedBox(height: 10.0),
-                            Text(
-                              "Followers",
-                              style: Theme.of(context).textTheme.subtitle1,
+                            const SizedBox(height: 5.0),
+                            getTxtBlackColor(
+                              msg: "Followers",
+                              fontSize: 17,
                             ),
                           ],
                         ),
@@ -100,15 +105,12 @@ class _ProfilePage5State extends State<ProfilePage5> {
                       Expanded(
                         child: Column(
                           children: [
-                            Text(
-                              "105K",
-                              style: Theme.of(context).textTheme.headline4,
+                            getTxtBlackColor(
+                              msg: "105K",
+                              fontSize: 17,
                             ),
-                            const SizedBox(height: 10.0),
-                            Text(
-                              "Following",
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
+                            const SizedBox(height: 5.0),
+                            getTxtBlackColor(msg: "Following", fontSize: 17),
                           ],
                         ),
                       ),
@@ -117,30 +119,12 @@ class _ProfilePage5State extends State<ProfilePage5> {
                 ),
               ),
               const SizedBox(height: 20.0),
-              Text(
-                "Favorite",
-                style: Theme.of(context).textTheme.headline5,
-              ),
-              const SizedBox(height: 10.0),
-              SizedBox(
-                height: 150,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    _buildFavoriteCard(context, "Design"),
-                    const SizedBox(width: 10.0),
-                    _buildFavoriteCard(context, "Fruits"),
-                    const SizedBox(width: 10.0),
-                    _buildFavoriteCard(context, "Nature"),
-                    const SizedBox(width: 10.0),
-                  ],
-                ),
+              getTxtBlackColor(
+                msg: "Friends",
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
               ),
               const SizedBox(height: 20.0),
-              Text(
-                "Friends",
-                style: Theme.of(context).textTheme.headline5,
-              ),
               Container(
                 height: 60,
                 width: double.infinity,
@@ -152,11 +136,11 @@ class _ProfilePage5State extends State<ProfilePage5> {
                           (i, e) => MapEntry(
                             i,
                             Transform.translate(
-                              offset: Offset(i * 30.0, 0),
+                              offset: Offset(i * 20.0, 0),
                               child: SizedBox(
-                                  height: 60,
-                                  width: 60,
-                                  child: _buildAvatar(e, radius: 30)),
+                                  height: 40,
+                                  width: 40,
+                                  child: _buildAvatar(e, radius: 20)),
                             ),
                           ),
                         )
@@ -164,15 +148,17 @@ class _ProfilePage5State extends State<ProfilePage5> {
                         .toList(),
                   ],
                 ),
-              )
+              ),
+              SifiMovieRow('Action Movie')
             ],
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Colors.red,
-        onPressed: () {},
+      floatingActionButton: AnimatedFloatingActionButton(
+        fabButtons: _buildFloatingButtons(),
+        colorStartAnimation: Colors.indigo,
+        colorEndAnimation: Colors.red,
+        animatedIconData: AnimatedIcons.menu_close,
       ),
     );
   }
@@ -188,66 +174,43 @@ class _ProfilePage5State extends State<ProfilePage5> {
     );
   }
 
-  Widget _buildFavoriteCard(BuildContext context, String title) {
-    return Container(
-      width: 150,
-      height: 150,
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.blueAccent,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            height: double.infinity,
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-              horizontal: 8.0,
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.indigo,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            height: double.infinity,
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-              vertical: 8.0,
-              horizontal: 4.0,
-            ),
-          ),
-          Container(
-            clipBehavior: Clip.antiAlias,
-            alignment: Alignment.center,
-            height: double.infinity,
-            width: double.infinity,
-            margin: const EdgeInsets.only(bottom: 16),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(ApiConstant.WEBADDICTED_IMG),
-                    fit: BoxFit.cover),
-                borderRadius: BorderRadius.circular(10.0)),
-            foregroundDecoration: BoxDecoration(
-                color: Colors.blue.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(10.0)),
-          ),
-          Container(
-            alignment: Alignment.center,
-            height: double.infinity,
-            width: double.infinity,
-            margin: const EdgeInsets.only(bottom: 20),
-            child: Text(
-              title,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            ),
-          ),
-        ],
+  List<Widget> _buildFloatingButtons() {
+    return <Widget>[
+      FloatingActionButton(
+        heroTag: "copy",
+        child: Icon(Icons.content_copy),
+        tooltip: 'Copy code link to clipboard',
+        onPressed: () async {
+          await Clipboard.setData(
+              ClipboardData(text: 'https://www.github.com/webaddicted/'));
+          Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text('Code link copied to Clipboard!'),
+          ));
+        },
       ),
-    );
+      FloatingActionButton(
+        heroTag: "open",
+        child: Icon(Icons.open_in_new),
+        tooltip: 'View code on github',
+        onPressed: () {},
+      ),
+      FloatingActionButton(
+        heroTag: "zoom_out",
+        child: Icon(Icons.zoom_out),
+        tooltip: 'Zoom out',
+        onPressed: () => setState(() {
+          // this._textScaleFactor = max(0.8, this._textScaleFactor - 0.1);
+        }),
+      ),
+      FloatingActionButton(
+        heroTag: "zoom_in",
+        child: Icon(Icons.zoom_in),
+        tooltip: 'Zoom in',
+        onPressed: () => setState(() {
+          // this._textScaleFactor += 0.1;
+        }),
+      ),
+    ];
   }
 }
 

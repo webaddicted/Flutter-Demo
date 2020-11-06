@@ -60,8 +60,8 @@ dependencies:
   flutter_search_bar: ^2.1.0
   wave: ^0.1.0
   drawerbehavior: ^1.1.4
-
-
+  animated_floatactionbuttons: ^0.1.0
+  url_launcher: ^5.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
