@@ -631,7 +631,7 @@ Future<bool> onWillPop(BuildContext context) async {
         );
       });
 }
-Widget getCacheImage({String url, double height, double width}) {
+Widget getCacheImage({@required String url, double height, double width}) {
   return CachedNetworkImage(
     fit: BoxFit.cover,
     width: width != null ? width : double.infinity,

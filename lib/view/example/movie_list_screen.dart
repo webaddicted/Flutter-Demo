@@ -8,7 +8,7 @@ class MovieListItem extends StatelessWidget {
     return ListView.builder(
         itemCount: dummyImgList.length,
         shrinkWrap: true,
-        physics:  ClampingScrollPhysics(),
+        physics:  BouncingScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return fullListImage(
               name: 'Item $index',

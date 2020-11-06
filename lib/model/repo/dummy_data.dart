@@ -73,6 +73,7 @@ import 'package:flutterbeginner/view/login/login_page4.dart';
 import 'package:flutterbeginner/view/login/login_page5.dart';
 import 'package:flutterbeginner/view/login/login_page6.dart';
 import 'package:flutterbeginner/view/login/login_page7.dart';
+import 'package:flutterbeginner/view/login/login_welcome_page.dart';
 import 'package:flutterbeginner/view/navigation/nav_back_drop_drawer.dart';
 import 'package:flutterbeginner/view/navigation/nav_behavior_page.dart';
 import 'package:flutterbeginner/view/navigation/nav_drawer.dart';
@@ -96,6 +97,9 @@ import 'package:flutterbeginner/view/profile/profile_page2.dart';
 import 'package:flutterbeginner/view/profile/profile_page3.dart';
 import 'package:flutterbeginner/view/profile/profile_page4.dart';
 import 'package:flutterbeginner/view/profile/profile_page5.dart';
+import 'package:flutterbeginner/view/profile/profile_page6.dart';
+import 'package:flutterbeginner/view/profile/profile_page7.dart';
+import 'package:flutterbeginner/view/profile/profile_page8.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh_page.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop.dart';
@@ -108,6 +112,7 @@ import 'package:flutterbeginner/view/splash/splash_page3.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page1.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page2.dart';
 import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
+import 'package:flutterbeginner/view/test.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
 import 'package:flutterbeginner/view/widgets/image_widget.dart';
 import 'package:flutterbeginner/view/widgets/misc_widget.dart';
@@ -217,6 +222,8 @@ List<TaskItem> taskItem = [
   TaskItem(title: 'Home UI Design', page: HomePageDesign()),
   TaskItem(title: 'Blur effect', page: BlurEffectPage()),
   TaskItem(title: 'ZZZZ', page: StaggeredGridScreen()),
+  TaskItem(title: 'AATest', page: Test()
+  ),
 ];
 
 List<TaskItem> apiCallItem = [
@@ -265,6 +272,9 @@ List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Page5', page: LoginPage5()),
   TaskItem(title: 'Login Page6', page: LoginPage6()),
   TaskItem(title: 'Login Page7', page: LoginPage7()),
+  TaskItem(title: 'Login Welcome Page', page: LoginWelcomePage()),
+  TaskItem(title: 'Login Welcome Page2', page: LoginWelcomePage()),
+
 ];
 List<TaskItem> navPageItem = [
   TaskItem(title: 'One side', page: NavDrawerScreen()),
@@ -291,6 +301,9 @@ List<TaskItem> profileItem = [
   TaskItem(title: 'Profile Page3', page: ProfilePage3()),
   TaskItem(title: 'Profile Page4', page: ProfilePage4()),
   TaskItem(title: 'Profile Page5', page: ProfilePage5()),
+  TaskItem(title: 'Profile Page6', page: ProfilePage6()),
+  TaskItem(title: 'Profile Page7', page: ProfilePage7()),
+  TaskItem(title: 'Profile Page8', page: ProfilePage8()),
 ];
 List<TaskItem> pullToRefreshItem = [
   TaskItem(title: 'Pull to refresh default', page: PullToRefresh()),

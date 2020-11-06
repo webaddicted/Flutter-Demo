@@ -6,6 +6,7 @@ class AssetsConst {
   static const String ZILLASLAB_FONT = 'Zillaslab';
   static const String PT_FONTss = 'PT';
   static const String POPPINS_FONT = 'Poppins';
+
 //  {END FONT FAMILY}
 
 //  {START IMAGES}
@@ -13,6 +14,9 @@ class AssetsConst {
   static const String BABY_IMG = 'images/baby.jpg';
   static const String DOWNLOAD_IMG = 'images/download.png';
   static const String DEEPAK_IMG = 'images/deep.jpg';
+  static const String BG_IMG = 'images/bg.jpg';
+  static const String BG1_IMG = 'images/bg1.jpg';
+
   static String SP_BC_IMG = 'images/sp_bc.png';
   static String LIGHT_IMG = 'images/light-2.png';
   static String RB_EMPTY_IMG = 'images/rb_heart_border.png';
@@ -42,17 +46,14 @@ class AssetsConst {
   static String WAIT_FOR_DELIVERY = 'images/wait_delivery.png';
   static String PAY = 'images/pay.png';
   static String EAT_ENJOY = 'images/eat_enjoy.png';
+
   //  {END IMAGES}
 
 //  {START LOCAL FILE}
   static String LOAD_JSON = 'local_file/person.json';
-  static String COUNTRY_PHONE_CODES_JSON = 'local_file/country_phone_codes.json';
+  static String COUNTRY_PHONE_CODES_JSON =
+      'local_file/country_phone_codes.json';
   static String INSURANCE_CSV = 'local_file/insurance.csv';
-
-
-
-
-
 
 //  {END LOCAL FILE}
 

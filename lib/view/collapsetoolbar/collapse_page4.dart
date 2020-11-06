@@ -3,7 +3,6 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/example/movie_list_screen.dart';
-import 'package:flutterbeginner/view/widgets/sifi_movie_row.dart';
 
 class CollapsePage4 extends StatefulWidget {
   @override
@@ -81,7 +80,6 @@ class _CollapsePage4State extends State<CollapsePage4> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 30.0),
                 MovieListItem(),
               ],
             ),

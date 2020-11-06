@@ -80,8 +80,12 @@ class StringConst {
   static String CATEGORY = "Category";
 
   static var DEEPAK_SHARMA = 'Deepak Sharma';
-
   static var WEBADDICTED = 'Webaddicted';
+  static String SE = 'Software Engineer';
+  static String LOCATION = 'Noida';
+  static String EMAIL = 'deepaksharma040695@gmail.com';
+  static String WEBSITE = 'https://www.github.com/webaddicted';
+  static String MOBILE_NO = '+91- 9024****07';
 
   static var NAV_DRAWER_CURVE_TITLE = 'Nav Curve Drawer';
 
@@ -90,6 +94,10 @@ class StringConst {
   static var NAV_DRAWER_SLIDE_TITLE = 'Nav Slide Drawer';
 
   static var SCREENSHOT_TITLE = 'Screenshot';
+
+
+
+
 
 
 }
