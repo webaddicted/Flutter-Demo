@@ -55,23 +55,28 @@ AppBar getAppBarWithBackBtn(
     {@required BuildContext ctx,
     String title,
     Color bgColor,
+    Color txtColor,
     double fontSize,
+    Widget icon,
     List<Widget> actions}) {
   return AppBar(
     backgroundColor: bgColor == null ? ColorConst.APP_COLOR : bgColor,
     actions: actions,
-    leading: IconButton(
-        icon: Icon(
-          Icons.arrow_back_ios_sharp,
-          color: ColorConst.WHITE_COLOR,
-        ),
-        onPressed: () {
-          Navigator.pop(ctx);
-        }),
+    leading: icon == null
+        ? IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_sharp,
+              color: ColorConst.WHITE_COLOR,
+            ),
+            onPressed: () {
+              Navigator.pop(ctx);
+            })
+        : icon,
     centerTitle: true,
     title: new Text(
       title,
       style: new TextStyle(
+          color: txtColor == null ? ColorConst.WHITE_COLOR : txtColor,
           fontWeight: FontWeight.bold,
           fontSize: fontSize != null ? fontSize : 16),
     ),
@@ -631,6 +636,7 @@ Future<bool> onWillPop(BuildContext context) async {
         );
       });
 }
+
 Widget getCacheImage({@required String url, double height, double width}) {
   return CachedNetworkImage(
     fit: BoxFit.cover,

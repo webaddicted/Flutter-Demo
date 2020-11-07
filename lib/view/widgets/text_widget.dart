@@ -109,6 +109,20 @@ class _TextWidgetState extends State<TextWidget> {
             textAlign: TextAlign.end,
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          child: Text.rich(
+            TextSpan(children: [
+              TextSpan(
+                  text: "By clicking Sign Up you agree to the following "),
+              TextSpan(
+                  text: "Terms and Conditions",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.indigo)),
+              TextSpan(text: " withour reservations."),
+            ]),
+          ),
+        ),
       ],
     );
   }

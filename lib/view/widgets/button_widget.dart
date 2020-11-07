@@ -1,6 +1,9 @@
+import 'package:animated_floatactionbuttons/animated_floatactionbuttons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ButtonWidget extends StatefulWidget {
   @override
@@ -13,17 +16,26 @@ class _ButtonWidgetState extends State<ButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBarWithBackBtn(ctx:context, title:StringConst.BUTTON_TITLE),
-        body: Builder(
-          builder: (context) => _createUi(context),
-        ));
+      appBar:
+          getAppBarWithBackBtn(ctx: context, title: StringConst.BUTTON_TITLE),
+      body: Builder(
+        builder: (context) => _createUi(context),
+      ),
+      // floatingActionButton: AnimatedFloatingActionButton(
+      //   fabButtons: _buildFloatingButtons(),
+      //   colorStartAnimation: Colors.indigo,
+      //   colorEndAnimation: Colors.red,
+      //   animatedIconData: AnimatedIcons.menu_close,
+      // ),
+    );
   }
 
   Widget _createUi(BuildContext context) {
     _ctx = context;
     return new Container(
-        padding: EdgeInsets.all(5.0),
-        child: new Center(
+        child: Stack(
+      children: [
+        new Center(
           child: SingleChildScrollView(
             child: new Column(
               children: <Widget>[
@@ -31,8 +43,37 @@ class _ButtonWidgetState extends State<ButtonWidget> {
               ],
             ),
           ),
-        ));
+        ),
+        Positioned(
+          bottom: -20,
+          left: -20,
+          child: Container(
+            width: 80,
+            height: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.purple,
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 00,
+          left: 00,
+          child: IconButton(
+            icon: Icon(
+              FontAwesomeIcons.powerOff,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              //log out
+            },
+          ),
+        )
+      ],
+    ));
   }
+
   Widget _getButtonType() {
     return Column(
       children: <Widget>[
@@ -164,5 +205,44 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         ),
       ],
     );
+  }
+
+  List<Widget> _buildFloatingButtons() {
+    return <Widget>[
+      FloatingActionButton(
+        heroTag: "Testcopy",
+        child: Icon(Icons.content_copy),
+        // tooltip: 'Copy code link to clipboard',
+        onPressed: () async {
+          await Clipboard.setData(
+              ClipboardData(text: 'https://www.github.com/webaddicted/'));
+          Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text('Code link copied to Clipboard!'),
+          ));
+        },
+      ),
+      FloatingActionButton(
+        heroTag: "Testopen",
+        child: Icon(Icons.open_in_new),
+        // tooltip: 'View code on github',
+        onPressed: () {},
+      ),
+      FloatingActionButton(
+        heroTag: "Testzoom_out",
+        child: Icon(Icons.zoom_out),
+        // tooltip: 'Zoom out',
+        onPressed: () => setState(() {
+          // this._textScaleFactor = max(0.8, this._textScaleFactor - 0.1);
+        }),
+      ),
+      FloatingActionButton(
+        heroTag: "Testzoom_in",
+        child: Icon(Icons.zoom_in),
+        // tooltip: 'Zoom in',
+        onPressed: () => setState(() {
+          // this._textScaleFactor += 0.1;
+        }),
+      ),
+    ];
   }
 }

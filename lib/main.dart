@@ -6,8 +6,8 @@ import 'package:flutterbeginner/global/utils/file_utils.dart';
 import 'package:flutterbeginner/view/alltask/all_task.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await createApplicationFolder();
+  WidgetsFlutterBinding.ensureInitialized();
+  await createApplicationFolder();
   // Set Orientation to PortraitUp
 //  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
 //      .then((_) {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: StringConst.APP_NAME,
-//      debugShowCheckedModeBanner: false,
+     debugShowCheckedModeBanner: false,
 //      darkTheme: ThemeData.dark(),
       theme: ThemeData(
           fontFamily: AssetsConst.ZILLASLAB_FONT,

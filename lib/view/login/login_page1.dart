@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
+/**
+ * Author : Deepak Sharma(Webaddicted)
+ * Email : deepaksharmatheboss@gmail.com
+ * Profile : https://github.com/webaddicted
+ */
 class LoginPage1 extends StatefulWidget {
   @override
   _LoginPage1State createState() => _LoginPage1State();
@@ -33,12 +39,8 @@ class _LoginPage1State extends State<LoginPage1>
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          loadImg(
-              'https://www.wallpapertip.com/wmimgs/94-941374_asian-girl-wallpaper.jpg',
-              0),
-          Container(
-            color: Colors.black.withOpacity(0.2)
-          ),
+          Image.asset(AssetsConst.BG_FAMILY_IMG),
+          Container(color: Colors.black.withOpacity(0.6)),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -54,7 +56,7 @@ class _LoginPage1State extends State<LoginPage1>
                                   color: ColorConst.WHITE_COLOR,
                                   fontSize: 15))),
                       child: Container(
-                        padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        padding: EdgeInsets.only(left: 30, right: 30),
                         child: Column(
                           children: <Widget>[
                             TextFormField(
@@ -72,6 +74,12 @@ class _LoginPage1State extends State<LoginPage1>
                             ),
                             Padding(padding: EdgeInsets.only(top: 10)),
                             MaterialButton(
+                              padding: EdgeInsets.only(
+                                  left: 50, right: 50, top: 12, bottom: 12),
+                              shape: StadiumBorder(
+                                side: BorderSide(
+                                    color: Colors.transparent, width: 1),
+                              ),
                               color: ColorConst.APP_COLOR,
                               onPressed: () => {},
                               textColor: ColorConst.WHITE_COLOR,

@@ -25,7 +25,9 @@ import 'package:flutterbeginner/view/collapsetoolbar/wave_appbar.dart';
 import 'package:flutterbeginner/view/details/detail_page1.dart';
 import 'package:flutterbeginner/view/details/detail_page2.dart';
 import 'package:flutterbeginner/view/details/detail_page3.dart';
+import 'package:flutterbeginner/view/details/detail_page4.dart';
 import 'package:flutterbeginner/view/details/details_page.dart';
+import 'package:flutterbeginner/view/example/animation_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
 import 'package:flutterbeginner/view/example/blend_mode_page.dart';
 import 'package:flutterbeginner/view/example/blur_effect_page.dart';
@@ -40,7 +42,6 @@ import 'package:flutterbeginner/view/example/download_file_screen.dart';
 import 'package:flutterbeginner/view/example/finger_print_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/grid_view_screen.dart';
-import 'package:flutterbeginner/view/example/list_ui.dart';
 import 'package:flutterbeginner/view/example/local_jsondata.dart';
 import 'package:flutterbeginner/view/example/page_view.dart';
 import 'package:flutterbeginner/view/example/pagination.dart';
@@ -58,6 +59,12 @@ import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/home/home_page.dart';
 import 'package:flutterbeginner/view/home/home_page1.dart';
+import 'package:flutterbeginner/view/home/home_page2.dart';
+import 'package:flutterbeginner/view/home/home_page3.dart';
+import 'package:flutterbeginner/view/list/list_cart_item_page1.dart';
+import 'package:flutterbeginner/view/list/list_page.dart';
+import 'package:flutterbeginner/view/list/list_page1.dart';
+import 'package:flutterbeginner/view/list/list_page2.dart';
 import 'package:flutterbeginner/view/local/audio/audio_screen.dart';
 import 'package:flutterbeginner/view/local/call_log_screen.dart';
 import 'package:flutterbeginner/view/local/contact/contact_screen.dart';
@@ -67,13 +74,19 @@ import 'package:flutterbeginner/view/local/sms_screen.dart';
 import 'package:flutterbeginner/view/local/video/video_screen.dart';
 import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
+import 'package:flutterbeginner/view/login/login_page10.dart';
+import 'package:flutterbeginner/view/login/login_page12.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';
 import 'package:flutterbeginner/view/login/login_page4.dart';
 import 'package:flutterbeginner/view/login/login_page5.dart';
 import 'package:flutterbeginner/view/login/login_page6.dart';
 import 'package:flutterbeginner/view/login/login_page7.dart';
+import 'package:flutterbeginner/view/login/login_page8.dart';
+import 'package:flutterbeginner/view/login/login_page9.dart';
+import 'package:flutterbeginner/view/login/login_wave_page11.dart';
 import 'package:flutterbeginner/view/login/login_welcome_page.dart';
+import 'package:flutterbeginner/view/login/login_welcome_page2.dart';
 import 'package:flutterbeginner/view/navigation/nav_back_drop_drawer.dart';
 import 'package:flutterbeginner/view/navigation/nav_behavior_page.dart';
 import 'package:flutterbeginner/view/navigation/nav_drawer.dart';
@@ -105,6 +118,8 @@ import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh_page.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop_material.dart';
 import 'package:flutterbeginner/view/settings/setting_page.dart';
+import 'package:flutterbeginner/view/settings/setting_page1.dart';
+import 'package:flutterbeginner/view/settings/setting_page2.dart';
 import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/splash/splash_page1.dart';
 import 'package:flutterbeginner/view/splash/splash_page2.dart';
@@ -120,10 +135,9 @@ import 'package:flutterbeginner/view/widgets/progress_bar_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_field_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_widget.dart';
 
-
 List<String> dummyImgList = [
-  'https://pluspng.com/img-png/vodafone-zoo-zoo-png-zoo-zoo-zoo-zoo-zoo-zoo-660.jpg',
   'https://wallpapercave.com/wp/wp2519534.jpg',
+  'https://pluspng.com/img-png/vodafone-zoo-zoo-png-zoo-zoo-zoo-zoo-zoo-zoo-660.jpg',
   'https://webneel.com/daily/sites/default/files/images/daily/05-2013/zoozoo-vodafone-wallpaper-10.jpg',
   'https://webneel.com/daily/sites/default/files/images/daily/05-2013/zoozoo-vodafone-wallpaper-4.jpg',
   'https://i.pinimg.com/originals/e5/22/11/e52211d7ed30172145da8ec17574d8e7.jpg',
@@ -143,8 +157,8 @@ List<String> dummypopulateData = [
   'https://www.pinclipart.com/picdir/middle/144-1442860_mickey-mouse-transparent-mickey-mouse-png-transparent-mickey.png',
 ];
 List<String> dummyLargeData = [
-  'https://i.pinimg.com/originals/66/59/44/665944970605ed2273788a068895ea39.jpg',
   'https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-1.2.1&w=1000&q=80',
+  'https://i.pinimg.com/originals/66/59/44/665944970605ed2273788a068895ea39.jpg',
   'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg',
   'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
   'https://i.pinimg.com/originals/ca/76/0b/ca760b70976b52578da88e06973af542.jpg',
@@ -210,7 +224,7 @@ List<TaskItem> taskItem = [
   TaskItem(title: 'Share Data', page: ShareDataScreen()),
   TaskItem(title: 'Finger Print', page: FingerPrintScreen()),
   TaskItem(title: 'Device Info', page: DeviceInfoScreen()),
-  TaskItem(title: 'List Ui', page: ListUiScreen()),
+  TaskItem(title: 'List Ui', page: ListPage()),
   TaskItem(title: 'Screenshot', page: ScreenshotPage()),
   TaskItem(title: 'Blend Mode (Image Filter)', page: BlendModePage()),
   TaskItem(title: 'ReOreder List', page: ReorderPage()),
@@ -221,9 +235,9 @@ List<TaskItem> taskItem = [
   TaskItem(title: 'Setting UI Design', page: SettingsPage()),
   TaskItem(title: 'Home UI Design', page: HomePageDesign()),
   TaskItem(title: 'Blur effect', page: BlurEffectPage()),
+  TaskItem(title: 'Animation', page: AnimationPage()),
   TaskItem(title: 'ZZZZ', page: StaggeredGridScreen()),
-  TaskItem(title: 'AATest', page: Test()
-  ),
+  TaskItem(title: 'AATest', page: Test()),
 ];
 
 List<TaskItem> apiCallItem = [
@@ -256,13 +270,17 @@ List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page1', page: DetailPage1()),
   TaskItem(title: 'Detail Page2', page: DetailPage2()),
   TaskItem(title: 'Detail Page3', page: DetailPage3()),
-  TaskItem(title: 'Detail Page4', page: LoginPage4()),
+  TaskItem(title: 'Detail Page4', page: DetailPage4()),
 ];
 List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page1', page: HomePage1()),
+  TaskItem(title: 'Home Page2', page: HomePage2()),
+  TaskItem(title: 'Home Page3', page: HomePage3()),
 ];
 List<TaskItem> listPageItem = [
-  TaskItem(title: 'List Page1', page: HomePage1()),
+  TaskItem(title: 'List Page1', page: ListPage1()),
+  TaskItem(title: 'List Page2', page: ListPage2()),
+  TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1()),
 ];
 List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Page1', page: LoginPage1()),
@@ -273,8 +291,12 @@ List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Page6', page: LoginPage6()),
   TaskItem(title: 'Login Page7', page: LoginPage7()),
   TaskItem(title: 'Login Welcome Page', page: LoginWelcomePage()),
-  TaskItem(title: 'Login Welcome Page2', page: LoginWelcomePage()),
-
+  TaskItem(title: 'Login Welcome Page2', page: LoginWelcomePage2()),
+  TaskItem(title: 'Login Page8', page: LoginPage8()),
+  TaskItem(title: 'Login Page9', page: LoginPage9()),
+  TaskItem(title: 'Login Page10', page: LoginPage10()),
+  TaskItem(title: 'Login Wave Page11', page: LoginWavePage11()),
+  TaskItem(title: 'Login Page12', page: LoginPage12()),
 ];
 List<TaskItem> navPageItem = [
   TaskItem(title: 'One side', page: NavDrawerScreen()),
@@ -311,7 +333,8 @@ List<TaskItem> pullToRefreshItem = [
   TaskItem(title: 'Water drop', page: WaterDrop()),
 ];
 List<TaskItem> settingPageItem = [
-  TaskItem(title: 'Settings Page1', page: HomePage1()),
+  TaskItem(title: 'Setting Page1', page: SettingPage1()),
+  TaskItem(title: 'Setting Page2', page: SettingPage2()),
 ];
 List<TaskItem> splashPageItem = [
   TaskItem(title: 'Splash Page1', page: SplashPage1()),

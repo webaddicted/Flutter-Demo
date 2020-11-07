@@ -6,22 +6,21 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/widgets/book_tiles.dart';
-import 'package:flutterbeginner/view/widgets/carousel_view.dart';
-import 'package:flutterbeginner/view/widgets/list_item.dart';
 import 'package:flutterbeginner/view/widgets/sifi_movie_row.dart';
 import 'package:flutterbeginner/view/widgets/tranding_movie_row.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_indicator/page_indicator.dart';
 
-class ListUiScreen extends StatefulWidget {
+class ListPage2 extends StatefulWidget {
   @override
-  _ListUiScreenState createState() => _ListUiScreenState();
+  _ListPage2State createState() => _ListPage2State();
 }
 
-class _ListUiScreenState extends State<ListUiScreen> {
+class _ListPage2State extends State<ListPage2> {
   BuildContext ctx;
   PageController pageController =
   PageController(viewportFraction: 1, keepPage: true);
+
   @override
   void initState() {
     super.initState();
@@ -30,32 +29,31 @@ class _ListUiScreenState extends State<ListUiScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBarWithBackBtn(ctx:context, title:StringConst.MOVIE_TITLE),
+        appBar:
+        getAppBarWithBackBtn(ctx: context, title: StringConst.MOVIE_TITLE),
         body: Builder(
           builder: (context) => _createUi(context),
-        )
-    );
+        ));
   }
 
   Widget _createUi(BuildContext context) {
     ctx = context;
     return SafeArea(
       child: Container(
-//        width: double.infinity,
+        color: ColorConst.GREY_BG_COLOR,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               getViewPager(),
               SizedBox(height: 10),
-              CarouselView(),
-              TrandingMovieRow(animationName: "Tranding"),
-              getCate(),
-              TrandingMovieRow(dummyImg: AssetsConst.BABY_IMG,animationName: "Category",),
-              SifiMovieRow("Sci-fi Movies"),
-              TrandingMovieRow(animationName: "Sci-Fi"),
               getBooksList(),
-              // getListItem(),
+
+              SifiMovieRow("Sci-fi Movies"),
+              TrandingMovieRow(
+                dummyImg: AssetsConst.BG_GIRL_IMG,
+                animationName: "Category",
+              ),
             ],
           ),
         ),
@@ -131,7 +129,6 @@ class _ListUiScreenState extends State<ListUiScreen> {
     );
   }
 
-
   Widget getBooksList() {
     return Container(
       height: 200,
@@ -140,7 +137,7 @@ class _ListUiScreenState extends State<ListUiScreen> {
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           physics: ClampingScrollPhysics(),
-          itemBuilder: (context, index){
+          itemBuilder: (context, index) {
             return BooksTile(
               imgAssetPath: dummypopulateData[index],
               rating: 3,
@@ -153,12 +150,13 @@ class _ListUiScreenState extends State<ListUiScreen> {
   }
 
   Widget getViewPager() {
-
     return Container(
       height: 220.0,
       child: PageIndicatorContainer(
         align: IndicatorAlign.bottom,
-        length: dummyImgList.take(5).length,
+        length: dummyImgList
+            .take(5)
+            .length,
         indicatorSpace: 8.0,
         padding: const EdgeInsets.all(5.0),
         indicatorColor: ColorConst.APP_COLOR,
@@ -167,7 +165,9 @@ class _ListUiScreenState extends State<ListUiScreen> {
         child: PageView.builder(
           controller: pageController,
           scrollDirection: Axis.horizontal,
-          itemCount: dummyImgList.take(5).length,
+          itemCount: dummyImgList
+              .take(5)
+              .length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {},
@@ -176,7 +176,10 @@ class _ListUiScreenState extends State<ListUiScreen> {
                   Hero(
                     tag: dummyImgList[index],
                     child: Container(
-                        width: MediaQuery.of(context).size.width,
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .width,
                         height: 220.0,
                         decoration: new BoxDecoration(
                           shape: BoxShape.rectangle,
@@ -241,22 +244,4 @@ class _ListUiScreenState extends State<ListUiScreen> {
     );
   }
 
-  // Widget getListItem() {
-  //   return Container(
-  //     height: 200,
-  //     child: ListView.builder(
-  //         itemCount: populateData.length,
-  //         scrollDirection: Axis.horizontal,
-  //         shrinkWrap: true,
-  //         physics: ClampingScrollPhysics(),
-  //         itemBuilder: (context, index){
-  //           return ListItem(
-  //             imgAssetPath: populateData[index],
-  //             title: "The little mermaid",
-  //             description: StringConst.DUMMY_TEXT,
-  //             categorie: "Fairy Tailes",
-  //           );
-  //         }),
-  //   );
-  // }
 }

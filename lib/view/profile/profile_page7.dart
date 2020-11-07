@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage7 extends StatefulWidget {
@@ -131,8 +132,8 @@ class _ProfilePage7State extends State<ProfilePage7> {
       children: <Widget>[
         SizedBox(width: 20.0),
         IconButton(
-          color: Colors.indigo,
-          icon: Icon(Icons.face),
+          color: Colors.redAccent,
+          icon: Icon(FontAwesomeIcons.google),
           onPressed: () {
             _launchURL(StringConst.WEBSITE);
           },
@@ -140,7 +141,7 @@ class _ProfilePage7State extends State<ProfilePage7> {
         SizedBox(width: 5.0),
         IconButton(
           color: Colors.indigo,
-          icon: Icon(Icons.tag),
+          icon: Icon(FontAwesomeIcons.facebook),
           onPressed: () {
             _launchURL(StringConst.WEBSITE);
           },
@@ -148,7 +149,7 @@ class _ProfilePage7State extends State<ProfilePage7> {
         SizedBox(width: 5.0),
         IconButton(
           color: Colors.red,
-          icon: Icon(Icons.contacts),
+          icon: Icon(FontAwesomeIcons.youtube),
           onPressed: () {
             _launchURL(StringConst.WEBSITE);
           },

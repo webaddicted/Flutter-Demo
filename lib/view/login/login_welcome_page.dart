@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
+import 'package:flutterbeginner/global/constant/string_const.dart';
 
 class LoginWelcomePage extends StatefulWidget {
   @override
@@ -8,7 +9,7 @@ class LoginWelcomePage extends StatefulWidget {
 }
 
 class _LoginWelcomePageState extends State<LoginWelcomePage> {
-  final String backImg = AssetsConst.BG_IMG;
+  // final String backImg = AssetsConst.BG_GIRL_IMG;
   bool formVisible;
   int _formsIndex;
 
@@ -25,7 +26,7 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
         body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(backImg),
+          image: AssetImage(AssetsConst.BG_GIRL_IMG),
           fit: BoxFit.cover,
         ),
       ),
@@ -48,13 +49,16 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
                         ),
                       ),
                       const SizedBox(height: 10.0),
-                      Text(
-                        "Welcome to this awesome login app. \n You are awesome",
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 18.0,
+                      Padding(
+                        padding: const EdgeInsets.only(left:8.0,right: 8),
+                        child: Text(
+                          StringConst.DUMMY_TEXT,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 18.0,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
@@ -65,7 +69,8 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
                     const SizedBox(width: 10.0),
                     Expanded(
                       child: RaisedButton(
-                        color: Colors.red,
+                        padding: EdgeInsets.all(11),
+                        color: Colors.purple,
                         textColor: Colors.white,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
@@ -83,6 +88,7 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
                     const SizedBox(width: 10.0),
                     Expanded(
                       child: RaisedButton(
+                        padding: EdgeInsets.all(11),
                         color: Colors.grey.shade700,
                         textColor: Colors.white,
                         elevation: 0,
@@ -103,8 +109,8 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
                 ),
                 const SizedBox(height: 40.0),
                 OutlineButton.icon(
-                  borderSide: BorderSide(color: Colors.red),
-                  color: Colors.red,
+                  borderSide: BorderSide(color: Colors.purple),
+                  color: Colors.purple,
                   textColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
@@ -135,7 +141,7 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
                                   ? Colors.white
                                   : Colors.black,
                               color:
-                                  _formsIndex == 1 ? Colors.red : Colors.white,
+                                  _formsIndex == 1 ? Colors.purple : Colors.white,
                               child: Text("Login"),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
@@ -151,7 +157,7 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
                                   ? Colors.white
                                   : Colors.black,
                               color:
-                                  _formsIndex == 2 ? Colors.red : Colors.white,
+                                  _formsIndex == 2 ? Colors.purple : Colors.white,
                               child: Text("Signup"),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
@@ -223,7 +229,8 @@ class LoginForm extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
           RaisedButton(
-            color: Colors.red,
+            padding: EdgeInsets.all(11),
+            color: Colors.purple,
             textColor: Colors.white,
             elevation: 0,
             shape: RoundedRectangleBorder(
@@ -279,7 +286,7 @@ class SignupForm extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
           RaisedButton(
-            color: Colors.red,
+            color: Colors.purple,
             textColor: Colors.white,
             elevation: 0,
             shape: RoundedRectangleBorder(

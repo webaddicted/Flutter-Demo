@@ -9,11 +9,7 @@ import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/BooksRespo.dart';
-import 'package:flutterbeginner/model/bean/UnSplashBean.dart';
 import 'package:flutterbeginner/provider/movie_provider.dart';
-import 'file:///D:/AndroidStudioProjects/flutter/flutterbeginner/lib/view/pulltorefresh/pull_to_refresh.dart';
-import 'package:flutterbeginner/view/widgets/image_tile.dart';
-import 'package:flutterbeginner/view/widgets/tranding_movie_row.dart';
 import 'package:provider/provider.dart';
 
 class ApiDioArchPage extends StatefulWidget {

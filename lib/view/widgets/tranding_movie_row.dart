@@ -8,8 +8,8 @@ import 'package:flutterbeginner/view/collapsetoolbar/collapse_fab_zoom_out.dart'
 class TrandingMovieRow extends StatelessWidget {
   String animationName;
   String dummyImg;
-
-  TrandingMovieRow({String this.dummyImg, String this.animationName});
+  List<String> data;
+  TrandingMovieRow({String this.dummyImg, String this.animationName, List<String> data});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class TrandingMovieRow extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: dummypopulateData.length,
+            itemCount: data!=null ?data:dummypopulateData.length,
             itemBuilder: (context, index) {
-              var item = dummypopulateData[index];
+              var item = data!=null ?data[index]:dummypopulateData[index];
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),
@@ -42,7 +42,7 @@ class TrandingMovieRow extends StatelessWidget {
 //                  ));
                   },
                   child: Hero(
-                    tag: animationName + index.toString(),
+                    tag: animationName!=null? animationName + index.toString():'Test _ ${index}',
                     child: Container(
                       child: ClipRRect(
                         child: dummyImg != null

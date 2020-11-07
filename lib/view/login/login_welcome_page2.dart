@@ -10,7 +10,6 @@ class LoginWelcomePage2 extends StatefulWidget {
 }
 
 class _LoginWelcomePage2State extends State<LoginWelcomePage2> {
-  final String backImg = AssetsConst.BG_IMG;
   bool formVisible;
   @override
   void initState() {
@@ -25,7 +24,7 @@ class _LoginWelcomePage2State extends State<LoginWelcomePage2> {
         height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(backImg), fit: BoxFit.cover)),
+                image: AssetImage(AssetsConst.BG_FOOD_IMG), fit: BoxFit.cover)),
         child: Stack(
           children: <Widget>[
             Center(

@@ -11,6 +11,7 @@ import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DetailPage3 extends StatefulWidget {
   @override
@@ -101,7 +102,7 @@ class _DetailPage3State extends State<DetailPage3>
                             child: FloatingActionButton(
                                 onPressed: () {},
                                 heroTag: 'left',
-                                child: Icon(Icons.arrow_back),
+                                child: Icon(FontAwesomeIcons.heart, color: ColorConst.WHITE_COLOR,),
                                 backgroundColor: Colors.black54,
                                 elevation: 0.1),
                           )),
@@ -111,7 +112,7 @@ class _DetailPage3State extends State<DetailPage3>
                             child: FloatingActionButton(
                               onPressed: () {},
                               heroTag: 'right',
-                              child: Icon(Icons.arrow_forward),
+                              child: Icon(Icons.share_outlined, color: ColorConst.WHITE_COLOR),
                               backgroundColor: Colors.black54,
                               elevation: 0.1,
                             ),
