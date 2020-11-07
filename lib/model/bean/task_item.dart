@@ -6,11 +6,12 @@ class TaskItem {
   final Widget page;
   final String codePreview;
 
+  TaskItem.normal(this.title, {this.page,this.icon, this.codePreview});
+
   TaskItem(
       {Key key,
       @required this.title,
       @required this.page,
       this.icon = Icons.label_important,
       this.codePreview = ''});
-
 }

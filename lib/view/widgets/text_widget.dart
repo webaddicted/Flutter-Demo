@@ -15,7 +15,8 @@ class _TextWidgetState extends State<TextWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBarWithBackBtn(ctx:context,title: StringConst.TEXT_TITLE),
+        appBar:
+            getAppBarWithBackBtn(ctx: context, title: StringConst.TEXT_TITLE),
         body: Builder(
           builder: (context) => _createUi(context),
         ));
@@ -39,35 +40,59 @@ class _TextWidgetState extends State<TextWidget> {
   Widget _getTextType() {
     return Column(
       children: <Widget>[
-        SizedBox(
-          height: 10,
-        ),
+        SizedBox(height: 10),
         Container(
           color: ColorConst.RED_COLOR,
           height: 50,
           alignment: Alignment.center,
-          child: getTxtWhiteColor(msg:'Text', fontSize:15, fontWeight:FontWeight.bold),
+          child: getTxtWhiteColor(
+              msg: 'Text', fontSize: 15, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10),
         Text(_btnText),
+        SizedBox(height: 10),
+        ExpansionTile(
+          backgroundColor: ColorConst.GREY_BG_COLOR,
+          title: getTxtBlackColor(
+              msg: "Show Details", fontWeight: FontWeight.bold, fontSize: 18),
+          children: <Widget>[
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(16.0),
+              child: Text(StringConst.DUMMY_LAGE_TEXT),
+            )
+          ],
+        ),
         SizedBox(height: 10),
         Container(
           color: ColorConst.GREEN_COLOR,
           height: 40,
           child: Padding(
             padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: getTxtWhiteColor(msg:StringConst.APP_NAME,fontSize: 15, fontWeight:FontWeight.bold),
+            child: getTxtWhiteColor(
+                msg: StringConst.APP_NAME,
+                fontSize: 15,
+                fontWeight: FontWeight.bold),
           ),
         ),
         SizedBox(height: 10),
-        getTxtBlackColor(msg:StringConst.APP_NAME, fontSize:15),
+        getTxtBlackColor(msg: StringConst.APP_NAME, fontSize: 15),
         SizedBox(height: 10),
-        getTxtGreyColor(msg:StringConst.DUMMY_TEXT, fontSize:15, fontWeight:FontWeight.bold),
+        getTxtGreyColor(
+            msg: StringConst.DUMMY_TEXT,
+            fontSize: 15,
+            fontWeight: FontWeight.bold),
         SizedBox(height: 10),
-        getTxtAppColor(msg:StringConst.APP_NAME, fontSize:15, fontWeight:FontWeight.bold),
+        getTxtAppColor(
+            msg: StringConst.APP_NAME,
+            fontSize: 15,
+            fontWeight: FontWeight.bold),
         SizedBox(height: 10),
         getTxtColor(
-            msg:StringConst.APP_NAME, txtColor:ColorConst.GREEN_COLOR, fontSize:15, fontWeight:FontWeight.bold),
+            msg: StringConst.APP_NAME,
+            txtColor: ColorConst.GREEN_COLOR,
+            fontSize: 15,
+            fontWeight: FontWeight.bold),
         SizedBox(height: 10),
         Text(
           StringConst.DUMMY_TEXT,
@@ -113,8 +138,7 @@ class _TextWidgetState extends State<TextWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           child: Text.rich(
             TextSpan(children: [
-              TextSpan(
-                  text: "By clicking Sign Up you agree to the following "),
+              TextSpan(text: "By clicking Sign Up you agree to the following "),
               TextSpan(
                   text: "Terms and Conditions",
                   style: TextStyle(

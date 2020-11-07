@@ -79,6 +79,31 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           child: edtMobileNoField(TextEditingController()),
         ),
         SizedBox(height: 10),
+        Container(
+          margin: EdgeInsets.all(5),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.all(Radius.circular(30)),
+            child: TextField(
+              controller:
+              TextEditingController(text: 'Search...'),
+              cursorColor: Theme.of(context).primaryColor,
+              style:
+              TextStyle(color: Colors.black, fontSize: 18),
+              decoration: InputDecoration(
+                  suffixIcon: Material(
+                    elevation: 2.0,
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(30)),
+                    child: Icon(Icons.search),
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: 25, vertical: 13)),
+            ),
+          ),
+        ),
+        SizedBox(height: 10),
         _buildBottomBar(),
         SizedBox(height: 10),
         edtMobileNoField(TextEditingController()),
@@ -169,7 +194,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               hintStyle: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
             )),
         SizedBox(height: 10),
-        _dropDown(),
+        buildDropdownButton(['Black','Blue','Red'],'Black'),
         SizedBox(height: 10),
       ],
     );
@@ -181,28 +206,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     });
   }
 
-  DropdownButton _dropDown() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem<String>(
-        value: "First",
-        child: Text(
-          "First",
-        ),
-      ),
-      DropdownMenuItem<String>(
-        value: "Second",
-        child: Text(
-          "Second",
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        showSnackBar(_ctx, value);
-      });
-    },
-//    value: _value,
-  );
   PreferredSize _buildBottomBar() {
     return PreferredSize(
       child: Container(
@@ -220,6 +223,19 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         ),
       ),
       preferredSize: Size.fromHeight(80.0),
+    );
+  }
+  Widget buildDropdownButton(List<String> items, String selectedValue) {
+    return DropdownButton<String>(
+      isExpanded: true,
+      value: selectedValue,
+      onChanged: (_) {},
+      items: items.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

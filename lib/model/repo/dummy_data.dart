@@ -26,6 +26,8 @@ import 'package:flutterbeginner/view/details/detail_page1.dart';
 import 'package:flutterbeginner/view/details/detail_page2.dart';
 import 'package:flutterbeginner/view/details/detail_page3.dart';
 import 'package:flutterbeginner/view/details/detail_page4.dart';
+import 'package:flutterbeginner/view/details/detail_page5.dart';
+import 'package:flutterbeginner/view/details/detail_page6.dart';
 import 'package:flutterbeginner/view/details/details_page.dart';
 import 'package:flutterbeginner/view/example/animation_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
@@ -61,7 +63,9 @@ import 'package:flutterbeginner/view/home/home_page.dart';
 import 'package:flutterbeginner/view/home/home_page1.dart';
 import 'package:flutterbeginner/view/home/home_page2.dart';
 import 'package:flutterbeginner/view/home/home_page3.dart';
+import 'package:flutterbeginner/view/home/home_page4.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page1.dart';
+import 'package:flutterbeginner/view/list/list_cart_item_page2.dart';
 import 'package:flutterbeginner/view/list/list_page.dart';
 import 'package:flutterbeginner/view/list/list_page1.dart';
 import 'package:flutterbeginner/view/list/list_page2.dart';
@@ -126,6 +130,7 @@ import 'package:flutterbeginner/view/splash/splash_page2.dart';
 import 'package:flutterbeginner/view/splash/splash_page3.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page1.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page2.dart';
+import 'package:flutterbeginner/view/tabbar/tab_page3.dart';
 import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 import 'package:flutterbeginner/view/test.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
@@ -134,6 +139,7 @@ import 'package:flutterbeginner/view/widgets/misc_widget.dart';
 import 'package:flutterbeginner/view/widgets/progress_bar_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_field_widget.dart';
 import 'package:flutterbeginner/view/widgets/text_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 List<String> dummyImgList = [
   'https://wallpapercave.com/wp/wp2519534.jpg',
@@ -142,7 +148,32 @@ List<String> dummyImgList = [
   'https://webneel.com/daily/sites/default/files/images/daily/05-2013/zoozoo-vodafone-wallpaper-4.jpg',
   'https://i.pinimg.com/originals/e5/22/11/e52211d7ed30172145da8ec17574d8e7.jpg',
 ];
-
+final List<TaskItem> categories = [
+  TaskItem.normal("General Knowledge", icon: FontAwesomeIcons.globeAsia),
+  TaskItem.normal("Books", icon: FontAwesomeIcons.bookOpen),
+  TaskItem.normal("Film", icon: FontAwesomeIcons.video),
+  TaskItem.normal("Music", icon: FontAwesomeIcons.music),
+  TaskItem.normal("Musicals & Theatres", icon: FontAwesomeIcons.theaterMasks),
+  TaskItem.normal("Television", icon: FontAwesomeIcons.tv),
+  TaskItem.normal("Video Games", icon: FontAwesomeIcons.gamepad),
+  TaskItem.normal("Board Games", icon: FontAwesomeIcons.chessBoard),
+  TaskItem.normal("Science & Nature", icon: FontAwesomeIcons.microscope),
+  TaskItem.normal("Computer", icon: FontAwesomeIcons.laptopCode),
+  TaskItem.normal("Maths", icon: FontAwesomeIcons.sortNumericDown),
+  TaskItem.normal("Mythology"),
+  TaskItem.normal("Sports", icon: FontAwesomeIcons.footballBall),
+  TaskItem.normal("Geography", icon: FontAwesomeIcons.mountain),
+  TaskItem.normal("History", icon: FontAwesomeIcons.monument),
+  TaskItem.normal("Politics"),
+  TaskItem.normal("Art", icon: FontAwesomeIcons.paintBrush),
+  TaskItem.normal("Celebrities"),
+  TaskItem.normal("Animals", icon: FontAwesomeIcons.dog),
+  TaskItem.normal("Vehicles", icon: FontAwesomeIcons.carAlt),
+  TaskItem.normal("Comics"),
+  TaskItem.normal("Gadgets", icon: FontAwesomeIcons.mobileAlt),
+  TaskItem.normal("Japanese Anime & Manga"),
+  TaskItem.normal("Cartoon & Animation"),
+];
 List<String> dummypopulateData = [
   'https://i.pinimg.com/originals/66/59/44/665944970605ed2273788a068895ea39.jpg',
   'https://www.pikpng.com/pngl/m/322-3223733_free-png-download-mickey-mouse-clipart-png-photo.png',
@@ -176,6 +207,24 @@ List<String> dummyLargeData = [
   'http://paranoidandroid.co/assets/wallpapers/2018/submerged_desktop_thumb.jpg',
   'https://www.pinclipart.com/picdir/middle/144-1442860_mickey-mouse-transparent-mickey-mouse-png-transparent-mickey.png',
 ];
+List<String> dummyLargeFoodData = [
+  'https://drop.ndtv.com/albums/COOKS/pasta-vegetarian/pastaveg_640x480.jpg',
+  'https://currybowlla.com/assets/images/gallery/3-big.jpg',
+  'http://danamandi.ca/wp-content/uploads/2016/04/Food-Gallery-Indian-Essence-Restaurant-13.jpg',
+  'https://media-cdn.tripadvisor.com/media/photo-s/0e/1c/e4/83/awesome-food-to-enjoy.jpg',
+  'https://i.ndtvimg.com/i/2017-08/620-istock-chila_620x350_61502216031.jpg',
+  'https://foodtrainonline.com/blog/wp-content/uploads/2018/09/4454048-food-wallpapers.jpg',
+  'https://www.lark.com/wp-content/uploads/2020/06/shutterstock_1016078281.jpg',
+  'https://i.ytimg.com/vi/1N9pvd4DWMM/maxresdefault.jpg',
+  'https://www.kohinoorfoods.co.uk/wp-content/uploads/2020/01/indo-chinese-food.jpg',
+  'https://c.ndtvimg.com/2020-01/dd46j918_chilli-chicken_625x300_21_January_20.jpg',
+  'https://i.ndtvimg.com/i/2016-06/noodles-625_625x350_41466064269.jpg',
+  'https://i.ndtvimg.com/i/2015-02/spring-roll_625x350_51424323845.jpg',
+  'https://i.ytimg.com/vi/MoZAkumC7ps/hqdefault.jpg',
+  'https://data.chinatravel.com/images/facts/chinese-food/sweet-and-sour-pork.jpg',
+  'https://sites.psu.edu/wanyingpassion/wp-content/uploads/sites/6105/2013/09/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90.jpg',
+  'https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/momo_660_060817115337.jpg',
+  ];
 List<TaskItem> taskItem = [
   TaskItem(title: 'Text', page: TextWidget()),
   TaskItem(title: 'Text Field', page: TextFieldWidget()),
@@ -271,16 +320,23 @@ List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page2', page: DetailPage2()),
   TaskItem(title: 'Detail Page3', page: DetailPage3()),
   TaskItem(title: 'Detail Page4', page: DetailPage4()),
+  TaskItem(title: 'Detail Page5', page: DetailPage5()),
+  TaskItem(title: 'Detail Page6', page: DetailPage6()),
+
 ];
 List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page1', page: HomePage1()),
   TaskItem(title: 'Home Page2', page: HomePage2()),
   TaskItem(title: 'Home Page3', page: HomePage3()),
+  TaskItem(title: 'Home Page4', page: HomePage4()),
+
 ];
 List<TaskItem> listPageItem = [
   TaskItem(title: 'List Page1', page: ListPage1()),
   TaskItem(title: 'List Page2', page: ListPage2()),
   TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1()),
+  TaskItem(title: 'List Cart Item Page 2', page: ListCartItemPage2()),
+
 ];
 List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Page1', page: LoginPage1()),
@@ -344,4 +400,5 @@ List<TaskItem> splashPageItem = [
 List<TaskItem> tabBarPageItem = [
   TaskItem(title: 'Tab Page1', page: TabPage1()),
   TaskItem(title: 'Tab Page2', page: TabPage2()),
+  TaskItem(title: 'Tab Page3', page: TabPage3()),
 ];
