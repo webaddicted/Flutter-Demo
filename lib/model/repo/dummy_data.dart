@@ -64,6 +64,7 @@ import 'package:flutterbeginner/view/home/home_page1.dart';
 import 'package:flutterbeginner/view/home/home_page2.dart';
 import 'package:flutterbeginner/view/home/home_page3.dart';
 import 'package:flutterbeginner/view/home/home_page4.dart';
+import 'package:flutterbeginner/view/home/home_page5.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page1.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page2.dart';
 import 'package:flutterbeginner/view/list/list_page.dart';
@@ -329,7 +330,7 @@ List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page2', page: HomePage2()),
   TaskItem(title: 'Home Page3', page: HomePage3()),
   TaskItem(title: 'Home Page4', page: HomePage4()),
-
+  TaskItem(title: 'Home Page5', page: HomePage5()),
 ];
 List<TaskItem> listPageItem = [
   TaskItem(title: 'List Page1', page: ListPage1()),

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbeginner/global/constant/assets_const.dart';
-import 'package:flutterbeginner/global/constant/color_const.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
@@ -18,34 +17,49 @@ class _HomePage3State extends State<HomePage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(
-          ctx: context,
-          title: StringConst.HOME_TITLE,
-          actions: [buildAvatar(context)]),
       body: _createUi(),
     );
   }
-
-  Widget buildAvatar(BuildContext context) {
-    return IconButton(
-      iconSize: 40,
-      padding: EdgeInsets.all(0),
-      icon: CircleAvatar(
-        backgroundColor: Colors.grey.shade300,
-        child: loadLocalCircleImg(AssetsConst.DEEPAK_IMG, 30),
-      ),
-      onPressed: () {},
-    );
-  }
-
   Widget _createUi() {
     return SafeArea(
       child: Container(
-        color: ColorConst.GREY_BG_COLOR,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("Hello ${StringConst.DEEPAK_SHARMA},",
+                            style: TextStyle(
+                                fontSize: 18.0, fontWeight: FontWeight.bold)),
+                        Text(
+                          "Where do you want to go?",
+                          style: TextStyle(color: Colors.grey.shade700),
+                        )
+                      ],
+                    ),
+                    loadCircleImg(ApiConstant.WEBADDICTED_IMG, 0, 40)
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+                child: Material(
+                  elevation: 5.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: "Find destination",
+                        prefixIcon: Icon(Icons.location_on),
+                        border: InputBorder.none),
+                  ),
+                ),
+              ),
               SizedBox(height: 10),
               getUsers(),
               _buildActivities(context)

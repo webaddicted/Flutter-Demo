@@ -8,7 +8,6 @@ import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/widgets/carousel_view.dart';
 import 'package:flutterbeginner/view/widgets/list_widget.dart';
 import 'package:flutterbeginner/view/widgets/tranding_movie_row.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage1 extends StatefulWidget {
   @override
@@ -23,11 +22,22 @@ class _HomePage1State extends State<HomePage1> {
           ctx: context,
           title: StringConst.HOME_TITLE,
           bgColor: ColorConst.WHITE_COLOR,
-          txtColor: ColorConst.BLACK_COLOR),
+          txtColor: ColorConst.BLACK_COLOR,
+          actions: [buildAvatar(context)]),
       body: _createUi(),
     );
   }
-
+  Widget buildAvatar(BuildContext context) {
+    return IconButton(
+      iconSize: 40,
+      padding: EdgeInsets.all(0),
+      icon: CircleAvatar(
+        backgroundColor: Colors.grey.shade300,
+        child: loadLocalCircleImg(AssetsConst.DEEPAK_IMG, 30),
+      ),
+      onPressed: () {},
+    );
+  }
   Widget _createUi() {
     return SafeArea(
       child: Container(
