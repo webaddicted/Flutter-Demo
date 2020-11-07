@@ -62,6 +62,8 @@ dependencies:
   drawerbehavior: ^1.1.4
   animated_floatactionbuttons: ^0.1.0
   url_launcher: ^5.5.0
+  animator: ^2.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
