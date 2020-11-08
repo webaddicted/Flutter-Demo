@@ -24,32 +24,33 @@ class SubTitlePage extends StatelessWidget {
     );
   }
 
-  optionMenu(BuildContext context, TaskItem taskItem) {
-    showDialog(
-        context: context,
-        child: new AlertDialog(
-            title: getTxtBlackColor(
-                msg: 'Select Option', fontWeight: FontWeight.bold),
-            content: Container(
-                child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      navigationPush(
-                          context,
-                          CodePreviewsPage(
-                            title: taskItem.title,
-                            path: taskItem.codePreview,
-                          ));
-                    },
-                    child: Container(
-                        padding: EdgeInsets.all(15),
-                        child: getTxtBlackColor(msg: 'Code Preview'))),
-              ],
-            ))));
-  }
+
+}
+optionMenu(BuildContext context, TaskItem taskItem) {
+  showDialog(
+      context: context,
+      child: new AlertDialog(
+          title: getTxtBlackColor(
+              msg: 'Select Option', fontWeight: FontWeight.bold),
+          content: Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        navigationPush(
+                            context,
+                            CodePreviewsPage(
+                              title: taskItem.title,
+                              path: taskItem.codePreview,
+                            ));
+                      },
+                      child: Container(
+                          padding: EdgeInsets.all(15),
+                          child: getTxtBlackColor(msg: 'Code Preview'))),
+                ],
+              ))));
 }

@@ -76,6 +76,9 @@ class _AllTasksState extends State<AllTasks> {
               navigationPush(context, taskItem.page);
             else
               navigationPush(context, SubTitlePage(taskItem));
+          },
+          onlongPress: (TaskItem taskItem) {
+            if (taskItem.subItem == null) optionMenu(context, taskItem);
           }),
     );
   }
