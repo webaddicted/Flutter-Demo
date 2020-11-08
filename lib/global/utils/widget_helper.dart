@@ -8,6 +8,7 @@ import 'package:flutterbeginner/global/apiutils/api_response.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
+import 'package:photo_view/photo_view.dart';
 
 //  {START PAGE NAVIGATION}
 void navigationPush(BuildContext context, Widget route) {
@@ -649,5 +650,51 @@ Widget getCacheImage({@required String url, double height, double width}) {
       color: Colors.grey[400],
     ),
     errorWidget: (context, url, error) => const Icon(Icons.error),
+  );
+}
+
+showImageDialog({BuildContext context, String imageFile}) {
+  var imageFileProvider;
+  // if (imageFile != null)
+  //   imageFileProvider = FileImage(imageFile);
+  // else
+    imageFileProvider = NetworkImage(imageFile);
+  showDialog(
+    context: context,
+    builder: (_) => Dialog(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              child:  PhotoView(
+                imageProvider: imageFileProvider,
+                minScale: PhotoViewComputedScale.contained * 0.8,
+                maxScale: PhotoViewComputedScale.covered * 2,
+                enableRotation: true,
+              )
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                color: Colors.white,
+                icon: Icon(Icons.close),
+                onPressed: () => Navigator.pop(context),
+              ),
+              const SizedBox(width: 10.0),
+              IconButton(
+                color: Colors.white,
+                icon: Icon(Icons.share),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
   );
 }

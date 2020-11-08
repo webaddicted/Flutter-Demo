@@ -1,7 +1,9 @@
-import 'package:animated_floatactionbuttons/animated_floatactionbuttons.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/customview/progress_button.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -21,6 +23,12 @@ class _ButtonWidgetState extends State<ButtonWidget> {
       body: Builder(
         builder: (context) => _createUi(context),
       ),
+      floatingActionButton: FloatingActionButton(
+          heroTag: 'hjshasj',
+          child: Icon(Icons.refresh),
+          onPressed: () {
+            // _reqPermission();
+          }),
       // floatingActionButton: AnimatedFloatingActionButton(
       //   fabButtons: _buildFloatingButtons(),
       //   colorStartAnimation: Colors.indigo,
@@ -77,6 +85,8 @@ class _ButtonWidgetState extends State<ButtonWidget> {
   Widget _getButtonType() {
     return Column(
       children: <Widget>[
+        SizedBox(height: 10),
+        buildTextWithIcon(),
         SizedBox(height: 10),
         OutlineButton(
           child: new Text('Outline Button'),
@@ -244,5 +254,56 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         }),
       ),
     ];
+  }
+
+  ButtonState stateOnlyText = ButtonState.idle;
+  ButtonState stateTextWithIcon = ButtonState.idle;
+
+  Widget buildTextWithIcon() {
+    return ProgressButton.icon(iconedButtons: {
+      ButtonState.idle: IconedButton(
+          text: "Send",
+          icon: Icon(Icons.send, color: Colors.white),
+          color: Colors.deepPurple.shade500),
+      ButtonState.loading:
+          IconedButton(text: "Loading", color: Colors.deepPurple.shade700),
+      ButtonState.fail: IconedButton(
+          text: "Failed",
+          icon: Icon(Icons.cancel, color: Colors.white),
+          color: Colors.red.shade300),
+      ButtonState.success: IconedButton(
+          text: "Success",
+          icon: Icon(
+            Icons.check_circle,
+            color: Colors.white,
+          ),
+          color: Colors.green.shade400)
+    }, onPressed: onPressedIconWithText, state: stateTextWithIcon);
+  }
+
+  void onPressedIconWithText() {
+    switch (stateTextWithIcon) {
+      case ButtonState.idle:
+        stateTextWithIcon = ButtonState.loading;
+        Future.delayed(Duration(seconds: 1), () {
+          setState(() {
+            stateTextWithIcon = Random.secure().nextBool()
+                ? ButtonState.success
+                : ButtonState.fail;
+          });
+        });
+        break;
+      case ButtonState.loading:
+        break;
+      case ButtonState.success:
+        stateTextWithIcon = ButtonState.idle;
+        break;
+      case ButtonState.fail:
+        stateTextWithIcon = ButtonState.idle;
+        break;
+    }
+    setState(() {
+      stateTextWithIcon = stateTextWithIcon;
+    });
   }
 }

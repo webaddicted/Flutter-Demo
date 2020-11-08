@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
 
@@ -13,18 +14,20 @@ class _HomePage5State extends State<HomePage5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorConst.GREY_BG_COLOR,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
             expandedHeight: 180.0,
             backgroundColor: Color(0xfffb53c6),
             leading: IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
+                icon: Icon(
+                  Icons.arrow_back_ios_sharp,
+                  color: ColorConst.WHITE_COLOR,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
             actions: <Widget>[
               IconButton(
                 icon: Icon(
@@ -37,15 +40,14 @@ class _HomePage5State extends State<HomePage5> {
             floating: true,
             flexibleSpace: ListView(
               children: <Widget>[
-                SizedBox(
-                  height: 70.0,
-                ),
+                SizedBox(height: 50.0),
                 Text("Type your Food",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0)),
+                SizedBox(height: 20.0),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Material(
@@ -93,7 +95,7 @@ class _HomePage5State extends State<HomePage5> {
 
   Widget _buildRooms(BuildContext context, int index) {
     return Container(
-      margin: EdgeInsets.all(20.0),
+      margin: EdgeInsets.all(10.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(5.0),
         child: Container(
@@ -110,7 +112,7 @@ class _HomePage5State extends State<HomePage5> {
                   child: Stack(
                     children: <Widget>[
                       FadeInImage.assetNetwork(
-                        width: double.infinity,
+                          width: double.infinity,
                           fit: BoxFit.cover,
                           placeholder: AssetsConst.LOGO_IMG,
                           image: dummyLargeFoodData[index]),
@@ -145,22 +147,17 @@ class _HomePage5State extends State<HomePage5> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(5.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'Paneer Makhani Biryani',
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text("Dish for lunch or dinner"),
-                      SizedBox(
-                        height: 10.0,
-                      ),
+                      getTxtBlackColor(
+                          msg: 'Paneer Makhani Biryani',
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                      SizedBox(height: 2.0),
+                      getTxtBlackColor(msg: "Dish for lunch or dinner"),
+                      SizedBox(height: 2.0),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[

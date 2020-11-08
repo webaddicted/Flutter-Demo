@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
@@ -17,6 +18,7 @@ class _HomePage3State extends State<HomePage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorConst.GREY_BG_COLOR,
       body: _createUi(),
     );
   }
@@ -27,6 +29,14 @@ class _HomePage3State extends State<HomePage3> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios_sharp,
+                    color: ColorConst.BLACK_COLOR,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
               Container(
                 padding: EdgeInsets.all(16.0),
                 child: Row(
@@ -114,14 +124,15 @@ class _HomePage3State extends State<HomePage3> {
       margin: EdgeInsets.all(8),
       child: _buildTitledContainer(
         "Activities",
-        height: 250,
+        height: 240,
         child: Expanded(
           child: GridView.builder(
-            physics: ClampingScrollPhysics(),
+            shrinkWrap: true,
+            physics:  ClampingScrollPhysics(),
             itemCount: activities.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
-              childAspectRatio: 1.2 / 0.8,
+              childAspectRatio: 1.3 / 1,
             ),
             itemBuilder: (context, index) {
               return Column(
@@ -184,7 +195,7 @@ class _HomePage3State extends State<HomePage3> {
         icon: FontAwesomeIcons.calendarDay),
     TaskItem(
         page: HomePage1(),
-        title: "Video Consultation",
+        title: "Video ",
         icon: FontAwesomeIcons.video),
     TaskItem(
         page: HomePage1(), title: "Summary", icon: FontAwesomeIcons.fileAlt),

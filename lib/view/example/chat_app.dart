@@ -26,7 +26,7 @@ class _ChatScreenState extends State<ChatScreen> {
     formattedDate = DateFormat('yyyy-MM-dd hh:mm').format(time);
     return Scaffold(
         appBar: getAppBarWithBackBtn(
-            ctx: context, title: StringConst.CHAT_SCREEN_TITLE),
+            ctx: context, title: StringConst.CHAT_SCREEN_TITLE, bgColor: Colors.deepPurple),
         body: Builder(
           builder: (context) => _createUi(),
         ));
@@ -36,13 +36,17 @@ class _ChatScreenState extends State<ChatScreen> {
     return Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.white,
+        color:  Colors.grey.shade200,
         child: new Container(
           child: new Column(
             children: <Widget>[
               //Chat list
               new Flexible(
-                child: new ListView.builder(
+                child: new ListView.separated(
+                  physics: BouncingScrollPhysics(),
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(height: 10.0);
+                  },
                   padding: new EdgeInsets.all(8.0),
                   reverse: true,
                   itemBuilder: (_, int index) => _messages[index],
@@ -66,7 +70,7 @@ class _ChatScreenState extends State<ChatScreen> {
                               width: 48.0,
                               height: 48.0,
                               child: new IconButton(
-                                  icon: Icon(Icons.camera),
+                                  icon: Icon(Icons.camera, color: Colors.deepPurple,),
                                   onPressed: () => {}),
                             ),
 
@@ -87,11 +91,11 @@ class _ChatScreenState extends State<ChatScreen> {
                                 width: 48.0,
                                 height: 48.0,
                                 child: new IconButton(
-                                    icon: Icon(Icons.send),
+                                    icon: Icon(Icons.send, color: Colors.deepPurple),
                                     onPressed: () => rightMsg
                                         ? _sendMsg(_textController.text,
-                                            'right', formattedDate)
-                                        : _sendMsg(_textController.text, 'left',
+                                            false, formattedDate)
+                                        : _sendMsg(_textController.text, true,
                                             formattedDate))),
                           ],
                         ),
@@ -101,7 +105,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ));
   }
 
-  void _sendMsg(String msg, String messageDirection, String date) {
+  void _sendMsg(String msg, bool current, String date) {
     rightMsg = !rightMsg;
     if (msg.length == 0) {
       showSnackBar(context, 'Please Enter Message');
@@ -109,7 +113,7 @@ class _ChatScreenState extends State<ChatScreen> {
       _textController.clear();
       ChatMsgWidget message = new ChatMsgWidget(
         msg: msg,
-        direction: messageDirection,
+        current: current,
         dateTime: date,
       );
       setState(() {

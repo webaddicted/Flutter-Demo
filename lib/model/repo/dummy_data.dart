@@ -28,6 +28,7 @@ import 'package:flutterbeginner/view/details/detail_page3.dart';
 import 'package:flutterbeginner/view/details/detail_page4.dart';
 import 'package:flutterbeginner/view/details/detail_page5.dart';
 import 'package:flutterbeginner/view/details/detail_page6.dart';
+import 'package:flutterbeginner/view/details/detail_page7.dart';
 import 'package:flutterbeginner/view/details/details_page.dart';
 import 'package:flutterbeginner/view/example/animation_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
@@ -65,8 +66,10 @@ import 'package:flutterbeginner/view/home/home_page2.dart';
 import 'package:flutterbeginner/view/home/home_page3.dart';
 import 'package:flutterbeginner/view/home/home_page4.dart';
 import 'package:flutterbeginner/view/home/home_page5.dart';
+import 'package:flutterbeginner/view/home/home_page6.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page1.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page2.dart';
+import 'package:flutterbeginner/view/list/list_cart_item_page3.dart';
 import 'package:flutterbeginner/view/list/list_page.dart';
 import 'package:flutterbeginner/view/list/list_page1.dart';
 import 'package:flutterbeginner/view/list/list_page2.dart';
@@ -81,6 +84,7 @@ import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
 import 'package:flutterbeginner/view/login/login_page10.dart';
 import 'package:flutterbeginner/view/login/login_page12.dart';
+import 'package:flutterbeginner/view/login/login_page13.dart';
 import 'package:flutterbeginner/view/login/login_page2.dart';
 import 'package:flutterbeginner/view/login/login_page3.dart';
 import 'package:flutterbeginner/view/login/login_page4.dart';
@@ -125,6 +129,8 @@ import 'package:flutterbeginner/view/pulltorefresh/water_drop_material.dart';
 import 'package:flutterbeginner/view/settings/setting_page.dart';
 import 'package:flutterbeginner/view/settings/setting_page1.dart';
 import 'package:flutterbeginner/view/settings/setting_page2.dart';
+import 'package:flutterbeginner/view/settings/setting_page3.dart';
+import 'package:flutterbeginner/view/settings/setting_page4.dart';
 import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/splash/splash_page1.dart';
 import 'package:flutterbeginner/view/splash/splash_page2.dart';
@@ -323,6 +329,7 @@ List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page4', page: DetailPage4()),
   TaskItem(title: 'Detail Page5', page: DetailPage5()),
   TaskItem(title: 'Detail Page6', page: DetailPage6()),
+  TaskItem(title: 'Detail Page7', page: DetailPage7()),
 
 ];
 List<TaskItem> homeItem = [
@@ -331,12 +338,15 @@ List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page3', page: HomePage3()),
   TaskItem(title: 'Home Page4', page: HomePage4()),
   TaskItem(title: 'Home Page5', page: HomePage5()),
+  TaskItem(title: 'Home Page6', page: HomePage6()),
+
 ];
 List<TaskItem> listPageItem = [
   TaskItem(title: 'List Page1', page: ListPage1()),
   TaskItem(title: 'List Page2', page: ListPage2()),
   TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1()),
   TaskItem(title: 'List Cart Item Page 2', page: ListCartItemPage2()),
+  TaskItem(title: 'List Cart Item Page 3', page: ListCartItemPage3()),
 
 ];
 List<TaskItem> loginPageItem = [
@@ -354,6 +364,7 @@ List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Page10', page: LoginPage10()),
   TaskItem(title: 'Login Wave Page11', page: LoginWavePage11()),
   TaskItem(title: 'Login Page12', page: LoginPage12()),
+  TaskItem(title: 'Login Page13', page: LoginPage13()),
 ];
 List<TaskItem> navPageItem = [
   TaskItem(title: 'One side', page: NavDrawerScreen()),
@@ -392,6 +403,9 @@ List<TaskItem> pullToRefreshItem = [
 List<TaskItem> settingPageItem = [
   TaskItem(title: 'Setting Page1', page: SettingPage1()),
   TaskItem(title: 'Setting Page2', page: SettingPage2()),
+  TaskItem(title: 'Setting Page3', page: SettingPage3()),
+  TaskItem(title: 'Setting Page4', page: SettingPage4()),
+
 ];
 List<TaskItem> splashPageItem = [
   TaskItem(title: 'Splash Page1', page: SplashPage1()),

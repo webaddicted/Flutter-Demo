@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
@@ -7,14 +6,14 @@ class ListWidget extends StatelessWidget {
   final String thirdTitle;
   final bool imageRight;
   final double elevation;
-  final void Function() onTap;
+  final Function onTap;
 
   const ListWidget(
       {Key key,
-        this.thirdTitle,
-        this.imageRight = false,
-        this.elevation = 0.5,
-        this.onTap})
+      this.thirdTitle,
+      this.imageRight = false,
+      this.elevation = 0.5,
+      this.onTap})
       : super(key: key);
 
   @override
@@ -24,7 +23,9 @@ class ListWidget extends StatelessWidget {
       elevation: elevation,
       child: InkWell(
         borderRadius: BorderRadius.circular(4.0),
-        onTap: onTap,
+        onTap: () {
+          onTap(dummyLargeData[0]);
+        },
         child: Row(
           children: <Widget>[
             _buildThumbnail(),
@@ -105,13 +106,13 @@ class ListWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: imageRight
             ? BorderRadius.only(
-          topRight: Radius.circular(4.0),
-          bottomRight: Radius.circular(4.0),
-        )
+                topRight: Radius.circular(4.0),
+                bottomRight: Radius.circular(4.0),
+              )
             : BorderRadius.only(
-          topLeft: Radius.circular(4.0),
-          bottomLeft: Radius.circular(4.0),
-        ),
+                topLeft: Radius.circular(4.0),
+                bottomLeft: Radius.circular(4.0),
+              ),
         image: DecorationImage(
           image: NetworkImage(dummyImgList[0]),
           fit: BoxFit.cover,
