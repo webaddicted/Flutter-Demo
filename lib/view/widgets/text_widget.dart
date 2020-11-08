@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/view/alltask/code_preview.dart';
 
 class TextWidget extends StatefulWidget {
+  var path;
+
+  TextWidget(this.path);
+
   @override
   _TextWidgetState createState() => _TextWidgetState();
 }
 
 class _TextWidgetState extends State<TextWidget> {
-  BuildContext _ctx;
   String _btnText = "Hello World";
 
   @override
@@ -17,13 +21,23 @@ class _TextWidgetState extends State<TextWidget> {
     return Scaffold(
         appBar:
             getAppBarWithBackBtn(ctx: context, title: StringConst.TEXT_TITLE),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            navigationPush(
+                context,
+                CodePreviewsPage(
+                  title: StringConst.TEXT_TITLE,
+                  path: widget.path,
+                ));
+          },
+          child: Icon(Icons.code, color: Colors.white),
+        ),
         body: Builder(
           builder: (context) => _createUi(context),
         ));
   }
 
   Widget _createUi(BuildContext context) {
-    _ctx = context;
     return new Container(
         padding: EdgeInsets.all(5.0),
         child: new Center(

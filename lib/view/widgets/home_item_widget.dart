@@ -9,8 +9,9 @@ import 'package:flutterbeginner/model/bean/task_item.dart';
 class HomeItemWidget extends StatelessWidget {
   final List<TaskItem> dataBean;
   final Function onTap;
+  final Function onlongPress;
 
-  HomeItemWidget({@required this.dataBean, @required this.onTap});
+  HomeItemWidget({@required this.dataBean, @required this.onTap, this.onlongPress});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +23,15 @@ class HomeItemWidget extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         itemCount: dataBean == null ? 0 : dataBean.length,
         itemBuilder: (BuildContext context, int index) {
-          return taskRow(context, dataBean[index].title, dataBean[index].page);
+          return taskRow(context, dataBean[index]);
         });
   }
 
-  Widget taskRow(BuildContext context, String screenName, Widget page) {
+  Widget taskRow(BuildContext context, TaskItem taskItem) {
     return InkWell(
+      onLongPress: (){onlongPress(taskItem);},
       // splashColor: Col,
-      onTap: () => onTap(screenName, page), //nextScreen(context, screenName),
+      onTap: () => onTap(taskItem), //nextScreen(context, screenName),
       child: new Card(
         child: Padding(
           padding: const EdgeInsets.only(left: 3, right: 3, top: 5, bottom: 5),
@@ -40,7 +42,7 @@ class HomeItemWidget extends StatelessWidget {
                       .primaries[Random().nextInt(Colors.primaries.length)],
                   radius: 35.0,
                   child: getTxtWhiteColor(
-                      msg: screenName[0].toUpperCase(),
+                      msg: taskItem.title[0].toUpperCase(),
                       fontSize: 28,
                       fontWeight: FontWeight.bold)),
               Padding(padding: EdgeInsets.only(left: 8)),
@@ -50,7 +52,7 @@ class HomeItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     getTxtBlackColor(
-                        msg: screenName,
+                        msg: taskItem.title,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                     getTxtGreyColor(msg: StringConst.DUMMY_TEXT, fontSize: 15),

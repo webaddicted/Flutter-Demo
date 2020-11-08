@@ -5,6 +5,7 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/alltask/nav_drawer_home.dart';
+import 'package:flutterbeginner/view/alltask/subtitle_page.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class AllTasks extends StatefulWidget {
@@ -69,9 +70,13 @@ class _AllTasksState extends State<AllTasks> {
       appBar: searchBar.build(context),
       drawer: NavDrawerHome(),
       body: HomeItemWidget(
-        dataBean: searchDataBean,
-        onTap: (screenName, Widget page) => navigationPush(context, page),
-      ),
+          dataBean: searchDataBean,
+          onTap: (TaskItem taskItem) {
+            if (taskItem.subItem == null)
+              navigationPush(context, taskItem.page);
+            else
+              navigationPush(context, SubTitlePage(taskItem));
+          }),
     );
   }
 

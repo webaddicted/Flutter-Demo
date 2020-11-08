@@ -4,13 +4,9 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/customview/oval-right-clipper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
-import 'package:flutterbeginner/view/api/api_call_page.dart';
-import 'package:flutterbeginner/view/bottombar/bottom_nav_page.dart';
-import 'package:flutterbeginner/view/login/login_page.dart';
-import 'package:flutterbeginner/view/navigation/navigation_page.dart';
-import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
-import 'package:flutterbeginner/view/splash/splash_page.dart';
-import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
+import 'package:flutterbeginner/model/bean/task_item.dart';
+import 'package:flutterbeginner/model/repo/dummy_data.dart';
+import 'package:flutterbeginner/view/alltask/subtitle_page.dart';
 
 class NavDrawerHome extends StatelessWidget {
   BuildContext _context;
@@ -75,9 +71,19 @@ class NavDrawerHome extends StatelessWidget {
                   _buildDivider(),
                   _buildRow(Icons.category, "Splash"),
                   _buildDivider(),
-                  _buildRow(Icons.person_pin, "OnBoarding"),
+                  _buildRow(Icons.person_pin, "OnBoarding UI Design"),
                   _buildDivider(),
-                  _buildRow(Icons.category, "Login UI Design"),
+                  _buildRow(Icons.person_pin, "Login UI Design"),
+                  _buildDivider(),
+                  _buildRow(Icons.person_pin, "Home UI Design"),
+                  _buildDivider(),
+                  _buildRow(Icons.person_pin, "Profile UI Design"),
+                  _buildDivider(),
+                  _buildRow(Icons.category, "Details UI Design"),
+                  _buildDivider(),
+                  _buildRow(Icons.category, "Setting UI Design"),
+                  _buildDivider(),
+                  _buildRow(Icons.category, "List UI Design"),
                   _buildDivider(),
                   _buildRow(Icons.local_movies, "API Calling Architecture",
                       showBadge: true),
@@ -88,8 +94,6 @@ class NavDrawerHome extends StatelessWidget {
                   _buildRow(Icons.movie, "Bottom Navigation", showBadge: true),
                   _buildDivider(),
                   _buildRow(Icons.person_pin, "Tab Bar"),
-                  _buildDivider(),
-                  _buildRow(Icons.settings, "Settings"),
                   _buildDivider(),
                   _buildRow(Icons.email, "Contact us"),
                   _buildDivider(),
@@ -165,25 +169,29 @@ class NavDrawerHome extends StatelessWidget {
         // navigationPush(_context, CategoryMovie());
         break;
       case "Splash":
-        return navigationPush(_context, SplashPage());
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Splash', subItem: splashPageItem)));
+      case "OnBoarding UI Design":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'OnBoarding UI Design', subItem: onboardingPageItem)));
       case "Login UI Design":
-        return navigationPush(_context, LoginPage());
-      case "API Calling Architecture":
-        return navigationPush(_context, ApiCallPage());
-      case "Navigation Drawer":
-        return navigationPush(_context, NavigationPage());
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Login UI Design', subItem: loginPageItem)));
+      case "Home UI Design":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Home UI Design', subItem: homeItem)));
+      case "Profile UI Design":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Profile UI Design', subItem: profileItem)));
+      case "Details UI Design":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Details UI Design', subItem: detailsItem)));
+      case "Setting UI Design":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Setting UI Design', subItem: settingPageItem)));
+      case "List UI Design":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'List UI Design', subItem: listPageItem)));
+        case "API Calling Architecture":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'API Calling Architecture', subItem: apiCallItem)));
+      case "Navigation Drawer UI":
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Navigation Drawer UI', subItem: navPageItem)));
       case "Bottom Navigation":
-        return navigationPush(_context, BottomNavPage());
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Bottom Navigation', subItem: bottomNavItem)));
       case "Tab Bar":
-        return navigationPush(_context, TabBarPage());
-      case "OnBoarding":
-        return navigationPush(_context, OnboardingPage());
-      // case "Settings":
-      //   break;
-      // case "Settings":
-      //   break;
-      case "Settings":
-        break;
+        return navigationPush(_context, SubTitlePage(TaskItem(title: 'Tab Bar', subItem: tabBarPageItem)));
       case "Contact us":
         break;
       case "About us":

@@ -1,11 +1,9 @@
 import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
-import 'package:flutterbeginner/view/api/api_call_page.dart';
 import 'package:flutterbeginner/view/api/api_dio_arch_page.dart';
 import 'package:flutterbeginner/view/api/api_dio_page.dart';
 import 'package:flutterbeginner/view/api/api_http_page.dart';
 import 'package:flutterbeginner/view/api/git_https_users.dart';
-import 'package:flutterbeginner/view/bottombar/bottom_nav_page.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page1.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page2.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page3.dart';
@@ -19,7 +17,6 @@ import 'package:flutterbeginner/view/collapsetoolbar/collapse_fade_appbar.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_page3.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_page4.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapse_zoom_img_page2.dart';
-import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/collapsetoolbar_page1.dart';
 import 'package:flutterbeginner/view/collapsetoolbar/wave_appbar.dart';
 import 'package:flutterbeginner/view/details/detail_page1.dart';
@@ -29,7 +26,6 @@ import 'package:flutterbeginner/view/details/detail_page4.dart';
 import 'package:flutterbeginner/view/details/detail_page5.dart';
 import 'package:flutterbeginner/view/details/detail_page6.dart';
 import 'package:flutterbeginner/view/details/detail_page7.dart';
-import 'package:flutterbeginner/view/details/details_page.dart';
 import 'package:flutterbeginner/view/example/animation_page.dart';
 import 'package:flutterbeginner/view/example/barcode_scanner.dart';
 import 'package:flutterbeginner/view/example/blend_mode_page.dart';
@@ -60,7 +56,6 @@ import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
-import 'package:flutterbeginner/view/home/home_page.dart';
 import 'package:flutterbeginner/view/home/home_page1.dart';
 import 'package:flutterbeginner/view/home/home_page2.dart';
 import 'package:flutterbeginner/view/home/home_page3.dart';
@@ -70,7 +65,6 @@ import 'package:flutterbeginner/view/home/home_page6.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page1.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page2.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page3.dart';
-import 'package:flutterbeginner/view/list/list_page.dart';
 import 'package:flutterbeginner/view/list/list_page1.dart';
 import 'package:flutterbeginner/view/list/list_page2.dart';
 import 'package:flutterbeginner/view/local/audio/audio_screen.dart';
@@ -80,7 +74,6 @@ import 'package:flutterbeginner/view/local/document/document_screen.dart';
 import 'package:flutterbeginner/view/local/image/image_screen.dart';
 import 'package:flutterbeginner/view/local/sms_screen.dart';
 import 'package:flutterbeginner/view/local/video/video_screen.dart';
-import 'package:flutterbeginner/view/login/login_page.dart';
 import 'package:flutterbeginner/view/login/login_page1.dart';
 import 'package:flutterbeginner/view/login/login_page10.dart';
 import 'package:flutterbeginner/view/login/login_page12.dart';
@@ -104,8 +97,6 @@ import 'package:flutterbeginner/view/navigation/nav_drawer_curve_page.dart';
 import 'package:flutterbeginner/view/navigation/nav_drawer_slide_page.dart';
 import 'package:flutterbeginner/view/navigation/nav_drop_down.dart';
 import 'package:flutterbeginner/view/navigation/nav_like_frag_page.dart';
-import 'package:flutterbeginner/view/navigation/navigation_page.dart';
-import 'package:flutterbeginner/view/onboarding/onboarding_page.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page1.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page2.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page3.dart';
@@ -113,7 +104,6 @@ import 'package:flutterbeginner/view/onboarding/onboarding_page4.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page5.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page6.dart';
 import 'package:flutterbeginner/view/onboarding/onboarding_page7.dart';
-import 'package:flutterbeginner/view/profile/profile_page.dart';
 import 'package:flutterbeginner/view/profile/profile_page1.dart';
 import 'package:flutterbeginner/view/profile/profile_page2.dart';
 import 'package:flutterbeginner/view/profile/profile_page3.dart';
@@ -123,22 +113,18 @@ import 'package:flutterbeginner/view/profile/profile_page6.dart';
 import 'package:flutterbeginner/view/profile/profile_page7.dart';
 import 'package:flutterbeginner/view/profile/profile_page8.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh.dart';
-import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh_page.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop_material.dart';
-import 'package:flutterbeginner/view/settings/setting_page.dart';
 import 'package:flutterbeginner/view/settings/setting_page1.dart';
 import 'package:flutterbeginner/view/settings/setting_page2.dart';
 import 'package:flutterbeginner/view/settings/setting_page3.dart';
 import 'package:flutterbeginner/view/settings/setting_page4.dart';
-import 'package:flutterbeginner/view/splash/splash_page.dart';
 import 'package:flutterbeginner/view/splash/splash_page1.dart';
 import 'package:flutterbeginner/view/splash/splash_page2.dart';
 import 'package:flutterbeginner/view/splash/splash_page3.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page1.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page2.dart';
 import 'package:flutterbeginner/view/tabbar/tab_page3.dart';
-import 'package:flutterbeginner/view/tabbar/tabbar_page.dart';
 import 'package:flutterbeginner/view/test.dart';
 import 'package:flutterbeginner/view/widgets/button_widget.dart';
 import 'package:flutterbeginner/view/widgets/image_widget.dart';
@@ -231,69 +217,244 @@ List<String> dummyLargeFoodData = [
   'https://data.chinatravel.com/images/facts/chinese-food/sweet-and-sour-pork.jpg',
   'https://sites.psu.edu/wanyingpassion/wp-content/uploads/sites/6105/2013/09/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90.jpg',
   'https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/momo_660_060817115337.jpg',
-  ];
+];
 List<TaskItem> taskItem = [
-  TaskItem(title: 'Text', page: TextWidget()),
-  TaskItem(title: 'Text Field', page: TextFieldWidget()),
-  TaskItem(title: 'Image View', page: ImageWidget()),
-  TaskItem(title: 'Button', page: ButtonWidget()),
-  TaskItem(title: 'Progress Bar', page: ProgressBarWidget()),
-  TaskItem(title: 'Misc Widget', page: MiscWidget()),
-  TaskItem(title: 'Login UI Design', page: LoginPage()),
-  TaskItem(title: 'Read local file JSON', page: LocalData()),
-  TaskItem(title: 'Chat app screen', page: ChatScreen()),
-  TaskItem(title: 'Calculator', page: CalculatorApp()),
-  TaskItem(title: 'Pagination', page: Pagination()),
-  TaskItem(title: 'API Call', page: ApiCallPage()),
-  TaskItem(title: 'Navigation drawer UI', page: NavigationPage()),
-  TaskItem(title: 'Stepper', page: StepperView()),
-  TaskItem(title: 'Bottom Navigation', page: BottomNavPage()),
-  TaskItem(title: 'Tab Bar', page: TabBarPage()),
-  TaskItem(title: 'Shared preference', page: SPScreen()),
-  TaskItem(title: 'OnBoarding UI', page: OnboardingPage()),
-  TaskItem(title: 'Splash', page: SplashPage()),
-  TaskItem(title: 'Run time permission', page: PermissionHelper()),
-  TaskItem(title: 'Swipe to delete', page: SwipeToDelete()),
-  TaskItem(title: 'Firebase', page: FcmSocialLogin()),
-  TaskItem(title: 'Bottom Sheet', page: BottomSheetScreen()),
-  TaskItem(title: 'Dragable Bottom Sheet', page: BottomSheetDragableScreen()),
-  TaskItem(title: 'Image Picker', page: CameraGallery()),
-  TaskItem(title: 'Dialog', page: DialogScreen()),
-  TaskItem(title: 'Google map', page: GoogleMapScreen()),
-  TaskItem(title: 'Pull To Refresh', page: PullToRefreshPage()),
-  TaskItem(title: 'Signature', page: SignatureScreen()),
-  TaskItem(title: 'Collapse Toolbar', page: CollapseToolbarPage()),
-  TaskItem(title: 'WebView', page: WebViewScreen()),
-  TaskItem(title: 'Barcode Scanner', page: BarcodeScannerScreen()),
+  TaskItem(
+      title: 'Text',
+      page: TextWidget('lib/view/widgets/text_widget.dart'),
+      codePreview:     'lib/view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Text Field',
+      page: TextFieldWidget(),
+      codePreview: 'lib/view/widgets/text_field_widget.dart'),
+  TaskItem(
+      title: 'Image View',
+      page: ImageWidget(),
+      codePreview: 'lib/view/widgets/image_widget.dart'),
+  TaskItem(
+      title: 'Button',
+      page: ButtonWidget(),
+      codePreview: 'lib/view/widgets/button_widget.dart'),
+  TaskItem(
+      title: 'Progress Bar',
+      page: ProgressBarWidget(),
+      codePreview: 'lib/view/widgets/progress_bar_widget.dart'),
+  TaskItem(
+      title: 'Misc Widget',
+      page: MiscWidget(),
+      codePreview: 'lib/view/widgets/misc_widget.dart'),
+  TaskItem(
+      title: 'Read local file JSON',
+      page: LocalData(),
+      codePreview: 'lib/view/example/local_jsondata.dart'),
+  TaskItem(
+      title: 'Chat app screen',
+      page: ChatScreen(),
+      codePreview: 'lib/view/example/chat_app.dart'),
+  TaskItem(
+      title: 'Calculator',
+      page: CalculatorApp(),
+      codePreview: 'lib/view/example/calculator_app.dart'),
+  TaskItem(
+      title: 'Pagination',
+      page: Pagination(),
+      codePreview: 'lib/view/example/pagination.dart'),
+  TaskItem(
+      title: 'Stepper',
+      page: StepperView(),
+      codePreview: 'lib/view/example/stepper_view.dart'),
+  TaskItem(
+      title: 'Shared preference',
+      page: SPScreen(),
+      codePreview: 'lib/view/example/sp_screen.dart'),
+  TaskItem(
+      title: 'Run time permission',
+      page: PermissionHelper(),
+      codePreview: 'lib/view/example/permission_helper.dart'),
+  TaskItem(
+      title: 'Swipe to delete',
+      page: SwipeToDelete(),
+      codePreview: 'lib/view/example/swipe_to_delete.dart'),
+  TaskItem(
+      title: 'Firebase',
+      page: FcmSocialLogin(),
+      codePreview: 'lib/view/firebase/fcm_social_login.dart'),
+  TaskItem(
+      title: 'Bottom Sheet',
+      page: BottomSheetScreen(),
+      codePreview: 'lib/view/example/bottom_sheet.dart'),
+  TaskItem(
+      title: 'Dragable Bottom Sheet',
+      page: BottomSheetDragableScreen(),
+      codePreview: 'lib/view/example/bottom_sheet_dragable.dart'),
+  TaskItem(
+      title: 'Image Picker',
+      page: CameraGallery(),
+      codePreview: 'lib/view/example/camera_gallery.dart'),
+  TaskItem(
+      title: 'Dialog',
+      page: DialogScreen(),
+      codePreview: 'lib/view/example/dialog_screen.dart'),
+  TaskItem(
+      title: 'Google map',
+      page: GoogleMapScreen(),
+      codePreview: 'lib/view/example/google_map_screen.dart'),
+  TaskItem(
+      title: 'Signature',
+      page: SignatureScreen(),
+      codePreview: 'lib/view/example/signature_screen.dart'),
+  TaskItem(
+      title: 'WebView',
+      page: WebViewScreen(),
+      codePreview: 'lib/view/example/web_view_screen.dart'),
+  TaskItem(
+      title: 'Barcode Scanner',
+      page: BarcodeScannerScreen(),
+      codePreview: 'lib/view/example/barcode_scanner.dart'),
   TaskItem(
       title: 'Video Player',
-      page: VideoPlayerScreen(ApiConstant.VIDEO_URL, null)),
-  TaskItem(title: 'Download File', page: DownloadFileScreen()),
-  TaskItem(title: 'All Contacts', page: ContactScreen()),
-  TaskItem(title: 'All SMS', page: SmsScreen()),
-  TaskItem(title: 'All Images', page: ImageScreen()),
-  TaskItem(title: 'All Videos', page: VideoScreen()),
-  TaskItem(title: 'All Audio', page: AudioScreen()),
-  TaskItem(title: 'All Documents', page: DocumentScreen()),
-  TaskItem(title: 'All Call Log', page: CallLogScreen()),
-  TaskItem(title: 'Grid View', page: GridViewScreen()),
-  TaskItem(title: 'Share Data', page: ShareDataScreen()),
-  TaskItem(title: 'Finger Print', page: FingerPrintScreen()),
-  TaskItem(title: 'Device Info', page: DeviceInfoScreen()),
-  TaskItem(title: 'List Ui', page: ListPage()),
-  TaskItem(title: 'Screenshot', page: ScreenshotPage()),
-  TaskItem(title: 'Blend Mode (Image Filter)', page: BlendModePage()),
-  TaskItem(title: 'ReOreder List', page: ReorderPage()),
-  TaskItem(title: 'View Pager', page: PageViewScreen()),
-  TaskItem(title: 'Staggered Grid view', page: StaggeredGridScreen()),
-  TaskItem(title: 'Profile UI Design', page: ProfilePage()),
-  TaskItem(title: 'Details UI Design', page: DetailsPage()),
-  TaskItem(title: 'Setting UI Design', page: SettingsPage()),
-  TaskItem(title: 'Home UI Design', page: HomePageDesign()),
-  TaskItem(title: 'Blur effect', page: BlurEffectPage()),
-  TaskItem(title: 'Animation', page: AnimationPage()),
-  TaskItem(title: 'ZZZZ', page: StaggeredGridScreen()),
-  TaskItem(title: 'AATest', page: Test()),
+      page: VideoPlayerScreen(ApiConstant.VIDEO_URL, null),
+      codePreview: 'lib/view/example/video_player.dart'),
+  TaskItem(
+      title: 'Download File',
+      page: DownloadFileScreen(),
+      codePreview: 'view/example/dowload_file_screen.dart'),
+  TaskItem(
+      title: 'All Contacts',
+      page: ContactScreen(),
+      codePreview: 'view/local/contact/contact_screen.dart'),
+  TaskItem(
+      title: 'All SMS',
+      page: SmsScreen(),
+      codePreview: 'view/local/sms_scren.dart'),
+  TaskItem(
+      title: 'All Images',
+      page: ImageScreen(),
+      codePreview: 'view/local/image/image_folder.dart'),
+  TaskItem(
+      title: 'All Videos',
+      page: VideoScreen(),
+      codePreview: 'view/local/video/video_folder.dart'),
+  TaskItem(
+      title: 'All Audio',
+      page: AudioScreen(),
+      codePreview: 'view/audio/audio_screen.dart'),
+  TaskItem(
+      title: 'All Documents',
+      page: DocumentScreen(),
+      codePreview: 'view/local/video/document_folder.dart'),
+  TaskItem(
+      title: 'All Call Log',
+      page: CallLogScreen(),
+      codePreview: 'view/local/call_log_screen.dart'),
+  TaskItem(
+      title: 'Grid View',
+      page: GridViewScreen(),
+      codePreview: 'view/example/grid_view_screen.dart'),
+  TaskItem(
+      title: 'Share Data',
+      page: ShareDataScreen(),
+      codePreview: 'view/example/share_data_screen.dart'),
+  TaskItem(
+      title: 'Finger Print',
+      page: FingerPrintScreen(),
+      codePreview: 'view/example/finger_print_screen.dart'),
+  TaskItem(
+      title: 'Device Info',
+      page: DeviceInfoScreen(),
+      codePreview: 'view/example/device_info_screen.dart'),
+  TaskItem(
+      title: 'Screenshot',
+      page: ScreenshotPage(),
+      codePreview: 'view/example/screenshot_page.dart'),
+  TaskItem(
+      title: 'Blend Mode (Image Filter)',
+      page: BlendModePage(),
+      codePreview: 'view/example/blend_mode_page.dart'),
+  TaskItem(
+      title: 'ReOreder List',
+      page: ReorderPage(),
+      codePreview: 'view/example/reorder_list.dart'),
+  TaskItem(
+      title: 'View Pager',
+      page: PageViewScreen(),
+      codePreview: 'view/example/page_view.dart'),
+  TaskItem(
+      title: 'Staggered Grid view',
+      page: StaggeredGridScreen(),
+      codePreview: 'view/example/staggered_grid_view.dart'),
+  TaskItem(
+      title: 'Splash',
+      subItem: splashPageItem,
+      codePreview: 'view/splash/text_widget.dart'),
+  TaskItem(
+      title: 'OnBoarding UI Design',
+      subItem: onboardingPageItem,
+      codePreview: 'view/onboarding/text_widget.dart'),
+  TaskItem(
+      title: 'Login UI Design',
+      subItem: loginPageItem,
+      codePreview: 'view/login/text_widget.dart'),
+  TaskItem(
+      title: 'Home UI Design',
+      subItem: homeItem,
+      codePreview: 'view/home/text_widget.dart'),
+  TaskItem(
+      title: 'Profile UI Design',
+      subItem: profileItem,
+      codePreview: 'view/profile/text_widget.dart'),
+  TaskItem(
+      title: 'Details UI Design',
+      subItem: detailsItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Setting UI Design',
+      subItem: settingPageItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Pull To Refresh',
+      subItem: pullToRefreshItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Collapse Toolbar',
+      subItem: collapseToolbarItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'List Ui',
+      subItem: listPageItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Bottom Navigation',
+      subItem: bottomNavItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Tab Bar',
+      subItem: tabBarPageItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'API Call',
+      subItem: apiCallItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Navigation drawer UI',
+      subItem: navPageItem,
+      codePreview: 'view/widgets/text_widget.dart'),
+  TaskItem(
+      title: 'Blur effect',
+      page: BlurEffectPage(),
+      codePreview: 'view/example/blur_effect_page.dart'),
+  TaskItem(
+      title: 'Animation',
+      page: AnimationPage(),
+      codePreview: 'view/example/animation_page.dart'),
+  TaskItem(
+      title: 'ZZZZ',
+      page: StaggeredGridScreen(),
+      codePreview: 'view/example/text_widget.dart'),
+  TaskItem(
+      title: 'AATest',
+      page: Test(),
+      codePreview: 'view/example/test.dart'),
 ];
 
 List<TaskItem> apiCallItem = [
@@ -330,7 +491,6 @@ List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page5', page: DetailPage5()),
   TaskItem(title: 'Detail Page6', page: DetailPage6()),
   TaskItem(title: 'Detail Page7', page: DetailPage7()),
-
 ];
 List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page1', page: HomePage1()),
@@ -339,7 +499,6 @@ List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page4', page: HomePage4()),
   TaskItem(title: 'Home Page5', page: HomePage5()),
   TaskItem(title: 'Home Page6', page: HomePage6()),
-
 ];
 List<TaskItem> listPageItem = [
   TaskItem(title: 'List Page1', page: ListPage1()),
@@ -347,7 +506,6 @@ List<TaskItem> listPageItem = [
   TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1()),
   TaskItem(title: 'List Cart Item Page 2', page: ListCartItemPage2()),
   TaskItem(title: 'List Cart Item Page 3', page: ListCartItemPage3()),
-
 ];
 List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Page1', page: LoginPage1()),
@@ -405,7 +563,6 @@ List<TaskItem> settingPageItem = [
   TaskItem(title: 'Setting Page2', page: SettingPage2()),
   TaskItem(title: 'Setting Page3', page: SettingPage3()),
   TaskItem(title: 'Setting Page4', page: SettingPage4()),
-
 ];
 List<TaskItem> splashPageItem = [
   TaskItem(title: 'Splash Page1', page: SplashPage1()),

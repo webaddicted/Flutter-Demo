@@ -2,7 +2,8 @@ class StringConst {
   static const String APP_NAME = 'Flutter Demo';
   static const String SERVER_KEY =
       'AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
-
+  static const String githubRepo =
+      "https://github.com/webaddicted/Flutter-Demo/tree/master/";
 //  static const String SERVER_KEY ='AAAAHEM6Yus:APA91bGYqZnzhnUaP3TMQ5t4H2QzhbgcPnKmLuelsIphrE2-QA51lgfcC2rMdyQeZmj-V4c3khJLbm6ctd4CMVKgTD9RboGxy6NtpYjzqjxChIiUpGnSGhJsrWoDFctTxQmfwJ0STyCA';
   static const String DOWNLOAD = 'download';
   static const String PROFILE = 'profile';
