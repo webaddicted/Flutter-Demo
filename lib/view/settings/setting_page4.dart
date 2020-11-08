@@ -26,13 +26,9 @@ class _SettingPage4State extends State<SettingPage4> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               profileDetail(),
-              SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.0),
               profileCategories(),
-              SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.0),
               profileMenu()
             ],
           ),
@@ -70,9 +66,7 @@ class _SettingPage4State extends State<SettingPage4> {
             Row(
               children: <Widget>[
                 loadCircleImg(ApiConstant.WEBADDICTED_IMG, 0, 60),
-                SizedBox(
-                  width: 15.0,
-                ),
+                SizedBox(width: 15.0),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,9 +81,7 @@ class _SettingPage4State extends State<SettingPage4> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
-                          width: 15.0,
-                        ),
+                        SizedBox(width: 15.0),
                         Icon(
                           Icons.border_color,
                           color: Colors.white,
@@ -109,9 +101,7 @@ class _SettingPage4State extends State<SettingPage4> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 15.0,
-            ),
+            SizedBox(height: 15.0),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,9 +117,7 @@ class _SettingPage4State extends State<SettingPage4> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
+                      SizedBox(height: 5.0),
                       Text(
                         item['name'],
                         style: TextStyle(
@@ -271,7 +259,7 @@ class _SettingPage4State extends State<SettingPage4> {
   menuItem({ProfileMenu menu}) {
     Size deviceSize = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(top: 10,bottom: 10),
+      margin: EdgeInsets.only(top: 10, bottom: 10),
       height: deviceSize.height * 0.09,
       decoration: BoxDecoration(
         boxShadow: [
