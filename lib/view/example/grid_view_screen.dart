@@ -40,6 +40,7 @@ class _GridViewScreenState extends State<GridViewScreen> {
     return Container(
         alignment: Alignment.center,
         child: GridView.count(
+          physics: BouncingScrollPhysics(),
           crossAxisCount: 2,
           padding: EdgeInsets.all(4.0),
           childAspectRatio: 8.0 / 9.0,
@@ -83,6 +84,7 @@ class GridRow extends StatelessWidget {
 //        );
       },
       child: Card(
+        clipBehavior: Clip.antiAlias,
         elevation: 1.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),

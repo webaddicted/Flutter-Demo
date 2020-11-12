@@ -6,7 +6,7 @@ import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/alltask/nav_drawer_home.dart';
 import 'package:flutterbeginner/view/alltask/subtitle_page.dart';
-import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
+import 'package:flutterbeginner/view/widgets/all_item_widget.dart';
 
 class AllTasks extends StatefulWidget {
   @override
@@ -69,7 +69,7 @@ class _AllTasksState extends State<AllTasks> {
     return Scaffold(
       appBar: searchBar.build(context),
       drawer: NavDrawerHome(),
-      body: HomeItemWidget(
+      body: AllItemWidget(
           dataBean: searchDataBean,
           onTap: (TaskItem taskItem) {
             if (taskItem.subItem == null)

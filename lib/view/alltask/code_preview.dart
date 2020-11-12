@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:animated_floatactionbuttons/animated_floatactionbuttons.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,15 +8,13 @@ import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/code_highlighter.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:math';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class CodePreviewsPage extends StatelessWidget {
   final String title;
   final String path;
 
-  const CodePreviewsPage(
-      {Key key, @required this.title,@required this.path})
+  const CodePreviewsPage({Key key, @required this.title, @required this.path})
       : super(key: key);
 
   @override
@@ -27,7 +27,8 @@ class CodePreviewsPage extends StatelessWidget {
               icon: Icon(FontAwesomeIcons.shareSquare),
               tooltip: "Open full preview",
               onPressed: () {
-                Share.text(title,'${StringConst.githubRepo}$path','file');
+                _shareText();
+                // Share.text(title, '${StringConst.githubRepo}$path', 'file');
               },
             )
           ],
@@ -35,6 +36,14 @@ class CodePreviewsPage extends StatelessWidget {
         body: MyCodeView(
           filePath: path,
         ));
+  }
+
+  _shareText() async {
+    try {
+      await Share.text(title, '${StringConst.githubRepo}$path', 'text/plain');
+    } catch (e) {
+      print('error: $e');
+    }
   }
 }
 
@@ -53,6 +62,7 @@ class MyCodeView extends StatefulWidget {
 
 class MyCodeViewState extends State<MyCodeView> {
   double _textScaleFactor = 1.0;
+
   @override
   Widget build(BuildContext context) {
     print('code path ${widget.filePath}');
@@ -80,6 +90,7 @@ class MyCodeViewState extends State<MyCodeView> {
       },
     );
   }
+
   Widget _getCodeView(String codeContent, BuildContext context) {
     final SyntaxHighlighterStyle style =
         Theme.of(context).brightness == Brightness.dark
@@ -145,6 +156,4 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
     ];
   }
-
-
 }

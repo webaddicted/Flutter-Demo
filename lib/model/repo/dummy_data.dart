@@ -318,95 +318,95 @@ List<TaskItem> taskItem = [
   TaskItem(
       title: 'Download File',
       page: DownloadFileScreen(),
-      codePreview: 'view/example/dowload_file_screen.dart'),
+      codePreview: 'lib/view/example/dowload_file_screen.dart'),
   TaskItem(
       title: 'All Contacts',
       page: ContactScreen(),
-      codePreview: 'view/local/contact/contact_screen.dart'),
+      codePreview: 'lib/view/local/contact/contact_screen.dart'),
   TaskItem(
       title: 'All SMS',
       page: SmsScreen(),
-      codePreview: 'view/local/sms_scren.dart'),
+      codePreview: 'lib/view/local/sms_scren.dart'),
   TaskItem(
       title: 'All Images',
       page: ImageScreen(),
-      codePreview: 'view/local/image/image_folder.dart'),
+      codePreview: 'lib/view/local/image/image_folder.dart'),
   TaskItem(
       title: 'All Videos',
       page: VideoScreen(),
-      codePreview: 'view/local/video/video_folder.dart'),
+      codePreview: 'lib/view/local/video/video_folder.dart'),
   TaskItem(
       title: 'All Audio',
       page: AudioScreen(),
-      codePreview: 'view/audio/audio_screen.dart'),
+      codePreview: 'lib/view/audio/audio_screen.dart'),
   TaskItem(
       title: 'All Documents',
       page: DocumentScreen(),
-      codePreview: 'view/local/video/document_folder.dart'),
+      codePreview: 'lib/view/local/video/document_folder.dart'),
   TaskItem(
       title: 'All Call Log',
       page: CallLogScreen(),
-      codePreview: 'view/local/call_log_screen.dart'),
+      codePreview: 'lib/view/local/call_log_screen.dart'),
   TaskItem(
       title: 'Grid View',
       page: GridViewScreen(),
-      codePreview: 'view/example/grid_view_screen.dart'),
+      codePreview: 'lib/view/example/grid_view_screen.dart'),
   TaskItem(
       title: 'Share Data',
       page: ShareDataScreen(),
-      codePreview: 'view/example/share_data_screen.dart'),
+      codePreview: 'lib/view/example/share_data_screen.dart'),
   TaskItem(
       title: 'Finger Print',
       page: FingerPrintScreen(),
-      codePreview: 'view/example/finger_print_screen.dart'),
+      codePreview: 'lib/view/example/finger_print_screen.dart'),
   TaskItem(
       title: 'Device Info',
       page: DeviceInfoScreen(),
-      codePreview: 'view/example/device_info_screen.dart'),
+      codePreview: 'lib/view/example/device_info_screen.dart'),
   TaskItem(
       title: 'Screenshot',
       page: ScreenshotPage(),
-      codePreview: 'view/example/screenshot_page.dart'),
+      codePreview: 'lib/view/example/screenshot_page.dart'),
   TaskItem(
       title: 'Blend Mode (Image Filter)',
       page: BlendModePage(),
-      codePreview: 'view/example/blend_mode_page.dart'),
+      codePreview: 'lib/view/example/blend_mode_page.dart'),
   TaskItem(
       title: 'ReOreder List',
       page: ReorderPage(),
-      codePreview: 'view/example/reorder_list.dart'),
+      codePreview: 'lib/view/example/reorder_list.dart'),
   TaskItem(
       title: 'View Pager',
       page: PageViewScreen(),
-      codePreview: 'view/example/page_view.dart'),
+      codePreview: 'lib/view/example/page_view.dart'),
   TaskItem(
       title: 'Staggered Grid view',
       page: StaggeredGridScreen(),
-      codePreview: 'view/example/staggered_grid_view.dart'),
+      codePreview: 'lib/view/example/staggered_grid_view.dart'),
   TaskItem(
-      title: 'Splash',
+      title: 'Splash Design',
       subItem: splashPageItem,
-      codePreview: 'view/splash/text_widget.dart'),
+      codePreview: 'lib/view/splash/text_widget.dart'),
   TaskItem(
       title: 'OnBoarding UI Design',
       subItem: onboardingPageItem,
-      codePreview: 'view/onboarding/text_widget.dart'),
+      codePreview: 'lib/view/onboarding/text_widget.dart'),
   TaskItem(
       title: 'Login UI Design',
       subItem: loginPageItem,
-      codePreview: 'view/login/text_widget.dart'),
+      codePreview: 'lib/view/login/text_widget.dart'),
   TaskItem(
       title: 'Home UI Design',
       subItem: homeItem,
-      codePreview: 'view/home/text_widget.dart'),
+      codePreview: 'lib/view/home/text_widget.dart'),
   TaskItem(
       title: 'Profile UI Design',
       subItem: profileItem,
-      codePreview: 'view/profile/text_widget.dart'),
+      codePreview: 'lib/view/profile/text_widget.dart'),
   TaskItem(
       title: 'Details UI Design',
       subItem: detailsItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      codePreview: 'lib/view/widgets/text_widget.dart'),
   TaskItem(
       title: 'Setting UI Design',
       subItem: settingPageItem,
@@ -416,27 +416,27 @@ List<TaskItem> taskItem = [
       subItem: pullToRefreshItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
-      title: 'Collapse Toolbar',
+      title: 'Collapse Toolbar Design',
       subItem: collapseToolbarItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
-      title: 'List Ui',
+      title: 'List Ui Design',
       subItem: listPageItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
-      title: 'Bottom Navigation',
+      title: 'Bottom Navigation Design',
       subItem: bottomNavItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
-      title: 'Tab Bar',
+      title: 'Tab Bar Design',
       subItem: tabBarPageItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
-      title: 'API Call',
+      title: 'API Call Design',
       subItem: apiCallItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
-      title: 'Navigation drawer UI',
+      title: 'Navigation drawer UI Design',
       subItem: navPageItem,
       codePreview: 'view/widgets/text_widget.dart'),
   TaskItem(
