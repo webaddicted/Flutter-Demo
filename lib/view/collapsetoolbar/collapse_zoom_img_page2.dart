@@ -4,12 +4,12 @@ import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/view/bottombar/bottom_nav_page1.dart';
 
-class CollapseZoomImg3 extends StatefulWidget {
+class CollapseZoomImgPage2 extends StatefulWidget {
   @override
-  _CollapseZoomImg3State createState() => _CollapseZoomImg3State();
+  _CollapseZoomImgPage2State createState() => _CollapseZoomImgPage2State();
 }
 
-class _CollapseZoomImg3State extends State<CollapseZoomImg3> {
+class _CollapseZoomImgPage2State extends State<CollapseZoomImgPage2> {
   ScrollController scrollController;
 
   Widget _buildActions() {

@@ -15,7 +15,6 @@ class TextWidget extends StatefulWidget {
 
 class _TextWidgetState extends State<TextWidget> {
   String _btnText = "Hello World";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

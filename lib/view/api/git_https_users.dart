@@ -9,12 +9,12 @@ import 'package:http/http.dart' as http;
 
 import 'git_user_info.dart';
 
-class GitUsers extends StatefulWidget {
+class GitHttpsUsers extends StatefulWidget {
   @override
-  _GitUsersState createState() => _GitUsersState();
+  _GitHttpsUsersState createState() => _GitHttpsUsersState();
 }
 
-class _GitUsersState extends State<GitUsers> {
+class _GitHttpsUsersState extends State<GitHttpsUsers> {
 //  var pageCount = 1;
   var pageCount = 38448418;
   List<GitUserBean> _userResult = new List();

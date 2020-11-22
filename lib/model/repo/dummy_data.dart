@@ -222,7 +222,7 @@ List<TaskItem> taskItem = [
   TaskItem(
       title: 'Text',
       page: TextWidget('lib/view/widgets/text_widget.dart'),
-      codePreview:     'lib/view/widgets/text_widget.dart'),
+      codePreview: 'lib/view/widgets/text_widget.dart'),
   TaskItem(
       title: 'Text Field',
       page: TextFieldWidget(),
@@ -338,7 +338,7 @@ List<TaskItem> taskItem = [
   TaskItem(
       title: 'All Audio',
       page: AudioScreen(),
-      codePreview: 'lib/view/audio/audio_screen.dart'),
+      codePreview: 'lib/view/local/audio/audio_screen.dart'),
   TaskItem(
       title: 'All Documents',
       page: DocumentScreen(),
@@ -385,60 +385,46 @@ List<TaskItem> taskItem = [
       codePreview: 'lib/view/example/staggered_grid_view.dart'),
   TaskItem(
       title: 'Splash Design',
-      subItem: splashPageItem,
-      codePreview: 'lib/view/splash/text_widget.dart'),
+      subItem: splashPageItem),
   TaskItem(
       title: 'OnBoarding UI Design',
-      subItem: onboardingPageItem,
-      codePreview: 'lib/view/onboarding/text_widget.dart'),
+      subItem: onboardingPageItem),
   TaskItem(
       title: 'Login UI Design',
-      subItem: loginPageItem,
-      codePreview: 'lib/view/login/text_widget.dart'),
+      subItem: loginPageItem),
   TaskItem(
       title: 'Home UI Design',
-      subItem: homeItem,
-      codePreview: 'lib/view/home/text_widget.dart'),
+      subItem: homeItem),
   TaskItem(
       title: 'Profile UI Design',
-      subItem: profileItem,
-      codePreview: 'lib/view/profile/text_widget.dart'),
+      subItem: profileItem),
   TaskItem(
       title: 'Details UI Design',
-      subItem: detailsItem,
-      codePreview: 'lib/view/widgets/text_widget.dart'),
+      subItem: detailsItem),
   TaskItem(
       title: 'Setting UI Design',
-      subItem: settingPageItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: settingPageItem),
   TaskItem(
-      title: 'Pull To Refresh',
-      subItem: pullToRefreshItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      title: 'Pull To Refresh Design',
+      subItem: pullToRefreshItem),
   TaskItem(
       title: 'Collapse Toolbar Design',
-      subItem: collapseToolbarItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: collapseToolbarItem),
   TaskItem(
       title: 'List Ui Design',
-      subItem: listPageItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: listPageItem),
   TaskItem(
       title: 'Bottom Navigation Design',
-      subItem: bottomNavItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: bottomNavItem),
   TaskItem(
       title: 'Tab Bar Design',
-      subItem: tabBarPageItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: tabBarPageItem),
   TaskItem(
       title: 'API Call Design',
-      subItem: apiCallItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: apiCallItem),
   TaskItem(
       title: 'Navigation drawer UI Design',
-      subItem: navPageItem,
-      codePreview: 'view/widgets/text_widget.dart'),
+      subItem: navPageItem),
   TaskItem(
       title: 'Blur effect',
       page: BlurEffectPage(),
@@ -448,129 +434,121 @@ List<TaskItem> taskItem = [
       page: AnimationPage(),
       codePreview: 'view/example/animation_page.dart'),
   TaskItem(
-      title: 'ZZZZ',
-      page: StaggeredGridScreen(),
-      codePreview: 'view/example/text_widget.dart'),
-  TaskItem(
-      title: 'AATest',
-      page: Test(),
-      codePreview: 'view/example/test.dart'),
+      title: 'AATest', page: Test(), codePreview: 'view/example/test.dart'),
 ];
-
 List<TaskItem> apiCallItem = [
-  TaskItem(title: 'Http Api Call', page: ApiHttpPage()),
-  TaskItem(title: 'Git Api Call', page: GitUsers()),
-  TaskItem(title: 'DIO Api Call', page: ApiDioPage()),
-  TaskItem(title: 'DIO Architecture', page: ApiDioArchPage()),
-];
-
-List<TaskItem> bottomNavItem = [
-  TaskItem(title: 'Bottom Nav Page1', page: BottomNavPage1()),
-  TaskItem(title: 'Bottom Nav Page2', page: BottomNavPage2()),
-  TaskItem(title: 'Bottom Nav Page3', page: BottomNavPage3()),
-  TaskItem(title: 'Bottom Nav Page4', page: BottomNavPage4()),
-  TaskItem(title: 'Bottom Nav Page5', page: BottomNavPage5()),
-  TaskItem(title: 'Bottom Nav Page6', page: BottomNavPage6()),
-  TaskItem(title: 'Bottom Nav Page7', page: BottomNavPage7()),
-];
-List<TaskItem> collapseToolbarItem = [
-  TaskItem(title: 'Collapse toolbar1', page: CollapseToolbarPage1()),
-  TaskItem(title: 'Collapse Arc Page2', page: CollapseArcPage2()),
-  TaskItem(title: 'Collapse Zoom Img', page: CollapseZoomImg3()),
-  TaskItem(title: 'Collapse Page3', page: CollapsePage3()),
-  TaskItem(title: 'Collapse Fade Appbar', page: CollapseFadeAppBar()),
-  TaskItem(title: 'WaveAppbar', page: WaveAppbar()),
-  TaskItem(title: 'Collapse Zoom Out Fab', page: CollapseFabZoomOut()),
-  TaskItem(title: 'Collapse Page4', page: CollapsePage4()),
-];
-List<TaskItem> detailsItem = [
-  TaskItem(title: 'Detail Page1', page: DetailPage1()),
-  TaskItem(title: 'Detail Page2', page: DetailPage2()),
-  TaskItem(title: 'Detail Page3', page: DetailPage3()),
-  TaskItem(title: 'Detail Page4', page: DetailPage4()),
-  TaskItem(title: 'Detail Page5', page: DetailPage5()),
-  TaskItem(title: 'Detail Page6', page: DetailPage6()),
-  TaskItem(title: 'Detail Page7', page: DetailPage7()),
-];
-List<TaskItem> homeItem = [
-  TaskItem(title: 'Home Page1', page: HomePage1()),
-  TaskItem(title: 'Home Page2', page: HomePage2()),
-  TaskItem(title: 'Home Page3', page: HomePage3()),
-  TaskItem(title: 'Home Page4', page: HomePage4()),
-  TaskItem(title: 'Home Page5', page: HomePage5()),
-  TaskItem(title: 'Home Page6', page: HomePage6()),
-];
-List<TaskItem> listPageItem = [
-  TaskItem(title: 'List Page1', page: ListPage1()),
-  TaskItem(title: 'List Page2', page: ListPage2()),
-  TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1()),
-  TaskItem(title: 'List Cart Item Page 2', page: ListCartItemPage2()),
-  TaskItem(title: 'List Cart Item Page 3', page: ListCartItemPage3()),
-];
-List<TaskItem> loginPageItem = [
-  TaskItem(title: 'Login Page1', page: LoginPage1()),
-  TaskItem(title: 'Login Page2', page: LoginPage2()),
-  TaskItem(title: 'Login Page3', page: LoginPage3()),
-  TaskItem(title: 'Login Page4', page: LoginPage4()),
-  TaskItem(title: 'Login Page5', page: LoginPage5()),
-  TaskItem(title: 'Login Page6', page: LoginPage6()),
-  TaskItem(title: 'Login Page7', page: LoginPage7()),
-  TaskItem(title: 'Login Welcome Page', page: LoginWelcomePage()),
-  TaskItem(title: 'Login Welcome Page2', page: LoginWelcomePage2()),
-  TaskItem(title: 'Login Page8', page: LoginPage8()),
-  TaskItem(title: 'Login Page9', page: LoginPage9()),
-  TaskItem(title: 'Login Page10', page: LoginPage10()),
-  TaskItem(title: 'Login Wave Page11', page: LoginWavePage11()),
-  TaskItem(title: 'Login Page12', page: LoginPage12()),
-  TaskItem(title: 'Login Page13', page: LoginPage13()),
-];
-List<TaskItem> navPageItem = [
-  TaskItem(title: 'One side', page: NavDrawerScreen()),
-  TaskItem(title: 'Both side', page: BothSideNavDrawerScreen()),
-  TaskItem(title: 'Curve Navigation', page: NavDrawerCurvePage()),
-  TaskItem(title: 'Slide Navigation', page: NavDrawerSlidePage()),
-  TaskItem(title: 'Nav drawer same like fragment', page: NavLikeFragPage()),
-  TaskItem(title: 'Nav Behavior', page: NavBehaviorPage()),
-  TaskItem(title: 'Back Drop Drawer', page: NavBackDropDrawer()),
-  TaskItem(title: 'Drop Down Drawer', page: NavigDropDown()),
-];
-List<TaskItem> onboardingPageItem = [
-  TaskItem(title: 'Onboarding Page1', page: OnboardingPage1()),
-  TaskItem(title: 'Onboarding Page2', page: OnboardingPage2()),
-  TaskItem(title: 'Onboarding Page3', page: OnboardingPage3()),
-  TaskItem(title: 'Onboarding Page4', page: OnboardingPage4()),
-  TaskItem(title: 'Onboarding Page5', page: OnboardingPage5()),
-  TaskItem(title: 'Onboarding Page6', page: OnboardingPage6()),
-  TaskItem(title: 'Onboarding Page7', page: OnboardingPage7()),
-];
-List<TaskItem> profileItem = [
-  TaskItem(title: 'Profile Page1', page: ProfilePage1()),
-  TaskItem(title: 'Profile Page2', page: ProfilePage2()),
-  TaskItem(title: 'Profile Page3', page: ProfilePage3()),
-  TaskItem(title: 'Profile Page4', page: ProfilePage4()),
-  TaskItem(title: 'Profile Page5', page: ProfilePage5()),
-  TaskItem(title: 'Profile Page6', page: ProfilePage6()),
-  TaskItem(title: 'Profile Page7', page: ProfilePage7()),
-  TaskItem(title: 'Profile Page8', page: ProfilePage8()),
-];
-List<TaskItem> pullToRefreshItem = [
-  TaskItem(title: 'Pull to refresh default', page: PullToRefresh()),
-  TaskItem(title: 'Water drop material', page: WaterDropMaterial()),
-  TaskItem(title: 'Water drop', page: WaterDrop()),
-];
-List<TaskItem> settingPageItem = [
-  TaskItem(title: 'Setting Page1', page: SettingPage1()),
-  TaskItem(title: 'Setting Page2', page: SettingPage2()),
-  TaskItem(title: 'Setting Page3', page: SettingPage3()),
-  TaskItem(title: 'Setting Page4', page: SettingPage4()),
+  TaskItem(title: 'Http Api Call', page: ApiHttpPage(), codePreview: 'view/api/api_http_page.dart'),
+  TaskItem(title: 'Git Api Call', page: GitHttpsUsers(), codePreview: 'view/api/git_https_users.dart'),
+  TaskItem(title: 'DIO Api Call', page: ApiDioPage(), codePreview: 'view/api/api_dio_page.dart'),
+  TaskItem(title: 'DIO Architecture', page: ApiDioArchPage(), codePreview: 'view/api/api_dio_arch_page.dart'),
 ];
 List<TaskItem> splashPageItem = [
-  TaskItem(title: 'Splash Page1', page: SplashPage1()),
-  TaskItem(title: 'Splash Page2', page: SplashPage2()),
-  TaskItem(title: 'Splash Page3', page: SplashPage3()),
+  TaskItem(title: 'Splash Page1', page: SplashPage1(), codePreview: 'view/splash/splash_page1.dart'),
+  TaskItem(title: 'Splash Page2', page: SplashPage2(), codePreview: 'view/splash/splash_page2.dart'),
+  TaskItem(title: 'Splash Page3', page: SplashPage3(), codePreview: 'view/splash/splash_page3.dart'),
+];
+List<TaskItem> onboardingPageItem = [
+  TaskItem(title: 'Onboarding Page1', page: OnboardingPage1(), codePreview: 'view/onboarding/onboarding_page1.dart'),
+  TaskItem(title: 'Onboarding Page2', page: OnboardingPage2(), codePreview: 'view/onboarding/onboarding_page2.dart'),
+  TaskItem(title: 'Onboarding Page3', page: OnboardingPage3(), codePreview: 'view/onboarding/onboarding_page3.dart'),
+  TaskItem(title: 'Onboarding Page4', page: OnboardingPage4(), codePreview: 'view/onboarding/onboarding_page4.dart'),
+  TaskItem(title: 'Onboarding Page5', page: OnboardingPage5(), codePreview: 'view/onboarding/onboarding_page5.dart'),
+  TaskItem(title: 'Onboarding Page6', page: OnboardingPage6(), codePreview: 'view/onboarding/onboarding_page6.dart'),
+  TaskItem(title: 'Onboarding Page7', page: OnboardingPage7(), codePreview: 'view/onboarding/onboarding_page7.dart'),
+];
+List<TaskItem> loginPageItem = [
+  TaskItem(title: 'Login Page1', page: LoginPage1(), codePreview: 'view/login/login_page1.dart'),
+  TaskItem(title: 'Login Page2', page: LoginPage2(), codePreview: 'view/login/login_page2.dart'),
+  TaskItem(title: 'Login Page3', page: LoginPage3(), codePreview: 'view/login/login_page3.dart'),
+  TaskItem(title: 'Login Page4', page: LoginPage4(), codePreview: 'view/login/login_page4.dart'),
+  TaskItem(title: 'Login Page5', page: LoginPage5(), codePreview: 'view/login/login_page5.dart'),
+  TaskItem(title: 'Login Page6', page: LoginPage6(), codePreview: 'view/login/login_page6.dart'),
+  TaskItem(title: 'Login Page7', page: LoginPage7(), codePreview: 'view/login/login_page7.dart'),
+  TaskItem(title: 'Login Welcome Page', page: LoginWelcomePage(), codePreview: 'view/login/login_welcome_page.dart'),
+  TaskItem(title: 'Login Welcome Page2', page: LoginWelcomePage2(), codePreview: 'view/login/login_welcome_page2.dart'),
+  TaskItem(title: 'Login Page8', page: LoginPage8(), codePreview: 'view/login/login_page8.dart'),
+  TaskItem(title: 'Login Page9', page: LoginPage9(), codePreview: 'view/login/login_page9.dart'),
+  TaskItem(title: 'Login Page10', page: LoginPage10(), codePreview: 'view/login/login_page10.dart'),
+  TaskItem(title: 'Login Wave Page11', page: LoginWavePage11(), codePreview: 'view/login/login_wave_page11.dart'),
+  TaskItem(title: 'Login Page12', page: LoginPage12(), codePreview: 'view/login/login_page12.dart'),
+  TaskItem(title: 'Login Page13', page: LoginPage13(), codePreview: 'view/login/login_page13.dart'),
+];
+List<TaskItem> homeItem = [
+  TaskItem(title: 'Home Page1', page: HomePage1(), codePreview: 'view/home/home_page1.dart'),
+  TaskItem(title: 'Home Page2', page: HomePage2(), codePreview: 'view/home/home_page2.dart'),
+  TaskItem(title: 'Home Page3', page: HomePage3(), codePreview: 'view/home/home_page3.dart'),
+  TaskItem(title: 'Home Page4', page: HomePage4(), codePreview: 'view/home/home_page4.dart'),
+  TaskItem(title: 'Home Page5', page: HomePage5(), codePreview: 'view/home/home_page5.dart'),
+  TaskItem(title: 'Home Page6', page: HomePage6(), codePreview: 'view/home/home_page6.dart'),
+];
+List<TaskItem> detailsItem = [
+  TaskItem(title: 'Detail Page1', page: DetailPage1(), codePreview: 'view/details/detail_page1.dart'),
+  TaskItem(title: 'Detail Page2', page: DetailPage2(), codePreview: 'view/details/detail_page2.dart'),
+  TaskItem(title: 'Detail Page3', page: DetailPage3(), codePreview: 'view/details/detail_page3.dart'),
+  TaskItem(title: 'Detail Page4', page: DetailPage4(), codePreview: 'view/details/detail_page4.dart'),
+  TaskItem(title: 'Detail Page5', page: DetailPage5(), codePreview: 'view/details/detail_page5.dart'),
+  TaskItem(title: 'Detail Page6', page: DetailPage6(), codePreview: 'view/details/detail_page6.dart'),
+  TaskItem(title: 'Detail Page7', page: DetailPage7(), codePreview: 'view/details/detail_page7.dart'),
+];
+List<TaskItem> profileItem = [
+  TaskItem(title: 'Profile Page1', page: ProfilePage1(), codePreview: 'view/profile/profile_page1.dart'),
+  TaskItem(title: 'Profile Page2', page: ProfilePage2(), codePreview: 'view/profile/profile_page2.dart'),
+  TaskItem(title: 'Profile Page3', page: ProfilePage3(), codePreview: 'view/profile/profile_page3.dart'),
+  TaskItem(title: 'Profile Page4', page: ProfilePage4(), codePreview: 'view/profile/profile_page4.dart'),
+  TaskItem(title: 'Profile Page5', page: ProfilePage5(), codePreview: 'view/profile/profile_page5.dart'),
+  TaskItem(title: 'Profile Page6', page: ProfilePage6(), codePreview: 'view/profile/profile_page6.dart'),
+  TaskItem(title: 'Profile Page7', page: ProfilePage7(), codePreview: 'view/profile/profile_page7.dart'),
+  TaskItem(title: 'Profile Page8', page: ProfilePage8(), codePreview: 'view/profile/profile_page8.dart'),
+];
+List<TaskItem> settingPageItem = [
+  TaskItem(title: 'Setting Page1', page: SettingPage1(), codePreview: 'view/settings/setting_page1.dart'),
+  TaskItem(title: 'Setting Page2', page: SettingPage2(), codePreview: 'view/settings/setting_page2.dart'),
+  TaskItem(title: 'Setting Page3', page: SettingPage3(), codePreview: 'view/settings/setting_page3.dart'),
+  TaskItem(title: 'Setting Page4', page: SettingPage4(), codePreview: 'view/settings/setting_page4.dart'),
 ];
 List<TaskItem> tabBarPageItem = [
-  TaskItem(title: 'Tab Page1', page: TabPage1()),
-  TaskItem(title: 'Tab Page2', page: TabPage2()),
-  TaskItem(title: 'Tab Page3', page: TabPage3()),
+  TaskItem(title: 'Tab Page1', page: TabPage1(), codePreview: 'view/tabbar/tab_page1.dart'),
+  TaskItem(title: 'Tab Page2', page: TabPage2(), codePreview: 'view/tabbar/tab_page2.dart'),
+  TaskItem(title: 'Tab Page3', page: TabPage3(), codePreview: 'view/tabbar/tab_page3.dart'),
+];
+List<TaskItem> listPageItem = [
+  TaskItem(title: 'List Page1', page: ListPage1(), codePreview: 'view/list/list_page1.dart'),
+  TaskItem(title: 'List Page2', page: ListPage2(), codePreview: 'view/list/list_page2.dart'),
+  TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1(), codePreview: 'view/list/list_cart_item_page1.dart'),
+  TaskItem(title: 'List Cart Item Page 2', page: ListCartItemPage2(), codePreview: 'view/list/list_cart_item_page2.dart'),
+  TaskItem(title: 'List Cart Item Page 3', page: ListCartItemPage3(), codePreview: 'view/list/list_cart_item_page3.dart'),
+];
+List<TaskItem> bottomNavItem = [
+  TaskItem(title: 'Bottom Nav Page1', page: BottomNavPage1(), codePreview: 'view/bottombar/bottom_nav_page1.dart'),
+  TaskItem(title: 'Bottom Nav Page2', page: BottomNavPage2(), codePreview: 'view/bottombar/bottom_nav_page2.dart'),
+  TaskItem(title: 'Bottom Nav Page3', page: BottomNavPage3(), codePreview: 'view/bottombar/bottom_nav_page3.dart'),
+  TaskItem(title: 'Bottom Nav Page4', page: BottomNavPage4(), codePreview: 'view/bottombar/bottom_nav_page4.dart'),
+  TaskItem(title: 'Bottom Nav Page5', page: BottomNavPage5(), codePreview: 'view/bottombar/bottom_nav_page5.dart'),
+  TaskItem(title: 'Bottom Nav Page6', page: BottomNavPage6(), codePreview: 'view/bottombar/bottom_nav_page6.dart'),
+  TaskItem(title: 'Bottom Nav Page7', page: BottomNavPage7(), codePreview: 'view/bottombar/bottom_nav_page7.dart'),
+];
+List<TaskItem> collapseToolbarItem = [
+  TaskItem(title: 'Collapse toolbar1', page: CollapseToolbarPage1(), codePreview: 'view/collpasetoolbar/collapsetoolbar_page1.dart'),
+  TaskItem(title: 'Collapse Arc Page2', page: CollapseArcPage2(), codePreview: 'view/collpasetoolbar/collapse_arc_page1.dart'),
+  TaskItem(title: 'Collapse Zoom Img', page: CollapseZoomImgPage2(), codePreview: 'view/collpasetoolbar/collapse_zoom_img_page2.dart'),
+  TaskItem(title: 'Collapse Page3', page: CollapsePage3(), codePreview: 'view/collpasetoolbar/collapse_page3.dart'),
+  TaskItem(title: 'Collapse Fade Appbar', page: CollapseFadeAppBar(), codePreview: 'view/collpasetoolbar/collapse_fade_appbar.dart'),
+  TaskItem(title: 'WaveAppbar', page: WaveAppbar(), codePreview: 'view/collpasetoolbar/wave_appbar.dart'),
+  TaskItem(title: 'Collapse Zoom Out Fab', page: CollapseFabZoomOut(), codePreview: 'view/collpasetoolbar/collapse_fab_zoom_out.dart'),
+  TaskItem(title: 'Collapse Page4', page: CollapsePage4(), codePreview: 'view/collpasetoolbar/collapse_page4.dart'),
+];
+List<TaskItem> navPageItem = [
+  TaskItem(title: 'One side', page: NavDrawerScreen(), codePreview: 'view/navigation/nav_drawer.dart'),
+  TaskItem(title: 'Both side', page: BothSideNavDrawerScreen(), codePreview: 'view/navigation/nav_drawer_bothside.dart'),
+  TaskItem(title: 'Curve Navigation', page: NavDrawerCurvePage(), codePreview: 'view/navigation/nav_drawer_curve_page.dart'),
+  TaskItem(title: 'Slide Navigation', page: NavDrawerSlidePage(), codePreview: 'view/navigation/nav_drawer_slide_page.dart'),
+  TaskItem(title: 'Nav drawer same like fragment', page: NavLikeFragPage(), codePreview: 'view/navigation/nav_like_frag_page.dart'),
+  TaskItem(title: 'Nav Behavior', page: NavBehaviorPage(), codePreview: 'view/navigation/nav_behavior_page.dart'),
+  TaskItem(title: 'Back Drop Drawer', page: NavBackDropDrawer(), codePreview: 'view/navigation/nav_back_drop_drawer.dart'),
+  TaskItem(title: 'Drop Down Drawer', page: NavigDropDown(), codePreview: 'view/navigation/nav_drop_down.dart'),
+];
+List<TaskItem> pullToRefreshItem = [
+  TaskItem(title: 'Pull to refresh default', page: PullToRefresh(), codePreview: 'view/pulltorefresh/pull_to_refresh.dart'),
+  TaskItem(title: 'Water drop material', page: WaterDropMaterial(), codePreview: 'view/pulltorefresh/water_drop_material.dart'),
+  TaskItem(title: 'Water drop', page: WaterDrop(), codePreview: 'view/pulltorefresh/water_drop.dart'),
 ];

@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
 
 class ColorConst {
+  // Best color code
+  // f5911c
+  // 662325
+  // 44a241
+  // 7a3f2a
+
+
+
   static const Color APP_COLOR = Colors.blue;
   static const Color GREY_COLOR = Colors.grey;
   static const Color RED_COLOR = Colors.red;

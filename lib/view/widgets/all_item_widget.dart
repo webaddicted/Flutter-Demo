@@ -99,10 +99,15 @@ class AllItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  getTxtBlackColor(
-                      msg: taskItem.title,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                  Row(
+                    children: [
+                      getTxtBlackColor(
+                          msg: taskItem.title,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                      // IconButton(icon: Icon(FontAwesomeIcons.globeAsia))
+                    ],
+                  ),
                   getTxtGreyColor(msg: StringConst.DUMMY_TEXT, fontSize: 15),
                 ],
               ),
