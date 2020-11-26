@@ -63,7 +63,7 @@ dependencies:
   animated_floatactionbuttons: ^0.1.0
   url_launcher: ^5.5.0
   animator: ^2.0.1
-
+  rect_getter: ^0.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -81,6 +81,7 @@ flutter:
     - images/
     - local_file/
     - assets/
+    - lib/view/
     - lib/view/alltask/
     - lib/view/api/
     - lib/view/bottombar/
@@ -92,6 +93,11 @@ flutter:
     - lib/view/home/
     - lib/view/list/
     - lib/view/local/
+    - lib/view/local/audio/
+    - lib/view/local/contact/
+    - lib/view/local/document/
+    - lib/view/local/image/
+    - lib/view/local/video/
     - lib/view/login/
     - lib/view/navigation/
     - lib/view/onboarding/
