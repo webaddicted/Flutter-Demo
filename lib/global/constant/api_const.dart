@@ -11,6 +11,8 @@ class ApiConstant {
   static const String WEBADDICTED_IMG = 'https://avatars0.githubusercontent.com/u/38448422?s=400&u=21b610183d275611a9bc0f730653d931b39f2d0b&v=4';
   static const String FIRESTORE_COLL_USERS = 'Users';
   static const String WEB_VIEW_URL = 'https://pub.dev/packages/webview_flutter';
+  static const String WEBADDICTED_VIEW_URL = 'https://github.com/webaddicted/webaddicted/blob/main/README.md';
+
   static const String VIDEO_URL = 'https://www.radiantmediaplayer.com/media/bbb-360p.mp4';
 //  {END URL END POINTS}
 

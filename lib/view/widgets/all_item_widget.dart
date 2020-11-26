@@ -110,7 +110,8 @@ class AllItemWidget extends StatelessWidget {
                     ],
                   ),
                   if (taskItem.subItem == null)
-                    Center(
+                    Align(
+                      alignment: Alignment.topRight,
                         child: IconButton(
                             icon: Icon(Icons.more_vert), onPressed: () {})),
                 ],

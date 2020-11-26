@@ -44,10 +44,16 @@ class SubTitlePage extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(4.0),
           itemCount: subItem.subItem.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.0 / 1.1, //width/height
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 2.5 / 3,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
           ),
+          // SliverGridDelegateWithFixedCrossAxisCount(
+          //   crossAxisCount: 2,
+          //   childAspectRatio: 1.0 / 1.1, //width/height
+          // ),
           itemBuilder: (context, index) {
             TaskItem taskItem = subItem.subItem[index];
             return InkWell(
@@ -62,11 +68,14 @@ class SubTitlePage extends StatelessWidget {
                   padding: const EdgeInsets.all(4.0),
                   child: Stack(
                     children: [
-                      IconButton(
-                          icon: Icon(Icons.more_vert),
-                          onPressed: () {
-                            clickPopMenu();
-                          }),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                            icon: Icon(Icons.more_vert),
+                            onPressed: () {
+                              clickPopMenu();
+                            }),
+                      ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
