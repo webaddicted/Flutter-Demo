@@ -16,7 +16,7 @@ class _DetailPage1State extends State<DetailPage1> {
   @override
   void initState() {
     super.initState();
-    items = dummyLargeData;
+    items = dummyLargeImg;
   }
 
   @override

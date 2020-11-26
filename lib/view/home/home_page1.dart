@@ -71,9 +71,9 @@ class _HomePage1State extends State<HomePage1> {
         child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: dummyLargeData.length,
+            itemCount: dummyLargeImg.length,
             itemBuilder: (BuildContext context, int index) {
-              return getCatRow(context, index, dummyLargeData[index]);
+              return getCatRow(context, index, dummyLargeImg[index]);
             }),
       ),
     );

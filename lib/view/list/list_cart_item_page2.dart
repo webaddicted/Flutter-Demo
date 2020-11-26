@@ -57,7 +57,7 @@ class _ListCartItemPage2State extends State<ListCartItemPage2> {
                                 Container(
                                   height: 80,
                                   child: loadCircleImg(
-                                      dummyLargeFoodData[8], 0, 80),
+                                      dummyLargeFoodImg[8], 0, 80),
                                 ),
                                 SizedBox(
                                   width: 10.0,

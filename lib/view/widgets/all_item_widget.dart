@@ -95,20 +95,24 @@ class AllItemWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold)),
             Padding(padding: EdgeInsets.only(left: 8)),
             Expanded(
-              child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    children: [
+              child: Stack(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
                       getTxtBlackColor(
                           msg: taskItem.title,
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
-                      // IconButton(icon: Icon(FontAwesomeIcons.globeAsia))
+                      getTxtGreyColor(
+                          msg: StringConst.DUMMY_TEXT, fontSize: 15),
                     ],
                   ),
-                  getTxtGreyColor(msg: StringConst.DUMMY_TEXT, fontSize: 15),
+                  if (taskItem.subItem == null)
+                    Center(
+                        child: IconButton(
+                            icon: Icon(Icons.more_vert), onPressed: () {})),
                 ],
               ),
             )

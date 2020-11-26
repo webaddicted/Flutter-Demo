@@ -15,7 +15,7 @@ class _BlurEffectPageState extends State<BlurEffectPage> {
   @override
   void initState() {
     super.initState();
-    items = dummyLargeData;
+    items = dummyLargeImg;
   }
 
   @override

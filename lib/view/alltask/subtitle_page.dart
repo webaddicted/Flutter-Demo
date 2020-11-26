@@ -12,10 +12,14 @@ class SubTitlePage extends StatelessWidget {
   TaskItem subItem;
   bool isGrid = true;
 
+  BuildContext ctx;
+
+
   SubTitlePage(this.subItem);
 
   @override
   Widget build(BuildContext context) {
+    ctx = context;
     return Scaffold(
       appBar: getAppBarWithBackBtn(ctx: context, title: subItem.title),
       body: isGrid
@@ -30,12 +34,13 @@ class SubTitlePage extends StatelessWidget {
             ),
     );
   }
-
+  final key = GlobalKey();
   getGridView() {
     return Container(
         color: ColorConst.GREY_BG_COLOR,
         alignment: Alignment.center,
         child: GridView.builder(
+          key: key,
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(4.0),
           itemCount: subItem.subItem.length,
@@ -55,30 +60,39 @@ class SubTitlePage extends StatelessWidget {
               child: Card(
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      CircleAvatar(
-                          backgroundColor: Colors.primaries[
-                              Random().nextInt(Colors.primaries.length)],
-                          radius: 35.0,
-                          child: getTxtWhiteColor(
-                              msg: taskItem.title[0].toUpperCase(),
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
-                      Padding(padding: EdgeInsets.only(left: 8)),
-                      const SizedBox(height: 5.0),
-                      getTxtBlackColor(
-                          msg: taskItem.title,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.center),
-                      getTxtGreyColor(
-                          msg: StringConst.DUMMY_TEXT,
-                          fontSize: 15,
-                          maxLines: 3,
-                          textAlign: TextAlign.center),
+                  child: Stack(
+                    children: [
+                      IconButton(
+                          icon: Icon(Icons.more_vert),
+                          onPressed: () {
+                            clickPopMenu();
+                          }),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          CircleAvatar(
+                              backgroundColor: Colors.primaries[
+                                  Random().nextInt(Colors.primaries.length)],
+                              radius: 35.0,
+                              child: getTxtWhiteColor(
+                                  msg: taskItem.title[0].toUpperCase(),
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold)),
+                          Padding(padding: EdgeInsets.only(left: 8)),
+                          const SizedBox(height: 5.0),
+                          getTxtBlackColor(
+                              msg: taskItem.title,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              textAlign: TextAlign.center),
+                          getTxtGreyColor(
+                              msg: StringConst.DUMMY_TEXT,
+                              fontSize: 15,
+                              maxLines: 3,
+                              textAlign: TextAlign.center),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -86,6 +100,28 @@ class SubTitlePage extends StatelessWidget {
             );
           },
         ));
+  }
+
+  void clickPopMenu() {
+    PopupMenuButton(
+      icon: Icon(Icons.settings),
+      onSelected: (newValue) { // add this property
+      },
+      itemBuilder: (context) => [
+        PopupMenuItem(
+          child: Text("Settings"),
+          value: 0,
+        ),
+        PopupMenuItem(
+          child: Text("Flutter.io"),
+          value: 1,
+        ),
+        PopupMenuItem(
+          child: Text("Google.com"),
+          value: 2,
+        ),
+      ],
+    );
   }
 }
 

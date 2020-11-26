@@ -4,12 +4,14 @@ class TaskItem {
   final String title;
   final IconData icon;
   final Widget page;
+  final bgColor;
+
   final List<TaskItem> subItem;
 
   final String codePreview;
 
   TaskItem.normal(this.title,
-      {this.page, this.icon, this.codePreview, this.subItem});
+      {this.page, this.icon, this.codePreview, this.subItem, this.bgColor});
 
   TaskItem({
     Key key,
@@ -18,5 +20,6 @@ class TaskItem {
     this.subItem,
     this.icon = Icons.label_important,
     this.codePreview = '',
+    this.bgColor
   });
 }

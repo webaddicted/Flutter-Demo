@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/api_const.dart';
+import 'package:flutterbeginner/model/bean/dummy/dummy_data_bean.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/view/api/api_dio_arch_page.dart';
 import 'package:flutterbeginner/view/api/api_dio_page.dart';
@@ -38,6 +41,7 @@ import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/device_info_screen.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
+import 'package:flutterbeginner/view/example/filter_selection_page.dart';
 import 'package:flutterbeginner/view/example/finger_print_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
 import 'package:flutterbeginner/view/example/grid_view_screen.dart';
@@ -62,6 +66,9 @@ import 'package:flutterbeginner/view/home/home_page3.dart';
 import 'package:flutterbeginner/view/home/home_page4.dart';
 import 'package:flutterbeginner/view/home/home_page5.dart';
 import 'package:flutterbeginner/view/home/home_page6.dart';
+import 'package:flutterbeginner/view/home/home_page7.dart';
+import 'package:flutterbeginner/view/home/home_page8.dart';
+import 'package:flutterbeginner/view/home/home_page9.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page1.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page2.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page3.dart';
@@ -141,33 +148,45 @@ List<String> dummyImgList = [
   'https://webneel.com/daily/sites/default/files/images/daily/05-2013/zoozoo-vodafone-wallpaper-4.jpg',
   'https://i.pinimg.com/originals/e5/22/11/e52211d7ed30172145da8ec17574d8e7.jpg',
 ];
-final List<TaskItem> categories = [
-  TaskItem.normal("General Knowledge", icon: FontAwesomeIcons.globeAsia),
-  TaskItem.normal("Books", icon: FontAwesomeIcons.bookOpen),
-  TaskItem.normal("Film", icon: FontAwesomeIcons.video),
-  TaskItem.normal("Music", icon: FontAwesomeIcons.music),
-  TaskItem.normal("Musicals & Theatres", icon: FontAwesomeIcons.theaterMasks),
-  TaskItem.normal("Television", icon: FontAwesomeIcons.tv),
-  TaskItem.normal("Video Games", icon: FontAwesomeIcons.gamepad),
-  TaskItem.normal("Board Games", icon: FontAwesomeIcons.chessBoard),
-  TaskItem.normal("Science & Nature", icon: FontAwesomeIcons.microscope),
-  TaskItem.normal("Computer", icon: FontAwesomeIcons.laptopCode),
-  TaskItem.normal("Maths", icon: FontAwesomeIcons.sortNumericDown),
-  TaskItem.normal("Mythology"),
-  TaskItem.normal("Sports", icon: FontAwesomeIcons.footballBall),
-  TaskItem.normal("Geography", icon: FontAwesomeIcons.mountain),
-  TaskItem.normal("History", icon: FontAwesomeIcons.monument),
-  TaskItem.normal("Politics"),
-  TaskItem.normal("Art", icon: FontAwesomeIcons.paintBrush),
-  TaskItem.normal("Celebrities"),
-  TaskItem.normal("Animals", icon: FontAwesomeIcons.dog),
-  TaskItem.normal("Vehicles", icon: FontAwesomeIcons.carAlt),
-  TaskItem.normal("Comics"),
-  TaskItem.normal("Gadgets", icon: FontAwesomeIcons.mobileAlt),
-  TaskItem.normal("Japanese Anime & Manga"),
-  TaskItem.normal("Cartoon & Animation"),
+final List<Color> tileColors = [
+  Colors.green,
+  Colors.blue,
+  Colors.purple,
+  Colors.pink,
+  Colors.indigo,
+  Colors.lightBlue,
+  Colors.amber,
+  Colors.deepOrange,
+  Colors.red,
+  Colors.brown
 ];
-List<String> dummypopulateData = [
+final List<TaskItem> categories = [
+  TaskItem.normal("General Knowledge", icon: FontAwesomeIcons.globeAsia, bgColor:Colors.green ),
+  TaskItem.normal("Books", icon: FontAwesomeIcons.bookOpen, bgColor:Colors.blue ),
+  TaskItem.normal("Film", icon: FontAwesomeIcons.video, bgColor:Colors.purple ),
+  TaskItem.normal("Music", icon: FontAwesomeIcons.music, bgColor:Colors.pink ),
+  TaskItem.normal("Musicals & Theatres", icon: FontAwesomeIcons.theaterMasks, bgColor:Colors.indigo ),
+  TaskItem.normal("Television", icon: FontAwesomeIcons.tv, bgColor:Colors.green ),
+  TaskItem.normal("Video Games", icon: FontAwesomeIcons.gamepad, bgColor:Colors.lightBlue ),
+  TaskItem.normal("Board Games", icon: FontAwesomeIcons.chessBoard, bgColor:Colors.amber ),
+  TaskItem.normal("Science & Nature", icon: FontAwesomeIcons.microscope, bgColor:Colors.deepOrange ),
+  TaskItem.normal("Computer", icon: FontAwesomeIcons.laptopCode, bgColor:Colors.red ),
+  TaskItem.normal("Maths", icon: FontAwesomeIcons.sortNumericDown, bgColor:Colors.brown ),
+  TaskItem.normal("Mythology", bgColor:Colors.green ),
+  TaskItem.normal("Sports", icon: FontAwesomeIcons.footballBall, bgColor:Colors.blue ),
+  TaskItem.normal("Geography", icon: FontAwesomeIcons.mountain, bgColor:Colors.purple ),
+  TaskItem.normal("History", icon: FontAwesomeIcons.monument, bgColor:Colors.pink ),
+  TaskItem.normal("Politics", bgColor:Colors.indigo ),
+  TaskItem.normal("Art", icon: FontAwesomeIcons.paintBrush, bgColor:Colors.green ),
+  TaskItem.normal("Celebrities", bgColor:Colors.lightBlue ),
+  TaskItem.normal("Animals", icon: FontAwesomeIcons.dog, bgColor:Colors.amber ),
+  TaskItem.normal("Vehicles", icon: FontAwesomeIcons.carAlt, bgColor:Colors.deepOrange ),
+  TaskItem.normal("Comics", bgColor:Colors.red ),
+  TaskItem.normal("Gadgets", icon: FontAwesomeIcons.mobileAlt, bgColor:Colors.green ),
+  TaskItem.normal("Japanese Anime & Manga", bgColor:Colors.lightBlue ),
+  TaskItem.normal("Cartoon & Animation", bgColor:Colors.pink ),
+];
+List<String> dummyPopulateImg = [
   'https://i.pinimg.com/originals/66/59/44/665944970605ed2273788a068895ea39.jpg',
   'https://www.pikpng.com/pngl/m/322-3223733_free-png-download-mickey-mouse-clipart-png-photo.png',
   'https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-1.2.1&w=1000&q=80',
@@ -180,7 +199,7 @@ List<String> dummypopulateData = [
   'https://cdn.statically.io/img/wallpaperaccess.com/full/946372.jpg',
   'https://www.pinclipart.com/picdir/middle/144-1442860_mickey-mouse-transparent-mickey-mouse-png-transparent-mickey.png',
 ];
-List<String> dummyLargeData = [
+List<String> dummyLargeImg = [
   'https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-1.2.1&w=1000&q=80',
   'https://i.pinimg.com/originals/66/59/44/665944970605ed2273788a068895ea39.jpg',
   'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg',
@@ -200,7 +219,7 @@ List<String> dummyLargeData = [
   'http://paranoidandroid.co/assets/wallpapers/2018/submerged_desktop_thumb.jpg',
   'https://www.pinclipart.com/picdir/middle/144-1442860_mickey-mouse-transparent-mickey-mouse-png-transparent-mickey.png',
 ];
-List<String> dummyLargeFoodData = [
+List<String> dummyLargeFoodImg = [
   'https://drop.ndtv.com/albums/COOKS/pasta-vegetarian/pastaveg_640x480.jpg',
   'https://currybowlla.com/assets/images/gallery/3-big.jpg',
   'http://danamandi.ca/wp-content/uploads/2016/04/Food-Gallery-Indian-Essence-Restaurant-13.jpg',
@@ -217,6 +236,33 @@ List<String> dummyLargeFoodData = [
   'https://data.chinatravel.com/images/facts/chinese-food/sweet-and-sour-pork.jpg',
   'https://sites.psu.edu/wanyingpassion/wp-content/uploads/sites/6105/2013/09/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90.jpg',
   'https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/momo_660_060817115337.jpg',
+];
+ List<String> dummyListData = [
+  'United Kingdom',
+  'USA',
+  'Frances',
+  'Australia',
+  'Germany',
+  'India',
+  'Vietnam'
+];
+List<DummyDataBean> dummyGameData1 = [
+  DummyDataBean('Hard Kill','https://image.tmdb.org/t/p/w500/86L8wqGMDbwURPni2t7FQ0nDjsH.jpg'),
+  DummyDataBean('Roald Dahls The Witches','https://image.tmdb.org/t/p/w500/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg'),
+  DummyDataBean('Greenland','https://image.tmdb.org/t/p/w500/2Fk3AB8E9dYIBc2ywJkxk8BTyhc.jpg'),
+  DummyDataBean('Chick Fight','https://image.tmdb.org/t/p/w500/fTDzKoQIh1HeyjfpG5AHMi2jxAJ.jpg'),
+  DummyDataBean('The New Mutants','https://image.tmdb.org/t/p/w500/eCIvqa3QVCx6H09bdeOS8Al2Sqy.jpg'),
+  DummyDataBean('Batman: Death in the Family','https://image.tmdb.org/t/p/w500/kU7ZiyeUwcpTkYj3UcxSqGdZmxY.jpg'),
+  DummyDataBean('VFW','https://image.tmdb.org/t/p/w500/h5sUE9jqoYrjsFjANJXL0gpZGye.jpg'),
+];
+List<DummyDataBean> dummyGameData2 = [
+  DummyDataBean('Baba Yaga','https://image.tmdb.org/t/p/w500/4br4B8C0SRIYcKHUgoaOlGo50MU.jpg'),
+  DummyDataBean('Come Play','https://image.tmdb.org/t/p/w500/gkvOmVXdukAwpG8LjTaHo2l2cWU.jpg'),
+  DummyDataBean('Over the Moon','https://image.tmdb.org/t/p/w500/htBUhLSS7FfHtydgYxUWjL3J1Q1.jpg'),
+  DummyDataBean('Sleeping with Danger','https://image.tmdb.org/t/p/w500/7z0QTuzxdUHkGISaYxtp0PVQmXp.jpg'),
+  DummyDataBean('Mortal','https://image.tmdb.org/t/p/w500/dFB6Tiy3z2xRLbnEUB5ocApT5xG.jpg'),
+  DummyDataBean('The Lion King','https://image.tmdb.org/t/p/w500/nRXO2SnOA75OsWhNhXstHB8ZmI3.jpg'),
+  DummyDataBean('Man Up','https://image.tmdb.org/t/p/w500/mFjJeakcaiw7KZ4qWBsMStyZGXK.jpg'),
 ];
 List<TaskItem> taskItem = [
   TaskItem(
@@ -435,6 +481,8 @@ List<TaskItem> taskItem = [
       codePreview: 'view/example/animation_page.dart'),
   TaskItem(
       title: 'AATest', page: Test(), codePreview: 'view/example/test.dart'),
+  TaskItem(
+      title: 'Filter Selection', page: FilterSelectionPage(), codePreview: 'view/example/filter_selection_page.dart'),
 ];
 List<TaskItem> apiCallItem = [
   TaskItem(title: 'Http Api Call', page: ApiHttpPage(), codePreview: 'view/api/api_http_page.dart'),
@@ -480,6 +528,9 @@ List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page4', page: HomePage4(), codePreview: 'view/home/home_page4.dart'),
   TaskItem(title: 'Home Page5', page: HomePage5(), codePreview: 'view/home/home_page5.dart'),
   TaskItem(title: 'Home Page6', page: HomePage6(), codePreview: 'view/home/home_page6.dart'),
+  TaskItem(title: 'Home Page7', page: HomePage7(), codePreview: 'view/home/home_page7.dart'),
+  TaskItem(title: 'Home Page8', page: HomePage8(), codePreview: 'view/home/home_page8.dart'),
+  TaskItem(title: 'Home Page9', page: HomePage9(), codePreview: 'view/home/home_page9.dart'),
 ];
 List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page1', page: DetailPage1(), codePreview: 'view/details/detail_page1.dart'),

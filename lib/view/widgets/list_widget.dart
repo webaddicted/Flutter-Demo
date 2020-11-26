@@ -24,7 +24,7 @@ class ListWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(4.0),
         onTap: () {
-          onTap(dummyLargeData[0]);
+          onTap(dummyLargeImg[0]);
         },
         child: Row(
           children: <Widget>[

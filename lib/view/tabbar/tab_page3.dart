@@ -63,7 +63,7 @@ class _TabPage3State extends State<TabPage3> {
           children: <Widget>[
             ListView.separated(
               padding: const EdgeInsets.all(16.0),
-              itemCount: dummyLargeData.length,
+              itemCount: dummyLargeImg.length,
               itemBuilder: (context, index) {
                 return _buildArticleItem(index);
               },
@@ -138,7 +138,7 @@ class _TabPage3State extends State<TabPage3> {
                     height: 100,
                     color: Colors.blue,
                     width: 80.0,
-                    child: loadImg(dummyLargeData[index], 0)),
+                    child: loadImg(dummyLargeImg[index], 0)),
                 const SizedBox(width: 20.0),
                 Expanded(
                   child: Column(

@@ -133,13 +133,13 @@ class _ListPage2State extends State<ListPage2> {
     return Container(
       height: 200,
       child: ListView.builder(
-          itemCount: dummypopulateData.length,
+          itemCount: dummyPopulateImg.length,
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           physics: ClampingScrollPhysics(),
           itemBuilder: (context, index) {
             return BooksTile(
-              imgAssetPath: dummypopulateData[index],
+              imgAssetPath: dummyPopulateImg[index],
               rating: 3,
               title: "The little mermaid",
               description: StringConst.DUMMY_TEXT,

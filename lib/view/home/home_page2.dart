@@ -15,7 +15,7 @@ class _HomePage2State extends State<HomePage2> {
   @override
   void initState() {
     super.initState();
-    list = dummyLargeData;
+    list = dummyLargeImg;
   }
 
   @override

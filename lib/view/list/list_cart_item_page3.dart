@@ -22,12 +22,12 @@ class _ListCartItemPage3State extends State<ListCartItemPage3> {
               padding: EdgeInsets.all(10.0),
               children: <Widget>[
                 GroceryListItemThree(
-                  image: dummyLargeFoodData[5],
+                  image: dummyLargeFoodImg[5],
                   subtitle: "4 in a pack",
                   title: "Pineapple",
                 ),
                 GroceryListItemThree(
-                  image: dummyLargeFoodData[8],
+                  image: dummyLargeFoodImg[8],
                   subtitle: "1 kg",
                   title: "cabbage",
                 ),

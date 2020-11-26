@@ -140,15 +140,15 @@ class _DetailPage6State extends State<DetailPage6> {
                   SizedBox(
                     width: 10.0,
                   ),
-                  _buildBottomImage(dummyLargeFoodData[3]),
+                  _buildBottomImage(dummyLargeFoodImg[3]),
                   SizedBox(
                     width: 10.0,
                   ),
-                  _buildBottomImage(dummyLargeFoodData[4]),
+                  _buildBottomImage(dummyLargeFoodImg[4]),
                   SizedBox(
                     width: 10.0,
                   ),
-                  _buildBottomImage(dummyLargeFoodData[5]),
+                  _buildBottomImage(dummyLargeFoodImg[5]),
                 ],
               ),
             ),

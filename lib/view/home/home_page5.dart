@@ -86,7 +86,7 @@ class _HomePage5State extends State<HomePage5> {
             delegate:
                 SliverChildBuilderDelegate((BuildContext context, int index) {
               return _buildRooms(context, index);
-            }, childCount: dummyLargeFoodData.length),
+            }, childCount: dummyLargeFoodImg.length),
           )
         ],
       ),
@@ -115,7 +115,7 @@ class _HomePage5State extends State<HomePage5> {
                           width: double.infinity,
                           fit: BoxFit.cover,
                           placeholder: AssetsConst.LOGO_IMG,
-                          image: dummyLargeFoodData[index]),
+                          image: dummyLargeFoodImg[index]),
                       Positioned(
                         right: 10,
                         top: 10,

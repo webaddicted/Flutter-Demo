@@ -5,6 +5,7 @@ import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/countries_bean.dart';
+import 'package:flutterbeginner/model/repo/dummy_data.dart';
 
 class DialogScreen extends StatefulWidget {
   @override
@@ -51,6 +52,10 @@ class _DialogScreenState extends State<DialogScreen> {
             SizedBox(height: 10),
             raisedBtn('Two Btn Dialog', twoClickDialog),
             SizedBox(height: 10),
+            raisedBtn('Single choice Dialog', _showSingleChoiceDialog),
+            SizedBox(height: 10),
+            raisedBtn('Multiple choice Dialog', _showMultipleChoiceDialog),
+            SizedBox(height: 10),
             raisedBtn('Custom Dialog', customDialog),
             SizedBox(height: 10),
             raisedBtn('Full Screen Dialog', fullSceenDialog),
@@ -91,6 +96,69 @@ class _DialogScreenState extends State<DialogScreen> {
         okClick: okClick,
         cancelClick: okClick);
   }
+  _showSingleChoiceDialog() => showDialog(
+    context: context,
+    builder: (context) {
+      // final _singleNotifier = Provider.of<SingleNotifier>(context);
+      return AlertDialog(
+        title: Text('Select one country'),
+        content: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: dummyListData
+                  .map((e) => RadioListTile(
+                title: Text(e),
+                value: e,
+                groupValue: 'India',//_singleNotifier.currentCountry,
+                selected: 'India'==e,//_singleNotifier.currentCountry == e,
+                onChanged: (value) {
+                  // _singleNotifier.updateCountry(value);
+                  Navigator.of(context).pop();
+                },
+              ))
+                  .toList(),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+
+  _showMultipleChoiceDialog() => showDialog(
+      context: context,
+      builder: (context) {
+        // final _multipleNotifier = Provider.of<MultipleNotifier>(context);
+        return AlertDialog(
+          title: Text('Select one country or many countries'),
+          content: SingleChildScrollView(
+            child: Container(
+                width: double.infinity,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: dummyListData
+                      .map((e) => CheckboxListTile(
+                    title: Text(e),
+                    onChanged: (value) {
+                      // value
+                      //     ? _multipleNotifier.addItem(e)
+                      //     : _multipleNotifier.removeItem(e);
+                    },
+                    value: false,//_multipleNotifier.isHaveItem(e),
+                  ))
+                      .toList(),
+                )),
+          ),
+          actions: [
+            FlatButton(
+              child: Text('Yes'),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          ],
+        );
+      });
+
 
   customDialog() {
     var dialogDetails = Container(

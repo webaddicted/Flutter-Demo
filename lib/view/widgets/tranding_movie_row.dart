@@ -27,9 +27,9 @@ class TrandingMovieRow extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: data!=null ?data:dummypopulateData.length,
+            itemCount: data!=null ?data:dummyPopulateImg.length,
             itemBuilder: (context, index) {
-              var item = data!=null ?data[index]:dummypopulateData[index];
+              var item = data!=null ?data[index]:dummyPopulateImg[index];
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),
