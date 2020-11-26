@@ -6,6 +6,7 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/view/alltask/code_preview.dart';
+import 'package:flutterbeginner/view/widgets/all_item_widget.dart';
 import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 
 class SubTitlePage extends StatelessWidget {
@@ -73,7 +74,7 @@ class SubTitlePage extends StatelessWidget {
                         child: IconButton(
                             icon: Icon(Icons.more_vert),
                             onPressed: () {
-                              clickPopMenu();
+                              optionMenu(context, taskItem);
                             }),
                       ),
                       Column(
@@ -111,33 +112,35 @@ class SubTitlePage extends StatelessWidget {
         ));
   }
 
-  void clickPopMenu() {
-    PopupMenuButton(
-      icon: Icon(Icons.settings),
-      onSelected: (newValue) { // add this property
-      },
-      itemBuilder: (context) => [
-        PopupMenuItem(
-          child: Text("Settings"),
-          value: 0,
-        ),
-        PopupMenuItem(
-          child: Text("Flutter.io"),
-          value: 1,
-        ),
-        PopupMenuItem(
-          child: Text("Google.com"),
-          value: 2,
-        ),
-      ],
-    );
-  }
+  // void clickPopMenu() {
+  //   PopupMenuButton(
+  //     icon: Icon(Icons.settings),
+  //     onSelected: (newValue) { // add this property
+  //     },
+  //     itemBuilder: (context) => [
+  //       PopupMenuItem(
+  //         child: Text("Settings"),
+  //         value: 0,
+  //       ),
+  //       PopupMenuItem(
+  //         child: Text("Flutter.io"),
+  //         value: 1,
+  //       ),
+  //       PopupMenuItem(
+  //         child: Text("Google.com"),
+  //         value: 2,
+  //       ),
+  //     ],
+  //   );
+  // }
 }
 
 optionMenu(BuildContext context, TaskItem taskItem) {
   showDialog(
       context: context,
       child: new AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0)),
           title: getTxtBlackColor(
               msg: 'Select Option', fontWeight: FontWeight.bold),
           content: Container(
@@ -157,8 +160,22 @@ optionMenu(BuildContext context, TaskItem taskItem) {
                         ));
                   },
                   child: Container(
+                      width: double.infinity,
                       padding: EdgeInsets.all(15),
                       child: getTxtBlackColor(msg: 'Code Preview'))),
+              InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    try {
+                      shareText(taskItem);
+                    } catch (e) {
+                      print('error: $e');
+                    }
+                  },
+                  child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(15),
+                      child: getTxtBlackColor(msg: 'Share'))),
             ],
           ))));
 }

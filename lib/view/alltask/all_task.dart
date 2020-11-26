@@ -83,27 +83,69 @@ class _AllTasksState extends State<AllTasks> {
     );
   }
 
+  accDecMenu(BuildContext context) {
+    showDialog(
+        context: context,
+        child: new AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            title: getTxtBlackColor(
+                msg: 'Select Option', fontWeight: FontWeight.bold),
+            content: Container(
+                child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                InkWell(
+                    onTap: () {
+                      setState(() {
+                        searchDataBean.sort((a, b) => a.title.compareTo(b.title));
+                      });
+
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(15),
+                        child: getTxtBlackColor(msg: 'Accending'))),
+                InkWell(
+                    onTap: () {
+                      setState(() {
+                        searchDataBean.sort((a, b) => b.title.compareTo(a.title));
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(15),
+                        child: getTxtBlackColor(msg: 'Decending'))),
+              ],
+            ))));
+  }
+
   AppBar buildAppBar(BuildContext context) {
     return getAppBar(title: StringConst.FLUTTER_DEMO_TITLE, actions: [
-      IconButton(
-          icon: const Icon(Icons.sort_by_alpha),
-          tooltip: 'Sort',
-          onPressed: () {
-            _reverseSort = !_reverseSort;
-            setState(() {
-              if (_reverseSort)
-                searchDataBean
-                    .sort((a, b) => a.title.compareTo(b.title)); //accending
-              else
-                searchDataBean
-                    .sort((a, b) => b.title.compareTo(a.title)); //decending
-              // searchDataBean.sort((TaskItem a, TaskItem b) => _reverseSort
-              //     ? b.title.compareTo(a.title)
-              //     : a.title.compareTo(b.title));
-            });
-          }),
+      // IconButton(
+      //     icon: const Icon(Icons.sort_by_alpha),
+      //     tooltip: 'Sort',
+      //     onPressed: () {
+      //       _reverseSort = !_reverseSort;
+      //       setState(() {
+      //         if (_reverseSort)
+      //           searchDataBean
+      //               .sort((a, b) => a.title.compareTo(b.title)); //accending
+      //         else
+      //           searchDataBean
+      //               .sort((a, b) => b.title.compareTo(a.title)); //decending
+      //         // searchDataBean.sort((TaskItem a, TaskItem b) => _reverseSort
+      //         //     ? b.title.compareTo(a.title)
+      //         //     : a.title.compareTo(b.title));
+      //       });
+      //     }),
       searchBar.getSearchAction(context),
-      IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+      IconButton(
+          icon: Icon(Icons.more_vert), onPressed: () => accDecMenu(context)),
     ]);
   }
 }

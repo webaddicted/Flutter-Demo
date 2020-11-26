@@ -7,6 +7,7 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/view/alltask/code_preview.dart';
+import 'package:flutterbeginner/view/alltask/subtitle_page.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
 
 class AllItemWidget extends StatelessWidget {
@@ -51,7 +52,7 @@ class AllItemWidget extends StatelessWidget {
                 ),
                 onPress: () {
                   try {
-                    _shareText(dataBean[index]);
+                    shareText(dataBean[index]);
                   } catch (e) {
                     print('error: $e');
                   }
@@ -65,14 +66,6 @@ class AllItemWidget extends StatelessWidget {
     );
   }
 
-  _shareText(TaskItem dataBean) async {
-    try {
-      await Share.text(dataBean.title,
-          StringConst.githubRepo + dataBean.codePreview, 'text/plain');
-    } catch (e) {
-      print('error: $e');
-    }
-  }
 
   Widget taskRow(BuildContext context, TaskItem taskItem) {
     return InkWell(
@@ -113,7 +106,15 @@ class AllItemWidget extends StatelessWidget {
                     Align(
                       alignment: Alignment.topRight,
                         child: IconButton(
-                            icon: Icon(Icons.more_vert), onPressed: () {})),
+                          iconSize: 40,
+                          padding: EdgeInsets.all(0),
+                          icon: CircleAvatar(
+                            backgroundColor: Colors.grey.shade300.withOpacity(0.4),
+                            child: Icon(Icons.more_vert),
+                          ),
+                          onPressed: () =>optionMenu(context, taskItem),
+                        )
+                    ),
                 ],
               ),
             )
@@ -121,5 +122,13 @@ class AllItemWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+shareText(TaskItem dataBean) async {
+  try {
+    await Share.text(dataBean.title,
+        StringConst.githubRepo + dataBean.codePreview, 'text/plain');
+  } catch (e) {
+    print('error: $e');
   }
 }

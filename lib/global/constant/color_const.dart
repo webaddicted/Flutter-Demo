@@ -11,7 +11,7 @@ class ColorConst {
 
 
 
-  static const Color APP_COLOR = Colors.blue;
+  static const Color APP_COLOR = Colors.green;
   static const Color GREY_COLOR = Colors.grey;
   static const Color RED_COLOR = Colors.red;
   static const Color GREEN_COLOR = Colors.green;
