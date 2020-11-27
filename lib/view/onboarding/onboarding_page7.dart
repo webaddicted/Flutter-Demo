@@ -37,22 +37,22 @@ class _OnboardingPage7State extends State<OnboardingPage7>
 
   final pages = [
     SkOnboardingModel(
-        title: 'Choose your item',
+        title: 'Set your own goals and get better',
         description:
-            'Easily find your grocery items and you will get delivery in wide range',
+            'Goal support your motivation and inspire you to work harder',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
         imagePath: AssetsConst.SLIDER4_IMG),
     SkOnboardingModel(
-        title: 'Pick Up or Delivery',
+        title: 'Track your progress with statistics',
         description:
-            'We make ordering fast, simple and free-no matter if you order online or cash',
+            'Analyse personal result with detailed chart and numerical values',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
         imagePath: AssetsConst.SLIDER5_IMG),
     SkOnboardingModel(
-        title: 'Pay quick and easy',
-        description: 'Pay for order using credit or debit card',
+        title: 'Create photo comparisons and share your results',
+        description: 'Take before and after photos to visualize progress and get the shape that you dream about',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
         imagePath: AssetsConst.SLIDER6_IMG),
