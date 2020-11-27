@@ -31,15 +31,13 @@ class _HomePage7State extends State<HomePage7>{
         _featuredGames(),
         _backgroundBox(),
         _topLayer(),
-
       ],),
     );
   }
 
   Widget _featuredGames() {
     return SizedBox(
-      height: size.height * .50,
-      width: size.width,
+      height: 350,
       child: PageView(
         onPageChanged: (int index){
           setState(() {
@@ -63,11 +61,12 @@ class _HomePage7State extends State<HomePage7>{
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        width: size.width,
-        height: size.height * .80,
+        // margin: EdgeInsets.only(top: 280),
+        height: size.height,
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
+                  Color.fromRGBO(255, 255, 255, 1.0),
                   Color.fromRGBO(255, 255, 255, 1.0),
                   Colors.transparent
                 ],
@@ -115,12 +114,12 @@ class _HomePage7State extends State<HomePage7>{
           width: 25,
           height: 25,
         ),*/
-        Icon(Icons.menu,size: 30,color: Colors.white,),
+        Icon(Icons.menu,size: 25,color: Colors.white,),
         Row(
           children: [
-            Icon(Icons.search,size: 30,color: Colors.white,),
+            Icon(Icons.search,size: 25,color: Colors.white,),
             SizedBox(width: size.width * .05,),
-            Icon(Icons.notifications_none,size: 30,color: Colors.white,),
+            Icon(Icons.notifications_none,size: 25,color: Colors.white,),
           ],
         )
       ],
@@ -133,7 +132,7 @@ class _HomePage7State extends State<HomePage7>{
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
-        Text(dummyGameData1[_selectedIndex].title,maxLines: 2,style: TextStyle(fontSize: 40,),),
+        getTxtWhiteColor(msg:dummyGameData1[_selectedIndex].title,maxLines: 1,fontSize: 30,fontWeight: FontWeight.bold),
         SizedBox(height: 15,),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -146,7 +145,7 @@ class _HomePage7State extends State<HomePage7>{
               width: 10,
               height: 10,
               decoration: BoxDecoration(
-                  color: currentIndex ==_selectedIndex ? Colors.green : Colors.grey,
+                  color: currentIndex ==_selectedIndex ? Colors.green : Colors.yellow,
                   borderRadius: BorderRadius.circular(100)
               ),
             );

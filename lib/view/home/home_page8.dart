@@ -13,76 +13,60 @@ class HomePage8 extends StatefulWidget {
   _HomePage8State createState() => _HomePage8State();
 }
 
-class _HomePage8State extends State<HomePage8>{
+class _HomePage8State extends State<HomePage8> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.only(
-            top: 20,
-            left: 20,
-            right: 20,
+            top: 15,
+            left: 15,
+            right: 15,
           ),
           width: double.infinity,
           child: Column(
             children: [
-              Container(
-                height: 40,
-                width: 40,
-                child: Image.asset(AssetsConst.LOGO_IMG),
-              ),
-              SizedBox(
-                height: 30,
-              ),
+              SizedBox(height: 5),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    StringConst.APP_NAME,
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w700,
-                    ),
+                  Column(
+                    children: [
+                      // getTxtBlackColor(msg: 'Welcome', fontSize: 25, fontWeight: Fon),
+                      getTxtBlackColor(
+                        msg: 'Welcome\n'+StringConst.APP_NAME,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w700,
+
+                      ),
+                    ],
                   ),
+                  loadLocalCircleImg(AssetsConst.DEEPAK_IMG, 80)
                 ],
               ),
-              Container(
-                height: 60,
-                decoration: BoxDecoration(
-                  color: Color(0xffe5e5e5),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    width: 2,
-                    color: Colors.black12,
+              PreferredSize(
+                child: Container(
+                  child: Card(
+                    elevation: 8,
+                    child: Container(
+                      child: TextField(
+                        decoration: InputDecoration(
+                            hintText: 'Search',
+                            border: InputBorder.none,
+                            icon: IconButton(
+                                onPressed: () {}, icon: Icon(Icons.search)),
+                            suffixIcon: IconButton(
+                                onPressed: () {}, icon: Icon(Icons.mic))),
+                      ),
+                    ),
                   ),
                 ),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      height: 40,
-                      width: 40,
-                      child: Icon(Icons.search),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(
-                        top: 8,
-                      ),
-                      child: Text(
-                        "Search",
-                        style: TextStyle(
-                          color: Colors.black26,
-                          fontSize: 25,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                preferredSize: Size.fromHeight(80.0),
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: 10),
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
@@ -104,6 +88,7 @@ class _HomePage8State extends State<HomePage8>{
     );
   }
 }
+
 class CategoryItem extends StatelessWidget {
   final int index;
 
@@ -112,18 +97,12 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) {}
-
-        ),
-      ),
+      onTap: () {},
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.only(left: 5, right: 4, top: 8),
         decoration: BoxDecoration(
           color: categories[index].bgColor,
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
           children: [
@@ -167,7 +146,7 @@ class CategoryItem extends StatelessWidget {
             ),
             Expanded(
               child: Hero(
-                tag: categories[index].title+index.toString(),
+                tag: categories[index].title + index.toString(),
                 child: Icon(
                   categories[index].icon,
                   color: ColorConst.WHITE_COLOR,

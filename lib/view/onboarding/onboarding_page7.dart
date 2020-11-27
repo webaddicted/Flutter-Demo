@@ -51,7 +51,7 @@ class _OnboardingPage7State extends State<OnboardingPage7>
         descripColor: const Color(0xFF929794),
         imagePath: AssetsConst.SLIDER5_IMG),
     SkOnboardingModel(
-        title: 'Create photo comparisons and share your results',
+        title: 'Create photo comparisons and share results',
         description: 'Take before and after photos to visualize progress and get the shape that you dream about',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),

@@ -41,6 +41,7 @@ import 'package:flutterbeginner/view/example/chat_app.dart';
 import 'package:flutterbeginner/view/example/device_info_screen.dart';
 import 'package:flutterbeginner/view/example/dialog_screen.dart';
 import 'package:flutterbeginner/view/example/download_file_screen.dart';
+import 'package:flutterbeginner/view/example/filter_page.dart';
 import 'package:flutterbeginner/view/example/filter_selection_page.dart';
 import 'package:flutterbeginner/view/example/finger_print_screen.dart';
 import 'package:flutterbeginner/view/example/google_map_screen.dart';
@@ -483,6 +484,8 @@ List<TaskItem> taskItem = [
       title: 'AATest', page: Test(), codePreview: 'lib/view/test.dart'),
   TaskItem(
       title: 'Filter Selection', page: FilterSelectionPage(), codePreview: 'lib/view/example/filter_selection_page.dart'),
+  TaskItem(
+      title: 'Filter Screen', page: FilterPage(), codePreview: 'lib/view/example/filter_page.dart'),
 ];
 List<TaskItem> apiCallItem = [
   TaskItem(title: 'Http Api Call', page: ApiHttpPage(), codePreview: 'lib/view/api/api_http_page.dart'),

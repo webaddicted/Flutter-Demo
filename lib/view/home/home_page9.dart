@@ -19,22 +19,24 @@ class _HomePage9State extends State<HomePage9>{
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Welcome,",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.grey[600]),),
-                      Text(StringConst.WEBADDICTED,style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,color: Colors.grey[700]),)
-                    ],
-                  ),
-                  Icon(Icons.menu)
-                ],
+              Padding(
+                padding: EdgeInsets.only(left: 20,right: 20, top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Welcome,",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.grey[600]),),
+                        Text(StringConst.WEBADDICTED,style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,color: Colors.grey[700]),)
+                      ],
+                    ),
+                    Icon(Icons.menu)
+                  ],
+                ),
               ),
               SizedBox(height:40),
               Row(
@@ -43,14 +45,14 @@ class _HomePage9State extends State<HomePage9>{
                   buildItemMenu(categories[3].icon, categories[3].title),
                   buildItemMenu(categories[4].icon, categories[4].title),
                 ],),
-              SizedBox(height: 20,),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   buildItemMenu(categories[6].icon, categories[6].title),
                   buildItemMenu(categories[7].icon, categories[7].title),
                 ],),
-              SizedBox(height: 20,),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -58,15 +60,19 @@ class _HomePage9State extends State<HomePage9>{
                   buildItemMenu(categories[13].icon, categories[13].title),
                 ],),
               SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Current orders (3)",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                  Text("View all",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w400,color: Colors.blue),),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left:8.0,right: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Current orders (3)",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
+                    Text("View all",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w400,color: Colors.blue),),
+                  ],
+                ),
               ),
               SizedBox(height: 10,),
               Container(
+                margin: EdgeInsets.only(left: 8,right: 8),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -130,9 +136,8 @@ class _HomePage9State extends State<HomePage9>{
         ));
       },
       child: Container(
-        padding: EdgeInsets.all(15),
-        height: 110,
-        width: 190,
+        height: 140,
+        width: 165,
         decoration: BoxDecoration(
             boxShadow:[
               BoxShadow(
@@ -145,6 +150,8 @@ class _HomePage9State extends State<HomePage9>{
             borderRadius: BorderRadius.circular(12)
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRect(child: Icon(image)),//Image.asset(image,width: 100,height: 80,fit: BoxFit.fill,)),
             SizedBox(height: 15,),

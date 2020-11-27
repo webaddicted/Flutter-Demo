@@ -30,8 +30,8 @@ class GameList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: this.width * .45,
-                  height: this.height * .75 ,
+                  width: 180,
+                  height: 120 ,
                   decoration: BoxDecoration(
                       image: DecorationImage(image: NetworkImage(game.url),fit: BoxFit.cover)
                   ),
