@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
+import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/model/bean/sp/sp_manager.dart';
+import 'package:flutterbeginner/view/alltask/all_task.dart';
 
 class OnboardingPage7 extends StatefulWidget {
   @override
@@ -21,16 +24,12 @@ class _OnboardingPage7State extends State<OnboardingPage7>
         themeColor: const Color(0xFFf74269),
         pages: pages,
         skipClicked: (value) {
-          print(value);
-          _globalKey.currentState.showSnackBar(SnackBar(
-            content: Text("Skip clicked"),
-          ));
+          SPManager.setOnboarding(true);
+          navigationPushReplacement(context, AllTasks());
         },
         getStartedClicked: (value) {
-          print(value);
-          _globalKey.currentState.showSnackBar(SnackBar(
-            content: Text("Get Started clicked"),
-          ));
+          SPManager.setOnboarding(true);
+          navigationPushReplacement(context, AllTasks());
         },
       ),
     );

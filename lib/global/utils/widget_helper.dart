@@ -39,8 +39,9 @@ void delay(BuildContext context, int duration, StatefulWidget route) {
 //  {END PAGE NAVIGATION}
 //  {START APPBAR}
 AppBar getAppBar(
-    {@required String title, double fontSize, List<Widget> actions}) {
+    {@required String title, double fontSize, List<Widget> actions,  Color bgColor}) {
   return AppBar(
+    backgroundColor: bgColor == null ? ColorConst.APP_COLOR : bgColor,
     centerTitle: true,
     actions: actions,
     title: new Text(

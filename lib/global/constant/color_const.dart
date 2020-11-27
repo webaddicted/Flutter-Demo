@@ -9,9 +9,8 @@ class ColorConst {
   // 44a241
   // 7a3f2a
 
-
-
-  static const Color APP_COLOR = Colors.green;
+  static const Color PRIME_COLOR =  Colors.green;
+  static const Color APP_COLOR =  Color(0xfff5911c);//Colors.green;
   static const Color GREY_COLOR = Colors.grey;
   static const Color RED_COLOR = Colors.red;
   static const Color GREEN_COLOR = Colors.green;

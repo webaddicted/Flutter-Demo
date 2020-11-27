@@ -4,6 +4,7 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/customview/oval-right-clipper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
+import 'package:flutterbeginner/model/bean/sp/sp_manager.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/alltask/subtitle_page.dart';
@@ -94,6 +95,8 @@ class NavDrawerHome extends StatelessWidget {
                   _buildRow(Icons.movie, "Bottom Navigation", showBadge: true),
                   _buildDivider(),
                   _buildRow(Icons.person_pin, "Tab Bar"),
+                  _buildDivider(),
+                  _buildRow(Icons.person_pin, "Start From beginning"),
                   _buildDivider(),
                   _buildRow(Icons.email, "Contact us"),
                   _buildDivider(),
@@ -192,6 +195,9 @@ class NavDrawerHome extends StatelessWidget {
         return navigationPush(_context, SubTitlePage(TaskItem(title: 'Bottom Navigation', subItem: bottomNavItem)));
       case "Tab Bar":
         return navigationPush(_context, SubTitlePage(TaskItem(title: 'Tab Bar', subItem: tabBarPageItem)));
+      case 'Start From beginning':
+        SPManager.setOnboarding(false);
+        break;
       case "Contact us":
         break;
       case "About us":

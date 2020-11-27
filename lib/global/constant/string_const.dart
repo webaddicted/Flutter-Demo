@@ -96,4 +96,6 @@ class StringConst {
   static const String NAV_DRAWER_SLIDE_TITLE = 'Nav Slide Drawer';
 
   static const String SCREENSHOT_TITLE = 'Screenshot';
+
+  static String IS_ON_BOARDING_SHOW = 'OnBoarding';
 }

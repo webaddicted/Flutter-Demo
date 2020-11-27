@@ -4,6 +4,7 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/file_utils.dart';
 import 'package:flutterbeginner/view/alltask/all_task.dart';
+import 'package:flutterbeginner/view/letstart/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,17 +21,26 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: Colors.transparent,
+    //   statusBarIconBrightness: Brightness.dark,
+    //   statusBarBrightness:
+    //   Platform.isAndroid ? Brightness.dark : Brightness.light,
+    //   systemNavigationBarColor: Colors.white,
+    //   systemNavigationBarDividerColor: Colors.grey,
+    //   systemNavigationBarIconBrightness: Brightness.dark,
+    // ));
     return MaterialApp(
       title: StringConst.APP_NAME,
      debugShowCheckedModeBanner: false,
 //      darkTheme: ThemeData.dark(),
       theme: ThemeData(
           fontFamily: AssetsConst.ZILLASLAB_FONT,
-          accentColor: ColorConst.APP_COLOR,
+          accentColor: ColorConst.PRIME_COLOR,
           accentColorBrightness: Brightness.light,
-          primarySwatch: ColorConst.APP_COLOR,
+          primarySwatch: ColorConst.PRIME_COLOR,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: AllTasks(),
+      home: SplashPage(),
     );
   }
 }
