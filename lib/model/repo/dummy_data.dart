@@ -75,6 +75,7 @@ import 'package:flutterbeginner/view/list/list_cart_item_page2.dart';
 import 'package:flutterbeginner/view/list/list_cart_item_page3.dart';
 import 'package:flutterbeginner/view/list/list_page1.dart';
 import 'package:flutterbeginner/view/list/list_page2.dart';
+import 'package:flutterbeginner/view/list/sticky_header_page1.dart';
 import 'package:flutterbeginner/view/local/audio/audio_screen.dart';
 import 'package:flutterbeginner/view/local/call_log_screen.dart';
 import 'package:flutterbeginner/view/local/contact/contact_screen.dart';
@@ -122,6 +123,8 @@ import 'package:flutterbeginner/view/profile/profile_page7.dart';
 import 'package:flutterbeginner/view/profile/profile_page8.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop.dart';
+import 'package:flutterbeginner/view/pulltorefresh/refresh_page.dart';
+import 'package:flutterbeginner/view/pulltorefresh/refresh_anim_page.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop_material.dart';
 import 'package:flutterbeginner/view/settings/setting_page1.dart';
 import 'package:flutterbeginner/view/settings/setting_page2.dart';
@@ -480,6 +483,7 @@ List<TaskItem> taskItem = [
       title: 'Animation',
       page: AnimationPage(),
       codePreview: 'lib/view/example/animation_page.dart'),
+
   TaskItem(
       title: 'AATest', page: Test(), codePreview: 'lib/view/test.dart'),
   TaskItem(
@@ -571,6 +575,7 @@ List<TaskItem> listPageItem = [
   TaskItem(title: 'List Cart Item Page 1', page: ListCartItemPage1(), codePreview: 'lib/view/list/list_cart_item_page1.dart'),
   TaskItem(title: 'List Cart Item Page 2', page: ListCartItemPage2(), codePreview: 'lib/view/list/list_cart_item_page2.dart'),
   TaskItem(title: 'List Cart Item Page 3', page: ListCartItemPage3(), codePreview: 'lib/view/list/list_cart_item_page3.dart'),
+  TaskItem(title: 'Sticky Header', page: StickyHeaderPage1(), codePreview: 'lib/view/list/sticky_header_page1.dart'),
 ];
 List<TaskItem> bottomNavItem = [
   TaskItem(title: 'Bottom Nav Page1', page: BottomNavPage1(), codePreview: 'lib/view/bottombar/bottom_nav_page1.dart'),
@@ -602,6 +607,8 @@ List<TaskItem> navPageItem = [
   TaskItem(title: 'Drop Down Drawer', page: NavigDropDown(), codePreview: 'lib/view/navigation/nav_drop_down.dart'),
 ];
 List<TaskItem> pullToRefreshItem = [
+  TaskItem(title: 'Refresh Demo', page: RefreshPage(), codePreview: 'lib/view/pulltorefresh/refresh_page.dart'),
+  TaskItem(title: 'Refresh Animation Demo', page: RefreshAnimPage(), codePreview: 'lib/view/pulltorefresh/refresh_anim_page.dart'),
   TaskItem(title: 'Pull to refresh default', page: PullToRefresh(), codePreview: 'lib/view/pulltorefresh/pull_to_refresh.dart'),
   TaskItem(title: 'Water drop material', page: WaterDropMaterial(), codePreview: 'lib/view/pulltorefresh/water_drop_material.dart'),
   TaskItem(title: 'Water drop', page: WaterDrop(), codePreview: 'lib/view/pulltorefresh/water_drop.dart'),
