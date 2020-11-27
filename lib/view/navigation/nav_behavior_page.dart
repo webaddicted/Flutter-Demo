@@ -1,6 +1,7 @@
 import 'package:drawerbehavior/drawer_scaffold.dart';
 import 'package:drawerbehavior/drawerbehavior.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
@@ -99,16 +100,23 @@ class _NavBehaviorPageState extends State<NavBehaviorPage> {
           itemBuilder:
               (BuildContext context, MenuItem menuItem, bool isSelected) {
             return Container(
-              color: isSelected
-                  ? Theme.of(context).accentColor.withOpacity(0.7)
-                  : Colors.transparent,
-              padding: EdgeInsets.fromLTRB(24, 16, 24, 16),
-              child: Text(
-                menuItem.title,
-                style: Theme.of(context).textTheme.subhead.copyWith(
-                    color: isSelected ? Colors.black87 : Colors.white70),
-              ),
-            );
+                color: isSelected
+                    ? Theme.of(context).accentColor.withOpacity(0.7)
+                    : Colors.transparent,
+                padding: EdgeInsets.fromLTRB(24, 16, 24, 16),
+                child: getTxtColor(
+                  msg: menuItem.title,
+                  fontSize: 15,
+                  txtColor: isSelected ? Colors.white : Colors.white70,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                )
+
+                // Text(
+                //   menuItem.title,
+                //   style: Theme.of(context).textTheme.subhead.copyWith(
+                //       color: isSelected ? Colors.white : Colors.white70),
+                // ),
+                );
           },
           onMenuItemSelected: (itemId) {
             setState(() {
@@ -164,7 +172,7 @@ class _NavBehaviorPageState extends State<NavBehaviorPage> {
         )
       ];
     } else if (drawerType == 3) {
-      return  [
+      return [
         SideDrawer(
           percentage: 1,
           menu: menu,
@@ -181,7 +189,7 @@ class _NavBehaviorPageState extends State<NavBehaviorPage> {
         )
       ];
     } else if (drawerType == 4) {
-      return  [
+      return [
         SideDrawer(
           percentage: 0.6,
           menu: menuWithIcon,
@@ -196,7 +204,7 @@ class _NavBehaviorPageState extends State<NavBehaviorPage> {
         )
       ];
     } else if (drawerType == 5) {
-      return  [
+      return [
         SideDrawer(
           percentage: 0.6,
           menu: menu,
@@ -242,27 +250,21 @@ class _NavBehaviorPageState extends State<NavBehaviorPage> {
                       shape: BoxShape.circle,
                       image: new DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage("assets/user1.jpg")))),
+                          image: AssetImage(AssetsConst.DEEPAK_IMG)))),
               Container(
                   margin: EdgeInsets.only(left: 16),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        "John Witch",
-                        style: Theme.of(context)
-                            .textTheme
-                            .subhead
-                            .copyWith(color: Colors.white),
-                      ),
-                      Text(
-                        "test123@gmail.com",
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle
-                            .copyWith(color: Colors.white.withAlpha(200)),
-                      )
+                      getTxtWhiteColor(
+                          msg: StringConst.DEEPAK_SHARMA,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                      getTxtWhiteColor(
+                          msg: StringConst.EMAIL,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
                     ],
                   ))
             ],
@@ -294,27 +296,21 @@ class _NavBehaviorPageState extends State<NavBehaviorPage> {
                       shape: BoxShape.circle,
                       image: new DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage("assets/user1.jpg")))),
+                          image: AssetImage(AssetsConst.DEEPAK_IMG)))),
               Container(
                   margin: EdgeInsets.only(left: 16),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        "John Witch",
-                        style: Theme.of(context)
-                            .textTheme
-                            .subhead
-                            .copyWith(color: Colors.white),
-                      ),
-                      Text(
-                        "test123@gmail.com",
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle
-                            .copyWith(color: Colors.white.withAlpha(200)),
-                      )
+                      getTxtWhiteColor(
+                          msg: StringConst.DEEPAK_SHARMA,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                      getTxtWhiteColor(
+                          msg: StringConst.EMAIL,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
                     ],
                   ))
             ],

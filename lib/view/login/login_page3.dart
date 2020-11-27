@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/animation/fade_animation.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
@@ -40,7 +41,7 @@ class _LoginPage3State extends State<LoginPage3> {
                       1,
                       CircleAvatar(
                         backgroundColor: ColorConst.WHITE_COLOR,
-                        child: loadImg('url', 0),
+                        child:  loadCircleImg(ApiConstant.DEMO_IMG,0, 100),
                       ),
                     ),
                   ),

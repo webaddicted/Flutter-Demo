@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/sp/sp_manager.dart';
@@ -37,21 +36,21 @@ class _OnboardingPage7State extends State<OnboardingPage7>
 
   final pages = [
     SkOnboardingModel(
-        title: 'Set your own goals and get better',
+        title: 'Set your own goals',
         description:
             'Goal support your motivation and inspire you to work harder',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
         imagePath: AssetsConst.SLIDER4_IMG),
     SkOnboardingModel(
-        title: 'Track your progress with statistics',
+        title: 'Track your progress',
         description:
             'Analyse personal result with detailed chart and numerical values',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
         imagePath: AssetsConst.SLIDER5_IMG),
     SkOnboardingModel(
-        title: 'Create photo comparisons and share results',
+        title: 'Create photo comparisons',
         description: 'Take before and after photos to visualize progress and get the shape that you dream about',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
@@ -123,9 +122,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.bgColor,
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: SafeArea(
+      body:  SafeArea(
           child: Container(
             height: MediaQuery.of(context).size.height,
             child: Padding(
@@ -194,7 +191,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
             ),
           ),
         ),
-      ),
+
       bottomSheet: _currentPage == widget.pages.length - 1
           ? _showGetStartedButton()
           : Text(''),

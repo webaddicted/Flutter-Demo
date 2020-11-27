@@ -44,7 +44,7 @@ class _LoginPage1State extends State<LoginPage1>
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              loadCircleImg('', 0, _iconAnim.value * 100),
+              loadLocalCircleImg(AssetsConst.DEEPAK_IMG, _iconAnim.value * 100),
               Form(
                   child: Theme(
                       data: ThemeData(

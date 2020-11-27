@@ -3,11 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
-import 'package:flutterbeginner/global/utils/global_utility.dart';
-import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/countries_bean.dart';
 
@@ -22,13 +19,10 @@ class _MiscWidgetState extends State<MiscWidget> {
   bool _isChecked = false;
   int _radioValue = 0;
   String _resultRb = '';
-  List<CountryBean> _countryBean = List();
-  int _selectedCountryIndex = 30;
 
   @override
   void initState() {
     super.initState();
-    _getCountry();
   }
 
   @override
@@ -95,6 +89,7 @@ class _MiscWidgetState extends State<MiscWidget> {
             initialRating: 3,
             itemCount: 5,
             itemBuilder: (context, index) {
+              // ignore: missing_return
               switch (index) {
                 case 0:
                   return Icon(
@@ -128,15 +123,6 @@ class _MiscWidgetState extends State<MiscWidget> {
             }),
         SizedBox(height: 10),
       ],
-    );
-  }
-
-  Widget _image(String asset) {
-    return Image.asset(
-      asset,
-      height: 30.0,
-      width: 30.0,
-      color: Colors.amber,
     );
   }
 
@@ -308,11 +294,6 @@ class _MiscWidgetState extends State<MiscWidget> {
         SizedBox(height: 10),
         _cardView(),
         SizedBox(height: 10),
-        (_countryBean == null || _countryBean.length == 0)
-            ? Container()
-            : selectCountryDropDown(
-                _countryBean[_selectedCountryIndex], showCountries),
-        SizedBox(height: 10),
       ],
     );
   }
@@ -335,6 +316,7 @@ class _MiscWidgetState extends State<MiscWidget> {
     return Card(
       color: ColorConst.FCM_APP_COLOR,
       elevation: 2.0,
+      clipBehavior:Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
       child: SizedBox(
         height: 150,
@@ -346,10 +328,6 @@ class _MiscWidgetState extends State<MiscWidget> {
     );
   }
 
-  void _getCountry() async {
-    _countryBean = await loadCountriesJson(context);
-    setState(() {});
-  }
 
   Widget _chipView() {
     return Wrap(
@@ -391,133 +369,4 @@ class _MiscWidgetState extends State<MiscWidget> {
     );
   }
 
-  showCountries() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) => selectCountry(),
-      //searchAndPickYourCountryHere(),
-//        barrierDismissible: false
-    );
-
-//    showDialog(
-//        context: context,
-//        builder: (_) {
-//          return MyDialog();
-//        });
-  }
-
-  Widget selectCountry() {
-    List<CountryBean> _searchResult = List();
-    print("Dialog Start");
-    TextEditingController _searchCountryController = TextEditingController();
-    return Dialog(
-      key: Key('SearchCountryDialog'),
-      elevation: 8.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      child: Container(
-        margin: const EdgeInsets.all(5.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 8.0, top: 8.0, bottom: 2.0, right: 8.0),
-              child: Card(
-                child: TextFormField(
-//                      autofocus: true,
-                  controller: _searchCountryController,
-                  onChanged: (text) {
-                    print('on Change : ' + text);
-//                      _searchResult.clear();
-                    if (text.isEmpty) {
-                      setState(() {});
-                      return;
-                    }
-                    _countryBean.forEach((userDetail) {
-                      if (userDetail.name
-                              .toLowerCase()
-                              .contains(text.toLowerCase()) ||
-                          userDetail.dialCode.toString().contains(text))
-                        _searchResult.add(userDetail);
-                    });
-                    setState(() {});
-                  }, // onSearchTextChanged,
-                  decoration: InputDecoration(
-                      hintText: 'Search your country',
-                      contentPadding: const EdgeInsets.only(
-                          left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
-                      border: InputBorder.none),
-                ),
-              ),
-            ),
-            Expanded(
-                child: _searchResult.length != 0 ||
-                        _searchCountryController.text.isNotEmpty
-                    ? _buildSearchResults(_searchResult)
-                    : _buildSearchResults(_countryBean)),
-          ],
-        ),
-      ),
-    );
-  }
-
-//  onSearchTextChanged(String text) async {
-//    _searchResult.clear();
-//    if (text.isEmpty) {
-//      setState(() {});
-//      return;
-//    }
-//
-//    _countryBean.forEach((userDetail) {
-//      if (userDetail.name.toLowerCase().contains(text.toLowerCase()) ||
-//          userDetail.dialCode.toString().contains(text))
-//        _searchResult.add(userDetail);
-//    });
-//
-//    setState(() {});
-//  }
-
-  Widget _buildSearchResults(List<CountryBean> country) {
-    print('List : ');
-    return new ListView.builder(
-      itemCount: country.length,
-      itemBuilder: (context, index) {
-        return Material(
-          color: Colors.white,
-          type: MaterialType.canvas,
-          child: InkWell(
-            onTap: () => selectThisCountry(country[index]),
-            //selectThisCountry(country),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 10.0, right: 10.0, top: 10.0, bottom: 10.0),
-              child: Text(
-                "  " +
-                    country[index].flag +
-                    "  " +
-                    country[index].name +
-                    " (" +
-                    country[index].dialCode +
-                    ")",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w500),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  void selectThisCountry(CountryBean country) {
-    print(country);
-    Navigator.of(context).pop();
-    Future.delayed(Duration(milliseconds: 10)).whenComplete(() {
-      setState(() {
-        _selectedCountryIndex = _countryBean.indexOf(country);
-      });
-    });
-  }
 }

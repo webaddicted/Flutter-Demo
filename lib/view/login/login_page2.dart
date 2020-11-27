@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
+import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/customview/bezierContainer.dart';
@@ -59,10 +61,7 @@ class _LoginPage2State extends State<LoginPage2> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           SizedBox(height: 90),
-                          Container(
-                              width: 120,
-                              height: 120,
-                              child: loadImg("context", 0)),
+                           loadCircleImg(ApiConstant.DEMO_IMG,0, 120),
                           SizedBox(height: 10),
                           getTxtAppColor(
                               msg: StringConst.APP_NAME,

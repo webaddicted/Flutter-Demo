@@ -9,6 +9,7 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/countries_bean.dart';
 import 'package:flutterbeginner/view/firebase/fcm_otp_verify.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
+import 'package:flutterbeginner/view/widgets/country_dialog.dart';
 
 class FcmLoginMobile extends StatefulWidget {
   @override
@@ -61,26 +62,33 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                           Navigator.pop(context);
                         }),
                   ),
-                  getTxtGreyColor(msg:'Create Account', fontSize:25, fontWeight:FontWeight.bold),
-                  SizedBox(height: 20,),
+                  getTxtGreyColor(
+                      msg: 'Create Account',
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                  SizedBox(
+                    height: 20,
+                  ),
                   SizedBox(
                       height: 155,
                       width: 130,
                       child: Image.asset(AssetsConst.MOBILE_IMG)),
                   SizedBox(height: 20),
-                  getTxtBlackColor(msg:'Enter your mobile number \nto create account',
-                      textAlign:TextAlign.center,
-                         fontSize: 20),
+                  getTxtBlackColor(
+                      msg: 'Enter your mobile number \nto create account',
+                      textAlign: TextAlign.center,
+                      fontSize: 20),
                   SizedBox(height: 30),
-                  getTxtGreyColor(msg:'We will send you one time \npassword (OTP)',
-                      textAlign:TextAlign.center,
-                     fontSize: 18),
+                  getTxtGreyColor(
+                      msg: 'We will send you one time \npassword (OTP)',
+                      textAlign: TextAlign.center,
+                      fontSize: 18),
                   SizedBox(height: 30),
                   Form(
                     key: formKey,
                     child: Container(
                       padding:
-                      EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
+                          EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
                       decoration: new BoxDecoration(
                         borderRadius: new BorderRadius.circular(30.0),
                         color: Colors.white,
@@ -91,7 +99,6 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                               offset: new Offset(1.0, 1.0))
                         ],
                       ),
-
                       child: TextFormField(
                         controller: mobileNoCont,
                         textInputAction: TextInputAction.next,
@@ -107,7 +114,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                           prefixIcon: InkWell(
                               onTap: () => showDialog(
                                   context: context,
-                                  child: _CountryCodeDialog(
+                                  child: CountryDialog(
                                     countries: _countryBean,
                                     onCellTap: countryCodeTap,
                                   )),
@@ -125,11 +132,17 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                   SizedBox(height: 20),
                   _loginBtn(),
                   SizedBox(height: 30),
-                  Center(child: getTxtGreyColor(msg:'Dont have an account', fontSize:16)),
+                  Center(
+                      child: getTxtGreyColor(
+                          msg: 'Dont have an account', fontSize: 16)),
                   SizedBox(height: 5),
                   GestureDetector(
-                      onTap: ()=>navigationPush(context, FcmSignup()),
-                      child: getTxtColor(msg:'SIGN UP',txtColor:ColorConst.FCM_APP_COLOR, fontSize:16, fontWeight:FontWeight.bold)),
+                      onTap: () => navigationPush(context, FcmSignup()),
+                      child: getTxtColor(
+                          msg: 'SIGN UP',
+                          txtColor: ColorConst.FCM_APP_COLOR,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
                   SizedBox(height: 10),
                 ],
               ),
@@ -147,7 +160,8 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
       child: RaisedButton(
           shape: StadiumBorder(),
           color: ColorConst.FCM_APP_COLOR,
-          child: getTxtWhiteColor(msg:'Login', fontSize:15, fontWeight:FontWeight.bold),
+          child: getTxtWhiteColor(
+              msg: 'Login', fontSize: 15, fontWeight: FontWeight.bold),
           onPressed: () => _submitLogin()),
     );
   }
@@ -187,118 +201,5 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
     _dialCode = p1.dialCode;
     _countryCode = '${p1.flag} (${p1.dialCode}) ';
     setState(() {});
-  }
-}
-class _CountryCodeDialog extends StatefulWidget {
-  final List<CountryBean> countries;
-  final Function(CountryBean) onCellTap;
-
-  const _CountryCodeDialog({@required this.countries, this.onCellTap});
-
-  @override
-  _CountryCodeDialogState createState() => _CountryCodeDialogState();
-}
-
-class _CountryCodeDialogState extends State<_CountryCodeDialog> {
-  List<CountryBean> _countries;
-  TextEditingController _controller;
-  Size _size;
-
-  @override
-  void initState() {
-    _countries = widget.countries;
-    _controller = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    _size = MediaQuery.of(context).size;
-    return SimpleDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      contentPadding: EdgeInsets.zero,
-      title: Theme(
-        child: TextField(
-          controller: _controller,
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-            fillColor: Colors.transparent,
-            hintText: 'Search',
-            prefixIcon: Icon(Icons.search),
-            floatingLabelBehavior: FloatingLabelBehavior.auto,
-            filled: true,
-            prefixStyle: TextStyle(color: Colors.black, fontSize: 35),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black87),
-            ),
-          ),
-          onChanged: (str) {
-            _countries = widget.countries
-                .where((e) => (e.name.toUpperCase().contains(str.toUpperCase()))||e.dialCode.toUpperCase().contains(str.toUpperCase()))
-                .toList();
-            setState(() {});
-          },
-        ),
-        data: Theme.of(context).copyWith(
-          primaryColor: Colors.black87,
-        ),
-      ),
-      children: <Widget>[
-        Container(
-          height: _size.height-10,
-          width: _size.width-20,
-          child: ListView.separated(
-            padding: EdgeInsets.all(15),
-            separatorBuilder: (_, __) => Divider(
-              height: 25,
-            ),
-            itemCount: _countries.length,
-            itemBuilder: (_, index) {
-              final d = _countries[index];
-              return _CountryCell(
-                data: d,
-                onTap: widget.onCellTap,
-              );
-            },
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class _CountryCell extends StatelessWidget {
-  final CountryBean data;
-  final Function(CountryBean) onTap;
-
-  _CountryCell({this.data, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      key: ValueKey(data.name),
-      onTap: () {
-        onTap(data);
-        Navigator.of(context).pop();
-      },
-      child: Container(
-        child: Row(
-          children: <Widget>[
-            getTxtBlackColor(msg:data.flag, fontSize: 22),
-            SizedBox(width: 10),
-            getTxtBlackColor(msg:' (${data.dialCode}) ', fontSize: 16),
-            Expanded(child: getTxtBlackColor(msg:data.name, fontSize: 16, maxLines: 1)),
-
-          ],
-        ),
-      ),
-
-    );
   }
 }

@@ -79,12 +79,15 @@ class _HomePage7State extends State<HomePage7>{
   }
 
   Widget _topLayer(){
-    return  Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _appBarWidget(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: size.height * .05,horizontal: size.width * .05),
+            child: _appBarWidget(),
+          ),
           SizedBox(height: size.height * .20,),
           _featuredGameInfoWidget(),
           Padding(

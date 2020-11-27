@@ -28,9 +28,8 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: Container(
+      body:
+        Container(
           decoration: BoxDecoration(
             gradient: kLinearGradient,
           ),
@@ -95,8 +94,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                     ),
                   ],
                 ),
-                Expanded(
-                  child: Align(
+             Align(
                     alignment: Alignment.bottomRight,
                     child: AnimatedOpacity(
                       opacity: _currentPage != _numPages - 1 ? 1.0 : 0.0,
@@ -131,10 +129,9 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                       ),
                     ),
                   ),
-                )
               ])),
         ),
-      ),
+      // ),
       bottomSheet: _currentPage == _numPages - 1
           ? GestureDetector(
               onTap: () {
