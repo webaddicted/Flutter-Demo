@@ -68,7 +68,7 @@ class _FcmSignupState extends State<FcmSignup> {
                                 navigationPush(context, FullImage(null, imageURI,imageURI));
                             },
                             child: Hero(
-                              tag:imageURI,
+                              tag:imageURI==null?"test":imageURI,
                               child: getSignupImagePicker(
                                   130, imageURI, imagePickerDialog),
                             ),

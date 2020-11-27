@@ -35,13 +35,13 @@ class SubTitlePage extends StatelessWidget {
             ),
     );
   }
-  final key = GlobalKey();
+  // final key = GlobalKey();
   getGridView() {
     return Container(
         color: ColorConst.GREY_BG_COLOR,
         alignment: Alignment.center,
         child: GridView.builder(
-          key: key,
+          // key: key,
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(4.0),
           itemCount: subItem.subItem.length,

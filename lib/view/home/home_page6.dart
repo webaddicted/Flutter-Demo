@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,7 +24,7 @@ class _HomePage6State extends State<HomePage6>
         slivers: <Widget>[
           SliverAppBar(
             floating: true,
-            backgroundColor: Colors.cyanAccent,
+            backgroundColor: ColorConst.APP_COLOR,
             title: Text(StringConst.APP_NAME),
             bottom: PreferredSize(
               child: _buildHeader(),
@@ -97,12 +98,12 @@ class _HomePage6State extends State<HomePage6>
 
   Widget _buildHeading(String title) {
     return SliverPadding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(10.0),
       sliver: SliverToBoxAdapter(
         child: Container(
           child: Text(
             title,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+            style: TextStyle(color: Colors.black,fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -110,7 +111,7 @@ class _HomePage6State extends State<HomePage6>
   }
 
   Widget _buildDivider({Color color, double height = 4.0}) {
-    if (color == null) color = Colors.cyanAccent.shade100;
+    if (color == null) color = ColorConst.APP_COLOR.withOpacity(.8);
     return SliverToBoxAdapter(
       child: Container(
         height: height,
@@ -123,7 +124,7 @@ class _HomePage6State extends State<HomePage6>
     return Container(
       height: 100.0,
       width: double.infinity,
-      color: Colors.cyanAccent.shade100,
+      color: ColorConst.APP_COLOR,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -154,11 +155,11 @@ class _HomePage6State extends State<HomePage6>
           child: Icon(
             icon,
             size: 30,
-            color: Colors.cyanAccent.shade400,
+            color: Colors.purple.shade300,
           ),
         ),
         const SizedBox(height: 5.0),
-        getTxtBlackColor(msg: label),
+        getTxtWhiteColor(msg: label),
       ],
     );
   }
@@ -174,20 +175,20 @@ class _HomePage6State extends State<HomePage6>
           Icon(
             icon,
             size: 28,
-            color: Colors.cyanAccent.shade400,
+            color: Colors.purple.shade300,
           ),
           const SizedBox(height: 10.0),
           getTxtBlackColor(msg: label),
-          if (subtitle != null) const SizedBox(height: 5.0),
-          if (subtitle != null)
-            Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 2.0,
-                  horizontal: 4.0,
-                ),
-                color: Colors.grey.shade200,
-                child: getTxtBlackColor(
-                    msg: subtitle, textAlign: TextAlign.center))
+          // if (subtitle != null) const SizedBox(height: 5.0),
+          // if (subtitle != null)
+          //   Container(
+          //       padding: const EdgeInsets.symmetric(
+          //         vertical: 2.0,
+          //         horizontal: 4.0,
+          //       ),
+          //       color: Colors.grey.shade200,
+          //       child: getTxtBlackColor(
+          //           msg: subtitle, textAlign: TextAlign.center))
         ],
       ),
     );
@@ -212,7 +213,7 @@ class _HomePage6State extends State<HomePage6>
     HomeMenuItem("Ride", FontAwesomeIcons.motorcycle, subtitle: "CASHBACK 5%"),
     HomeMenuItem("Share", FontAwesomeIcons.shareSquare),
     HomeMenuItem("Newspaper", FontAwesomeIcons.newspaper),
-    HomeMenuItem("Credit Card", FontAwesomeIcons.creditCard),
+    HomeMenuItem("Cards", FontAwesomeIcons.creditCard),
   ];
   final List<HomeMenuItem> homeBookingsItems = [
     HomeMenuItem("Flight", FontAwesomeIcons.plane),

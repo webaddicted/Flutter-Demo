@@ -9,7 +9,6 @@ import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:photo_view/photo_view.dart';
-
 //  {START PAGE NAVIGATION}
 void navigationPush(BuildContext context, Widget route) {
   Navigator.push(context, MaterialPageRoute(
@@ -94,16 +93,27 @@ FadeInImage loadImg(String url, int placeHolderPos) {
       image: url);
 }
 
-ClipRRect loadLocalCircleImg(String imagePath, double radius) {
-  return ClipRRect(
-    borderRadius: BorderRadius.circular(radius),
-    child: new FadeInImage.assetNetwork(
-        height: radius,
-        width: radius,
-        fit: BoxFit.fill,
-        placeholder: imagePath,
-        image: 'imgUrl'),
-  );
+Widget loadLocalCircleImg(String imagePath, double radius) {
+  return Container(
+      width: radius,
+      height: radius,
+      decoration: new BoxDecoration(
+          shape: BoxShape.circle,
+          image: new DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(imagePath)
+          )
+      ));
+
+  //   ClipRRect(
+  //   borderRadius: BorderRadius.circular(radius),
+  //   child: new FadeInImage.assetNetwork(
+  //       height: radius,
+  //       width: radius,
+  //       fit: BoxFit.fill,
+  //       placeholder: imagePath,
+  //       image: 'localimagePath'),
+  // );
 }
 
 ClipRRect loadCircleImg(String imgUrl, int placeHolderPos, double radius) {

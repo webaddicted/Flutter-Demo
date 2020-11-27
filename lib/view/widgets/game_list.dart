@@ -23,7 +23,7 @@ class GameList extends StatelessWidget {
           return Container(
             //height: this.height,
             // width: this.width * .5,
-            padding: EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(left:10,right: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
@@ -38,7 +38,7 @@ class GameList extends StatelessWidget {
                 ),
                 showTitle ? Text(game.title,
                   maxLines: 2,
-                  style: TextStyle(color: Colors.white,fontSize: 16.0,),
+                  style: TextStyle(color: Colors.black,fontSize: 16.0,),
                 ):Container()
               ],
             ),

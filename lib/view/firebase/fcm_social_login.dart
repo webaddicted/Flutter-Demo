@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
@@ -52,7 +53,7 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
                         Navigator.pop(context);
                       }),
                   SizedBox(height: 50),
-                  Center(child: loadCircleImg('imgUrl', 0, 150)),
+                  Center(child: loadCircleImg(ApiConstant.DEMO_IMG, 0, 150)),
                   SizedBox(height: 80),
                   _loginButton('Google', ColorConst.GOOGLE_COLOR,
                       AssetsConst.GOOGLE_IMG, 0),

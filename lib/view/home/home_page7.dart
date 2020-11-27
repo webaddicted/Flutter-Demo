@@ -61,12 +61,11 @@ class _HomePage7State extends State<HomePage7>{
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        // margin: EdgeInsets.only(top: 280),
-        height: size.height,
+        width: size.width,
+        height: size.height * .80,
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  Color.fromRGBO(255, 255, 255, 1.0),
                   Color.fromRGBO(255, 255, 255, 1.0),
                   Colors.transparent
                 ],
@@ -80,9 +79,7 @@ class _HomePage7State extends State<HomePage7>{
   }
 
   Widget _topLayer(){
-    return Padding(
-      padding:  EdgeInsets.symmetric(vertical: size.height * .05,horizontal: size.width * .05),
-      child: Column(
+    return  Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -91,13 +88,12 @@ class _HomePage7State extends State<HomePage7>{
           SizedBox(height: size.height * .20,),
           _featuredGameInfoWidget(),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8,),
+            padding: const EdgeInsets.symmetric(vertical: 0,),
             child: GameList(height: size.height * .22,width: size.width,gameList:dummyGameData2,showTitle: true,),
           ),
           _featuredGameBanner(),
-          Expanded(child: GameList(width: size.width,height: size.height * .20,gameList: dummyGameData1,showTitle: false,)),
+          Expanded(child: GameList(width: size.width,height: size.height * .20,gameList: dummyGameData1,showTitle: true,)),
         ],
-      ),
     );
   }
 

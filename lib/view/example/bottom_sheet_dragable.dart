@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/api_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
@@ -26,7 +27,7 @@ class _BottomSheetDragableScreenState extends State<BottomSheetDragableScreen> {
           margin: EdgeInsets.all(10),
           child: Column(children: <Widget>[
             SizedBox(height: 20,),
-            loadCircleImg('imgUrl', 0, 80),
+            loadCircleImg(ApiConstant.WEBADDICTED_IMG, 0, 80),
             SizedBox(height: 20,),
             edtNameField(TextEditingController()),
             SizedBox(height: 10,),

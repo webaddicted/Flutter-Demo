@@ -64,6 +64,9 @@ dependencies:
   url_launcher: ^5.5.0
   animator: ^2.0.1
   rect_getter: ^0.1.0
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -78,9 +81,10 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
-    - images/
-    - local_file/
     - assets/
+    - assets/images/
+    - assets/local_file/
+    - assets/fonts/
     - lib/view/
     - lib/view/alltask/
     - lib/view/api/
@@ -113,20 +117,20 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: fonts/Poppins-Regular.otf
+        - asset: assets/fonts/Poppins-Regular.otf
           weight: 400
-        - asset: fonts/Poppins-Medium.otf
+        - asset: assets/fonts/Poppins-Medium.otf
           weight: 500
-        - asset: fonts/Poppins-SemiBold.otf
+        - asset: assets/fonts/Poppins-SemiBold.otf
           weight: 600
     - family: Zillaslab
       fonts:
-        - asset: fonts/Zillaslab-bold.ttf
-        - asset: fonts/Zillaslab-light.ttf
-        - asset: fonts/Zillaslab-medium.ttf
-        - asset: fonts/Zillaslab-regular.ttf
+        - asset: assets/fonts/Zillaslab-bold.ttf
+        - asset: assets/fonts/Zillaslab-light.ttf
+        - asset: assets/fonts/Zillaslab-medium.ttf
+        - asset: assets/fonts/Zillaslab-regular.ttf
     - family: PT
       fonts:
-        - asset: fonts/PT-bold.ttf
-        - asset: fonts/PT-italic.ttf
-        - asset: fonts/PT-regular.ttf
+        - asset: assets/fonts/PT-bold.ttf
+        - asset: assets/fonts/PT-italic.ttf
+        - asset: assets/fonts/PT-regular.ttf

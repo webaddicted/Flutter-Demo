@@ -3,11 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
-import 'package:flutterbeginner/global/utils/dialog_utility.dart';
 import 'package:flutterbeginner/global/utils/random_widget.dart';
+import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/countries_bean.dart';
-import 'package:flutterbeginner/view/firebase/fcm_home.dart';
 import 'package:flutterbeginner/view/firebase/fcm_otp_verify.dart';
 import 'package:flutterbeginner/view/firebase/fcm_signup.dart';
 
@@ -22,6 +21,10 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   TextEditingController otpCont = TextEditingController();
   static BuildContext _ctx;
   List<CountryBean> _countryBean;
+
+  var _countryCode = '🇮🇳 (+91) ';
+
+  String _dialCode = '+91';
 
   @override
   void initState() {
@@ -61,8 +64,8 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                   getTxtGreyColor(msg:'Create Account', fontSize:25, fontWeight:FontWeight.bold),
                   SizedBox(height: 20,),
                   SizedBox(
-                      height: 225,
-                      width: 150,
+                      height: 155,
+                      width: 130,
                       child: Image.asset(AssetsConst.MOBILE_IMG)),
                   SizedBox(height: 20),
                   getTxtBlackColor(msg:'Enter your mobile number \nto create account',
@@ -75,10 +78,48 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                   SizedBox(height: 30),
                   Form(
                     key: formKey,
-                    child: Column(
-                      children: <Widget>[
-                        edtMobileNoField(mobileNoCont),
-                      ],
+                    child: Container(
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
+                      decoration: new BoxDecoration(
+                        borderRadius: new BorderRadius.circular(30.0),
+                        color: Colors.white,
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 3.0,
+                              offset: new Offset(1.0, 1.0))
+                        ],
+                      ),
+
+                      child: TextFormField(
+                        controller: mobileNoCont,
+                        textInputAction: TextInputAction.next,
+                        // maxLines: 1,
+                        // maxLength: 10,
+                        keyboardType: TextInputType.number,
+                        validator: ValidationHelper.validateMobile,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          // fillColor: Colors.transparent,
+                          hintText: 'Phone Number',
+                          contentPadding: EdgeInsets.only(top: 15),
+                          prefixIcon: InkWell(
+                              onTap: () => showDialog(
+                                  context: context,
+                                  child: _CountryCodeDialog(
+                                    countries: _countryBean,
+                                    onCellTap: countryCodeTap,
+                                  )),
+                              child: SizedBox(
+                                width: 100,
+                                child: Center(
+                                  child: getTxtBlackColor(
+                                      msg: _countryCode, fontSize: 17),
+                                ),
+                              )),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),
@@ -124,24 +165,140 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   }
 
   Future<List<CountryBean>> _loadCountriesJson() async {
-    _countryBean.clear();
+    _countryBean = new List();
     var value = await DefaultAssetBundle.of(context)
         .loadString(AssetsConst.COUNTRY_PHONE_CODES_JSON);
     var countriesJson = json.decode(value);
     for (var country in countriesJson) {
       _countryBean.add(CountryBean.fromJson(country));
     }
+    print("object" + _countryBean.toString());
     setState(() {});
     return _countryBean;
   }
 
-
-
-
-
-
   static otpSentSuccess() {
     Navigator.pop(_ctx);
     navigationPush(_ctx, FcmOtpVerify());
+  }
+
+  countryCodeTap(CountryBean p1) {
+    print("code   :${p1.flag}  $p1");
+    _dialCode = p1.dialCode;
+    _countryCode = '${p1.flag} (${p1.dialCode}) ';
+    setState(() {});
+  }
+}
+class _CountryCodeDialog extends StatefulWidget {
+  final List<CountryBean> countries;
+  final Function(CountryBean) onCellTap;
+
+  const _CountryCodeDialog({@required this.countries, this.onCellTap});
+
+  @override
+  _CountryCodeDialogState createState() => _CountryCodeDialogState();
+}
+
+class _CountryCodeDialogState extends State<_CountryCodeDialog> {
+  List<CountryBean> _countries;
+  TextEditingController _controller;
+  Size _size;
+
+  @override
+  void initState() {
+    _countries = widget.countries;
+    _controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _size = MediaQuery.of(context).size;
+    return SimpleDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      contentPadding: EdgeInsets.zero,
+      title: Theme(
+        child: TextField(
+          controller: _controller,
+          cursorColor: Colors.black,
+          decoration: InputDecoration(
+            fillColor: Colors.transparent,
+            hintText: 'Search',
+            prefixIcon: Icon(Icons.search),
+            floatingLabelBehavior: FloatingLabelBehavior.auto,
+            filled: true,
+            prefixStyle: TextStyle(color: Colors.black, fontSize: 35),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black87),
+            ),
+          ),
+          onChanged: (str) {
+            _countries = widget.countries
+                .where((e) => (e.name.toUpperCase().contains(str.toUpperCase()))||e.dialCode.toUpperCase().contains(str.toUpperCase()))
+                .toList();
+            setState(() {});
+          },
+        ),
+        data: Theme.of(context).copyWith(
+          primaryColor: Colors.black87,
+        ),
+      ),
+      children: <Widget>[
+        Container(
+          height: _size.height-10,
+          width: _size.width-20,
+          child: ListView.separated(
+            padding: EdgeInsets.all(15),
+            separatorBuilder: (_, __) => Divider(
+              height: 25,
+            ),
+            itemCount: _countries.length,
+            itemBuilder: (_, index) {
+              final d = _countries[index];
+              return _CountryCell(
+                data: d,
+                onTap: widget.onCellTap,
+              );
+            },
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class _CountryCell extends StatelessWidget {
+  final CountryBean data;
+  final Function(CountryBean) onTap;
+
+  _CountryCell({this.data, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      key: ValueKey(data.name),
+      onTap: () {
+        onTap(data);
+        Navigator.of(context).pop();
+      },
+      child: Container(
+        child: Row(
+          children: <Widget>[
+            getTxtBlackColor(msg:data.flag, fontSize: 22),
+            SizedBox(width: 10),
+            getTxtBlackColor(msg:' (${data.dialCode}) ', fontSize: 16),
+            Expanded(child: getTxtBlackColor(msg:data.name, fontSize: 16, maxLines: 1)),
+
+          ],
+        ),
+      ),
+
+    );
   }
 }

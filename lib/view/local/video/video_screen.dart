@@ -66,6 +66,7 @@ class _VideoScreenState extends State<VideoScreen> {
       },
       child: Container(
         child: Card(
+            clipBehavior: Clip.antiAlias ,
           elevation: 1.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),

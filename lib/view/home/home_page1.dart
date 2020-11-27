@@ -47,7 +47,7 @@ class _HomePage1State extends State<HomePage1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: 10),
-              // SizedBox(height:450,child: ShimmerView.movieDetailsTag()),
+              // SizedBox(height:450,child: ShimmerVie.movieDetailsTag()),
               SizedBox(
                   height: 180, width: double.infinity, child: CarouselView()),
               SizedBox(height: 10),
