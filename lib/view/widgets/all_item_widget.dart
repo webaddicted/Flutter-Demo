@@ -126,6 +126,7 @@ class AllItemWidget extends StatelessWidget {
   }
 }
 shareText(TaskItem dataBean) async {
+  // print(StringConst.githubRepo + dataBean.codePreview);
   try {
     await Share.text(dataBean.title,
         StringConst.githubRepo + dataBean.codePreview, 'text/plain');
