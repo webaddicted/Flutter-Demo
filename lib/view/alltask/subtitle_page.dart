@@ -157,6 +157,7 @@ optionMenu(BuildContext context, TaskItem taskItem) {
                         CodePreviewsPage(
                           title: taskItem.title,
                           path: taskItem.codePreview,
+                          item: taskItem,
                         ));
                   },
                   child: Container(

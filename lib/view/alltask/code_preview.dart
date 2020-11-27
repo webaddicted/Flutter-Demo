@@ -7,37 +7,121 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/code_highlighter.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
-class CodePreviewsPage extends StatelessWidget {
+class CodePreviewsPage extends StatefulWidget {
   final String title;
   final String path;
+  final TaskItem item;
 
-  const CodePreviewsPage({Key key, @required this.title, @required this.path})
-      : super(key: key);
+  CodePreviewsPage(
+      {Key key, @required this.title, @required this.path, this.item});
+
+  @override
+  _CodePreviewsPageState createState() =>
+      _CodePreviewsPageState(title, path, item);
+}
+
+class _CodePreviewsPageState extends State<CodePreviewsPage>
+    with SingleTickerProviderStateMixin {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
+//
+// class CodePreviewsPage1 extends StatelessWidget
+  final String title;
+  final String path;
+  final TaskItem item;
+  TabController _tabController;
+
+  _CodePreviewsPageState(this.title, this.path, this.item);
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = new TabController(length: 2, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.shareSquare),
-              tooltip: "Open full preview",
-              onPressed: () {
-                _shareText();
-                // Share.text(title, '${StringConst.githubRepo}$path', 'file');
-              },
-            )
-          ],
-        ),
-        body: MyCodeView(
-          filePath: path,
-        ));
+      appBar: AppBar(
+        title: Text(title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(FontAwesomeIcons.shareSquare),
+            tooltip: "Open full preview",
+            onPressed: () {
+              _shareText();
+              // Share.text(title, '${StringConst.githubRepo}$path', 'file');
+            },
+          )
+        ],
+        bottom: _getTab()
+      ),
+      body:_createUi()
+      // TabBarView(
+      //   children: <Widget>[
+      //     MyCodeView(filePath: path),
+      //     // page
+      //     // AlwaysAliveWidget(child: page),
+      //   ],
+      // ),
+      // body: MyCodeView(
+      //   filePath: path,
+      // )
+    );
   }
 
+  Widget _createUi() {
+    return TabBarView(
+      controller: _tabController,
+      children: <Widget>[
+        MyCodeView(filePath: path),
+        // new FirstPage("First Screen"),
+        item.page
+        // new FirstPage("Second Screen"),
+      ],
+    );
+  }
+
+  TabBar _getTab() {
+    return TabBar(
+      controller: _tabController,
+      indicatorColor: Colors.white,
+      indicatorWeight: 3.0,
+      tabs: <Widget>[
+        Tab(
+          child: ListTile(
+            leading: Icon(
+              Icons.code,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Code',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        Tab(
+          child: ListTile(
+            leading: Icon(
+              Icons.phone_android,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Preview',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
   _shareText() async {
     try {
       await Share.text(title, '${StringConst.githubRepo}$path', 'text/plain');
@@ -45,6 +129,7 @@ class CodePreviewsPage extends StatelessWidget {
       print('error: $e');
     }
   }
+
 }
 
 class MyCodeView extends StatefulWidget {
@@ -93,9 +178,11 @@ class MyCodeViewState extends State<MyCodeView> {
 
   Widget _getCodeView(String codeContent, BuildContext context) {
     final SyntaxHighlighterStyle style =
-        Theme.of(context).brightness == Brightness.dark
-            ? SyntaxHighlighterStyle.darkThemeStyle()
-            : SyntaxHighlighterStyle.lightThemeStyle();
+    Theme
+        .of(context)
+        .brightness == Brightness.dark
+        ? SyntaxHighlighterStyle.darkThemeStyle()
+        : SyntaxHighlighterStyle.lightThemeStyle();
     return Container(
       constraints: BoxConstraints.expand(),
       child: Scrollbar(
@@ -142,17 +229,19 @@ class MyCodeViewState extends State<MyCodeView> {
         heroTag: "zoom_out",
         child: Icon(Icons.zoom_out),
         tooltip: 'Zoom out',
-        onPressed: () => setState(() {
-          this._textScaleFactor = max(0.8, this._textScaleFactor - 0.1);
-        }),
+        onPressed: () =>
+            setState(() {
+              this._textScaleFactor = max(0.8, this._textScaleFactor - 0.1);
+            }),
       ),
       FloatingActionButton(
         heroTag: "zoom_in",
         child: Icon(Icons.zoom_in),
         tooltip: 'Zoom in',
-        onPressed: () => setState(() {
-          this._textScaleFactor += 0.1;
-        }),
+        onPressed: () =>
+            setState(() {
+              this._textScaleFactor += 0.1;
+            }),
       ),
     ];
   }

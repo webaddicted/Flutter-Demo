@@ -41,6 +41,7 @@ class AllItemWidget extends StatelessWidget {
                       CodePreviewsPage(
                         title: dataBean[index].title,
                         path: dataBean[index].codePreview,
+                        item: dataBean[index],
                       ));
                 },
                 backgroudColor: Colors.green),

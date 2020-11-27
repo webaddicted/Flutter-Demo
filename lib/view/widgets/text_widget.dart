@@ -20,17 +20,17 @@ class _TextWidgetState extends State<TextWidget> {
     return Scaffold(
         appBar:
             getAppBarWithBackBtn(ctx: context, title: StringConst.TEXT_TITLE),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            navigationPush(
-                context,
-                CodePreviewsPage(
-                  title: StringConst.TEXT_TITLE,
-                  path: widget.path,
-                ));
-          },
-          child: Icon(Icons.code, color: Colors.white),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () =>
+        //     navigationPush(
+        //         context,
+        //         CodePreviewsPage(
+        //           title: StringConst.TEXT_TITLE,
+        //           path: widget.path,
+        //         ))
+        //   ,
+        //   child: Icon(Icons.code, color: Colors.white),
+        // ),
         body: Builder(
           builder: (context) => _createUi(context),
         ));
