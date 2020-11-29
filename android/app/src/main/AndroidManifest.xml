@@ -22,7 +22,6 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <application
-        android:name="io.flutter.app.FlutterApplication"
         android:label="flutterbeginner"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"

@@ -52,7 +52,7 @@ class _CollapsePage3State extends State<CollapsePage3> {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: RatingBar(
+          child: RatingBar.builder(
             initialRating: 3,
             itemSize: 20,
             itemBuilder: (context, index) => Icon(

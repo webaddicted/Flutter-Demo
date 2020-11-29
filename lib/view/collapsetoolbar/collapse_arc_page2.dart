@@ -125,7 +125,7 @@ class _CollapseArcPage2State extends State<CollapseArcPage2> {
                     children: <Widget>[
                       buildMovieTitle(),
                       buildMovieCategoriesText(),
-                      RatingBar(
+                      RatingBar.builder(
                         initialRating: 3,
                         itemBuilder: (context, index) => Icon(
                           Icons.star,

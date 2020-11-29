@@ -63,7 +63,7 @@ class _MiscWidgetState extends State<MiscWidget> {
               msg: 'Rating bar', fontSize: 15, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10),
-        RatingBar(
+        RatingBar.builder(
           initialRating: 3,
           itemBuilder: (context, index) => Icon(
             Icons.star,
@@ -85,7 +85,7 @@ class _MiscWidgetState extends State<MiscWidget> {
           ),
         ),
         SizedBox(height: 10),
-        RatingBar(
+        RatingBar.builder(
             initialRating: 3,
             itemCount: 5,
             itemBuilder: (context, index) {

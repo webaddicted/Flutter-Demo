@@ -17,7 +17,6 @@ class _AllTasksState extends State<AllTasks> {
   List<TaskItem> dataBean = new List();
   List<TaskItem> searchDataBean = new List();
   BuildContext ctx;
-  bool _reverseSort = true;
   SearchBar searchBar;
 
   _AllTasksState() {
@@ -49,7 +48,7 @@ class _AllTasksState extends State<AllTasks> {
               e.title.toUpperCase().contains(value.toUpperCase()))
           .toList();
       setState(() {});
-      print("List : ${searchDataBean.length}  ${dataBean.length}");
+      // print("List : ${searchDataBean.length}  ${dataBean.length}");
     } catch (exp) {
       print('Search exp: $exp');
     }
@@ -69,7 +68,8 @@ class _AllTasksState extends State<AllTasks> {
     return Scaffold(
       appBar: searchBar.build(context),
       drawer: NavDrawerHome(),
-      body: AllItemWidget(
+      body:
+      AllItemWidget(
           dataBean: searchDataBean,
           onTap: (TaskItem taskItem) {
             if (taskItem.subItem == null)
@@ -137,7 +137,8 @@ class _AllTasksState extends State<AllTasks> {
       //               .sort((a, b) => a.title.compareTo(b.title)); //accending
       //         else
       //           searchDataBean
-      //               .sort((a, b) => b.title.compareTo(a.title)); //decending
+      //               .sort((a, b) => b.title.compareTo(a.
+      //               title)); //decending
       //         // searchDataBean.sort((TaskItem a, TaskItem b) => _reverseSort
       //         //     ? b.title.compareTo(a.title)
       //         //     : a.title.compareTo(b.title));

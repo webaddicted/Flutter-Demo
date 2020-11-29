@@ -7,7 +7,7 @@ import 'package:flutterbeginner/view/alltask/all_task.dart';
 import 'package:flutterbeginner/view/letstart/splash_page.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   await createApplicationFolder();
   // Set Orientation to PortraitUp
 //  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -19,6 +19,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
     // ));
     return MaterialApp(
       title: StringConst.APP_NAME,
-     debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
 //      darkTheme: ThemeData.dark(),
       theme: ThemeData(
           fontFamily: AssetsConst.ZILLASLAB_FONT,

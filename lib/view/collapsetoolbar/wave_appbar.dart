@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
+// import 'package:wave/config.dart';
+// import 'package:wave/wave.dart';
 
 class WaveAppbar extends StatefulWidget {
   @override
@@ -42,15 +42,17 @@ class _WaveAppbarState extends State<WaveAppbar> {
                     children: <Widget>[
                       RotatedBox(
                           quarterTurns: 2,
-                          child: WaveWidget(
-                            config: CustomConfig(
-                              colors: [Theme.of(context).primaryColor],
-                              durations: [22000],
-                              heightPercentages: [-0.1],
-                            ),
-                            size: Size(double.infinity, double.infinity),
-                            waveAmplitude: 1,
-                          )),
+                          child: Container()
+                          // WaveWidget(
+                          //   config: CustomConfig(
+                          //     colors: [Theme.of(context).primaryColor],
+                          //     durations: [22000],
+                          //     heightPercentages: [-0.1],
+                          //   ),
+                          //   size: Size(double.infinity, double.infinity),
+                          //   waveAmplitude: 1,
+                          // )
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -133,19 +135,19 @@ class _WaveAppbarState extends State<WaveAppbar> {
 
               _buildCard(
                 backgroundColor: Colors.purpleAccent,
-                config: CustomConfig(
-                  gradients: [
-                    [Colors.red, Color(0xEEF44336)],
-                    [Colors.red[800], Color(0x77E57373)],
-                    [Colors.orange, Color(0x66FF9800)],
-                    [Colors.yellow, Color(0x55FFEB3B)]
-                  ],
-                  durations: [35000, 19440, 10800, 6000],
-                  heightPercentages: [0.20, 0.23, 0.25, 0.30],
-                  blur: _blur,
-                  gradientBegin: Alignment.bottomLeft,
-                  gradientEnd: Alignment.topRight,
-                ),
+                // config: CustomConfig(
+                //   gradients: [
+                //     [Colors.red, Color(0xEEF44336)],
+                //     [Colors.red[800], Color(0x77E57373)],
+                //     [Colors.orange, Color(0x66FF9800)],
+                //     [Colors.yellow, Color(0x55FFEB3B)]
+                //   ],
+                //   durations: [35000, 19440, 10800, 6000],
+                //   heightPercentages: [0.20, 0.23, 0.25, 0.30],
+                //   blur: _blur,
+                //   gradientBegin: Alignment.bottomLeft,
+                //   gradientEnd: Alignment.topRight,
+                // ),
               ),
               _buildCard(
                 height: 256.0,
@@ -157,37 +159,37 @@ class _WaveAppbarState extends State<WaveAppbar> {
                   colorFilter:
                   ColorFilter.mode(Colors.white, BlendMode.softLight),
                 ),
-                config: CustomConfig(
-                  colors: [
-                    Colors.pink[400],
-                    Colors.pink[300],
-                    Colors.pink[200],
-                    Colors.pink[100]
-                  ],
-                  durations: [18000, 8000, 5000, 12000],
-                  heightPercentages: [0.85, 0.86, 0.88, 0.90],
-                  blur: _blur,
-                ),
+                // config: CustomConfig(
+                //   colors: [
+                //     Colors.pink[400],
+                //     Colors.pink[300],
+                //     Colors.pink[200],
+                //     Colors.pink[100]
+                //   ],
+                //   durations: [18000, 8000, 5000, 12000],
+                //   heightPercentages: [0.85, 0.86, 0.88, 0.90],
+                //   blur: _blur,
+                // ),
               ),
-              _buildCard(
-                  config: CustomConfig(
-                    colors: [
-                      Colors.white70,
-                      Colors.white54,
-                      Colors.white30,
-                      Colors.white24,
-                    ],
-                    durations: [32000, 21000, 18000, 5000],
-                    heightPercentages: [0.25, 0.26, 0.28, 0.31],
-                    blur: _blur,
-                  ),
-                  backgroundColor: Colors.blue[600]),
+              // _buildCard(
+              //     config: CustomConfig(
+              //       colors: [
+              //         Colors.white70,
+              //         Colors.white54,
+              //         Colors.white30,
+              //         Colors.white24,
+              //       ],
+              //       durations: [32000, 21000, 18000, 5000],
+              //       heightPercentages: [0.25, 0.26, 0.28, 0.31],
+              //       blur: _blur,
+              //     ),
+              //     backgroundColor: Colors.blue[600]),
             ]),
           ),
         ));
   }
   _buildCard({
-    Config config,
+    // Config config,
     Color backgroundColor = Colors.transparent,
     DecorationImage backgroundImage,
     double height = 152.0,
@@ -201,13 +203,14 @@ class _WaveAppbarState extends State<WaveAppbar> {
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(16.0))),
-        child: WaveWidget(
-          config: config,
-          backgroundColor: backgroundColor,
-          backgroundImage: backgroundImage,
-          size: Size(double.infinity, double.infinity),
-          waveAmplitude: 0,
-        ),
+        child: Container()
+        // WaveWidget(
+        //   config: config,
+        //   backgroundColor: backgroundColor,
+        //   // backgroundImage: backgroundImage,
+        //   size: Size(double.infinity, double.infinity),
+        //   waveAmplitude: 0,
+        // ),
       ),
     );
   }
