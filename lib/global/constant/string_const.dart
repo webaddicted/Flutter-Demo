@@ -98,4 +98,9 @@ class StringConst {
   static const String SCREENSHOT_TITLE = 'Screenshot';
 
   static String IS_ON_BOARDING_SHOW = 'OnBoarding';
+
+  static var SHARE_DETAILS =
+      'Movie4u app UI is simple enough to use and the app is a fun way to get an overview of your movie experience.';
+  static var PLAYSTORE_URL =
+      'https://play.google.com/store/apps/details?id=com.webaddicted.movies4u';
 }

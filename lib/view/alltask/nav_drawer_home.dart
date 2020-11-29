@@ -8,6 +8,8 @@ import 'package:flutterbeginner/model/bean/sp/sp_manager.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
 import 'package:flutterbeginner/view/alltask/subtitle_page.dart';
+import 'package:flutterbeginner/view/example/about_us_screen.dart';
+import 'package:flutterbeginner/view/example/invite_friend_screen.dart';
 
 class NavDrawerHome extends StatelessWidget {
   BuildContext _context;
@@ -98,7 +100,7 @@ class NavDrawerHome extends StatelessWidget {
                   _buildDivider(),
                   _buildRow(Icons.person_pin, "Start From beginning"),
                   _buildDivider(),
-                  _buildRow(Icons.email, "Contact us"),
+                  _buildRow(Icons.email, "Invite Friend"),
                   _buildDivider(),
                   _buildRow(Icons.info_outline, "About us"),
                   _buildDivider(),
@@ -198,10 +200,10 @@ class NavDrawerHome extends StatelessWidget {
       case 'Start From beginning':
         SPManager.setOnboarding(false);
         break;
-      case "Contact us":
-        break;
+      case "Invite Friend":
+        return navigationPush(_context, InviteFriend());
       case "About us":
-        break;
+        return navigationPush(_context, AboutUsScreen());
       case "Exit":
         onWillPop(_context);
         break;

@@ -266,11 +266,15 @@ class _OnSlideState extends State<OnSlide> {
           child: widget.child,
         ),
         onNotification: (LayoutSizeChangeNotification notification) {
-          childSize = notification.newSize;
-          print(notification.newSize);
-          scheduleMicrotask(() {
-            setState(() {});
-          });
+          try {
+            childSize = notification.newSize;
+            // print(notification.newSize);
+            scheduleMicrotask(() {
+              setState(() {});
+            });
+          }catch(exp){
+            print('exp List_swipe : $exp');
+          }
         },
       );
     }

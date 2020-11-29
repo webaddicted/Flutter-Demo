@@ -45,6 +45,7 @@ class AssetsConst {
   static const String WAIT_FOR_DELIVERY = 'assets/images/wait_delivery.png';
   static const String PAY = 'assets/images/pay.png';
   static const String EAT_ENJOY = 'assets/images/eat_enjoy.png';
+  static String INVITE_IMG = 'assets/images/inviteImage.png';
 
   //  {END IMAGES}
 
