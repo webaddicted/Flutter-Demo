@@ -15,7 +15,7 @@ In this repo we cover all the basic topic which are require to work on flutter.
 
 ***You can Install and test latest Flutter Demo app from below 👇***
 
-[![Kotlin Demo](https://img.shields.io/badge/Flutter%20Demo-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/Flutter-Demo/tree/master/apk/FlutterDemo.apk)
+[![Kotlin Demo](https://img.shields.io/badge/Flutter%20Demo-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/Flutter-Demo/raw/master/apk/FlutterDemo.apk)
 
 
 ## Cover Feature
