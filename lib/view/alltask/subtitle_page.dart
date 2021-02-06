@@ -12,10 +12,7 @@ import 'package:flutterbeginner/view/widgets/home_item_widget.dart';
 class SubTitlePage extends StatelessWidget {
   TaskItem subItem;
   bool isGrid = true;
-
   BuildContext ctx;
-
-
   SubTitlePage(this.subItem);
 
   @override
@@ -138,7 +135,7 @@ class SubTitlePage extends StatelessWidget {
 optionMenu(BuildContext context, TaskItem taskItem) {
   showDialog(
       context: context,
-      child: new AlertDialog(
+      builder:(_) =>  AlertDialog(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0)),
           title: getTxtBlackColor(

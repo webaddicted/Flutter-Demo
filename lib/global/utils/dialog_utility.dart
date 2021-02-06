@@ -4,7 +4,7 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
 showAlertDialog({BuildContext ctx, String title, String msg}) => showDialog(
     context: ctx,
-    child: new AlertDialog(
+    builder:(_) =>  new AlertDialog(
       title: getTxtBlackColor(msg: title, fontWeight: FontWeight.bold),
       content: getTxt(msg: msg),
     ));

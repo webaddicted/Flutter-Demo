@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbeginner/global/code_highlighter.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/model/bean/task_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,6 +51,7 @@ class _CodePreviewsPageState extends State<CodePreviewsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: ColorConst.APP_COLOR,
         title: Text(title),
         actions: <Widget>[
           IconButton(
@@ -150,12 +152,12 @@ class MyCodeViewState extends State<MyCodeView> {
 
   @override
   Widget build(BuildContext context) {
-    print('code path ${widget.filePath}');
+    // print('code path ${widget.filePath}');
     return FutureBuilder(
       future: rootBundle.loadString(widget.filePath) ??
           'Error loading source code from $this.filePath',
       builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-        print('snapshit ${snapshot.data}   :  ${snapshot.error}');
+        // print('snapshit ${snapshot.data}   :  ${snapshot.error}');
         if (snapshot.hasData) {
           return Scaffold(
             body: Padding(
@@ -208,6 +210,7 @@ class MyCodeViewState extends State<MyCodeView> {
     return <Widget>[
       FloatingActionButton(
         heroTag: "copy",
+        backgroundColor: ColorConst.APP_COLOR,
         child: Icon(Icons.content_copy),
         tooltip: 'Copy code link to clipboard',
         onPressed: () async {
@@ -219,6 +222,7 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
       FloatingActionButton(
         heroTag: "open",
+        backgroundColor: ColorConst.APP_COLOR,
         child: Icon(Icons.open_in_new),
         tooltip: 'View code on github',
         onPressed: () {
@@ -227,6 +231,7 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
       FloatingActionButton(
         heroTag: "zoom_out",
+        backgroundColor: ColorConst.APP_COLOR,
         child: Icon(Icons.zoom_out),
         tooltip: 'Zoom out',
         onPressed: () =>
@@ -236,6 +241,7 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
       FloatingActionButton(
         heroTag: "zoom_in",
+        backgroundColor: ColorConst.APP_COLOR,
         child: Icon(Icons.zoom_in),
         tooltip: 'Zoom in',
         onPressed: () =>

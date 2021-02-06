@@ -114,7 +114,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                           prefixIcon: InkWell(
                               onTap: () => showDialog(
                                   context: context,
-                                  child: CountryDialog(
+                                builder:(_) =>  CountryDialog(
                                     countries: _countryBean,
                                     onCellTap: countryCodeTap,
                                   )),

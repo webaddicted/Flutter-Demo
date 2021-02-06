@@ -37,7 +37,7 @@ Future<List<CountryBean>> loadCountriesJson(BuildContext context) async {
 imagePickDialog(BuildContext context, Function selectedfile) {
   showDialog(
       context: context,
-      child: new AlertDialog(
+      builder:(_) => new AlertDialog(
           title: getTxtBlackColor(
               msg: 'Select Option', fontWeight: FontWeight.bold),
           content: Container(

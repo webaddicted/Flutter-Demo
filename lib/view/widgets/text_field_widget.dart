@@ -143,7 +143,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               prefixIcon: InkWell(
                   onTap: () => showDialog(
                       context: context,
-                      child: CountryDialog(
+                      builder:(_) =>  CountryDialog(
                         countries: _countryBean,
                         onCellTap: (CountryBean countryBean) {},
                       )),
@@ -328,7 +328,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   onPressed() {
     showDialog(
         context: context,
-        child: CountryDialog(
+        builder:(_) => CountryDialog(
           countries: _countryBean,
           onCellTap: (CountryBean countryBean) {},
         ));

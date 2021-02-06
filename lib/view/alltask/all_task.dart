@@ -86,7 +86,7 @@ class _AllTasksState extends State<AllTasks> {
   accDecMenu(BuildContext context) {
     showDialog(
         context: context,
-        child: new AlertDialog(
+        builder:(_) =>  new AlertDialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             title: getTxtBlackColor(

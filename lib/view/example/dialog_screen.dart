@@ -231,7 +231,7 @@ class _DialogScreenState extends State<DialogScreen> {
   listDialog() {
     showDialog(
         context: context,
-        child: new AlertDialog(
+        builder:(_) =>  new AlertDialog(
             title: getTxtBlackColor(
                 msg: StringConst.APP_NAME, fontWeight: FontWeight.bold),
             content: Container(
@@ -256,7 +256,7 @@ class _DialogScreenState extends State<DialogScreen> {
   imagePickerDialog() {
     showDialog(
         context: context,
-        child: new AlertDialog(
+        builder:(_) =>  new AlertDialog(
             title: getTxtBlackColor(
                 msg: StringConst.APP_NAME, fontWeight: FontWeight.bold),
             content: Container(
