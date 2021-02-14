@@ -62,6 +62,7 @@ import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
 import 'package:flutterbeginner/view/home/home_page1.dart';
+import 'package:flutterbeginner/view/home/home_page10.dart';
 import 'package:flutterbeginner/view/home/home_page2.dart';
 import 'package:flutterbeginner/view/home/home_page3.dart';
 import 'package:flutterbeginner/view/home/home_page4.dart';
@@ -121,6 +122,7 @@ import 'package:flutterbeginner/view/profile/profile_page5.dart';
 import 'package:flutterbeginner/view/profile/profile_page6.dart';
 import 'package:flutterbeginner/view/profile/profile_page7.dart';
 import 'package:flutterbeginner/view/profile/profile_page8.dart';
+import 'package:flutterbeginner/view/profile/profile_page9.dart';
 import 'package:flutterbeginner/view/pulltorefresh/pull_to_refresh.dart';
 import 'package:flutterbeginner/view/pulltorefresh/water_drop.dart';
 import 'package:flutterbeginner/view/pulltorefresh/refresh_page.dart';
@@ -538,6 +540,9 @@ List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page7', page: HomePage7(), codePreview: 'lib/view/home/home_page7.dart'),
   TaskItem(title: 'Home Page8', page: HomePage8(), codePreview: 'lib/view/home/home_page8.dart'),
   TaskItem(title: 'Home Page9', page: HomePage9(), codePreview: 'lib/view/home/home_page9.dart'),
+  TaskItem(title: 'Home Page9', page: HomePage9(), codePreview: 'lib/view/home/home_page9.dart'),
+  TaskItem(title: 'Home Page10', page: HomePage10(), codePreview: 'lib/view/home/home_page10.dart'),
+
 ];
 List<TaskItem> detailsItem = [
   TaskItem(title: 'Detail Page1', page: DetailPage1(), codePreview: 'lib/view/details/detail_page1.dart'),
@@ -557,6 +562,8 @@ List<TaskItem> profileItem = [
   TaskItem(title: 'Profile Page6', page: ProfilePage6(), codePreview: 'lib/view/profile/profile_page6.dart'),
   TaskItem(title: 'Profile Page7', page: ProfilePage7(), codePreview: 'lib/view/profile/profile_page7.dart'),
   TaskItem(title: 'Profile Page8', page: ProfilePage8(), codePreview: 'lib/view/profile/profile_page8.dart'),
+  TaskItem(title: 'Profile Page9', page: ProfilePage9(), codePreview: 'lib/view/profile/profile_page9.dart'),
+
 ];
 List<TaskItem> settingPageItem = [
   TaskItem(title: 'Setting Page1', page: SettingPage1(), codePreview: 'lib/view/settings/setting_page1.dart'),

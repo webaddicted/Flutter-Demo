@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
-import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/repo/dummy_data.dart';
-import 'package:flutterbeginner/view/widgets/game_list.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage9 extends StatefulWidget {
   @override

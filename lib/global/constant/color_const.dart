@@ -33,4 +33,5 @@ class ColorConst {
   static Color BLACK_FADE = colorFromHex('#5E000000');
   static Color GREY_SHIMMER = Colors.grey.shade400;
   static Color GREY_BG_COLOR = Colors.grey.shade300;
+  static Color GREY_SHADE = Colors.grey.shade400;
 }
