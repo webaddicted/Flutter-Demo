@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  http: ^0.12.2
-  dio: ^3.0.10
+  http: ^0.13.1
+  dio: ^4.0.0
   path_provider: ^1.6.11
   simple_animations: ^2.2.1
   avatar_glow: ^1.2.0
@@ -21,10 +21,10 @@ dependencies:
   #  flutter_datetime_picker:
   shared_preferences: ^0.5.12
   permission_handler: ^5.0.1
-  image_picker: ^0.6.7+11
+  image_picker: ^0.7.4
   pinput: ^0.2.4
   flutter_staggered_grid_view: ^0.3.2
-  google_maps_flutter: ^1.0.2
+  google_maps_flutter: ^2.0.3
   geolocator: ^6.0.0
   webview_flutter: ^1.0.5
   barcode_scan: ^3.0.1
@@ -38,7 +38,7 @@ dependencies:
   esys_flutter_share: ^1.0.2
   call_log: ^2.1.0
   audioplayers: ^0.16.2
-  local_auth: ^0.6.2+3
+  local_auth: ^1.1.1
   device_info: ^0.4.2+8
   provider: ^4.3.2
   shimmer: ^1.1.1
@@ -59,18 +59,15 @@ dependencies:
   pull_to_refresh: ^1.6.1
   flutter_search_bar: ^2.1.0
 #  wave: ^0.1.0
-  drawerbehavior: ^1.1.4
+  drawerbehavior: ^2.1.0
   animated_floatactionbuttons: ^0.1.0
   url_launcher: ^5.5.0
   animator: ^2.0.1
   rect_getter: ^0.1.0
 
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 flutter_icons:
   android: true

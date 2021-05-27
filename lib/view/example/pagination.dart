@@ -83,7 +83,7 @@ class _PaginationState extends State<Pagination> {
         isLoading = true;
       });
       var response = await http
-          .get(ApiConstant.CORONA_URL, headers: {"Accept": "application/json"});
+          .get(Uri.parse(ApiConstant.CORONA_URL), headers: {"Accept": "application/json"});
       setState(() {
         isLoading = false;
         if (response.statusCode == 200) {
