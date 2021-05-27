@@ -41,45 +41,46 @@ class _ButtonWidgetState extends State<ButtonWidget> {
   Widget _createUi(BuildContext context) {
     _ctx = context;
     return new Container(
+        width: double.infinity,
         child: Stack(
-      children: [
-        new Center(
-          child: SingleChildScrollView(
-            child: new Column(
-              children: <Widget>[
-                _getButtonType(),
-              ],
+          children: [
+            new Center(
+              child: SingleChildScrollView(
+                child: new Column(
+                  children: <Widget>[
+                    _getButtonType(),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
-        Positioned(
-          bottom: -20,
-          left: -20,
-          child: Container(
-            width: 80,
-            height: 80,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.purple,
-              shape: BoxShape.circle,
+            Positioned(
+              bottom: -20,
+              left: -20,
+              child: Container(
+                width: 80,
+                height: 80,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  shape: BoxShape.circle,
+                ),
+              ),
             ),
-          ),
-        ),
-        Positioned(
-          bottom: 00,
-          left: 00,
-          child: IconButton(
-            icon: Icon(
-              FontAwesomeIcons.powerOff,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              //log out
-            },
-          ),
-        )
-      ],
-    ));
+            Positioned(
+              bottom: 00,
+              left: 00,
+              child: IconButton(
+                icon: Icon(
+                  FontAwesomeIcons.powerOff,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  //log out
+                },
+              ),
+            )
+          ],
+        ));
   }
 
   Widget _getButtonType() {

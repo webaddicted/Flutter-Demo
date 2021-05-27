@@ -58,6 +58,7 @@ import 'package:flutterbeginner/view/example/sp_screen.dart';
 import 'package:flutterbeginner/view/example/staggered_grid_view.dart';
 import 'package:flutterbeginner/view/example/stepper_view.dart';
 import 'package:flutterbeginner/view/example/swipe_to_delete.dart';
+import 'package:flutterbeginner/view/example/tag_screen.dart';
 import 'package:flutterbeginner/view/example/video_player_screen.dart';
 import 'package:flutterbeginner/view/example/web_view_screen.dart';
 import 'package:flutterbeginner/view/firebase/fcm_social_login.dart';
@@ -435,6 +436,10 @@ List<TaskItem> taskItem = [
       title: 'Staggered Grid view',
       page: StaggeredGridScreen(),
       codePreview: 'lib/view/example/staggered_grid_view.dart'),
+  TaskItem(
+      title: 'Tag View',
+      page: TagScreen(),
+      codePreview: 'lib/view/example/tag_screen.dart'),
   TaskItem(
       title: 'Splash Design',
       subItem: splashPageItem),

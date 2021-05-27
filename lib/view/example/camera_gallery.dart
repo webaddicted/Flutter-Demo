@@ -20,7 +20,8 @@ class _CameraGalleryState extends State<CameraGallery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(ctx:context,title:StringConst.IMAGE_PICKER_TITLE),
+      appBar: getAppBarWithBackBtn(
+          ctx: context, title: StringConst.IMAGE_PICKER_TITLE),
       body: Builder(builder: (_context) {
         return _createUi(_context);
       }),
@@ -35,16 +36,17 @@ class _CameraGalleryState extends State<CameraGallery> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
           GestureDetector(
-            onTap: (){
-              if(imageURI != null)
-              navigationPush(context, FullImage(null, imageURI, imageURI));
+            onTap: () {
+              if (imageURI != null)
+                navigationPush(context, FullImage(null, imageURI, imageURI));
             },
             child: imageURI == null
                 ? Text('No image selected.')
-                : Hero(tag:imageURI,
-                  child: Image.file(imageURI,
-                      width: 300, height: 200, fit: BoxFit.cover),
-                ),
+                : Hero(
+                    tag: imageURI,
+                    child: Image.file(imageURI,
+                        width: 300, height: 200, fit: BoxFit.cover),
+                  ),
           ),
           RaisedButton(
             onPressed: () => getImageFromCamera(),
@@ -71,16 +73,16 @@ class _CameraGalleryState extends State<CameraGallery> {
   }
 
   Future getImageFromCamera() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+    var image = await ImagePicker().getImage(source: ImageSource.camera);
     setState(() {
-      imageURI = image;
+      imageURI = File(image.path);
     });
   }
 
   Future getImageFromGallery() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var image = await ImagePicker().getImage(source: ImageSource.gallery);
     setState(() {
-      imageURI = image;
+      imageURI = File(image.path);
     });
   }
 
