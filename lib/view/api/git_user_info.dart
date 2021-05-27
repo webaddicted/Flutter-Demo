@@ -88,7 +88,7 @@ class _GitUserInfoState extends State<GitUserInfo> {
   Future<String> callApi(String url) async {
     debugPrint(url);
     _isLoading = true;
-    var response = await http.get(url, headers: {"Accept": "application/json"});
+    var response = await http.get(Uri.parse(url), headers: {"Accept": "application/json"});
     setState(() {
       if (response.statusCode == 200) {
         debugPrint(response.body);

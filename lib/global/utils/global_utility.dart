@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/assets_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/countries_bean.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-
+import 'package:image_picker/image_picker.dart';
 Color colorFromHex(String hexColor) {
   final hexCode = hexColor.replaceAll('#', '');
   return Color(int.parse('FF$hexCode', radix: 16));
@@ -72,7 +71,7 @@ imagePickDialog(BuildContext context, Function selectedfile) {
 Future getImageFromCamera(
     BuildContext context, int imageType, Function selectedfile) async {
   Navigator.pop(context);
-  var image = await ImagePicker.pickImage(
+  var image = await ImagePicker().getImage(
       source: imageType == 0 ? ImageSource.camera : ImageSource.gallery);
   selectedfile(image);
 }
