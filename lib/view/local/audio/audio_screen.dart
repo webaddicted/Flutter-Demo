@@ -27,11 +27,7 @@ class _AudioScreenState extends State<AudioScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getAppBarWithBackBtn(ctx:context, title:StringConst.AUDIO_TITLE),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
-          onPressed: () {
-            _reqPermission();
-          }),
+
       body: Builder(builder: (_context) => _createUi(_context)),
     );
   }
