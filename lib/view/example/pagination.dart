@@ -68,7 +68,7 @@ class _PaginationState extends State<Pagination> {
               onTap: () {
                 showSnackBar(context, dataResult[index]['Country']);
                 print(dataResult[index]);
-              },
+              }
             );
           }
         },

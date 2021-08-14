@@ -90,6 +90,7 @@ class AllItemWidget extends StatelessWidget {
             Padding(padding: EdgeInsets.only(left: 8)),
             Expanded(
               child: Stack(
+
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
