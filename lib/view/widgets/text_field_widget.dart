@@ -6,8 +6,11 @@ import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/model/bean/countries_bean.dart';
 import 'package:flutterbeginner/view/widgets/country_dialog.dart';
+import 'package:flutterbeginner/global/utils/validation_helper.dart';
 
 class TextFieldWidget extends StatefulWidget {
+  const TextFieldWidget({super.key});
+
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
@@ -135,7 +138,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             // maxLines: 1,
             // maxLength: 10,
             keyboardType: TextInputType.number,
-            // validator: ValidationHelper.validateMobile,
+            validator: ValidationHelper.validateMobile,
             decoration: InputDecoration(
               border: InputBorder.none,
               // fillColor: Colors.transparent,

@@ -45,7 +45,6 @@ class _LoginPage1State extends State<LoginPage1>
               Form(
                   child: Theme(
                       data: ThemeData(
-                          brightness: Brightness.dark,
                           primaryColor: ColorConst.WHITE_COLOR,
                           inputDecorationTheme: const InputDecorationTheme(
                               labelStyle: TextStyle(

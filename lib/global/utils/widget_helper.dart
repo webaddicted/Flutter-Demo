@@ -337,7 +337,7 @@ Widget edtNameField(TextEditingController edtController) {
     ),
     textInputAction: TextInputAction.next,
     maxLength: 32,
-    // validator: ValidationHelper.validateName,
+    validator: ValidationHelper.validateName,
   );
 }
 
@@ -355,7 +355,7 @@ Widget edtMobileNoField(TextEditingController edtController) {
     textInputAction: TextInputAction.next,
     maxLength: 10,
     keyboardType: TextInputType.number,
-    // validator: ValidationHelper.validateMobile,
+    validator: ValidationHelper.validateMobile,
   );
 }
 
@@ -373,7 +373,7 @@ Widget edtEmailIdField(TextEditingController edtController) {
     textInputAction: TextInputAction.next,
     keyboardType: TextInputType.emailAddress,
     maxLength: 32,
-    // validator: ValidationHelper.validateEmail,
+    validator: ValidationHelper.validateEmail,
   );
 }
 
@@ -397,7 +397,7 @@ Widget edtDobField(TextEditingController edtController, Function dobClick) {
 }
 
 Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
-    Function pwdVisiableClick) {
+    Function() pwdVisibleClick) {
   return TextFormField(
     controller: edtController,
     decoration: InputDecoration(
@@ -412,7 +412,7 @@ Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
             passwordVisible ? Icons.visibility : Icons.visibility_off,
             color: Colors.grey,
           ),
-          onPressed: pwdVisiableClick()),
+          onPressed:()=> pwdVisibleClick()),
       hintStyle: const TextStyle(
         fontWeight: FontWeight.w300,
         color: Colors.grey,
@@ -421,7 +421,7 @@ Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
     obscureText: !passwordVisible,
     textInputAction: TextInputAction.done,
     maxLength: 32,
-    // validator: ValidationHelper.validatePassword,
+    validator: ValidationHelper.validatePassword,
   );
 }
 

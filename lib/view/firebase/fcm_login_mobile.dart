@@ -106,7 +106,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                         // maxLines: 1,
                         // maxLength: 10,
                         keyboardType: TextInputType.number,
-                        // validator: ValidationHelper.validateMobile(),
+                        validator: ValidationHelper.validateMobile,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           // fillColor: Colors.transparent,
