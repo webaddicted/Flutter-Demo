@@ -37,8 +37,8 @@ class _BottomNavPage1State extends State<BottomNavPage1>
     return TabBarView(
       controller: _tabController,
       children: <Widget>[
-        FirstPage("First Screen"),
-        FirstPage("Second Screen"),
+        KeepAlivePage(FirstPage("First Screen")),
+        KeepAlivePage(FirstPage("Second Screen")),
       ],
     );
   }
