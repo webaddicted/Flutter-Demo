@@ -86,7 +86,7 @@ class _ApiDioPageState extends State<ApiDioPage> {
         ),
         itemBuilder: (BuildContext context, int index) {
           return Card(
-              color: ColorConst.GREY_COLOR,
+              color: ColorConst.greyColor,
               child: ImageTile(unSplashBean![index].urls!.small!));
         }
     );

@@ -36,7 +36,7 @@ class SubTitlePage extends StatelessWidget {
   // final key = GlobalKey();
   getGridView() {
     return Container(
-        color: ColorConst.GREY_BG_COLOR,
+        color: ColorConst.greyBgColor,
         alignment: Alignment.center,
         child: GridView.builder(
           // key: key,

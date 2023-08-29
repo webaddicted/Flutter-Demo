@@ -39,7 +39,7 @@ class _HomePage8State extends State<HomePage8> {
                       ),
                     ],
                   ),
-                  loadLocalCircleImg(AssetsConst.DEEPAK_IMG, 80)
+                  loadLocalCircleImg(AssetsConst.deepakImg, 80)
                 ],
               ),
               PreferredSize(
@@ -146,7 +146,7 @@ class CategoryItem extends StatelessWidget {
                 tag: categories[index].title! + index.toString(),
                 child: Icon(
                   categories[index].icon,
-                  color: ColorConst.WHITE_COLOR,
+                  color: ColorConst.whiteColor,
                   // fit: BoxFit.contain,
                 ),
               ),

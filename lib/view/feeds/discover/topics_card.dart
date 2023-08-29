@@ -21,7 +21,7 @@ class TopicCard extends StatelessWidget {
         height: double.infinity * 0.2,
         decoration: BoxDecoration(
           border: Border.all(
-            color: ColorConst.APP_COLOR,
+            color: ColorConst.appColor,
           ),
 
           // color: Colors.white,
@@ -33,7 +33,7 @@ class TopicCard extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Image.asset(
-               AssetsConst.LOGO_IMG,
+               AssetsConst.logoImg,
                 fit: BoxFit.contain,
               ),
             ),

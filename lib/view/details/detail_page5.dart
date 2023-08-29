@@ -23,7 +23,7 @@ class _DetailPage5State extends State<DetailPage5> {
               Container(
                   height: 300,
                   width: double.infinity,
-                  child: Image.asset(AssetsConst.BG_FAMILY_IMG,fit: BoxFit.cover,)),
+                  child: Image.asset(AssetsConst.bgFamilyImg,fit: BoxFit.cover,)),
               Container(
                 margin: EdgeInsets.fromLTRB(16.0, 250.0,16.0,16.0),
                 decoration: BoxDecoration(

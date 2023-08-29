@@ -11,6 +11,8 @@ import 'package:flutterbeginner/view/widgets/all_item_widget.dart';
 import 'package:easy_search_bar/easy_search_bar.dart';
 
 class AllTasks extends StatefulWidget {
+  const AllTasks({super.key});
+
   @override
   State<AllTasks> createState() => _AllTasksState();
 }
@@ -101,18 +103,18 @@ class _AllTasksState extends State<AllTasks> {
     return Scaffold(
       appBar: EasySearchBar(
           title: getTxtAppColor(msg: StringConst.APP_NAME, fontSize: 16,fontWeight: FontWeight.w700),
-          backgroundColor: ColorConst.WHITE_COLOR,
-          iconTheme: const IconThemeData(color: ColorConst.APP_COLOR),
-          searchBackIconTheme: const IconThemeData(color: ColorConst.APP_COLOR),
-          searchClearIconTheme: const IconThemeData(color: ColorConst.APP_COLOR),
+          backgroundColor: ColorConst.whiteColor,
+          iconTheme: const IconThemeData(color: ColorConst.appColor),
+          searchBackIconTheme: const IconThemeData(color: ColorConst.appColor),
+          searchClearIconTheme: const IconThemeData(color: ColorConst.appColor),
           elevation: 5,
-          animationDuration: const Duration(seconds: 2),
+          animationDuration: const Duration(seconds: 1),
           searchHintText: StringConst.APP_NAME,
           searchTextStyle: const TextStyle(fontWeight: FontWeight.w500),
-          searchCursorColor: ColorConst.APP_COLOR,
+          searchCursorColor: ColorConst.appColor,
           onSearch: (value) => onDataChange(value),
           actions: [
-            IconButton(icon: const Icon(Icons.person, color: ColorConst.APP_COLOR), onPressed: () {})
+            IconButton(icon: const Icon(Icons.person, color: ColorConst.appColor), onPressed: () {})
           ],
           asyncSuggestions: (value) async => await _fetchSuggestions(value)),
       drawer: NavDrawerHome(),
@@ -139,39 +141,38 @@ class _AllTasksState extends State<AllTasks> {
                 borderRadius: BorderRadius.circular(20.0)),
             title: getTxtBlackColor(
                 msg: 'Select Option', fontWeight: FontWeight.bold),
-            content: Container(
-                child: Column(
+            content: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                InkWell(
-                    onTap: () {
-                      setState(() {
-                        searchDataBean
-                            .sort((a, b) => a.title!.compareTo(b.title!));
-                      });
+            InkWell(
+                onTap: () {
+                  setState(() {
+                    searchDataBean
+                        .sort((a, b) => a.title!.compareTo(b.title!));
+                  });
 
-                      Navigator.of(context).pop();
-                    },
-                    child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(15),
-                        child: getTxtBlackColor(msg: 'Accending'))),
-                InkWell(
-                    onTap: () {
-                      setState(() {
-                        searchDataBean
-                            .sort((a, b) => b.title!.compareTo(a.title!));
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(15),
-                        child: getTxtBlackColor(msg: 'Decending'))),
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(15),
+                    child: getTxtBlackColor(msg: 'Accending'))),
+            InkWell(
+                onTap: () {
+                  setState(() {
+                    searchDataBean
+                        .sort((a, b) => b.title!.compareTo(a.title!));
+                  });
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(15),
+                    child: getTxtBlackColor(msg: 'Decending'))),
               ],
-            ))));
+            )));
   }
 
   AppBar buildAppBar(BuildContext context) {

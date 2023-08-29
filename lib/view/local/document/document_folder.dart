@@ -52,7 +52,7 @@ class _DocumentFolderState extends State<DocumentFolder> {
             child: Row(
               children: <Widget>[
                 CircleAvatar(
-                    backgroundColor: ColorConst.APP_COLOR,
+                    backgroundColor: ColorConst.appColor,
                     radius: 35.0,
                     child: getTxtWhiteColor(
                         msg:filesBean.mimeType!.toUpperCase(),textAlign:TextAlign.center,fontSize: 11, fontWeight:FontWeight.bold)),

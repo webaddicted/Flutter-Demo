@@ -28,7 +28,7 @@ class _FcmHomeState extends State<FcmHome> {
       appBar: getAppBarWithBackBtn(
           ctx: context,
           title: StringConst.HOME_TITLE,
-          bgColor: ColorConst.FCM_APP_COLOR),
+          bgColor: ColorConst.fcmAppColor),
       body: Builder(builder: (_context) => _createUi(_context)),
     );
   }

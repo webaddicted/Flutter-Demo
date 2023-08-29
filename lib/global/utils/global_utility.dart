@@ -42,7 +42,7 @@ int _getColorFromHex(String hexColor) {
 Future<List<CountryBean>> loadCountriesJson(BuildContext context) async {
   List<CountryBean> countryBean = [];
   var value = await DefaultAssetBundle.of(context)
-      .loadString(AssetsConst.COUNTRY_PHONE_CODES_JSON);
+      .loadString(AssetsConst.countryPhoneCodesJson);
   var countriesJson = jsonDecode(value);
   for (var country in countriesJson) {
     countryBean.add(CountryBean.fromJson(country));

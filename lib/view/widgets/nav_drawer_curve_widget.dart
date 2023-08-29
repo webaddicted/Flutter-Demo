@@ -21,7 +21,7 @@ class NavDrawerCurveWidgt extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(left: 16.0, right: 40),
           decoration: const BoxDecoration(
-              color: ColorConst.WHITE_COLOR,
+              color: ColorConst.whiteColor,
               boxShadow: [BoxShadow(color: Colors.black45)]),
           width: 300,
           child: SafeArea(
@@ -44,8 +44,8 @@ class NavDrawerCurveWidgt extends StatelessWidget {
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           gradient: LinearGradient(colors: [
-                            ColorConst.GREEN_COLOR,
-                            ColorConst.APP_COLOR
+                            ColorConst.greenColor,
+                            ColorConst.appColor
                           ])),
                       child: const CircleAvatar(
                         radius: 60,
@@ -62,7 +62,7 @@ class NavDrawerCurveWidgt extends StatelessWidget {
                   getTxtColor(
                       msg: StringConst.WEBADDICTED,
                       fontSize: 16,
-                      txtColor: ColorConst.BLACK_COLOR),
+                      txtColor: ColorConst.blackColor),
                   const SizedBox(height: 30.0),
                   _buildRow(Icons.home, "Home"),
                   _buildDivider(),
@@ -98,7 +98,7 @@ class NavDrawerCurveWidgt extends StatelessWidget {
 
   Divider _buildDivider() {
     return const Divider(
-      color: ColorConst.GREY_COLOR,
+      color: ColorConst.greyColor,
     );
   }
 
@@ -110,19 +110,19 @@ class NavDrawerCurveWidgt extends StatelessWidget {
         child: Row(children: [
           Icon(
             icon,
-            color: ColorConst.BLACK_COLOR,
+            color: ColorConst.blackColor,
           ),
           const SizedBox(width: 10.0),
           getTxtColor(
             msg: title,
-            txtColor: ColorConst.BLACK_COLOR,
+            txtColor: ColorConst.blackColor,
             fontSize: 16,
             fontWeight: FontWeight.w600
           ),
           const Spacer(),
           if (showBadge)
             Material(
-              color: ColorConst.APP_COLOR,
+              color: ColorConst.appColor,
               elevation: 2.0,
               // shadowColor: ColorConst.APP_COLOR,
               borderRadius: BorderRadius.circular(15.0),
@@ -131,7 +131,7 @@ class NavDrawerCurveWidgt extends StatelessWidget {
                 height: 10,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: ColorConst.APP_COLOR,
+                  color: ColorConst.appColor,
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 // child: Text(

@@ -137,17 +137,17 @@ class Slider {
 
 final sliderArrayList = [
   Slider(
-      sliderImageUrl: AssetsConst.SLIDER4_IMG,
+      sliderImageUrl: AssetsConst.slider4Img,
       sliderHeading: 'FIND RESTAURANT',
       sliderSubHeading: StringConst.DUMMY_TEXT,
       skipBtn: 'SKIP'),
   Slider(
-      sliderImageUrl: AssetsConst.SLIDER5_IMG,
+      sliderImageUrl: AssetsConst.slider5Img,
       sliderHeading: 'PICK THE BEST',
       sliderSubHeading: StringConst.DUMMY_TEXT,
       skipBtn: 'SKIP'),
   Slider(
-      sliderImageUrl: AssetsConst.SLIDER6_IMG,
+      sliderImageUrl: AssetsConst.slider6Img,
       sliderHeading: 'CHOOSE YOUR MEAL',
       sliderSubHeading: StringConst.DUMMY_TEXT,
       skipBtn: ""),

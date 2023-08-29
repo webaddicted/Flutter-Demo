@@ -23,7 +23,7 @@ class _ListPage1State extends State<ListPage1> {
   Widget _createUi() {
     return SafeArea(
       child: Container(
-        color: ColorConst.GREY_BG_COLOR,
+        color: ColorConst.greyBgColor,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),

@@ -30,7 +30,7 @@ class NewsCardAppBar extends StatelessWidget {
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.arrow_left),
-                              color: ColorConst.GREY_COLOR,
+                              color: ColorConst.greyColor,
                               onPressed: () {
                                 Navigator.pop(context);
                               },

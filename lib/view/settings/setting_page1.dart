@@ -23,15 +23,15 @@ class _SettingPage1State extends State<SettingPage1> {
     var homeIcon = IconButton(
         icon: Icon(
           Icons.arrow_back_ios,
-          color: ColorConst.BLACK_COLOR,
+          color: ColorConst.blackColor,
         ),
         onPressed: () => Navigator.pop(context));
     return Scaffold(
         appBar: getAppBarWithBackBtn(
             ctx: context,
             title: StringConst.WEBADDICTED,
-            bgColor: ColorConst.WHITE_COLOR,
-            txtColor: ColorConst.BLACK_COLOR,
+            bgColor: ColorConst.whiteColor,
+            txtColor: ColorConst.blackColor,
             icon: homeIcon),
         body: _createUi());
   }
@@ -52,7 +52,7 @@ class _SettingPage1State extends State<SettingPage1> {
                     color: Colors.white,
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(AssetsConst.DEEPAK_IMG),
+                      image: AssetImage(AssetsConst.deepakImg),
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(
@@ -73,7 +73,7 @@ class _SettingPage1State extends State<SettingPage1> {
                       getTxtColor(
                           fontSize: 17,
                           msg: StringConst.WEBADDICTED,
-                          txtColor: ColorConst.GREY_COLOR)
+                          txtColor: ColorConst.greyColor)
                     ],
                   ),
                 ),
@@ -88,7 +88,7 @@ class _SettingPage1State extends State<SettingPage1> {
             subtitle: getTxtColor(
                 msg: "English US",
                 fontSize: 15,
-                txtColor: ColorConst.GREY_COLOR),
+                txtColor: ColorConst.greyColor),
             trailing: Icon(
               Icons.keyboard_arrow_right,
               color: Colors.grey.shade400,
@@ -104,7 +104,7 @@ class _SettingPage1State extends State<SettingPage1> {
             subtitle: getTxtColor(
                 msg: StringConst.DEEPAK_SHARMA,
                 fontSize: 15,
-                txtColor: ColorConst.GREY_COLOR),
+                txtColor: ColorConst.greyColor),
             trailing: Icon(
               Icons.keyboard_arrow_right,
               color: Colors.grey.shade400,
@@ -118,7 +118,7 @@ class _SettingPage1State extends State<SettingPage1> {
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
             subtitle: getTxtColor(
-                msg: 'On', fontSize: 15, txtColor: ColorConst.GREY_COLOR),
+                msg: 'On', fontSize: 15, txtColor: ColorConst.greyColor),
             value: emailNoti,
             onChanged: (val) {
               emailNoti = !emailNoti;
@@ -132,7 +132,7 @@ class _SettingPage1State extends State<SettingPage1> {
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
             subtitle: getTxtColor(
-                msg: 'Off', fontSize: 15, txtColor: ColorConst.GREY_COLOR),
+                msg: 'Off', fontSize: 15, txtColor: ColorConst.greyColor),
             value: pushNoti,
             onChanged: (val) {
               pushNoti = !pushNoti;
@@ -146,7 +146,7 @@ class _SettingPage1State extends State<SettingPage1> {
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
             subtitle: getTxtColor(
-                msg: 'Turn dark mode on/off', fontSize: 15, txtColor: ColorConst.GREY_COLOR),
+                msg: 'Turn dark mode on/off', fontSize: 15, txtColor: ColorConst.greyColor),
             value: darkMode,
             onChanged: (val) {
               darkMode = !darkMode;

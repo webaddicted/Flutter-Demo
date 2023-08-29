@@ -25,7 +25,7 @@ class _BottomNavPage1State extends State<BottomNavPage1>
       appBar: getAppBarWithBackBtn(
           ctx: context, title: StringConst.BOTTOM_NAVIGATION_TITLE),
       bottomNavigationBar: Material(
-        color: ColorConst.APP_COLOR,
+        color: ColorConst.appColor,
         child: _getTab(),
       ),
       body: _createUi(context),

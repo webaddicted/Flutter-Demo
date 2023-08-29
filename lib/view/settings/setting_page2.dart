@@ -34,7 +34,7 @@ class _SettingPage2State extends State<SettingPage2> {
                 children: <Widget>[
                   ListTile(
                     leading: CircleAvatar(
-                      backgroundImage: AssetImage(AssetsConst.DEEPAK_IMG),
+                      backgroundImage: AssetImage(AssetsConst.deepakImg),
                     ),
                     title: Text(StringConst.DEEPAK_SHARMA),
                     onTap: () {},

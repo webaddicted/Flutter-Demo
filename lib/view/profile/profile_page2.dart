@@ -123,7 +123,7 @@ class Card extends StatelessWidget {
           width: 130,
           decoration: BoxDecoration(
               image: const DecorationImage(
-                  image: AssetImage(AssetsConst.DEEPAK_IMG), fit: BoxFit.fill),
+                  image: AssetImage(AssetsConst.deepakImg), fit: BoxFit.fill),
               borderRadius: BorderRadius.circular(100),
               border: Border.all(
                   color: Colors.blueAccent.withOpacity(.2), width: 1)),

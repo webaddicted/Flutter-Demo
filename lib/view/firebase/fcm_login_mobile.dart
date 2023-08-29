@@ -73,7 +73,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                   SizedBox(
                       height: 155,
                       width: 130,
-                      child: Image.asset(AssetsConst.MOBILE_IMG)),
+                      child: Image.asset(AssetsConst.mobileImg)),
                   const SizedBox(height: 20),
                   getTxtBlackColor(
                       msg: 'Enter your mobile number \nto create account',
@@ -141,7 +141,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
                       onTap: () => navigationPush(context, FcmSignup()),
                       child: getTxtColor(
                           msg: 'SIGN UP',
-                          txtColor: ColorConst.FCM_APP_COLOR,
+                          txtColor: ColorConst.fcmAppColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
@@ -160,7 +160,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
       height: 45,
       child: MaterialButton(
           shape: const StadiumBorder(),
-          color: ColorConst.FCM_APP_COLOR,
+          color: ColorConst.fcmAppColor,
           child: getTxtWhiteColor(
               msg: 'Login', fontSize: 15, fontWeight: FontWeight.bold),
           onPressed: () => _submitLogin()),
@@ -182,7 +182,7 @@ class _FcmLoginMobileState extends State<FcmLoginMobile> {
   Future<List<CountryBean>> _loadCountriesJson() async {
     _countryBean = [];
     var value = await DefaultAssetBundle.of(context)
-        .loadString(AssetsConst.COUNTRY_PHONE_CODES_JSON);
+        .loadString(AssetsConst.countryPhoneCodesJson);
     var countriesJson = json.decode(value);
     for (var country in countriesJson) {
       _countryBean.add(CountryBean.fromJson(country));

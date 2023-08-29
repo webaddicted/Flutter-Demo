@@ -59,7 +59,7 @@ class _SliderViewState extends State<SliderView> {
             },
             min: 0,
             max: 100,
-            activeColor: ColorConst.APP_COLOR,
+            activeColor: ColorConst.appColor,
             inactiveColor: Colors.grey.withOpacity(0.4),
             divisions: 100,
             value: distValue,

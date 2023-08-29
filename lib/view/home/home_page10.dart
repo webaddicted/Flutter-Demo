@@ -31,8 +31,8 @@ class _HomePage10State extends State<HomePage10> with SingleTickerProviderStateM
       // appBar: getAppBarWithBackBtn(
       //     ctx: context, title: StringConst.HOME_TITLE),
       bottomNavigationBar: Material(
-        color: ColorConst.WHITE_COLOR,
-        shadowColor: ColorConst.APP_COLOR,
+        color: ColorConst.whiteColor,
+        shadowColor: ColorConst.appColor,
         child: _getTab(),
       ),
       body: _createUi(context),
@@ -54,9 +54,9 @@ class _HomePage10State extends State<HomePage10> with SingleTickerProviderStateM
 
   TabBar _getTab() {
     return TabBar(
-      indicatorColor: ColorConst.APP_COLOR,
-      unselectedLabelColor: ColorConst.BLACK_COLOR,
-      labelColor: ColorConst.APP_COLOR,
+      indicatorColor: ColorConst.appColor,
+      unselectedLabelColor: ColorConst.blackColor,
+      labelColor: ColorConst.appColor,
       controller: _tabController,
       tabs: const <Widget>[
         Tab(

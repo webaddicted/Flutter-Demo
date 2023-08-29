@@ -66,7 +66,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
 
   _shareImage() async {
     try {
-      final ByteData bytes = await rootBundle.load(AssetsConst.LOGO_IMG);
+      final ByteData bytes = await rootBundle.load(AssetsConst.logoImg);
       // await Share.file(
       //     StringConst.APP_NAME, 'logo.png', bytes.buffer.asUint8List(), 'image/png',
       //     text: StringConst.APP_NAME);
@@ -77,8 +77,8 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
 
   _shareImages() async {
     try {
-      final ByteData bytes1 = await rootBundle.load(AssetsConst.SLIDER1_IMG);
-      final ByteData bytes2 = await rootBundle.load(AssetsConst.SLIDER2_IMG);
+      final ByteData bytes1 = await rootBundle.load(AssetsConst.slider1Img);
+      final ByteData bytes2 = await rootBundle.load(AssetsConst.slider2Img);
 
       // await Share.files(
       //     StringConst.APP_NAME,
@@ -94,7 +94,7 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
 
   _shareCSV() async {
     try {
-      final ByteData bytes = await rootBundle.load(AssetsConst.INSURANCE_CSV);
+      final ByteData bytes = await rootBundle.load(AssetsConst.insuranceCsv);
       // await Share.file(
       //     StringConst.APP_NAME, 'addresses.csv', bytes.buffer.asUint8List(), 'text/csv');
     } catch (e) {
@@ -104,9 +104,9 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
 
   _shareMixed() async {
     try {
-      final ByteData bytes1 = await rootBundle.load(AssetsConst.SLIDER1_IMG);
-      final ByteData bytes2 = await rootBundle.load(AssetsConst.SLIDER2_IMG);
-      final ByteData bytes3 = await rootBundle.load(AssetsConst.INSURANCE_CSV);
+      final ByteData bytes1 = await rootBundle.load(AssetsConst.slider1Img);
+      final ByteData bytes2 = await rootBundle.load(AssetsConst.slider2Img);
+      final ByteData bytes3 = await rootBundle.load(AssetsConst.insuranceCsv);
 
       // await Share.files(
       //     StringConst.APP_NAME,

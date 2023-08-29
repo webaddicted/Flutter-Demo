@@ -80,7 +80,7 @@ class _DrawerSlideControllerState extends State<DrawerSlideController> with Tick
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.WHITE_COLOR,
+      backgroundColor: ColorConst.whiteColor,
       body: SingleChildScrollView(
         controller: scrollController,
         scrollDirection: Axis.horizontal,
@@ -121,7 +121,7 @@ class _DrawerSlideControllerState extends State<DrawerSlideController> with Tick
                 //full-screen Width with widget.screenView
                 child: Container(
                   decoration: BoxDecoration(
-                    color: ColorConst.WHITE_COLOR,
+                    color: ColorConst.whiteColor,
                     boxShadow: <BoxShadow>[
                       BoxShadow(color: ColorConst.grey.withOpacity(0.6), blurRadius: 24),
                     ],

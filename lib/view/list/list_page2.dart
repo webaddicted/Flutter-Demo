@@ -40,7 +40,7 @@ class _ListPage2State extends State<ListPage2> {
     ctx = context;
     return SafeArea(
       child: Container(
-        color: ColorConst.GREY_BG_COLOR,
+        color: ColorConst.greyBgColor,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class _ListPage2State extends State<ListPage2> {
 
               SifiMovieRow("Sci-fi Movies"),
               TrandingMovieRow(
-                dummyImg: AssetsConst.BG_GIRL_IMG,
+                dummyImg: AssetsConst.bgGirlImg,
                 animationName: "Category",
               ),
             ],
@@ -97,7 +97,7 @@ class _ListPage2State extends State<ListPage2> {
                   child: Container(
                     height: 80,
                     width: 80,
-                    color: ColorConst.BLACK_FADE,
+                    color: ColorConst.blackFade,
                   ),
                 )
               ],
@@ -159,8 +159,8 @@ class _ListPage2State extends State<ListPage2> {
             .length,
         indicatorSpace: 8.0,
         padding: const EdgeInsets.all(5.0),
-        indicatorColor: ColorConst.APP_COLOR,
-        indicatorSelectorColor: ColorConst.WHITE_COLOR,
+        indicatorColor: ColorConst.appColor,
+        indicatorSelectorColor: ColorConst.whiteColor,
         shape: IndicatorShape.circle(size: 5.0),
         child: PageView.builder(
           controller: pageController,
@@ -201,8 +201,8 @@ class _ListPage2State extends State<ListPage2> {
                             0.9
                           ],
                           colors: [
-                            ColorConst.BLACK_COLOR.withOpacity(1.0),
-                            ColorConst.BLACK_COLOR.withOpacity(0.0)
+                            ColorConst.blackColor.withOpacity(1.0),
+                            ColorConst.blackColor.withOpacity(0.0)
                           ]),
                     ),
                   ),
@@ -213,7 +213,7 @@ class _ListPage2State extends State<ListPage2> {
                       right: 0.0,
                       child: Icon(
                         FontAwesomeIcons.playCircle,
-                        color: ColorConst.APP_COLOR,
+                        color: ColorConst.appColor,
                         size: 40.0,
                       )),
                   Positioned(

@@ -317,7 +317,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   Future<List<CountryBean>> _loadCountriesJson() async {
     _countryBean = [];
     var value = await DefaultAssetBundle.of(context)
-        .loadString(AssetsConst.COUNTRY_PHONE_CODES_JSON);
+        .loadString(AssetsConst.countryPhoneCodesJson);
     var countriesJson = json.decode(value);
     for (var country in countriesJson) {
       _countryBean.add(CountryBean.fromJson(country));

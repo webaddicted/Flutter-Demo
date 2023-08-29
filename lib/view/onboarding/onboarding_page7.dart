@@ -40,20 +40,20 @@ class _OnBoardingPage7State extends State<OnBoardingPage7>
             'Goal support your motivation and inspire you to work harder',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: AssetsConst.SLIDER4_IMG),
+        imagePath: AssetsConst.slider4Img),
     SkOnboardingModel(
         title: 'Track your progress',
         description:
             'Analyse personal result with detailed chart and numerical values',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: AssetsConst.SLIDER5_IMG),
+        imagePath: AssetsConst.slider5Img),
     SkOnboardingModel(
         title: 'Create photo comparisons',
         description: 'Take before and after photos to visualize progress ',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: AssetsConst.SLIDER6_IMG),
+        imagePath: AssetsConst.slider6Img),
   ];
 }
 

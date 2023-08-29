@@ -22,7 +22,7 @@ class _CollapseZoomImgPage2State extends State<CollapseZoomImgPage2> {
           shape: BoxShape.circle,
           color: Colors.grey,
           image: new DecorationImage(
-            image: new ExactAssetImage(AssetsConst.BABY_IMG),
+            image: new ExactAssetImage(AssetsConst.babyImg),
             fit: BoxFit.cover,
           ),
           border: Border.all(color: Colors.black, width: 2.0),

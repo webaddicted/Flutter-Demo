@@ -48,7 +48,7 @@ class _ImageFolderState extends State<ImageFolder> {
     return InkWell(
       onTap: ()=>navigationPush(context, FullImage(null,File(imageFiles), imageFiles)),
       child: Card(
-          color: ColorConst.GREY_COLOR,
+          color: ColorConst.greyColor,
           child: Padding(
               padding: const EdgeInsets.all(1.0),child:ImageTile(imageFiles))),
     );

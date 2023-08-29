@@ -77,7 +77,7 @@ class _FcmSignupState extends State<FcmSignup> {
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: getTxtColor(msg:'Create new \naccount',
-                        txtColor:ColorConst.FCM_APP_COLOR,fontSize: 25, fontWeight:FontWeight.bold),
+                        txtColor:ColorConst.fcmAppColor,fontSize: 25, fontWeight:FontWeight.bold),
                   ),
                   SizedBox(height: 30),
                   Form(
@@ -106,7 +106,7 @@ class _FcmSignupState extends State<FcmSignup> {
                   Center(
                       child: GestureDetector(
                           onTap: () => navigationPush(context, FcmLogin()),
-                          child: getTxtColor(msg:'LOGIN', txtColor:ColorConst.FCM_APP_COLOR,
+                          child: getTxtColor(msg:'LOGIN', txtColor:ColorConst.fcmAppColor,
                               fontSize:16, fontWeight:FontWeight.bold))),
                   SizedBox(height: 20),
                 ],
@@ -141,7 +141,7 @@ class _FcmSignupState extends State<FcmSignup> {
       height: 45,
       child: MaterialButton(
           shape: StadiumBorder(),
-          color: ColorConst.FCM_APP_COLOR,
+          color: ColorConst.fcmAppColor,
           child: getTxtWhiteColor(msg:'Signup', fontSize:15, fontWeight:FontWeight.bold),
           onPressed: () => _submitSignup()),
     );

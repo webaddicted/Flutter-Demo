@@ -68,7 +68,9 @@ dependencies:
   rect_getter: ^1.1.0
   logger: ^1.4.0
   get: ^4.6.5
-
+  responsive_framework: ^1.1.0
+#  for web
+  webview_flutter_web: ^0.2.2+1
 
 dev_dependencies:
   flutter_test:

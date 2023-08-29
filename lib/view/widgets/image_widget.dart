@@ -46,15 +46,15 @@ class _ImageWidgetState extends State<ImageWidget> {
         const SizedBox(height: 10),
         loadCircleImg(ApiConstant.DEMO_IMG, 0, 120),
         const SizedBox(height: 10),
-        SizedBox(height: 80, child: Image.asset(AssetsConst.LOGO_IMG)),
+        SizedBox(height: 80, child: Image.asset(AssetsConst.logoImg)),
         const SizedBox(height: 10),
         const SizedBox(
             height: 150,
             child: Image(
-                image: AssetImage(AssetsConst.BABY_IMG), fit: BoxFit.cover)),
+                image: AssetImage(AssetsConst.babyImg), fit: BoxFit.cover)),
         const SizedBox(height: 10),
         FadeInImage.assetNetwork(
-            placeholder: AssetsConst.LOGO_IMG,
+            placeholder: AssetsConst.logoImg,
             image: ApiConstant.DEMO_IMG,
             height: 200,
             width: double.infinity,

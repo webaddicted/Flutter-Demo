@@ -28,7 +28,7 @@ class _LoginPage3State extends State<LoginPage3> {
               height: 400,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(AssetsConst.SP_BC_IMG),
+                      image: AssetImage(AssetsConst.spBcImg),
                       fit: BoxFit.fill)),
               child: Stack(
                 children: <Widget>[
@@ -40,7 +40,7 @@ class _LoginPage3State extends State<LoginPage3> {
                     child: FadeAnimation(
                       1,
                       CircleAvatar(
-                        backgroundColor: ColorConst.WHITE_COLOR,
+                        backgroundColor: ColorConst.whiteColor,
                         child:  loadCircleImg(ApiConstant.DEMO_IMG,0, 100),
                       ),
                     ),
@@ -55,7 +55,7 @@ class _LoginPage3State extends State<LoginPage3> {
                         Container(
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(AssetsConst.LIGHT_IMG))),
+                                  image: AssetImage(AssetsConst.lightImg))),
                         )),
                   ),
                   Positioned(

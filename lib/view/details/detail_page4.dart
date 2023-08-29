@@ -17,7 +17,7 @@ class _DetailPage4State extends State<DetailPage4> {
       body: Stack(
         children: <Widget>[
           Container(
-            color: ColorConst.GREY_BG_COLOR,
+            color: ColorConst.greyBgColor,
           ),
           SingleChildScrollView(
             child: Column(
@@ -29,7 +29,7 @@ class _DetailPage4State extends State<DetailPage4> {
                         height: 400,
                         width: double.infinity,
                         child: Image.asset(
-                          AssetsConst.BG_FOOD_IMG,
+                          AssetsConst.bgFoodImg,
                           fit: BoxFit.cover,
                         )),
                     Positioned(
@@ -247,7 +247,7 @@ class _DetailPage4State extends State<DetailPage4> {
                   },
                   heroTag: 'right',
                   child: const Icon(Icons.arrow_back_ios_sharp,
-                      color: ColorConst.WHITE_COLOR),
+                      color: ColorConst.whiteColor),
                   backgroundColor: Colors.black26,
                   elevation: 0.5,
                 ),

@@ -27,7 +27,7 @@ class CategoryCard extends StatelessWidget {
             Opacity(
               opacity: active ? 1 : 0.5,
               child: Image.asset(
-               AssetsConst.LOGO_IMG,
+               AssetsConst.logoImg,
                 height: 70,
                 width: 70,
                 fit: BoxFit.contain,

@@ -150,9 +150,9 @@ class _LoginPage7State extends State<LoginPage7> {
                 ),
                 Row(
                   children: <Widget>[
-                    socialButtons(AssetsConst.FB_IMG),
-                    socialButtons(AssetsConst.GOOGLE_IMG),
-                    socialButtons(AssetsConst.TWITTER_IMG),
+                    socialButtons(AssetsConst.fbImg),
+                    socialButtons(AssetsConst.googleImg),
+                    socialButtons(AssetsConst.twitterImg),
                   ],
                 )
               ],
@@ -178,19 +178,19 @@ class _LoginPage7State extends State<LoginPage7> {
         ),
         onTap: () {
           switch (image) {
-            case AssetsConst.FB_IMG:
+            case AssetsConst.fbImg:
               {
                 printLog(msg: 'facebook selected');
               }
               break;
 
-            case AssetsConst.GOOGLE_IMG:
+            case AssetsConst.googleImg:
               {
                 printLog(msg: 'google-plus selected');
               }
               break;
 
-            case AssetsConst.TWITTER_IMG:
+            case AssetsConst.twitterImg:
               {
                 printLog(msg: 'twitter selected');
               }

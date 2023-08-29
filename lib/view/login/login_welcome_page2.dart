@@ -24,7 +24,7 @@ class _LoginWelcomePage2State extends State<LoginWelcomePage2> {
         height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(AssetsConst.BG_FOOD_IMG), fit: BoxFit.cover)),
+                image: AssetImage(AssetsConst.bgFoodImg), fit: BoxFit.cover)),
         child: Stack(
           children: <Widget>[
             Center(

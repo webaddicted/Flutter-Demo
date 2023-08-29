@@ -24,12 +24,12 @@ class _NavDrawerSlidePageState extends State<NavDrawerSlidePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorConst.WHITE_COLOR,
+      color: ColorConst.whiteColor,
       child: SafeArea(
         // top: false,
         // bottom: false,
         child: Scaffold(
-          backgroundColor: ColorConst.WHITE_COLOR,
+          backgroundColor: ColorConst.whiteColor,
           body: _createUi(context),
         ),
       ),
@@ -130,7 +130,7 @@ class Page1 extends StatelessWidget {
                       BorderRadius.circular(AppBar().preferredSize.height),
                   child: Icon(
                     multiple ? Icons.dashboard : Icons.view_agenda,
-                    color: ColorConst.BLACK_COLOR,
+                    color: ColorConst.blackColor,
                   ),
                   onTap: () {
                     // setState(() {

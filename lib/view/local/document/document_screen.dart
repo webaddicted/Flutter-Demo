@@ -64,7 +64,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
           child: Row(
             children: <Widget>[
               loadCircleIcon(
-                  Icons.picture_as_pdf, Colors.white, ColorConst.APP_COLOR, 30),
+                  Icons.picture_as_pdf, Colors.white, ColorConst.appColor, 30),
               const SizedBox(width: 15),
               Expanded(
                 child: Column(

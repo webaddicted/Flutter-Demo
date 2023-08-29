@@ -39,7 +39,7 @@ class _ProfilePage3State extends State<ProfilePage3> {
                         children: <Widget>[
                           new CircleAvatar(
                             backgroundImage:
-                                new AssetImage(AssetsConst.DEEPAK_IMG),
+                                new AssetImage(AssetsConst.deepakImg),
                             radius: _height / 10,
                           ),
                           new SizedBox(

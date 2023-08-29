@@ -17,15 +17,15 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       var homeIcon = IconButton(
         icon: Icon(
           Icons.arrow_back_ios,
-          color:ColorConst.BLACK_COLOR,
+          color:ColorConst.blackColor,
         ),
         onPressed: () => Navigator.pop(context));
     return Scaffold(
       appBar: getAppBarWithBackBtn(
           ctx: context,
           title: 'About Us',
-          bgColor: ColorConst.WHITE_COLOR,
-          txtColor: ColorConst.BLACK_COLOR,
+          bgColor: ColorConst.whiteColor,
+          txtColor: ColorConst.blackColor,
           // titleTag: 'About Us',
           icon: homeIcon),
       body: Builder(builder: (_context) => _createUi(_context)),

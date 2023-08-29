@@ -89,7 +89,7 @@ class _LoginPage2State extends State<LoginPage2> {
                   MaterialButton(
                     child: getTxtColor(
                         msg: 'Signup',
-                        txtColor: ColorConst.APP_COLOR,
+                        txtColor: ColorConst.appColor,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                     onPressed: () {
@@ -99,7 +99,7 @@ class _LoginPage2State extends State<LoginPage2> {
                     elevation: 2,
                     shape: UnderlineInputBorder(
                       borderSide:
-                          BorderSide(color: ColorConst.APP_COLOR, width: 3),
+                          BorderSide(color: ColorConst.appColor, width: 3),
                     ),
                   ),
                 ],

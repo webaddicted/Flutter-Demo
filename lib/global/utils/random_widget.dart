@@ -12,7 +12,7 @@ Widget bgDesign() {
           width: 150,
           transform: Matrix4.translationValues(-50, -50, 0.0),
           decoration: BoxDecoration(
-              color: ColorConst.CIRCLE_FADE1, shape: BoxShape.circle),
+              color: ColorConst.circleFade1, shape: BoxShape.circle),
         ),
       ),
       Align(
@@ -22,7 +22,7 @@ Widget bgDesign() {
           width: 200,
           transform: Matrix4.translationValues(-50, -100, 0.0),
           decoration: BoxDecoration(
-              color: ColorConst.CIRCLE_FADE1, shape: BoxShape.circle),
+              color: ColorConst.circleFade1, shape: BoxShape.circle),
         ),
       ),
       Align(
@@ -32,7 +32,7 @@ Widget bgDesign() {
           width: 150,
           transform: Matrix4.translationValues(50, 50, 0.0),
           decoration: BoxDecoration(
-              color: ColorConst.CIRCLE_FADE1, shape: BoxShape.circle),
+              color: ColorConst.circleFade1, shape: BoxShape.circle),
         ),
       ),
       Align(
@@ -42,7 +42,7 @@ Widget bgDesign() {
           width: 150,
           transform: Matrix4.translationValues(50, 150, 0),
           decoration: BoxDecoration(
-              color: ColorConst.CIRCLE_FADE1, shape: BoxShape.circle),
+              color: ColorConst.circleFade1, shape: BoxShape.circle),
         ),
       ),
     ],

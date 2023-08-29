@@ -20,7 +20,7 @@ class _LoginPage12State extends State<LoginPage12> {
                 Container(
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(AssetsConst.BG_GIRL_IMG),
+                      image: AssetImage(AssetsConst.bgGirlImg),
                       fit: BoxFit.cover,
                     ),
                   ),

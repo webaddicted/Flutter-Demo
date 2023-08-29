@@ -13,7 +13,7 @@ class _HomePage5State extends State<HomePage5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.GREY_BG_COLOR,
+      backgroundColor: ColorConst.greyBgColor,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -22,7 +22,7 @@ class _HomePage5State extends State<HomePage5> {
             leading: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios_sharp,
-                  color: ColorConst.WHITE_COLOR,
+                  color: ColorConst.whiteColor,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -113,7 +113,7 @@ class _HomePage5State extends State<HomePage5> {
                       FadeInImage.assetNetwork(
                           width: double.infinity,
                           fit: BoxFit.cover,
-                          placeholder: AssetsConst.LOGO_IMG,
+                          placeholder: AssetsConst.logoImg,
                           image: dummyLargeFoodImg[index]),
                       Positioned(
                         right: 10,

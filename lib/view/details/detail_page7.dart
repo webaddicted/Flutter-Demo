@@ -16,7 +16,7 @@ class _DetailPage7State extends State<DetailPage7> {
           Container(
               foregroundDecoration: BoxDecoration(color: Colors.black26),
               height: 400,
-              child: Image.asset(AssetsConst.BG_FOOD_IMG,
+              child: Image.asset(AssetsConst.bgFoodImg,
                   fit: BoxFit.cover, width: double.infinity)),
           SingleChildScrollView(
             padding: const EdgeInsets.only(top: 16.0, bottom: 20.0),

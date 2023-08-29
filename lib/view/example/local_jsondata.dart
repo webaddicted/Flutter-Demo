@@ -30,7 +30,7 @@ class _LocalDataState extends State<LocalData> {
     return new Container(
       child: new FutureBuilder(
           future:
-              DefaultAssetBundle.of(context).loadString(AssetsConst.LOAD_JSON),
+              DefaultAssetBundle.of(context).loadString(AssetsConst.loadJson),
           builder: (context, snapshot) {
             printLog(msg: snapshot.data.toString());
             var myData = jsonDecode(snapshot.data.toString());
@@ -53,7 +53,7 @@ class _LocalDataState extends State<LocalData> {
   Widget getListRow(List dataResult, int index) {
     return new Card(
       elevation: 2,
-      color: ColorConst.WHITE_COLOR,
+      color: ColorConst.whiteColor,
       margin: EdgeInsets.all(4),
       child: Padding(
         padding: EdgeInsets.only(left: 5, right: 5),

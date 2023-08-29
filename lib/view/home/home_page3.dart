@@ -17,7 +17,7 @@ class _HomePage3State extends State<HomePage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.GREY_BG_COLOR,
+      backgroundColor: ColorConst.greyBgColor,
       body: _createUi(),
     );
   }
@@ -31,7 +31,7 @@ class _HomePage3State extends State<HomePage3> {
               IconButton(
                   icon: const Icon(
                     Icons.arrow_back_ios_sharp,
-                    color: ColorConst.BLACK_COLOR,
+                    color: ColorConst.blackColor,
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -138,7 +138,7 @@ class _HomePage3State extends State<HomePage3> {
                 children: <Widget>[
                   CircleAvatar(
                     radius: 20,
-                    backgroundColor: ColorConst.APP_COLOR,
+                    backgroundColor: ColorConst.appColor,
                     child: activities[index].icon != null
                         ? Icon(
                             activities[index].icon,

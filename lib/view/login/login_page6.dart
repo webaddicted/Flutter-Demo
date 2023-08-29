@@ -36,7 +36,7 @@ class _LoginPage6State extends State<LoginPage6> {
                       Padding(
                         padding: const EdgeInsets.only(top: 1.0),
                         child: Image.asset(
-                          AssetsConst.LOGO_IMG,
+                          AssetsConst.logoImg,
                           width: 80,
                           height: 80,
                         ),
@@ -129,9 +129,9 @@ class _LoginPage6State extends State<LoginPage6> {
                       right: size.width / 20),
                   child: Row(
                     children: <Widget>[
-                      socialButtons(AssetsConst.FB_IMG),
-                      socialButtons(AssetsConst.GOOGLE_IMG),
-                      socialButtons(AssetsConst.TWITTER_IMG),
+                      socialButtons(AssetsConst.fbImg),
+                      socialButtons(AssetsConst.googleImg),
+                      socialButtons(AssetsConst.twitterImg),
                     ],
                   ),
                 ),
@@ -181,19 +181,19 @@ class _LoginPage6State extends State<LoginPage6> {
         ),
         onTap: () {
           switch (image) {
-            case AssetsConst.FB_IMG:
+            case AssetsConst.fbImg:
               {
                 printLog(msg: 'facebook selected');
               }
               break;
 
-            case AssetsConst.GOOGLE_IMG:
+            case AssetsConst.googleImg:
               {
                 printLog(msg: 'google-plus selected');
               }
               break;
 
-            case AssetsConst.TWITTER_IMG:
+            case AssetsConst.twitterImg:
               {
                 printLog(msg: 'twitter selected');
               }

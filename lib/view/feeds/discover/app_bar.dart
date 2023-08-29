@@ -14,7 +14,7 @@ appSearchBar(context) {
           margin: const EdgeInsets.fromLTRB(16, 98, 16, 16),
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: ColorConst.GREY_SHADE,
+            color: ColorConst.greyShade,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
@@ -22,13 +22,13 @@ appSearchBar(context) {
             children: <Widget>[
               Icon(
                 Icons.search,
-                color: ColorConst.APP_COLOR,
+                color: ColorConst.appColor,
               ),
               SizedBox(width: 16),
               Text(
                 "search_message",
                 style: TextStyle(
-                  color: ColorConst.APP_COLOR,
+                  color: ColorConst.appColor,
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),

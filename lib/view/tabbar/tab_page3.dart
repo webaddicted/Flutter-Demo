@@ -19,7 +19,7 @@ class _TabPage3State extends State<TabPage3> {
       initialIndex: 0,
       length: 5,
       child: Scaffold(
-        backgroundColor: ColorConst.APP_COLOR,
+        backgroundColor: ColorConst.appColor,
         appBar: AppBar(
           centerTitle: true,
           title: const Text('Categories'),
@@ -32,9 +32,9 @@ class _TabPage3State extends State<TabPage3> {
           ],
           bottom: const TabBar(
             isScrollable: true,
-            labelColor: ColorConst.WHITE_COLOR,
-            indicatorColor: ColorConst.WHITE_COLOR,
-            unselectedLabelColor: ColorConst.BLACK_COLOR,
+            labelColor: ColorConst.whiteColor,
+            indicatorColor: ColorConst.whiteColor,
+            unselectedLabelColor: ColorConst.blackColor,
             tabs: <Widget>[
               Padding(
                 padding: EdgeInsets.all(8.0),
@@ -126,7 +126,7 @@ class _TabPage3State extends State<TabPage3> {
           Container(
             width: 90,
             height: 90,
-            color: ColorConst.APP_COLOR,
+            color: ColorConst.appColor,
           ),
           Container(
             color: Colors.white,
@@ -156,7 +156,7 @@ class _TabPage3State extends State<TabPage3> {
                             WidgetSpan(
                               child: CircleAvatar(
                                 radius: 15.0,
-                                backgroundColor: ColorConst.FCM_APP_COLOR,
+                                backgroundColor: ColorConst.fcmAppColor,
                               ),
                             ),
                             const WidgetSpan(

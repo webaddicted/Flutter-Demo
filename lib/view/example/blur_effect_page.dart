@@ -31,7 +31,7 @@ class _BlurEffectPageState extends State<BlurEffectPage> {
         fit: StackFit.expand,
         children: <Widget>[
           Image.asset(
-            AssetsConst.BABY_IMG,
+            AssetsConst.babyImg,
             fit: BoxFit.fitHeight,
           ),
           Scaffold(

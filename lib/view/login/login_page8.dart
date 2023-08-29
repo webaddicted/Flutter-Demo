@@ -25,7 +25,7 @@ class _LoginPage8State extends State<LoginPage8> {
           ),
           // loadCircleImg(ApiConstant.DEMO_IMG, 0, 50),
           CircleAvatar(
-            child:loadLocalCircleImg(AssetsConst.BABY_IMG, 120),
+            child:loadLocalCircleImg(AssetsConst.babyImg, 120),
             maxRadius: 50,
             backgroundColor: Colors.transparent,
           ),

@@ -61,13 +61,13 @@ class _ImageScreenState extends State<ImageScreen> {
     return InkWell(
       onTap: ()=>navigationPush(context, ImageFolder(imageBean)),
       child: Card(
-          color: ColorConst.GREY_COLOR,
+          color: ColorConst.greyColor,
           child: addRoundedCorners(Stack(
             alignment: Alignment.bottomCenter,
             children: [
                 ImageTile(imageBean.files![0]),
                 Container(
-                  color: ColorConst.transpBlack,
+                  color: ColorConst.transparentBlack,
                   width: double.maxFinite,
                   padding: const EdgeInsets.all(8.0),
                   child: getTxtWhiteColor(

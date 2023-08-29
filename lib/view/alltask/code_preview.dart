@@ -38,18 +38,18 @@ class _CodePreviewsPageState extends State<CodePreviewsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorConst.WHITE_COLOR,
+        backgroundColor: ColorConst.whiteColor,
         title: getTxtAppColor(msg: widget.title,fontWeight: FontWeight.w600, fontSize: 16),
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            color: ColorConst.APP_COLOR,
+            color: ColorConst.appColor,
             onPressed: ()=> Navigator.pop(context)
         ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(FontAwesomeIcons.share),
             iconSize: 18,
-            color: ColorConst.APP_COLOR,
+            color: ColorConst.appColor,
             onPressed: ()=> _shareText()
           )
         ],
@@ -72,18 +72,18 @@ class _CodePreviewsPageState extends State<CodePreviewsPage>
   TabBar _getTab() {
     return TabBar(
       controller: _tabController,
-      indicatorColor: ColorConst.APP_COLOR,
+      indicatorColor: ColorConst.appColor,
       indicatorWeight: 3.0,
       tabs: const <Widget>[
         Tab(
           child: ListTile(
             leading: Icon(
               Icons.phone_android,
-              color: ColorConst.APP_COLOR,
+              color: ColorConst.appColor,
             ),
             title: Text(
                 'Preview',
-                style: TextStyle(color: ColorConst.APP_COLOR, fontWeight: FontWeight.w600)
+                style: TextStyle(color: ColorConst.appColor, fontWeight: FontWeight.w600)
             ),
           ),
         ),
@@ -91,11 +91,11 @@ class _CodePreviewsPageState extends State<CodePreviewsPage>
           child: ListTile(
             leading: Icon(
               Icons.code,
-              color: ColorConst.APP_COLOR
+              color: ColorConst.appColor
             ),
             title: Text(
               'Code',
-              style: TextStyle(color: ColorConst.APP_COLOR, fontWeight: FontWeight.w600)
+              style: TextStyle(color: ColorConst.appColor, fontWeight: FontWeight.w600)
             ),
           ),
         ),
@@ -186,7 +186,7 @@ class MyCodeViewState extends State<MyCodeView> {
     return <Widget>[
       FloatingActionButton(
         heroTag: "copy",
-        backgroundColor: ColorConst.APP_COLOR,
+        backgroundColor: ColorConst.appColor,
         tooltip: 'Copy code link to clipboard',
         onPressed: () async {
           await Clipboard.setData(ClipboardData(text: widget.githubPath));
@@ -198,7 +198,7 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
       FloatingActionButton(
         heroTag: "open",
-        backgroundColor: ColorConst.APP_COLOR,
+        backgroundColor: ColorConst.appColor,
         tooltip: 'View code on github',
         onPressed: () {
           //TODO UNDO
@@ -208,7 +208,7 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
       FloatingActionButton(
         heroTag: "zoom_out",
-        backgroundColor: ColorConst.APP_COLOR,
+        backgroundColor: ColorConst.appColor,
         tooltip: 'Zoom out',
         onPressed: () =>
             setState(() {
@@ -218,7 +218,7 @@ class MyCodeViewState extends State<MyCodeView> {
       ),
       FloatingActionButton(
         heroTag: "zoom_in",
-        backgroundColor: ColorConst.APP_COLOR,
+        backgroundColor: ColorConst.appColor,
         tooltip: 'Zoom in',
         onPressed: () =>
             setState(() {

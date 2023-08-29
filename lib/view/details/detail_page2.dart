@@ -56,7 +56,7 @@ class _DetailPage2State extends State<DetailPage2> {
             child: Stack(
               children: <Widget>[
                 Image.asset(
-                  AssetsConst.DEEPAK_IMG,
+                  AssetsConst.deepakImg,
                   fit: BoxFit.cover,
                   width: _width,
                   height: _height / 2.5,
@@ -86,7 +86,7 @@ class _DetailPage2State extends State<DetailPage2> {
                   BorderRadius.all(Radius.circular(_height / 12)),
               child: CircleAvatar(
                   backgroundImage: const AssetImage(
-                    AssetsConst.BABY_IMG,
+                    AssetsConst.babyImg,
                   ),
                   radius: _height / 12),
             ),

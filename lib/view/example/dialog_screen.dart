@@ -293,7 +293,7 @@ class _DialogScreenState extends State<DialogScreen> {
   animatedDialog() {
     showDialog(context: context, builder:(context)=>
         AnimatedMaterialAlertDialog(
-          imagePath: AssetsConst.PAY,
+          imagePath: AssetsConst.pay,
           height: 250,
           title: 'Exit',
           message: 'Are you sure you want to quit',

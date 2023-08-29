@@ -23,7 +23,7 @@ class _HomePage6State extends State<HomePage6>
         slivers: <Widget>[
           SliverAppBar(
             floating: true,
-            backgroundColor: ColorConst.APP_COLOR,
+            backgroundColor: ColorConst.appColor,
             title: const Text(StringConst.APP_NAME),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(90),
@@ -110,7 +110,7 @@ class _HomePage6State extends State<HomePage6>
   }
 
   Widget _buildDivider({Color? color, double height = 4.0}) {
-    color ??= ColorConst.APP_COLOR.withOpacity(.8);
+    color ??= ColorConst.appColor.withOpacity(.8);
     return SliverToBoxAdapter(
       child: Container(
         height: height,
@@ -123,7 +123,7 @@ class _HomePage6State extends State<HomePage6>
     return Container(
       height: 100.0,
       width: double.infinity,
-      color: ColorConst.APP_COLOR,
+      color: ColorConst.appColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

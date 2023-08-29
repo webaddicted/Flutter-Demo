@@ -131,6 +131,7 @@ import 'package:flutterbeginner/view/settings/setting_page1.dart';
 import 'package:flutterbeginner/view/settings/setting_page2.dart';
 import 'package:flutterbeginner/view/settings/setting_page3.dart';
 import 'package:flutterbeginner/view/settings/setting_page4.dart';
+import 'package:flutterbeginner/view/signupflow/splash_page_flow.dart';
 import 'package:flutterbeginner/view/splash/splash_page1.dart';
 import 'package:flutterbeginner/view/splash/splash_page2.dart';
 import 'package:flutterbeginner/view/splash/splash_page3.dart';
@@ -276,7 +277,7 @@ List<TaskItem> taskItem = [
       codePreview: 'lib/view/widgets/text_widget.dart'),
   TaskItem(
       title: 'Text Field',
-      page: TextFieldWidget(),
+      page: const TextFieldWidget(),
       codePreview: 'lib/view/widgets/text_field_widget.dart'),
   TaskItem(
       title: 'Image View',
@@ -388,7 +389,7 @@ List<TaskItem> taskItem = [
       codePreview: 'lib/view/local/video/video_folder.dart'),
   TaskItem(
       title: 'All Audio',
-      page: AudioFolder(),
+      page: const AudioFolder(),
       codePreview: 'lib/view/local/audio/audio_folder.dart'),
   TaskItem(
       title: 'All Documents',
@@ -447,6 +448,9 @@ List<TaskItem> taskItem = [
   TaskItem(
       title: 'Login UI Design',
       subItem: loginPageItem),
+  TaskItem(
+      title: 'Signup Flow UI Design',
+      subItem: signupFlowPageItem),
   TaskItem(
       title: 'Home UI Design',
       subItem: homeItem),
@@ -531,6 +535,9 @@ List<TaskItem> loginPageItem = [
   TaskItem(title: 'Login Wave Page11', page: LoginWavePage11(), codePreview: 'lib/view/login/login_wave_page11.dart'),
   TaskItem(title: 'Login Page12', page: LoginPage12(), codePreview: 'lib/view/login/login_page12.dart'),
   TaskItem(title: 'Login Page13', page: LoginPage13(), codePreview: 'lib/view/login/login_page13.dart'),
+];
+List<TaskItem> signupFlowPageItem = [
+  TaskItem(title: 'Signup Flow 1', page: const SplashPageFlow()),
 ];
 List<TaskItem> homeItem = [
   TaskItem(title: 'Home Page1', page: HomePage1(), codePreview: 'lib/view/home/home_page1.dart'),

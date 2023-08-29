@@ -35,7 +35,7 @@ class _HomePage2State extends State<HomePage2> {
             child: Align(
               alignment: Alignment.bottomRight,
               child: Image.asset(
-                AssetsConst.LOGO_IMG,
+                AssetsConst.logoImg,
                 scale: 4.0,
                 color: const Color(0xFF222D57).withOpacity(0.4),
               ),

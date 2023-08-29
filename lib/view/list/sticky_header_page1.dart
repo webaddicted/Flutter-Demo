@@ -21,12 +21,12 @@ class _StickyHeaderPage1State extends State<StickyHeaderPage1> {
             itemBuilder: (context, index) {
               return new Container(
                 height: 200,
-                color: ColorConst.APP_COLOR,
+                color: ColorConst.appColor,
                 child: new StickWidget(
                   ///header
                   stickHeader: new Container(
                     height: 50.0,
-                    color:ColorConst.APP_COLOR,
+                    color:ColorConst.appColor,
                     padding: new EdgeInsets.only(left: 10.0),
                     alignment: Alignment.centerLeft,
                     child: new InkWell(
@@ -47,7 +47,7 @@ class _StickyHeaderPage1State extends State<StickyHeaderPage1> {
                     },
                     child: new Container(
                       margin: EdgeInsets.only(left: 10),
-                      color: ColorConst.WHITE_COLOR,
+                      color: ColorConst.whiteColor,
                       height: 150,
                       child: new Center(
                         child: new Text(

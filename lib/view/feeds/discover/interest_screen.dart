@@ -89,14 +89,14 @@ class _InterestScreenState extends State<InterestScreen> {
                           msg: StringConst.DUMMY_LAGE_TEXT, fontSize: 15),
                       SizedBox(height:3),
                       Row(children: [
-                        Icon(Icons.person,size: 15, color: ColorConst.GREY_COLOR),
+                        Icon(Icons.person,size: 15, color: ColorConst.greyColor),
                         getTxtGreyColor(msg: "Deepak", fontSize: 12),
                         SizedBox(width: 20),
                         getTxtGreyColor(msg: "10 Min read", fontSize: 12),
                         SizedBox(width: 20),
-                        Icon(Icons.bookmark_border,size: 15, color: ColorConst.GREY_COLOR),
+                        Icon(Icons.bookmark_border,size: 15, color: ColorConst.greyColor),
                         SizedBox(width: 10),
-                        Icon(Icons.share,size: 15, color: ColorConst.GREY_COLOR),
+                        Icon(Icons.share,size: 15, color: ColorConst.greyColor),
                       ],)
                     ],
                   ),

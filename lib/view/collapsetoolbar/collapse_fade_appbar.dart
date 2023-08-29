@@ -24,7 +24,7 @@ class _CollapseFadeAppBarState extends State<CollapseFadeAppBar> {
       btnTop: 34,
       left: 20,
       opacity: 1,
-      image: AssetsConst.BABY_IMG,
+      image: AssetsConst.babyImg,
       actionFunction: () {
         Navigator.pop(_ctx);
         printLog(msg: 'round left');
@@ -34,7 +34,7 @@ class _CollapseFadeAppBarState extends State<CollapseFadeAppBar> {
       btnTop: 34,
       left: 20,
       opacity: 0,
-      image: AssetsConst.BABY_IMG,
+      image: AssetsConst.babyImg,
       actionFunction: () {
         printLog(msg: 'rect left');
       },

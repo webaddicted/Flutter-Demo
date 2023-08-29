@@ -37,7 +37,7 @@ class _InviteFriendState extends State<InviteFriend> {
                       IconButton(
                           icon: Icon(
                             Icons.arrow_back_ios,
-                            color: ColorConst.BLACK_COLOR,
+                            color: ColorConst.blackColor,
                           ),
                           onPressed: () => Navigator.pop(context)),
                       SizedBox(width: 20),
@@ -61,7 +61,7 @@ class _InviteFriendState extends State<InviteFriend> {
                     top: MediaQuery.of(context).padding.top,
                     left: 16,
                     right: 16),
-                child: Image.asset(AssetsConst.INVITE_IMG),
+                child: Image.asset(AssetsConst.inviteImg),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),
@@ -91,7 +91,7 @@ class _InviteFriendState extends State<InviteFriend> {
                       width: 120,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: ColorConst.APP_COLOR,
+                        color: ColorConst.appColor,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(4.0)),
                         boxShadow: <BoxShadow>[

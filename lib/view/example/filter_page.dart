@@ -23,7 +23,7 @@ class _FilterPageState extends State<FilterPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorConst.WHITE_COLOR,
+      color: ColorConst.whiteColor,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(
@@ -70,7 +70,7 @@ class _FilterPageState extends State<FilterPage> {
                   ],
                 ),
                 child: Material(
-                  color: ColorConst.APP_COLOR,
+                  color: ColorConst.appColor,
                   child: InkWell(
                     borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                     highlightColor: Colors.transparent,
@@ -152,7 +152,7 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                   CupertinoSwitch(
                     activeColor: date.isSelected
-                        ? ColorConst.APP_COLOR
+                        ? ColorConst.appColor
                         : Colors.grey.withOpacity(0.6),
                     onChanged: (bool value) {
                       setState(() {
@@ -299,7 +299,7 @@ class _FilterPageState extends State<FilterPage> {
                                 ? Icons.check_box
                                 : Icons.check_box_outline_blank,
                             color: date.isSelected
-                                ? ColorConst.APP_COLOR
+                                ? ColorConst.appColor
                                 : Colors.grey.withOpacity(0.6),
                           ),
                           const SizedBox(
@@ -363,7 +363,7 @@ class _FilterPageState extends State<FilterPage> {
   Widget getAppBarUI() {
     return Container(
       decoration: BoxDecoration(
-        color: ColorConst.WHITE_COLOR,
+        color: ColorConst.whiteColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
               color: Colors.grey.withOpacity(0.2),

@@ -21,7 +21,7 @@ Widget headLine(String title) {
         Container(
           width: 36,
           height: 2.5,
-          color: ColorConst.APP_COLOR,
+          color: ColorConst.appColor,
         ),
       ],
     ),

@@ -54,7 +54,7 @@ class _TextWidgetState extends State<TextWidget> {
       children: <Widget>[
         SizedBox(height: 10),
         Container(
-          color: ColorConst.RED_COLOR,
+          color: ColorConst.redColor,
           height: 50,
           alignment: Alignment.center,
           child: getTxtWhiteColor(
@@ -64,7 +64,7 @@ class _TextWidgetState extends State<TextWidget> {
         Text(_btnText),
         SizedBox(height: 10),
         ExpansionTile(
-          backgroundColor: ColorConst.GREY_BG_COLOR,
+          backgroundColor: ColorConst.greyBgColor,
           title: getTxtBlackColor(
               msg: "Show Details", fontWeight: FontWeight.bold, fontSize: 18),
           children: <Widget>[
@@ -77,7 +77,7 @@ class _TextWidgetState extends State<TextWidget> {
         ),
         SizedBox(height: 10),
         Container(
-          color: ColorConst.GREEN_COLOR,
+          color: ColorConst.greenColor,
           height: 40,
           child: Padding(
             padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
@@ -102,7 +102,7 @@ class _TextWidgetState extends State<TextWidget> {
         SizedBox(height: 10),
         getTxtColor(
             msg: StringConst.APP_NAME,
-            txtColor: ColorConst.GREEN_COLOR,
+            txtColor: ColorConst.greenColor,
             fontSize: 15,
             fontWeight: FontWeight.bold),
         SizedBox(height: 10),

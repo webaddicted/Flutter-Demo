@@ -55,17 +55,17 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
                   SizedBox(height: 50),
                   Center(child: loadCircleImg(ApiConstant.DEMO_IMG, 0, 150)),
                   SizedBox(height: 80),
-                  _loginButton('Google', ColorConst.GOOGLE_COLOR,
-                      AssetsConst.GOOGLE_IMG, 0),
+                  _loginButton('Google', ColorConst.googleColor,
+                      AssetsConst.googleImg, 0),
                   SizedBox(height: 10),
                   _loginButton(
-                      'Facebook', ColorConst.FB_COLOR, AssetsConst.FB_IMG, 1),
+                      'Facebook', ColorConst.fbColor, AssetsConst.fbImg, 1),
                   SizedBox(height: 10),
-                  _loginButton('Twitter', ColorConst.TWITTER_COLOR,
-                      AssetsConst.TWITTER_IMG, 2),
+                  _loginButton('Twitter', ColorConst.twitterColor,
+                      AssetsConst.twitterImg, 2),
                   SizedBox(height: 10),
                   MaterialButton(
-                    color: ColorConst.FCM_APP_COLOR,
+                    color: ColorConst.fcmAppColor,
                     child: Container(
                         height: 45,
                         alignment: Alignment.center,
@@ -124,7 +124,7 @@ class _FcmSocialLoginState extends State<FcmSocialLogin> {
       height: 45,
       child: MaterialButton(
           shape: StadiumBorder(),
-          color: ColorConst.FCM_APP_COLOR,
+          color: ColorConst.fcmAppColor,
           child: getTxtWhiteColor(msg:txt, fontSize:15,fontWeight: FontWeight.bold),
           onPressed: () => _loginType(loginType)),
     );

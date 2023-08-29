@@ -17,7 +17,7 @@ class _LoginPage9State extends State<LoginPage9> {
               padding: EdgeInsets.all(20.0),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(AssetsConst.BG_GIRL_IMG), fit: BoxFit.cover)),
+                      image: AssetImage(AssetsConst.bgGirlImg), fit: BoxFit.cover)),
             ),
             Container(
               padding: EdgeInsets.all(20.0),

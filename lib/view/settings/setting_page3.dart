@@ -20,7 +20,7 @@ class _SettingPage3State extends State<SettingPage3> {
           children: <Widget>[
             Container(
               height: 170,
-              color: ColorConst.APP_COLOR,
+              color: ColorConst.appColor,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,

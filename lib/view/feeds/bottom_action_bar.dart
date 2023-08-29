@@ -72,7 +72,7 @@ class BottomActionBar extends StatelessWidget {
         children: <Widget>[
           Icon(
             icon,
-            color: ColorConst.GREY_SHADE,
+            color: ColorConst.greyShade,
           ),
           SizedBox(
             height: 8,

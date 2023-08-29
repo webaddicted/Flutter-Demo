@@ -11,6 +11,7 @@ import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/validation_helper.dart';
 import 'package:photo_view/photo_view.dart';
+
 //  {START PAGE NAVIGATION}
 void navigationPush(BuildContext context, Widget route) {
   Navigator.push(context, MaterialPageRoute(
@@ -40,18 +41,17 @@ void delay(BuildContext context, int duration, StatefulWidget route) {
 //  {END PAGE NAVIGATION}
 //  {START APPBAR}
 AppBar getAppBar(
-    {required String title, double? fontSize = 13, List<Widget>? actions,  Color bgColor = Colors.white}) {
+    {required String title,
+    double? fontSize = 13,
+    List<Widget>? actions,
+    Color bgColor = Colors.white}) {
   return AppBar(
-    backgroundColor: bgColor ?? ColorConst.APP_COLOR,
-    centerTitle: true,
-    actions: actions,
-    title: Text(
-      title,
-      style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: fontSize ?? 16),
-    ),
-  );
+      backgroundColor: bgColor,
+      centerTitle: true,
+      actions: actions,
+      title: Text(title,
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: fontSize ?? 16)));
 }
 
 AppBar getAppBarWithBackBtn(
@@ -62,28 +62,26 @@ AppBar getAppBarWithBackBtn(
     double fontSize = 14,
     Widget? icon,
     List<Widget>? actions,
-      TabBar? tabBar}) {
+    TabBar? tabBar}) {
   return AppBar(
-    backgroundColor: bgColor ?? ColorConst.APP_COLOR,
-    actions: actions,
-    leading: icon ?? IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios_sharp,
-              color: ColorConst.BLACK_COLOR,
-            ),
-            onPressed: () {
-              Navigator.pop(ctx);
-            }),
-    centerTitle: true,
-    title: Text(
-      title,
-      style: TextStyle(
-          color: txtColor ?? ColorConst.WHITE_COLOR,
-          fontWeight: FontWeight.bold,
-          fontSize: fontSize ?? 16),
-    ),
-    bottom: tabBar,
-  );
+      backgroundColor: bgColor,
+      actions: actions,
+      leading: icon ??
+          IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios_sharp,
+                color: ColorConst.blackColor,
+              ),
+              onPressed: () {
+                Navigator.pop(ctx);
+              }),
+      centerTitle: true,
+      title: Text(title,
+          style: TextStyle(
+              color: txtColor,
+              fontWeight: FontWeight.bold,
+              fontSize: fontSize)),
+      bottom: tabBar);
 }
 
 //  {END APPBAR}
@@ -101,11 +99,8 @@ Widget loadLocalCircleImg(String imagePath, double radius) {
       height: radius,
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage(imagePath)
-          )
-      ));
+          image:
+              DecorationImage(fit: BoxFit.fill, image: AssetImage(imagePath))));
 
   //   ClipRRect(
   //   borderRadius: BorderRadius.circular(radius),
@@ -120,14 +115,13 @@ Widget loadLocalCircleImg(String imagePath, double radius) {
 
 ClipRRect loadCircleImg(String imgUrl, int placeHolderPos, double radius) {
   return ClipRRect(
-    borderRadius: BorderRadius.circular(radius),
-    child: FadeInImage.assetNetwork(
-        height: radius,
-        width: radius,
-        fit: BoxFit.fill,
-        placeholder: _getPlaceHolder(placeHolderPos),
-        image: imgUrl),
-  );
+      borderRadius: BorderRadius.circular(radius),
+      child: FadeInImage.assetNetwork(
+          height: radius,
+          width: radius,
+          fit: BoxFit.fill,
+          placeholder: _getPlaceHolder(placeHolderPos),
+          image: imgUrl));
 }
 
 ClipRRect loadCircleIcon(
@@ -138,21 +132,16 @@ ClipRRect loadCircleIcon(
           radius: radius,
           backgroundColor: bgColors,
           child: IconButton(
-            icon: Icon(
-              iconData,
-              size: radius - 5.0,
-              color: colors,
-            ),
-            onPressed: () {},
-          )));
+              icon: Icon(iconData, size: radius - 5.0, color: colors),
+              onPressed: () {})));
 }
 
 String _getPlaceHolder(int placeHolderPos) {
   switch (placeHolderPos) {
     case 0:
-      return AssetsConst.LOGO_IMG;
+      return AssetsConst.logoImg;
     default:
-      return AssetsConst.LOGO_IMG;
+      return AssetsConst.logoImg;
   }
 }
 
@@ -168,16 +157,13 @@ ClipRRect loadCircleImgName(
         image: imgUrl);
   } else {
     circleType = CircleAvatar(
-      radius: radius,
-      backgroundColor: ColorConst.APP_COLOR,
-      child: Text(
-        name.toUpperCase(),
-        style: const TextStyle(
-            fontSize: 20,
-            color: ColorConst.WHITE_COLOR,
-            fontWeight: FontWeight.bold),
-      ),
-    );
+        radius: radius,
+        backgroundColor: ColorConst.appColor,
+        child: Text(name.toUpperCase(),
+            style: const TextStyle(
+                fontSize: 20,
+                color: ColorConst.whiteColor,
+                fontWeight: FontWeight.bold)));
   }
   return ClipRRect(
       borderRadius: BorderRadius.circular(radius), child: circleType);
@@ -185,10 +171,7 @@ ClipRRect loadCircleImgName(
 //  {END LOAD IMAGE}
 
 Divider getDivider() {
-  return const Divider(
-    color: ColorConst.GREY_COLOR,
-    height: 1,
-  );
+  return const Divider(color: ColorConst.greyColor, height: 1);
 }
 
 //  {START TEXT VIEW}
@@ -201,7 +184,7 @@ Text getTxt(
       maxLines: maxLines,
       textAlign: textAlign,
       style: TextStyle(
-          fontFamily: AssetsConst.ZILLASLAB_FONT,
+          fontFamily: AssetsConst.zillaslabFont,
           fontWeight: fontWeight ?? FontWeight.normal));
 }
 
@@ -211,15 +194,13 @@ Text getTxtAppColor(
     FontWeight fontWeight = FontWeight.normal,
     int maxLines = 1,
     TextAlign? textAlign}) {
-  return Text(
-    msg,
-    maxLines: maxLines,
-    textAlign: textAlign,
-    style: _getFontStyle(
-        txtColor: ColorConst.APP_COLOR,
-        fontSize: fontSize,
-        fontWeight: fontWeight),
-  );
+  return Text(msg,
+      maxLines: maxLines,
+      textAlign: textAlign,
+      style: _getFontStyle(
+          txtColor: ColorConst.appColor,
+          fontSize: fontSize,
+          fontWeight: fontWeight));
 }
 
 Text getTxtWhiteColor(
@@ -228,15 +209,13 @@ Text getTxtWhiteColor(
     FontWeight fontWeight = FontWeight.normal,
     int? maxLines,
     TextAlign? textAlign}) {
-  return Text(
-    msg,
-    maxLines: maxLines,
-    textAlign: textAlign,
-    style: _getFontStyle(
-        txtColor: ColorConst.WHITE_COLOR,
-        fontSize: fontSize,
-        fontWeight: fontWeight),
-  );
+  return Text(msg,
+      maxLines: maxLines,
+      textAlign: textAlign,
+      style: _getFontStyle(
+          txtColor: ColorConst.whiteColor,
+          fontSize: fontSize,
+          fontWeight: fontWeight));
 }
 
 Text getTxtBlackColor(
@@ -245,15 +224,13 @@ Text getTxtBlackColor(
     FontWeight fontWeight = FontWeight.normal,
     int? maxLines,
     TextAlign? textAlign}) {
-  return Text(
-    msg,
-    textAlign: textAlign,
-    maxLines: maxLines,
-    style: _getFontStyle(
-        txtColor: ColorConst.BLACK_COLOR,
-        fontSize: fontSize,
-        fontWeight: fontWeight),
-  );
+  return Text(msg,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      style: _getFontStyle(
+          txtColor: ColorConst.blackColor,
+          fontSize: fontSize,
+          fontWeight: fontWeight));
 }
 
 Text getTxtGreyColor(
@@ -262,15 +239,13 @@ Text getTxtGreyColor(
     FontWeight fontWeight = FontWeight.normal,
     int maxLines = 1,
     TextAlign textAlign = TextAlign.start}) {
-  return Text(
-    msg,
-    textAlign: textAlign,
-    maxLines: maxLines,
-    style: _getFontStyle(
-        txtColor: ColorConst.GREY_COLOR,
-        fontSize: fontSize,
-        fontWeight: fontWeight),
-  );
+  return Text(msg,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      style: _getFontStyle(
+          txtColor: ColorConst.greyColor,
+          fontSize: fontSize,
+          fontWeight: fontWeight));
 }
 
 Text getTxtColor(
@@ -280,13 +255,11 @@ Text getTxtColor(
     FontWeight fontWeight = FontWeight.normal,
     int maxLines = 1,
     TextAlign textAlign = TextAlign.start}) {
-  return Text(
-    msg,
-    textAlign: textAlign,
-    maxLines: maxLines,
-    style: _getFontStyle(
-        txtColor: txtColor, fontSize: fontSize, fontWeight: fontWeight),
-  );
+  return Text(msg,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      style: _getFontStyle(
+          txtColor: txtColor, fontSize: fontSize, fontWeight: fontWeight));
 }
 
 TextStyle _getFontStyle(
@@ -299,7 +272,7 @@ TextStyle _getFontStyle(
       color: txtColor,
       fontSize: fontSize ?? 14,
       decoration: txtDecoration ?? TextDecoration.none,
-      fontFamily: fontFamily ?? AssetsConst.ZILLASLAB_FONT,
+      fontFamily: fontFamily ?? AssetsConst.zillaslabFont,
       fontWeight: fontWeight ?? FontWeight.normal);
 }
 
@@ -308,7 +281,7 @@ void showSnackBar(BuildContext context, String message) async {
   try {
     var snackbar = SnackBar(
       content: getTxtWhiteColor(msg: message),
-      backgroundColor: ColorConst.GREEN_COLOR,
+      backgroundColor: ColorConst.greenColor,
       duration: const Duration(seconds: 3),
 //    action: SnackBarAction(
 //        label: "Undo",
@@ -323,219 +296,228 @@ void showSnackBar(BuildContext context, String message) async {
   }
 }
 
-Widget edtNameField(TextEditingController edtController) {
+Widget edtNameField(TextEditingController edtController,
+    {double radius = 10,
+    Color borderColor = Colors.white,
+    String hint = "Full Name",
+    Color hintColor = Colors.grey,
+    Color textColor = Colors.black}) {
   return TextFormField(
-    textCapitalization: TextCapitalization.words,
-    controller: edtController,
-    decoration: InputDecoration(
-      counterText: '',
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      border: OutlineInputBorder(
-          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-      hintText: "Full Name",
-      hintStyle: const TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
-    ),
-    textInputAction: TextInputAction.next,
-    maxLength: 32,
-    validator: ValidationHelper.validateName,
-  );
+      textCapitalization: TextCapitalization.words,
+      controller: edtController,
+      style: TextStyle(color: textColor),
+      decoration: inputFieldDecoration(
+          radius: radius,
+          borderColor: borderColor,
+          hint: hint,
+          hintColor: hintColor),
+      textInputAction: TextInputAction.next,
+      maxLength: 32,
+      validator: ValidationHelper.validateName);
 }
 
-Widget edtMobileNoField(TextEditingController edtController) {
+Widget edtMobileNoField(TextEditingController edtController,
+    {double radius = 10,
+    Color borderColor = Colors.white,
+    String hint = "Mobile number",
+    Color hintColor = Colors.grey,
+    Color textColor = Colors.black}) {
   return TextFormField(
-    controller: edtController,
-    decoration: InputDecoration(
-      counterText: '',
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      border: OutlineInputBorder(
-          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-      hintText: "Mobile number",
-      hintStyle: const TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
-    ),
-    textInputAction: TextInputAction.next,
-    maxLength: 10,
-    keyboardType: TextInputType.number,
-    validator: ValidationHelper.validateMobile,
-  );
+      controller: edtController,
+      style: TextStyle(color: textColor),
+      decoration: inputFieldDecoration(
+          radius: radius,
+          borderColor: borderColor,
+          hint: hint,
+          hintColor: hintColor),
+      textInputAction: TextInputAction.next,
+      maxLength: 10,
+      keyboardType: TextInputType.number,
+      validator: ValidationHelper.validateMobile);
 }
 
-Widget edtEmailIdField(TextEditingController edtController) {
+Widget edtEmailIdField(TextEditingController edtController,
+    {double radius = 10,
+    Color borderColor = Colors.white,
+    String hint = "Email id",
+    Color hintColor = Colors.grey,
+    Color textColor = Colors.black}) {
   return TextFormField(
-    controller: edtController,
-    decoration: InputDecoration(
-      counterText: '',
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      border: OutlineInputBorder(
-          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-      hintText: "Email id",
-      hintStyle: const TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
-    ),
-    textInputAction: TextInputAction.next,
-    keyboardType: TextInputType.emailAddress,
-    maxLength: 32,
-    validator: ValidationHelper.validateEmail,
-  );
+      controller: edtController,
+      style: TextStyle(color: textColor),
+      decoration: inputFieldDecoration(
+          radius: radius,
+          borderColor: borderColor,
+          hint: hint,
+          hintColor: hintColor),
+      textInputAction: TextInputAction.next,
+      keyboardType: TextInputType.emailAddress,
+      maxLength: 32,
+      validator: ValidationHelper.validateEmail);
 }
 
-Widget edtDobField(TextEditingController edtController, Function dobClick) {
+Widget edtDobField(TextEditingController edtController, Function dobClick,
+    {double radius = 10,
+    Color borderColor = Colors.white,
+    String hint = "DOB",
+    Color hintColor = Colors.grey,
+    Color textColor = Colors.black}) {
   return TextFormField(
-    onTap: dobClick(),
-    decoration: InputDecoration(
-      counterText: '',
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      border: OutlineInputBorder(
-          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-      hintText: "DOB",
-      hintStyle: const TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
-    ),
-    textInputAction: TextInputAction.next,
-    maxLength: 32,
-    readOnly: true,
-    controller: edtController,
-    validator: (dob) => ValidationHelper.empty(dob!, 'DOB is Required'),
-  );
+      onTap: dobClick(),
+      style: TextStyle(color: textColor),
+      decoration: inputFieldDecoration(
+          radius: radius,
+          borderColor: borderColor,
+          hint: hint,
+          hintColor: hintColor),
+      textInputAction: TextInputAction.next,
+      maxLength: 32,
+      readOnly: true,
+      controller: edtController,
+      validator: (dob) => ValidationHelper.empty(dob!, 'DOB is Required'));
 }
 
 Widget edtPwdField(TextEditingController edtController, bool passwordVisible,
-    Function() pwdVisibleClick) {
+    Function() pwdVisibleClick,
+    {double radius = 10,
+    Color borderColor = Colors.white,
+    String hint = "Password",
+    Color hintColor = Colors.grey,
+    Color textColor = Colors.black}) {
   return TextFormField(
-    controller: edtController,
-    decoration: InputDecoration(
+      controller: edtController,
+      style: TextStyle(color: textColor),
+      decoration: InputDecoration(
+          counterText: '',
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor),
+              borderRadius: BorderRadius.all(Radius.circular(radius))),
+          focusedBorder: OutlineInputBorder(
+              // width: 0.0 produces a thin "hairline" border
+              borderSide: BorderSide(color: borderColor),
+              borderRadius: BorderRadius.all(Radius.circular(radius))),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor),
+              borderRadius: BorderRadius.circular(radius)),
+          hintText: hint,
+          hintStyle: TextStyle(fontWeight: FontWeight.w500, color: hintColor),
+          suffixIcon: IconButton(
+              icon: Icon(
+                  passwordVisible ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.grey),
+              onPressed: () => pwdVisibleClick())),
+      obscureText: !passwordVisible,
+      textInputAction: TextInputAction.done,
+      maxLength: 32,
+      validator: ValidationHelper.validatePassword);
+}
+
+InputDecoration inputFieldDecoration(
+    {double radius = 10,
+    Color borderColor = Colors.white,
+    String hint = "Full Name",
+    Color hintColor = Colors.grey}) {
+  return InputDecoration(
       counterText: '',
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: borderColor),
+          borderRadius: BorderRadius.all(Radius.circular(radius))),
+      focusedBorder: OutlineInputBorder(
+          // width: 0.0 produces a thin "hairline" border
+          borderSide: BorderSide(color: borderColor),
+          borderRadius: BorderRadius.all(Radius.circular(radius))),
       border: OutlineInputBorder(
-          gapPadding: 30, borderRadius: BorderRadius.circular(30)),
-      hintText: "Password",
-      suffixIcon: IconButton(
-          icon: Icon(
-            // Based on passwordVisible state choose the icon
-            passwordVisible ? Icons.visibility : Icons.visibility_off,
-            color: Colors.grey,
-          ),
-          onPressed:()=> pwdVisibleClick()),
-      hintStyle: const TextStyle(
-        fontWeight: FontWeight.w300,
-        color: Colors.grey,
-      ),
-    ),
-    obscureText: !passwordVisible,
-    textInputAction: TextInputAction.done,
-    maxLength: 32,
-    validator: ValidationHelper.validatePassword,
-  );
+          borderSide: BorderSide(color: borderColor),
+          borderRadius: BorderRadius.circular(radius)),
+      hintText: hint,
+      hintStyle: TextStyle(fontWeight: FontWeight.w500, color: hintColor));
 }
 
 Widget raisedBtn(String txt, VoidCallback btnClick) => ButtonTheme(
 //    minWidth: double.infinity,
 //      height: 40,
-      padding: const EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
-      child: MaterialButton(
+    padding: const EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
+    child: MaterialButton(
         padding: const EdgeInsets.all(5.0),
-        color: ColorConst.APP_COLOR,
+        color: ColorConst.appColor,
         onPressed: btnClick,
         child: getTxtWhiteColor(
-            msg: txt, fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-    );
+            msg: txt, fontSize: 15, fontWeight: FontWeight.bold)));
 
 Widget raisedRoundBtn(String txt, Function btnClick) => ButtonTheme(
-      minWidth: double.infinity,
-      height: 45,
-      child: MaterialButton(
+    minWidth: double.infinity,
+    height: 45,
+    child: MaterialButton(
         shape: const StadiumBorder(),
-        color: ColorConst.FCM_APP_COLOR,
+        color: ColorConst.fcmAppColor,
         onPressed: btnClick(),
         child: getTxtWhiteColor(
-            msg: txt, fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-    );
+            msg: txt, fontSize: 15, fontWeight: FontWeight.bold)));
 
 Widget raisedRoundAppColorBtn(String txt, Function btnClick) => ButtonTheme(
 //  minWidth: double.infinity,
-      height: 45,
-      child: MaterialButton(
-        padding: const EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
+    height: 45,
+    child: MaterialButton(
+        padding:
+            const EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
         shape: const StadiumBorder(),
-        color: ColorConst.APP_COLOR,
+        color: ColorConst.appColor,
         onPressed: btnClick(),
         child: getTxtWhiteColor(
-            msg: txt, fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-    );
+            msg: txt, fontSize: 15, fontWeight: FontWeight.bold)));
 
 Widget getSignupImagePicker(
     double imageSize, File filePath, Function imagePickDialog) {
   return SizedBox(
-    height: imageSize,
-    width: imageSize,
-    child: Stack(
-      children: <Widget>[
+      height: imageSize,
+      width: imageSize,
+      child: Stack(children: <Widget>[
         Container(
-          width: imageSize,
-          height: imageSize,
-          decoration: BoxDecoration(
-            color: Colors.white,
+            width: imageSize,
+            height: imageSize,
+            decoration: BoxDecoration(
+                color: Colors.white,
 //              borderRadius: new BorderRadius.only(
 //                topLeft: const Radius.circular(40.0),
 //                topRight: const Radius.circular(40.0),
 //              )
-            borderRadius:
-                BorderRadius.all(Radius.circular(imageSize / 2)),
-            border: Border.all(
-              color: ColorConst.FCM_APP_COLOR,
-              width: 4.0,
-            ),
-          ),
-          child: ClipOval(
-              child: filePath != null
-                  ? Image.file(filePath, fit: BoxFit.cover)
-                  : IconButton(
-                      icon: Icon(
-                        Icons.person,
-                        size: imageSize / 1.2,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {},
-                    )),
-        ),
+                borderRadius: BorderRadius.all(Radius.circular(imageSize / 2)),
+                border: Border.all(color: ColorConst.fcmAppColor, width: 4.0)),
+            child: ClipOval(
+                child: filePath != null
+                    ? Image.file(filePath, fit: BoxFit.cover)
+                    : IconButton(
+                        icon: Icon(Icons.person,
+                            size: imageSize / 1.2, color: Colors.grey),
+                        onPressed: () {}))),
         Container(
             alignment: Alignment.bottomRight,
             child: Container(
-              width: 45,
-              height: 45,
-              alignment: Alignment.bottomRight,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius:
-                    BorderRadius.all(Radius.circular(imageSize / 2)),
-                border: Border.all(
-                  color: ColorConst.FCM_APP_COLOR,
-                  width: 2.0,
-                ),
-              ),
-              child: ClipOval(
-                  child: IconButton(
-                      icon: const Icon(
-                        Icons.image,
-                        color: Colors.grey,
-                      ),
-                      onPressed: imagePickDialog())),
-            )),
-      ],
-    ),
-  );
+                width: 45,
+                height: 45,
+                alignment: Alignment.bottomRight,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.all(Radius.circular(imageSize / 2)),
+                    border:
+                        Border.all(color: ColorConst.fcmAppColor, width: 2.0)),
+                child: ClipOval(
+                    child: IconButton(
+                        icon: const Icon(Icons.image, color: Colors.grey),
+                        onPressed: imagePickDialog()))))
+      ]));
 }
 
 Widget showPbIndicator() {
   return const Padding(
-    padding: EdgeInsets.all(8.0),
-    child: Center(
-      child: Opacity(
-        opacity: 1.0,
-        child: CircularProgressIndicator(),
-      ),
-    ),
-  );
+      padding: EdgeInsets.all(8.0),
+      child: Center(
+          child: Opacity(opacity: 1.0, child: CircularProgressIndicator())));
 }
 
 Widget apiHandler<T>(
@@ -544,77 +526,63 @@ Widget apiHandler<T>(
     case ApiStatus.loading:
       return loading ?? GetLoadingWidget();
     case ApiStatus.error:
-      return error ?? GetErrorWidget(
+      return error ??
+          GetErrorWidget(
               errorMessage: response.apiError!.errorMessage,
               onRetryPressed: () {
                 //call api
-              },
-            );
-    default:{
-        return Container(
-          color: Colors.amber,
-        );
+              });
+    default:
+      {
+        return Container(color: Colors.amber);
       }
   }
 }
+
 class GetErrorWidget extends StatelessWidget {
   final String? errorMessage;
 
   final Function? onRetryPressed;
+
   const GetErrorWidget({super.key, this.errorMessage, this.onRetryPressed});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            errorMessage!,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: ColorConst.APP_COLOR,
-              fontSize: 18,
-            ),
-          ),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+          Text(errorMessage!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: ColorConst.appColor, fontSize: 18)),
           const SizedBox(height: 8),
           MaterialButton(
-            color: ColorConst.APP_COLOR,
+            color: ColorConst.appColor,
             onPressed: onRetryPressed!(),
             child: const Text('Retry', style: TextStyle(color: Colors.white)),
           )
-        ],
-      ),
-    );
+        ]));
   }
 }
 
 class GetLoadingWidget extends StatelessWidget {
-   String message = "please wait...";
-   GetLoadingWidget({super.key, this.message = "please wait..."});
+  String message = "please wait...";
+
+  GetLoadingWidget({super.key, this.message = "please wait..."});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
           const CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(ColorConst.APP_COLOR),
-          ),
+              valueColor: AlwaysStoppedAnimation<Color>(ColorConst.appColor)),
           const SizedBox(height: 24),
           Text(message,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: ColorConst.APP_COLOR,
-              fontSize: 24,
-            ),
-          ),
-
-        ],
-      ),
-    );
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: ColorConst.appColor, fontSize: 24))
+        ]));
   }
 }
 
@@ -623,27 +591,20 @@ Future<Future<bool?>> onWillPop(BuildContext context) async {
       context: context,
       builder: (_) {
         return AlertDialog(
-          content: getTxtColor(
-              msg: "Are you sure you want to exit this app?",
-              fontSize: 17,
-              txtColor: ColorConst.BLACK_COLOR),
-          title: getTxtBlackColor(
-              msg: "Warning!", fontSize: 18, fontWeight: FontWeight.bold),
-          actions: <Widget>[
-            MaterialButton(
-                child: getTxtBlackColor(
-                  msg: "Yes",
-                  fontSize: 17,
-                ),
-                onPressed: () => SystemNavigator.pop()),
-            MaterialButton(
-                child: getTxtBlackColor(
-                  msg: "No",
-                  fontSize: 17,
-                ),
-                onPressed: () => Navigator.pop(context)),
-          ],
-        );
+            content: getTxtColor(
+                msg: "Are you sure you want to exit this app?",
+                fontSize: 17,
+                txtColor: ColorConst.blackColor),
+            title: getTxtBlackColor(
+                msg: "Warning!", fontSize: 18, fontWeight: FontWeight.bold),
+            actions: <Widget>[
+              MaterialButton(
+                  child: getTxtBlackColor(msg: "Yes", fontSize: 17),
+                  onPressed: () => SystemNavigator.pop()),
+              MaterialButton(
+                  child: getTxtBlackColor(msg: "No", fontSize: 17),
+                  onPressed: () => Navigator.pop(context))
+            ]);
       });
 }
 
@@ -668,44 +629,34 @@ showImageDialog({BuildContext? context, String? imageFile}) {
   // if (imageFile != null)
   //   imageFileProvider = FileImage(imageFile);
   // else
-    imageFileProvider = NetworkImage(imageFile!);
+  imageFileProvider = NetworkImage(imageFile!);
   showDialog(
-    context: context!,
-    builder: (_) => Dialog(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: SizedBox(
-              width: double.infinity,
-              child:  PhotoView(
-                imageProvider: imageFileProvider,
-                minScale: PhotoViewComputedScale.contained * 0.8,
-                maxScale: PhotoViewComputedScale.covered * 2,
-                enableRotation: true,
-              )
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+      context: context!,
+      builder: (_) => Dialog(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          child: Column(children: <Widget>[
+            Expanded(
+                child: SizedBox(
+                    width: double.infinity,
+                    child: PhotoView(
+                        imageProvider: imageFileProvider,
+                        minScale: PhotoViewComputedScale.contained * 0.8,
+                        maxScale: PhotoViewComputedScale.covered * 2,
+                        enableRotation: true))),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               IconButton(
-                color: Colors.white,
-                icon: const Icon(Icons.close),
-                onPressed: () => Navigator.pop(context),
-              ),
+                  color: Colors.white,
+                  icon: const Icon(Icons.close),
+                  onPressed: () => Navigator.pop(context)),
               const SizedBox(width: 10.0),
               IconButton(
-                color: Colors.white,
-                icon: const Icon(Icons.share),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-  );
+                  color: Colors.white,
+                  icon: const Icon(Icons.share),
+                  onPressed: () {})
+            ])
+          ])));
 }
-Widget addRoundedCorners(Widget widget) => ClipRRect(borderRadius: BorderRadius.circular(4.0), child: widget);
+
+Widget addRoundedCorners(Widget widget) =>
+    ClipRRect(borderRadius: BorderRadius.circular(4.0), child: widget);

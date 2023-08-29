@@ -88,10 +88,10 @@ class _SqfliteSignupState extends State<SqfliteSignup> {
             padding: const EdgeInsets.all(20),
             elevation: 2,
             shape: const UnderlineInputBorder(
-              borderSide: BorderSide(color: ColorConst.APP_COLOR, width: 3),
+              borderSide: BorderSide(color: ColorConst.appColor, width: 3),
             ),
             child: getTxtColor(
-                msg:'Login', txtColor:ColorConst.APP_COLOR, fontSize:15, fontWeight:FontWeight.bold),
+                msg:'Login', txtColor:ColorConst.appColor, fontSize:15, fontWeight:FontWeight.bold),
           ),
         ],
       ),

@@ -22,7 +22,7 @@ class _ProfilePage4State extends State<ProfilePage4> {
         leading:  IconButton(
             icon: const Icon(
               Icons.arrow_back_ios_sharp,
-              color: ColorConst.WHITE_COLOR,
+              color: ColorConst.whiteColor,
             ),
             onPressed: () {
               Navigator.pop(context);

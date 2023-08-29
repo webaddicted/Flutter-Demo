@@ -57,7 +57,7 @@ class _DetailPage3State extends State<DetailPage3>
         ClipPath(
             clipper: ArcClipper(),
             child: Container(
-              color: ColorConst.FCM_APP_COLOR,
+              color: ColorConst.fcmAppColor,
             )),
         Scaffold(
           appBar: AppBar(
@@ -101,7 +101,7 @@ class _DetailPage3State extends State<DetailPage3>
                             child: FloatingActionButton(
                                 onPressed: () {},
                                 heroTag: 'left',
-                                child: Icon(FontAwesomeIcons.heart, color: ColorConst.WHITE_COLOR,),
+                                child: Icon(FontAwesomeIcons.heart, color: ColorConst.whiteColor,),
                                 backgroundColor: Colors.black54,
                                 elevation: 0.1),
                           )),
@@ -111,7 +111,7 @@ class _DetailPage3State extends State<DetailPage3>
                             child: FloatingActionButton(
                               onPressed: () {},
                               heroTag: 'right',
-                              child: Icon(Icons.share_outlined, color: ColorConst.WHITE_COLOR),
+                              child: Icon(Icons.share_outlined, color: ColorConst.whiteColor),
                               backgroundColor: Colors.black54,
                               elevation: 0.1,
                             ),
@@ -237,9 +237,9 @@ class _DetailPage3State extends State<DetailPage3>
                                     child: Column(
                                       children: <Widget>[
                                         SHSlider(
-                                          path: AssetsConst.BABY_IMG,
+                                          path: AssetsConst.babyImg,
                                           backgroundColor:
-                                              ColorConst.FCM_APP_COLOR,
+                                              ColorConst.fcmAppColor,
                                           min: 7,
                                           max: 10,
                                           divisions: 8,
@@ -268,7 +268,7 @@ class _DetailPage3State extends State<DetailPage3>
                                                 boxShadow: [
                                                   BoxShadow(
                                                     color: ColorConst
-                                                        .CIRCLE_FADE2
+                                                        .circleFade2
                                                         .withOpacity(0.5),
                                                     offset: Offset(5, 5),
                                                     blurRadius: 5,

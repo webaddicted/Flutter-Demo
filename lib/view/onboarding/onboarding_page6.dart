@@ -26,17 +26,17 @@ class _OnboardingPage6State extends State<OnboardingPage6> {
             children: <Widget>[
               _buildPageContent(
                   isShowImageOnTop: false,
-                  image: AssetsConst.SLIDER4_IMG,
+                  image: AssetsConst.slider4Img,
                   body: 'Description.',
                   color: const Color.fromRGBO(137, 168, 73, 1)),
               _buildPageContent(
                   isShowImageOnTop: true,
-                  image: AssetsConst.SLIDER5_IMG,
+                  image: AssetsConst.slider5Img,
                   body: 'Description ',
                   color: const Color.fromRGBO(255, 212, 0, 1)),
               _buildPageContent(
                   isShowImageOnTop: false,
-                  image: AssetsConst.SLIDER6_IMG,
+                  image: AssetsConst.slider6Img,
                   body: 'Description',
                   color: const Color.fromRGBO(137, 168, 73, 1))
             ],

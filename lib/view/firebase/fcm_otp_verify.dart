@@ -23,7 +23,7 @@ class _FcmOtpVerifyState extends State<FcmOtpVerify> {
 
   BoxDecoration get _pinPutDecoration {
     return BoxDecoration(
-      border: Border.all(color: ColorConst.FCM_APP_COLOR),
+      border: Border.all(color: ColorConst.fcmAppColor),
       borderRadius: BorderRadius.circular(5),
     );
   }
@@ -65,7 +65,7 @@ class _FcmOtpVerifyState extends State<FcmOtpVerify> {
                     height: 20,
                   ),
                   SizedBox(
-                      height: 150, child: Image.asset(AssetsConst.OTP_IMG)),
+                      height: 150, child: Image.asset(AssetsConst.otpImg)),
                   SizedBox(height: 20),
                   getTxtBlackColor(
                       msg: 'Verification Code',
@@ -104,7 +104,7 @@ class _FcmOtpVerifyState extends State<FcmOtpVerify> {
                       onTap: () => navigationPush(context, FcmSignup()),
                       child: getTxtColor(
                           msg: 'Resend OTP',
-                          txtColor: ColorConst.FCM_APP_COLOR,
+                          txtColor: ColorConst.fcmAppColor,
                           fontSize: 18,
                           fontWeight: FontWeight.bold)),
                   SizedBox(height: 20),
@@ -125,7 +125,7 @@ class _FcmOtpVerifyState extends State<FcmOtpVerify> {
       height: 45,
       child: MaterialButton(
           shape: StadiumBorder(),
-          color: ColorConst.FCM_APP_COLOR,
+          color: ColorConst.fcmAppColor,
           child: getTxtWhiteColor(
               msg: 'Verify', fontSize: 15, fontWeight: FontWeight.bold),
           onPressed: () => _submitVerify()),

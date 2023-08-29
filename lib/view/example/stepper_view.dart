@@ -55,7 +55,7 @@ class _TimelineVerticalDelivery extends StatelessWidget {
               padding: EdgeInsets.all(6),
             ),
             endChild:  _RightChild(
-              asset: AssetsConst.TAKE_PHONE,
+              asset: AssetsConst.takePhone,
               title: 'Order Placed',
               message: 'We have received your order.',
             ),
@@ -72,7 +72,7 @@ class _TimelineVerticalDelivery extends StatelessWidget {
               padding: EdgeInsets.all(6),
             ),
             endChild:_RightChild(
-              asset: AssetsConst.ORDER_FOOD,
+              asset: AssetsConst.orderFood,
               title: 'Order Confirmed',
               message: 'Your order has been confirmed.',
             ),
@@ -89,7 +89,7 @@ class _TimelineVerticalDelivery extends StatelessWidget {
               padding: EdgeInsets.all(6),
             ),
             endChild: _RightChild(
-              asset: AssetsConst.PAY,
+              asset: AssetsConst.pay,
               title: 'Order Processed',
               message: 'We are preparing your order.',
             ),
@@ -111,7 +111,7 @@ class _TimelineVerticalDelivery extends StatelessWidget {
             ),
             endChild: _RightChild(
               disabled: true,
-              asset: AssetsConst.WAIT_FOR_DELIVERY,
+              asset: AssetsConst.waitForDelivery,
               title: 'Ready to Pickup',
               message: 'Your order is ready for pickup.',
             ),
@@ -582,12 +582,12 @@ class _StartChildDelivery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var assImg = '';
-    if(index==0)assImg =  AssetsConst.TAKE_PHONE;
-    else if(index==1)assImg =  AssetsConst.CHOOSE_RESTRO;
-    else if(index==2)assImg =  AssetsConst.ORDER_FOOD;
-    else if(index==3)assImg =  AssetsConst.WAIT_FOR_DELIVERY;
-    else if(index==4)assImg =  AssetsConst.PAY;
-    else if(index==5)assImg =  AssetsConst.EAT_ENJOY;
+    if(index==0)assImg =  AssetsConst.takePhone;
+    else if(index==1)assImg =  AssetsConst.chooseRestro;
+    else if(index==2)assImg =  AssetsConst.orderFood;
+    else if(index==3)assImg =  AssetsConst.waitForDelivery;
+    else if(index==4)assImg =  AssetsConst.pay;
+    else if(index==5)assImg =  AssetsConst.eatEnjoy;
 
     return Container(
       child: Center(

@@ -24,7 +24,7 @@ class _ListCartItemPage2State extends State<ListCartItemPage2> {
                   IconButton(
                       icon: Icon(
                         Icons.arrow_back_ios_sharp,
-                        color: ColorConst.BLACK_COLOR,
+                        color: ColorConst.blackColor,
                       ),
                       onPressed: () {
                         Navigator.pop(context);

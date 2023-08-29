@@ -14,7 +14,7 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
     PageViewModel(
         pageColor: const Color(0xFF03A9F4),
         // iconImageAssetPath: 'assets/air-hostess.png',
-        bubble: Image.asset(AssetsConst.SLIDER4_IMG),
+        bubble: Image.asset(AssetsConst.slider4Img),
         body: getTxtWhiteColor(
             msg:
                 'Haselfree  booking  of  flight  tickets  with  full  refund  on  cancelation',
@@ -25,14 +25,14 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
         titleTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
         bodyTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
         mainImage: Image.asset(
-          AssetsConst.SLIDER4_IMG,
+          AssetsConst.slider4Img,
           height: 285.0,
           width: 285.0,
           alignment: Alignment.center,
         )),
     PageViewModel(
       pageColor: const Color(0xFF8BC34A),
-      iconImageAssetPath: AssetsConst.SLIDER5_IMG,
+      iconImageAssetPath: AssetsConst.slider5Img,
       body: getTxtWhiteColor(
           msg:
               'We  work  for  the  comfort ,  enjoy  your  stay  at  our  beautiful  hotels',
@@ -41,7 +41,7 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
       title: getTxtWhiteColor(
           msg: 'Hotels', fontWeight: FontWeight.bold, fontSize: 18),
       mainImage: Image.asset(
-        AssetsConst.SLIDER5_IMG,
+        AssetsConst.slider5Img,
         height: 285.0,
         width: 285.0,
         alignment: Alignment.center,
@@ -51,7 +51,7 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
     ),
     PageViewModel(
       pageColor: const Color(0xFF607D8B),
-      iconImageAssetPath: AssetsConst.SLIDER6_IMG,
+      iconImageAssetPath: AssetsConst.slider6Img,
       body: getTxtWhiteColor(
           msg:
               'Easy  cab  booking  at  your  doorstep  with  cashless  payment  system',
@@ -60,7 +60,7 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
       title: getTxtWhiteColor(
           msg: 'Cabs', fontWeight: FontWeight.bold, fontSize: 18),
       mainImage: Image.asset(
-        AssetsConst.SLIDER6_IMG,
+        AssetsConst.slider6Img,
         height: 285.0,
         width: 285.0,
         alignment: Alignment.center,

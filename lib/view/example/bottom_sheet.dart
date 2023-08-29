@@ -38,13 +38,13 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
           children: <Widget>[
             MaterialButton(
                 child: getTxt(msg:'Persistent', fontWeight:FontWeight.bold),
-                color: ColorConst.APP_COLOR,
-                textColor: ColorConst.WHITE_COLOR,
+                color: ColorConst.appColor,
+                textColor: ColorConst.whiteColor,
                 onPressed: _persistBottomSheetCallback),
             MaterialButton(
                 child: getTxt(msg:'Model', fontWeight:FontWeight.bold),
-                color: ColorConst.APP_COLOR,
-                textColor: ColorConst.WHITE_COLOR,
+                color: ColorConst.appColor,
+                textColor: ColorConst.whiteColor,
                 onPressed: () {
                   _showModalSheet();
                 }),

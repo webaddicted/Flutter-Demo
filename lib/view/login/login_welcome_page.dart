@@ -25,7 +25,7 @@ class _LoginWelcomePageState extends State<LoginWelcomePage> {
         body: Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AssetsConst.BG_GIRL_IMG),
+          image: AssetImage(AssetsConst.bgGirlImg),
           fit: BoxFit.cover,
         ),
       ),

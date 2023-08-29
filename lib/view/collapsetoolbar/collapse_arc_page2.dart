@@ -62,7 +62,7 @@ class _CollapseArcPage2State extends State<CollapseArcPage2> {
                           shadow: Shadow(blurRadius: 30),
                           clipper: CustomOvalClipper(),
                           child: Image(
-                            image: AssetImage(AssetsConst.BABY_IMG),
+                            image: AssetImage(AssetsConst.babyImg),
                             height: 350,
                             fit: BoxFit.cover,
                           ),
@@ -181,7 +181,7 @@ class _CollapseArcPage2State extends State<CollapseArcPage2> {
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image(
                                       image:
-                                          AssetImage(AssetsConst.DOWNLOAD_IMG),
+                                          AssetImage(AssetsConst.downloadImg),
                                       height: 140, // : 160,
                                       width: 180, // : 120,
                                       fit: BoxFit.fill,

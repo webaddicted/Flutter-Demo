@@ -60,7 +60,7 @@ class _CollapsePage4State extends State<CollapsePage4> {
                   decoration: BoxDecoration(
                     borderRadius:
                         BorderRadius.only(bottomRight: Radius.circular(30.0)),
-                    color: ColorConst.APP_COLOR,
+                    color: ColorConst.appColor,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +121,7 @@ class _CollapsePage4State extends State<CollapsePage4> {
               leading: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios_sharp,
-                    color: ColorConst.WHITE_COLOR,
+                    color: ColorConst.whiteColor,
                   ),
                   onPressed: () {
                     Navigator.pop(context);

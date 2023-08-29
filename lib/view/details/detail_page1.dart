@@ -43,7 +43,7 @@ class _DetailPage1State extends State<DetailPage1> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
-                color: ColorConst.GREY_SHIMMER,
+                color: ColorConst.greyShimmer,
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black.withAlpha(70),
@@ -142,7 +142,7 @@ class _DetailPage1State extends State<DetailPage1> {
                                   height: 72.0,
                                   width: 72.0,
                                   decoration: BoxDecoration(
-                                      color: ColorConst.GREY_SHIMMER,
+                                      color: ColorConst.greyShimmer,
                                       boxShadow: [
                                         BoxShadow(
                                             color: Colors.black.withAlpha(70),

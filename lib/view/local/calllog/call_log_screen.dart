@@ -46,14 +46,14 @@ class _CallLogScreenState extends State<CallLogScreen>  with SingleTickerProvide
   TabBar _getTab() {
     return TabBar(
       controller: _tabController,
-      labelColor: ColorConst.APP_COLOR,
-      indicatorColor: ColorConst.APP_COLOR,
+      labelColor: ColorConst.appColor,
+      indicatorColor: ColorConst.appColor,
       indicatorWeight: 3.0,
       tabs: const <Widget>[
-        Tab(icon: Icon(Icons.dialer_sip,color: ColorConst.APP_COLOR,),text: "Dialed call"),
-        Tab(icon: Icon(Icons.call_received,color: ColorConst.APP_COLOR),text: "Received call"),
-        Tab(icon: Icon(Icons.call_missed,color: ColorConst.APP_COLOR),text: "Missed call"),
-        Tab(icon: Icon(Icons.cancel_schedule_send_outlined,color: ColorConst.APP_COLOR,),text: "Reject call"),
+        Tab(icon: Icon(Icons.dialer_sip,color: ColorConst.appColor,),text: "Dialed call"),
+        Tab(icon: Icon(Icons.call_received,color: ColorConst.appColor),text: "Received call"),
+        Tab(icon: Icon(Icons.call_missed,color: ColorConst.appColor),text: "Missed call"),
+        Tab(icon: Icon(Icons.cancel_schedule_send_outlined,color: ColorConst.appColor,),text: "Reject call"),
 
       ],
     );
@@ -122,19 +122,19 @@ class _CallLogScreenState extends State<CallLogScreen>  with SingleTickerProvide
     String callIcon;
     switch (callBean.callType) {
       case CallType.incoming:
-        callIcon = AssetsConst.CALL_RECEIVED_IMG;
+        callIcon = AssetsConst.callReceivedImg;
         break;
       case CallType.missed:
-        callIcon = AssetsConst.CALL_MISSED_IMG;
+        callIcon = AssetsConst.callMissedImg;
         break;
       case CallType.outgoing:
-        callIcon = AssetsConst.CALL_DIAL_IMG;
+        callIcon = AssetsConst.callDialImg;
         break;
       case CallType.rejected:
-        callIcon = AssetsConst.CALL_CANCELLED_IMG;
+        callIcon = AssetsConst.callCancelledImg;
         break;
       default:
-        callIcon = AssetsConst.CALL_MISSED_IMG;
+        callIcon = AssetsConst.callMissedImg;
         break;
     }
     return Container(

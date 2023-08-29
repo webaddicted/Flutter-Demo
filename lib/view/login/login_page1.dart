@@ -32,24 +32,24 @@ class _LoginPage1State extends State<LoginPage1>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.BLACK_COLOR,
+      backgroundColor: ColorConst.blackColor,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          Image.asset(AssetsConst.BG_FAMILY_IMG),
+          Image.asset(AssetsConst.bgFamilyImg),
           Container(color: Colors.black.withOpacity(0.6)),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              loadLocalCircleImg(AssetsConst.DEEPAK_IMG, _iconAnim.value * 100),
+              loadLocalCircleImg(AssetsConst.deepakImg, _iconAnim.value * 100),
               Form(
                   child: Theme(
                       data: ThemeData(
-                          primaryColor: ColorConst.WHITE_COLOR,
+                          primaryColor: ColorConst.whiteColor,
                           inputDecorationTheme: const InputDecorationTheme(
                               labelStyle: TextStyle(
-                                  color: ColorConst.WHITE_COLOR,
-                                  fontSize: 15)), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorConst.WHITE_COLOR)),
+                                  color: ColorConst.whiteColor,
+                                  fontSize: 15)), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorConst.whiteColor)),
                       child: Container(
                         padding: const EdgeInsets.only(left: 30, right: 30),
                         child: Column(
@@ -75,10 +75,10 @@ class _LoginPage1State extends State<LoginPage1>
                                 side: BorderSide(
                                     color: Colors.transparent, width: 1),
                               ),
-                              color: ColorConst.APP_COLOR,
+                              color: ColorConst.appColor,
                               onPressed: () => {},
-                              textColor: ColorConst.WHITE_COLOR,
-                              splashColor: ColorConst.WHITE_COLOR,
+                              textColor: ColorConst.whiteColor,
+                              splashColor: ColorConst.whiteColor,
                               child: const Text("Login"),
                             )
                           ],

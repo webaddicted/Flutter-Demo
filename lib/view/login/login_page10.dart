@@ -94,13 +94,13 @@ class _LoginPage10State extends State<LoginPage10> {
                     Text(
                       "Sign In".toUpperCase(),
                       style: TextStyle(
-                         color: ColorConst.WHITE_COLOR,
+                         color: ColorConst.whiteColor,
                           fontWeight: FontWeight.bold, fontSize: 16.0),
                     ),
                     const SizedBox(width: 40.0),
                     Icon(
                       Icons.arrow_forward_sharp,
-                      color: ColorConst.WHITE_COLOR,
+                      color: ColorConst.whiteColor,
                       size: 18.0,
                     )
                   ],

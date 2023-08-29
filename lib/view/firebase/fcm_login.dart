@@ -46,7 +46,7 @@ class _FcmLoginState extends State<FcmLogin> {
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: getTxtColor(msg:'Log in to your \naccount',
-                        txtColor: ColorConst.FCM_APP_COLOR, fontSize :25, fontWeight:FontWeight.bold),
+                        txtColor: ColorConst.fcmAppColor, fontSize :25, fontWeight:FontWeight.bold),
                   ),
                   SizedBox(height: 30),
                   Form(
@@ -62,7 +62,7 @@ class _FcmLoginState extends State<FcmLogin> {
                   SizedBox(height: 10),
                   Align(
                       alignment: Alignment.centerRight,
-                      child: getTxtColor(msg:'Forgot Password ? ',txtColor:ColorConst.FCM_APP_COLOR,fontSize :16,fontWeight :FontWeight.bold)),
+                      child: getTxtColor(msg:'Forgot Password ? ',txtColor:ColorConst.fcmAppColor,fontSize :16,fontWeight :FontWeight.bold)),
                   SizedBox(height: 20),
                   _loginBtn(),
                   SizedBox(height: 20),
@@ -70,7 +70,7 @@ class _FcmLoginState extends State<FcmLogin> {
                   SizedBox(height: 5),
                   Center(child: GestureDetector(
                       onTap: ()=>navigationPush(context, FcmSignup()),
-                      child: getTxtColor(msg:'SIGN UP',txtColor:ColorConst.FCM_APP_COLOR, fontSize:16, fontWeight:FontWeight.bold))),
+                      child: getTxtColor(msg:'SIGN UP',txtColor:ColorConst.fcmAppColor, fontSize:16, fontWeight:FontWeight.bold))),
                   SizedBox(height: 20),
                 ],
               ),
@@ -92,7 +92,7 @@ class _FcmLoginState extends State<FcmLogin> {
       height: 45,
       child: MaterialButton(
           shape: StadiumBorder(),
-          color: ColorConst.FCM_APP_COLOR,
+          color: ColorConst.fcmAppColor,
           child: getTxtWhiteColor(msg:'Login', fontSize:15, fontWeight:FontWeight.bold),
           onPressed: () => _submitLogin()),
     );

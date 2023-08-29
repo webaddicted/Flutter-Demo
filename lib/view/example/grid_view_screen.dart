@@ -95,7 +95,7 @@ class GridRow extends StatelessWidget {
             AspectRatio(
               aspectRatio: 18.0 / 12.0,
               child: Image.asset(
-                AssetsConst.BABY_IMG,
+                AssetsConst.babyImg,
                 fit: BoxFit.cover,
               ),
 //              loadImg(ApiConst.DEMO_IMG, 0),

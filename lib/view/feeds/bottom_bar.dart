@@ -51,7 +51,7 @@ class BottomBar extends StatelessWidget {
             ),
             Container(
               width: double.maxFinite,
-              color: ColorConst.GREEN_COLOR.withOpacity(0.6),
+              color: ColorConst.greenColor.withOpacity(0.6),
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

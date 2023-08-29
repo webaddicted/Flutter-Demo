@@ -65,7 +65,7 @@ class _VideoScreenState extends State<VideoScreen> {
     return InkWell(
       onTap: () => navigationPush(context, VideoFolder(videoBean)),
       child: Card(
-          color: ColorConst.GREY_COLOR,
+          color: ColorConst.greyColor,
           child: addRoundedCorners(
             Stack(
               alignment: Alignment.bottomCenter,
@@ -73,9 +73,9 @@ class _VideoScreenState extends State<VideoScreen> {
                 const Align(
                     alignment: Alignment.center,
                     child: Icon(Icons.video_library,
-                        size: 100, color: ColorConst.APP_COLOR)),
+                        size: 100, color: ColorConst.appColor)),
                 Container(
-                  color: ColorConst.transpBlack,
+                  color: ColorConst.transparentBlack,
                   width: double.maxFinite,
                   padding: const EdgeInsets.all(8.0),
                   child: getTxtWhiteColor(

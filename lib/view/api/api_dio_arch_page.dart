@@ -87,7 +87,7 @@ class BookItem extends StatelessWidget {
           img = '';
         }
         return Card(
-          color: ColorConst.GREY_COLOR,
+          color: ColorConst.greyColor,
           child: Padding(
               padding: const EdgeInsets.all(2.0),
               child: ImageTile(img)),

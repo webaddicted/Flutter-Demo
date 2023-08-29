@@ -43,7 +43,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                 Text(
                   "Output : $sum",
                   style: TextStyle(
-                      color: ColorConst.APP_COLOR,
+                      color: ColorConst.appColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 15),
                 ),
@@ -51,10 +51,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     child: Column(
                   children: <Widget>[
                     TextFormField(
-                      cursorColor: ColorConst.APP_COLOR,
+                      cursorColor: ColorConst.appColor,
                       style: TextStyle(
                         fontSize: 15,
-                        color: ColorConst.RED_COLOR,
+                        color: ColorConst.redColor,
                       ),
                       decoration:
                           InputDecoration(labelText: "Enter Number 1 "),
@@ -65,8 +65,8 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     TextFormField(
                       decoration: InputDecoration(
                           labelText: "Enter Number 2 ",
-                          fillColor: ColorConst.APP_COLOR),
-                      cursorColor: ColorConst.GREEN_COLOR,
+                          fillColor: ColorConst.appColor),
+                      cursorColor: ColorConst.greenColor,
                       maxLength: 20,
                       keyboardType: TextInputType.number,
                       controller: t2,
@@ -77,10 +77,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     MaterialButton(
-                      color: ColorConst.APP_COLOR,
+                      color: ColorConst.appColor,
                       child: Text(
                         "+",
-                        style: TextStyle(color: ColorConst.WHITE_COLOR),
+                        style: TextStyle(color: ColorConst.whiteColor),
                       ),
                       onPressed: () {
                         addition();
@@ -88,10 +88,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     ),
                     Padding(padding: EdgeInsets.only(left: 50)),
                     MaterialButton(
-                      color: ColorConst.APP_COLOR,
+                      color: ColorConst.appColor,
                       child: Text(
                         "-",
-                        style: TextStyle(color: ColorConst.WHITE_COLOR),
+                        style: TextStyle(color: ColorConst.whiteColor),
                       ),
                       onPressed: () {
                         subtract();
@@ -103,10 +103,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     MaterialButton(
-                      color: ColorConst.APP_COLOR,
+                      color: ColorConst.appColor,
                       child: Text(
                         "*",
-                        style: TextStyle(color: ColorConst.WHITE_COLOR),
+                        style: TextStyle(color: ColorConst.whiteColor),
                       ),
                       onPressed: () {
                         multiply();
@@ -114,10 +114,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     ),
                     Padding(padding: EdgeInsets.only(left: 50)),
                     MaterialButton(
-                      color: ColorConst.APP_COLOR,
+                      color: ColorConst.appColor,
                       child: Text(
                         "/",
-                        style: TextStyle(color: ColorConst.WHITE_COLOR),
+                        style: TextStyle(color: ColorConst.whiteColor),
                       ),
                       onPressed: () {
                         division();
@@ -128,13 +128,13 @@ class _CalculatorAppState extends State<CalculatorApp> {
 //              new Flexible(
 //                child:
                 MaterialButton(
-                  color: ColorConst.APP_COLOR,
+                  color: ColorConst.appColor,
                   child: SizedBox(
                     width: double.infinity,
                     child: Center(
                       child: Text(
                         "clear",
-                        style: TextStyle(color: ColorConst.WHITE_COLOR),
+                        style: TextStyle(color: ColorConst.whiteColor),
                       ),
                     ),
                   ),

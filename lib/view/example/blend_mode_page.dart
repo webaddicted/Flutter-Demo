@@ -51,7 +51,7 @@ class _BlendModePageState extends State<BlendModePage> {
     return Stack(
       children: <Widget>[
         Image.asset(
-          AssetsConst.BABY_IMG,
+          AssetsConst.babyImg,
           height: double.maxFinite,
           width: double.maxFinite,
           fit: BoxFit.fitHeight,

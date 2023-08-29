@@ -48,7 +48,7 @@ class _AudioScreenListState extends State<AudioScreenList> {
       // onTap: ()=>navigationPush(context, ImageFolder(imageBean)),
       onLongPress: ()=>{audioDetails(audioFiles)},
       child: Card(
-          color: ColorConst.GREY_COLOR,
+          color: ColorConst.greyColor,
           child: addRoundedCorners(
             Stack(
               alignment: Alignment.bottomCenter,
@@ -56,9 +56,9 @@ class _AudioScreenListState extends State<AudioScreenList> {
                 const Align(
                     alignment: Alignment.center,
                     child: Icon(Icons.audiotrack_outlined,
-                        size: 100, color: ColorConst.APP_COLOR)),
+                        size: 100, color: ColorConst.appColor)),
                 Container(
-                  color: ColorConst.transpBlack,
+                  color: ColorConst.transparentBlack,
                   width: double.maxFinite,
                   padding: const EdgeInsets.all(8.0),
                   child: Column(

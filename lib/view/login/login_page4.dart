@@ -88,7 +88,7 @@ class _LoginPage4State extends State<LoginPage4> {
                 MaterialButton(
                   child: getTxtColor(
                       msg: 'Signup',
-                      txtColor: ColorConst.APP_COLOR,
+                      txtColor: ColorConst.appColor,
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
                   onPressed: () {
@@ -97,7 +97,7 @@ class _LoginPage4State extends State<LoginPage4> {
                   padding: EdgeInsets.all(20),
                   elevation: 2,
                   shape: UnderlineInputBorder(
-                    borderSide: BorderSide(color: ColorConst.APP_COLOR, width: 3),
+                    borderSide: BorderSide(color: ColorConst.appColor, width: 3),
                   ),
                 ),
               ],

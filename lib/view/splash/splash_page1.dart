@@ -136,11 +136,11 @@ class _SplashPage1State extends State<SplashPage1>  with SingleTickerProviderSta
                 elevation: 8.0,
                 shape: const CircleBorder(),
                 child: CircleAvatar(
-                  backgroundColor: ColorConst.APP_COLOR,
+                  backgroundColor: ColorConst.appColor,
                   radius: 30,
                   child: IconButton(
                       icon: const Icon(Icons.play_arrow),
-                      color: ColorConst.WHITE_COLOR,
+                      color: ColorConst.whiteColor,
                       onPressed: () {
                         navigationPush(context, LoginPage3());
                       }),

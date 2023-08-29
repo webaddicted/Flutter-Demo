@@ -20,8 +20,8 @@ class _HomePage1State extends State<HomePage1> {
       appBar: getAppBarWithBackBtn(
           ctx: context,
           title: StringConst.HOME_TITLE,
-          bgColor: ColorConst.WHITE_COLOR,
-          txtColor: ColorConst.BLACK_COLOR,
+          bgColor: ColorConst.whiteColor,
+          txtColor: ColorConst.blackColor,
           actions: [buildAvatar(context)]),
       body: _createUi(),
     );
@@ -32,7 +32,7 @@ class _HomePage1State extends State<HomePage1> {
       padding: const EdgeInsets.all(0),
       icon: CircleAvatar(
         backgroundColor: Colors.grey.shade300,
-        child: loadLocalCircleImg(AssetsConst.DEEPAK_IMG, 30),
+        child: loadLocalCircleImg(AssetsConst.deepakImg, 30),
       ),
       onPressed: () {},
     );
@@ -40,7 +40,7 @@ class _HomePage1State extends State<HomePage1> {
   Widget _createUi() {
     return SafeArea(
       child: Container(
-        color: ColorConst.GREY_BG_COLOR,
+        color: ColorConst.greyBgColor,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

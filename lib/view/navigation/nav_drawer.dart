@@ -37,7 +37,7 @@ class _NavDrawerScreenState extends State<NavDrawerScreen> {
             const Text(
               "Deepak Sharma",
               style: TextStyle(
-                  color: ColorConst.APP_COLOR,
+                  color: ColorConst.appColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 17),
             ),

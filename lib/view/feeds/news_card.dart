@@ -57,7 +57,7 @@ class NewsCard extends StatelessWidget {
                         article.url != null
                             ? Container(
                                 decoration: BoxDecoration(
-                                  color: ColorConst.GREY_SHADE,
+                                  color: ColorConst.greyShade,
                                   image: DecorationImage(
                                     image: NetworkImage(
                                       article.url!,
@@ -67,7 +67,7 @@ class NewsCard extends StatelessWidget {
                                 ),
                               )
                             : Container(
-                                color: ColorConst.GREY_SHADE,
+                                color: ColorConst.greyShade,
                               ),
                         Positioned(
                           top: 0,
@@ -170,7 +170,7 @@ class NewsCard extends StatelessWidget {
                                         Row(
                                           children: [
                                             Image.asset(
-                                             AssetsConst.LOGO_IMG,
+                                             AssetsConst.logoImg,
                                               height: 20,
                                               width: 20,
                                             ),

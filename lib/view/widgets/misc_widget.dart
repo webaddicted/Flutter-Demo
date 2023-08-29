@@ -56,7 +56,7 @@ class _MiscWidgetState extends State<MiscWidget> {
       children: <Widget>[
         const SizedBox(height: 10),
         Container(
-          color: ColorConst.RED_COLOR,
+          color: ColorConst.redColor,
           height: 50,
           alignment: Alignment.center,
           child: getTxtWhiteColor(
@@ -208,7 +208,7 @@ class _MiscWidgetState extends State<MiscWidget> {
           height: 10,
         ),
         Container(
-          color: ColorConst.RED_COLOR,
+          color: ColorConst.redColor,
           height: 50,
           alignment: Alignment.center,
           child: getTxtWhiteColor(
@@ -319,7 +319,7 @@ class _MiscWidgetState extends State<MiscWidget> {
 
   Widget _cardView() {
     return Card(
-      color: ColorConst.FCM_APP_COLOR,
+      color: ColorConst.fcmAppColor,
       elevation: 2.0,
       clipBehavior:Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
