@@ -4,6 +4,8 @@ import 'package:flutterbeginner/global/utils/widget_helper.dart';
 import 'package:flutterbeginner/view/widgets/nav_drawer_curve_widget.dart';
 
 class NavDrawerCurvePage extends StatefulWidget {
+  const NavDrawerCurvePage({super.key});
+
   @override
   State<NavDrawerCurvePage> createState() => _NavDrawerCurvePageState();
 }
