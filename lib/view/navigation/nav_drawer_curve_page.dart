@@ -15,7 +15,7 @@ class _NavDrawerCurvePageState extends State<NavDrawerCurvePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getAppBar(title: StringConst.NAV_DRAWER_CURVE_TITLE),
-      drawer:  NavDrawerCurveWidgt(),
+      drawer: NavDrawerCurveWidgt(),
       body: _createUi(context),
     );
   }
