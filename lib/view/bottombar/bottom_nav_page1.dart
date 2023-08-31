@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/keep_alive_page.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
 class BottomNavPage1 extends StatefulWidget {
@@ -37,8 +38,10 @@ class _BottomNavPage1State extends State<BottomNavPage1>
     return TabBarView(
       controller: _tabController,
       children: <Widget>[
-        KeepAlivePage(FirstPage("First Screen")),
-        KeepAlivePage(FirstPage("Second Screen")),
+        FirstPage("First Screen"),
+        FirstPage("Second Screen")
+        // KeepAlivePage(FirstPage("First Screen")),
+        // KeepAlivePage(FirstPage("Second Screen")),
       ],
     );
   }
@@ -46,7 +49,7 @@ class _BottomNavPage1State extends State<BottomNavPage1>
   TabBar _getTab() {
     return TabBar(
       controller: _tabController,
-      tabs: <Widget>[
+      tabs: const <Widget>[
         Tab(
           icon: Icon(Icons.favorite),
         ),
