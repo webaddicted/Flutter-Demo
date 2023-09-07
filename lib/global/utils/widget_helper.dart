@@ -356,7 +356,7 @@ Widget edtEmailIdField(TextEditingController edtController,
       validator: ValidationHelper.validateEmail);
 }
 
-Widget edtDobField(TextEditingController edtController, Function dobClick,
+Widget edtDobField(TextEditingController edtController, Function() dobClick,
     {double radius = 10,
     Color borderColor = Colors.white,
     String hint = "DOB",

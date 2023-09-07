@@ -9,16 +9,32 @@ class NavDrawerScreen extends StatefulWidget {
   _NavDrawerScreenState createState() => _NavDrawerScreenState();
 }
 
-class _NavDrawerScreenState extends State<NavDrawerScreen> {
+class _NavDrawerScreenState extends State<NavDrawerScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
   late BuildContext ctx;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:getAppBar(title:StringConst.NAVIGATION_DRAWER_TITLE),
+      key: scaffoldKey,
+      appBar: getAppBarWithBackBtn(
+          ctx: context,
+          title: StringConst.NAVIGATION_DRAWER_TITLE,
+          icon: IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: ColorConst.blackColor,
+              ),
+              onPressed: () {
+                scaffoldKey.currentState?.openDrawer();
+              }),
+          txtColor: ColorConst.appColor),
       drawer: Drawer(
-        child: _drawerView(),
+        child: _drawerView()
       ),
-      body: _createUi(context),
+      body: _createUi(context)
     );
   }
 
@@ -79,8 +95,8 @@ class _NavDrawerScreenState extends State<NavDrawerScreen> {
       child: Align(
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding:
-              const EdgeInsets.only(top: 17.0, bottom: 17.0, left: 10.0, right: 3.0),
+          padding: const EdgeInsets.only(
+              top: 17.0, bottom: 17.0, left: 10.0, right: 3.0),
           child: SizedBox(
             width: double.infinity,
             child: Text(

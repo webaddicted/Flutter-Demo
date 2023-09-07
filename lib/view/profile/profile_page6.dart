@@ -4,8 +4,10 @@ import 'package:flutterbeginner/global/constant/string_const.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
 class ProfilePage6 extends StatefulWidget {
+  const ProfilePage6({super.key});
+
   @override
-  _ProfilePage6State createState() => _ProfilePage6State();
+  State<ProfilePage6> createState() => _ProfilePage6State();
 }
 
 class _ProfilePage6State extends State<ProfilePage6> {
@@ -25,14 +27,14 @@ class _ProfilePage6State extends State<ProfilePage6> {
               ),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(16.0, 200.0, 16.0, 16.0),
+              margin: const EdgeInsets.fromLTRB(16.0, 200.0, 16.0, 16.0),
               child: Column(
                 children: <Widget>[
                   Stack(
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.all(16.0),
-                        margin: EdgeInsets.only(top: 16.0),
+                        padding: const EdgeInsets.all(16.0),
+                        margin: const EdgeInsets.only(top: 16.0),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5.0)),
@@ -40,7 +42,7 @@ class _ProfilePage6State extends State<ProfilePage6> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(left: 96.0),
+                              margin: const EdgeInsets.only(left: 96.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
@@ -48,7 +50,7 @@ class _ProfilePage6State extends State<ProfilePage6> {
                                     StringConst.WEBADDICTED,
                                     style: Theme.of(context).textTheme.titleMedium,
                                   ),
-                                  ListTile(
+                                  const ListTile(
                                     contentPadding: EdgeInsets.all(0),
                                     title: Text(StringConst.SE),
                                     subtitle: Text(StringConst.LOCATION),
@@ -56,8 +58,8 @@ class _ProfilePage6State extends State<ProfilePage6> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10.0),
-                            Row(
+                            const SizedBox(height: 10.0),
+                            const Row(
                               children: <Widget>[
                                 Expanded(
                                   child: Column(
@@ -93,21 +95,21 @@ class _ProfilePage6State extends State<ProfilePage6> {
                         width: 80,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image:
                                     NetworkImage(ApiConstant.WEBADDICTED_IMG),
                                 fit: BoxFit.cover)),
-                        margin: EdgeInsets.only(left: 16.0),
+                        margin: const EdgeInsets.only(left: 16.0),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(5.0),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: <Widget>[
                         ListTile(
                           title: Text("User information"),

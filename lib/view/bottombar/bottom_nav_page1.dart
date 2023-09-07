@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/keep_alive_page.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
 class BottomNavPage1 extends StatefulWidget {
+  const BottomNavPage1({super.key});
+
   @override
-  _BottomNavPage1State createState() => _BottomNavPage1State();
+  State<BottomNavPage1> createState() => _BottomNavPage1State();
 }
 
 class _BottomNavPage1State extends State<BottomNavPage1>
@@ -18,6 +21,9 @@ class _BottomNavPage1State extends State<BottomNavPage1>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      printLog(msg: "Selected Index: ${_tabController.index}");
+    });
   }
 
   @override
@@ -70,7 +76,7 @@ class _BottomNavPage1State extends State<BottomNavPage1>
 class FirstPage extends StatelessWidget {
   String title = '';
 
-  FirstPage(this.title);
+  FirstPage(this.title, {super.key});
 
   @override
   Widget build(BuildContext context) {

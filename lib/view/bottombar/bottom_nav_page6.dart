@@ -1,75 +1,89 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbeginner/global/constant/color_const.dart';
 import 'package:flutterbeginner/global/constant/string_const.dart';
-import 'package:flutterbeginner/global/customview/MenuTabBar.dart';
+import 'package:flutterbeginner/global/utils/global_utility.dart';
 import 'package:flutterbeginner/global/utils/widget_helper.dart';
 
 class BottomNavPage6 extends StatefulWidget {
+  const BottomNavPage6({super.key});
+
   @override
-  _BottomNavPage6State createState() => _BottomNavPage6State();
+  State<BottomNavPage6> createState() => _BottomNavPage6State();
 }
 
-class _BottomNavPage6State extends State<BottomNavPage6> {
+class _BottomNavPage6State extends State<BottomNavPage6>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  bool isHomeSelected = false;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  var selectedIndex = 0;
+  late List<Widget> pages;
+  late Widget currentPage;
+  GlobalKey globalKey = GlobalKey(debugLabel: 'btm_app_bar');
   late BuildContext ctx;
-  int _currentTabIndex = 3;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 5, vsync: this);
+    _tabController.addListener(() {
+      printLog(msg: "Selected Index: ${_tabController.index}");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarWithBackBtn(
-          ctx: context, title: StringConst.BOTTOM_NAVIGATION_TITLE),
-      body: _createUi(context),
+        appBar: getAppBarWithBackBtn(
+            ctx: context, title: StringConst.BOTTOM_NAVIGATION_TITLE),
+        bottomNavigationBar: bottomNavTab(),
+        body: _createUi(context));
+  }
+
+  Widget bottomNavTab() {
+    return Container(
+      color: ColorConst.circleFade2,
+      child: TabBar(
+        controller: _tabController,
+        indicator: const BoxDecoration(
+            color: ColorConst.appSecondaryColor,
+            borderRadius: BorderRadius.all(Radius.circular(9.0)),
+            boxShadow: [
+              BoxShadow(color: ColorConst.appSecondaryColor, blurRadius: 6.0)
+            ]),
+        labelStyle: const TextStyle(fontSize: 12),
+        tabs: const <Widget>[
+          Tab(text: "Home", icon: Icon(Icons.home)),
+          Tab(text: "Profile", icon: Icon(Icons.supervised_user_circle_sharp)),
+          Tab(text: "Share", icon: Icon(Icons.share_rounded)),
+          Tab(text: "Rating", icon: Icon(Icons.stars_outlined)),
+          Tab(text: "Contact", icon: Icon(Icons.contact_support_outlined)),
+        ],
+      ),
     );
   }
 
   Widget _createUi(BuildContext context) {
-    ctx = context;
-    return SafeArea(
-        child: new Stack(children: <Widget>[
-      new Center(
-          child: new Text("View",
-              style:
-                  TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))),
-      new MenuTabBar(
-        background: Colors.blue,
-        iconButtons: [
-          new IconButton(
-              color: Colors.blue,
-              icon: new Icon(Icons.home, size: 30),
-              onPressed: () {}),
-          new IconButton(
-              color: Colors.blue,
-              icon: new Icon(Icons.search, size: 30),
-              onPressed: () {}),
-          new IconButton(
-              color: Colors.blue,
-              icon: new Icon(Icons.map, size: 30),
-              onPressed: () {}),
-          new IconButton(
-              color: Colors.blue,
-              icon: new Icon(Icons.favorite, size: 30),
-              onPressed: () {}),
-        ],
-        child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Container(
-                  child: new Text("Reminder",
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
-                  margin: EdgeInsets.all(10)),
-              new Container(
-                  child: new Text("Camera",
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
-                  margin: EdgeInsets.all(10)),
-              new Container(
-                  child: new Text("Attchment",
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
-                  margin: EdgeInsets.all(10)),
-              new Container(
-                  child: new Text("Text Note",
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
-                  margin: EdgeInsets.all(10))
-            ]),
-      )
-    ]));
+    return TabBarView(controller: _tabController, children: <Widget>[
+      InkWell(
+          onTap: () {
+            _tabController.animateTo(2);
+          },
+          child: Center(
+              child: getTxtAppColor(
+                  msg: "Home", fontSize: 18, fontWeight: FontWeight.bold))),
+      Center(
+          child: getTxtAppColor(
+              msg: "Profile", fontSize: 18, fontWeight: FontWeight.bold)),
+      Center(
+          child: getTxtAppColor(
+              msg: "Share", fontSize: 18, fontWeight: FontWeight.bold)),
+      Center(
+          child: getTxtAppColor(
+              msg: "Rate App", fontSize: 18, fontWeight: FontWeight.bold)),
+      Center(
+          child: getTxtAppColor(
+              msg: "Contact Us", fontSize: 18, fontWeight: FontWeight.bold))
+    ]);
   }
 }

@@ -9,6 +9,7 @@ class ColorConst {
   // 7a3f2a
   // 01dc9d
   static const Color primary = Color(0XFF662325);
+  static const Color appSecondaryColor = Color(0XFF662325);
   static Color appColorFlow1 = HexColor('#0D1C45');
   static const Color primeColor =  Colors.green;
   static const Color appColor =  Color(0xff8D021F);//Colors.green;
@@ -37,4 +38,5 @@ class ColorConst {
   static Color greyShimmer = Colors.grey.shade400;
   static Color greyBgColor = Colors.grey.shade300;
   static Color greyShade = Colors.grey.shade400;
+
 }
