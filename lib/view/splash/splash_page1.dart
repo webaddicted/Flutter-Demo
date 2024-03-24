@@ -47,11 +47,11 @@ class _SplashPage1State extends State<SplashPage1>  with SingleTickerProviderSta
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           AvatarGlow(
-            endRadius: 90,
+            // endRadius: 90,
             duration: const Duration(seconds: 2),
             glowColor: Colors.white24,
             repeat: true,
-            repeatPauseDuration: const Duration(seconds: 2),
+            // repeatPauseDuration: const Duration(seconds: 2),
             startDelay: const Duration(seconds: 1),
             child: Material(
                 elevation: 8.0,
@@ -126,7 +126,7 @@ class _SplashPage1State extends State<SplashPage1>  with SingleTickerProviderSta
             height: 20.0,
           ),
           AvatarGlow(
-            endRadius: 60,
+            // endRadius: 60,
             duration: const Duration(seconds: 5),
             glowColor: Colors.white24,
             repeat: true,
